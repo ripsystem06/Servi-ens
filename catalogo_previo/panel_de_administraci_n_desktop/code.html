@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ensenada Services - Admin Dashboard</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Montserrat:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-dim": "#dcdad3",
+                    "on-tertiary-fixed": "#00201c",
+                    "inverse-on-surface": "#f3f0e9",
+                    "surface-container": "#f1eee7",
+                    "on-background": "#1c1c18",
+                    "outline": "#73777e",
+                    "secondary-fixed-dim": "#ffb4a2",
+                    "on-surface": "#1c1c18",
+                    "tertiary-fixed-dim": "#6fd8c8",
+                    "on-tertiary-fixed-variant": "#005048",
+                    "surface-tint": "#406182",
+                    "surface-variant": "#e5e2db",
+                    "on-surface-variant": "#42474d",
+                    "error-container": "#ffdad6",
+                    "on-primary": "#ffffff",
+                    "tertiary-fixed": "#8cf5e4",
+                    "on-secondary-fixed": "#3c0700",
+                    "tertiary": "#001815",
+                    "on-secondary-container": "#731a04",
+                    "tertiary-container": "#002f2a",
+                    "surface-container-high": "#ebe8e1",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#83260e",
+                    "surface-bright": "#fcf9f2",
+                    "surface-container-highest": "#e5e2db",
+                    "primary": "#001629",
+                    "on-error": "#ffffff",
+                    "surface": "#fcf9f2",
+                    "secondary-container": "#ff8162",
+                    "secondary-fixed": "#ffdad2",
+                    "primary-fixed-dim": "#a8caef",
+                    "on-primary-fixed": "#001d34",
+                    "error": "#ba1a1a",
+                    "secondary": "#a33d23",
+                    "primary-container": "#002b49",
+                    "on-tertiary-container": "#2fa092",
+                    "primary-fixed": "#cfe5ff",
+                    "on-error-container": "#93000a",
+                    "background": "#fcf9f2",
+                    "inverse-primary": "#a8caef",
+                    "on-primary-container": "#7293b6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#274969",
+                    "inverse-surface": "#31312c",
+                    "outline-variant": "#c3c7ce",
+                    "surface-container-low": "#f6f3ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "section": "24px",
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "base": "16px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf9f2; /* Custom surface-bright from config */
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #EBE7DE;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1eee7;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c3c7ce;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex min-h-screen overflow-hidden text-on-surface">
+<!-- SideNavBar Integration -->
+<aside class="hidden md:flex flex-col h-screen w-64 bg-surface-container-low dark:bg-surface-container border-r border-outline-variant dark:border-outline py-base px-base space-y-stack-md shrink-0" id="sidebar">
+<div class="flex items-center gap-3 mb-6 px-2">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">admin_panel_settings</span>
+</div>
+<div class="flex flex-col">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Admin Panel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70">Manage Ensenada</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-3 py-2.5 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Businesses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">rate_review</span>
+<span class="font-label-md text-label-md">Reviews</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-on-surface-variant dark:text-surface-variant hover:bg-surface-variant rounded-lg transition-all duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-2 bg-primary text-on-primary py-3 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">add_circle</span>
+                New Service
+            </button>
+</div>
+<div class="flex items-center gap-3 px-2 mt-auto">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a Hispanic woman in her early 40s, with a clean and professional appearance, wearing a deep navy blazer. She has a warm, confident smile, set against a soft, out-of-focus modern office background with natural light. The lighting is warm and bright, matching a professional business directory aesthetic." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="overflow-hidden">
+<p class="font-label-md text-label-md text-on-surface truncate">Admin User Profile</p>
+<p class="text-[11px] text-on-surface-variant truncate">admin@ensenada.mx</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 h-screen overflow-y-auto custom-scrollbar bg-background">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md px-gutter h-20 flex items-center justify-between border-b border-outline-variant/30">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Panel de Administración</h2>
+<p class="font-body-md text-on-surface-variant text-[14px]">Welcome back! Here is what's happening today in Ensenada.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full border-2 border-surface"></span>
+</button>
+</div>
+<button class="px-6 py-2.5 bg-[#E76F51] text-white font-bold rounded-lg font-label-md text-label-md shadow-lg shadow-secondary/20 hover:scale-105 transition-transform">
+                    New Listing
+                </button>
+</div>
+</header>
+<div class="p-gutter max-w-container-max mx-auto space-y-stack-lg">
+<!-- Top Row: Stat Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Stat Card 1 -->
+<div class="glass-card p-6 rounded-xl flex items-center gap-4 group hover:border-secondary transition-colors duration-300">
+<div class="w-12 h-12 rounded-lg bg-primary-fixed-dim flex items-center justify-center text-primary transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">business_center</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Total Businesses</p>
+<h3 class="font-headline-md text-headline-md font-bold text-primary">1,248</h3>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="glass-card p-6 rounded-xl flex items-center gap-4 group hover:border-secondary transition-colors duration-300">
+<div class="w-12 h-12 rounded-lg bg-secondary-fixed flex items-center justify-center text-secondary transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Pending Verification</p>
+<h3 class="font-headline-md text-headline-md font-bold text-secondary">24</h3>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="glass-card p-6 rounded-xl flex items-center gap-4 group hover:border-secondary transition-colors duration-300">
+<div class="w-12 h-12 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">campaign</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active Banners</p>
+<h3 class="font-headline-md text-headline-md font-bold text-on-tertiary-fixed-variant">12</h3>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="glass-card p-6 rounded-xl flex items-center gap-4 group hover:border-secondary transition-colors duration-300">
+<div class="w-12 h-12 rounded-lg bg-on-primary-container/10 flex items-center justify-center text-on-primary-container transition-transform group-hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Monthly Growth</p>
+<h3 class="font-headline-md text-headline-md font-bold text-primary">+12.5%</h3>
+</div>
+</div>
+</div>
+<!-- Middle Row: Data Table -->
+<section class="glass-card rounded-xl overflow-hidden">
+<div class="p-6 border-b border-outline-variant/30 flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Recent Registrations</h3>
+<div class="flex gap-2">
+<div class="relative">
+<input class="pl-10 pr-4 py-2 rounded-lg border border-outline-variant bg-surface text-sm focus:ring-2 focus:ring-primary outline-none transition-all w-64" placeholder="Search businesses..." type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2 text-on-surface-variant text-[20px]">search</span>
+</div>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">filter_list</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<tr>
+<th class="px-6 py-4 font-semibold">Business Name</th>
+<th class="px-6 py-4 font-semibold">Category</th>
+<th class="px-6 py-4 font-semibold">Email</th>
+<th class="px-6 py-4 font-semibold">Status</th>
+<th class="px-6 py-4 font-semibold">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30 font-body-md text-body-md">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container/20 flex items-center justify-center text-primary font-bold text-xs">BT</div>
+<span class="font-semibold">Baja Tacos Premium</span>
+</div>
+</td>
+<td class="px-6 py-4">Gastronomy</td>
+<td class="px-6 py-4 text-on-surface-variant">contact@bajatacos.mx</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-[12px] font-bold">Verified</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline font-label-md">Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-fixed flex items-center justify-center text-secondary font-bold text-xs">OC</div>
+<span class="font-semibold">Ocean Cove Spa</span>
+</div>
+</td>
+<td class="px-6 py-4">Wellness</td>
+<td class="px-6 py-4 text-on-surface-variant">info@oceancovespa.com</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-[12px] font-bold">Pending</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline font-label-md">Review</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-fixed flex items-center justify-center text-primary font-bold text-xs">VV</div>
+<span class="font-semibold">Valle Vineyard Tours</span>
+</div>
+</td>
+<td class="px-6 py-4">Tourism</td>
+<td class="px-6 py-4 text-on-surface-variant">tours@vallevineyard.mx</td>
+<td class="px-6 py-4">
+<span class="px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed-variant rounded-full text-[12px] font-bold">Verified</span>
+</td>
+<td class="px-6 py-4">
+<button class="text-primary hover:underline font-label-md">Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Row: Activity & Featured -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Activity Chart Placeholder -->
+<div class="lg:col-span-2 glass-card p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Portal Engagement</h3>
+<select class="bg-surface border-outline-variant rounded-lg text-sm px-2 py-1 outline-none">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="relative h-[250px] w-full flex items-end justify-between gap-2 px-4">
+<!-- Simple visual bars to represent a chart without heavy JS -->
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 45%;"></div>
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 60%;"></div>
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 55%;"></div>
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 80%;"></div>
+<div class="w-full bg-[#E76F51] rounded-t-lg transition-all hover:bg-secondary" style="height: 95%;"></div>
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 70%;"></div>
+<div class="w-full bg-primary-container/20 rounded-t-lg transition-all hover:bg-primary-container/40" style="height: 85%;"></div>
+</div>
+<div class="flex justify-between mt-4 text-[12px] text-on-surface-variant font-medium px-4">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Featured Banners Management -->
+<div class="glass-card p-6 rounded-xl">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Featured Banners</h3>
+<button class="text-secondary font-bold text-sm hover:underline">+ Add</button>
+</div>
+<div class="space-y-4">
+<!-- Banner Item -->
+<div class="p-3 border border-outline-variant/30 rounded-lg flex items-center gap-3">
+<div class="w-16 h-12 rounded bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A wide cinematic photograph of a luxury vineyard in Valle de Guadalupe at sunset. The lighting is golden and warm, casting long shadows across the rows of grapevines. In the background, modern minimalist architecture blends with the rugged desert landscape. High-end, premium tourism aesthetic." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-label-md text-label-md text-primary truncate">Wine Expo 2024</p>
+<p class="text-[11px] text-on-surface-variant">Expires in 4 days</p>
+</div>
+<div class="flex gap-1">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</div>
+<!-- Banner Item -->
+<div class="p-3 border border-outline-variant/30 rounded-lg flex items-center gap-3">
+<div class="w-16 h-12 rounded bg-surface-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A vibrant, high-action photograph of a surfing competition in Ensenada. Powerful blue Pacific waves with white sea foam under a bright, sunny sky. The water is a deep sparkling teal. Professional sports photography style, energetic and crisp lighting." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-label-md text-label-md text-primary truncate">Surf Ensenada Open</p>
+<p class="text-[11px] text-on-surface-variant">Active</p>
+</div>
+<div class="flex gap-1">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</div>
+<!-- Banner Item -->
+<div class="p-3 border border-outline-variant/30 rounded-lg flex items-center gap-3 opacity-60">
+<div class="w-16 h-12 rounded bg-surface-variant overflow-hidden grayscale">
+<img class="w-full h-full object-cover" data-alt="A close-up, artisan food photograph of gourmet fish tacos. Fresh ingredients like purple cabbage, cilantro, and creamy white sauce on a warm corn tortilla. The lighting is bright and natural, emphasizing the textures and organic colors of the food. Warm, community-focused culinary aesthetic." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-label-md text-label-md text-primary truncate">Gastro Fest Promo</p>
+<p class="text-[11px] text-on-surface-variant">Expired</p>
+</div>
+<div class="flex gap-1">
+<button class="p-1 text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[20px]">edit</span></button>
+<button class="p-1 text-on-surface-variant hover:text-error transition-colors"><span class="material-symbols-outlined text-[20px]">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Integration -->
+<footer class="w-full py-section px-gutter flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto bg-primary-container text-on-primary-container mt-12">
+<div class="flex flex-col gap-2 mb-6 md:mb-0">
+<span class="font-headline-md text-headline-md font-bold text-on-primary-container">Ensenada Services</span>
+<p class="font-body-md text-body-md opacity-80">© 2024 Ensenada Services Catalog. Built for Baja California.</p>
+</div>
+<div class="flex gap-6 text-label-sm font-label-sm">
+<a class="text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">About Us</a>
+<a class="text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Contact</a>
+<a class="text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Terms of Service</a>
+<a class="text-on-primary-container/80 hover:text-secondary-container transition-colors" href="#">Local Partners</a>
+</div>
+</footer>
+</main>
+<script>
+        // Simple interactivity for demonstration
+        document.querySelectorAll('button, a').forEach(el => {
+            el.addEventListener('mousedown', () => {
+                el.classList.add('scale-95');
+                setTimeout(() => el.classList.remove('scale-95'), 100);
+            });
+        });
+
+        // Search highlight effect
+        const searchInput = document.querySelector('input[type="text"]');
+        if(searchInput) {
+            searchInput.addEventListener('focus', () => {
+                searchInput.parentElement.classList.add('ring-2', 'ring-secondary/20');
+            });
+            searchInput.addEventListener('blur', () => {
+                searchInput.parentElement.classList.remove('ring-2', 'ring-secondary/20');
+            });
+        }
+    </script>
+</body></html>
