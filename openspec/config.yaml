@@ -1,0 +1,66 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Astro v7 (Node.js v22), pnpm, Tailwind CSS
+  Architecture: SSG/SSR hybrid (Astro), content-driven, SEO-first
+  Design: Modern Coastal — deep navy #001629, coral #E76F51, sand/cream #fcf9f2
+  Typography: Montserrat (headlines), Inter (body)
+  Purpose: Service directory for Ensenada, Baja California
+  Reference: catalogo_previo/baja_coastal_catalog/DESIGN.md
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Follow Modern Coastal design system from DESIGN.md
+    - Document client/server boundary decisions
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    guidelines:
+      - Follow Astro project conventions (src/pages/, src/components/, src/layouts/)
+      - Use Tailwind utility classes; match DESIGN.md tokens for custom values
+      - pnpm as package manager
+      - Commit message format: conventional commits
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: "pnpm test"
+    build_command: "pnpm build"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
+
+testing:
+  strict_tdd: false
+  detected: "2026-07-15"
+  runner:
+    command: ""
+    framework: none
+  layers:
+    unit:
+      available: false
+      tool: ""
+    integration:
+      available: false
+      tool: ""
+    e2e:
+      available: false
+      tool: ""
+  coverage:
+    available: false
+    command: ""
+  quality:
+    linter:
+      available: false
+      command: ""
+    type_checker:
+      available: false
+      command: ""
+    formatter:
+      available: false
+      command: ""
