@@ -193,8 +193,6 @@ const categories = getCategories();
 <script>
   // Scroll shrink effect
   const navbar = document.getElementById('navbar');
-  let lastScrollY = window.scrollY;
-
   function updateNavbar() {
     const scrollY = window.scrollY;
     if (scrollY > 50) {
@@ -212,7 +210,6 @@ const categories = getCategories();
         inner.classList.add('h-20');
       }
     }
-    lastScrollY = scrollY;
   }
 
   window.addEventListener('scroll', updateNavbar, { passive: true });
