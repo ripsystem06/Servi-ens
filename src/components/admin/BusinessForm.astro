@@ -1,0 +1,307 @@
+---
+import type { Business } from '@/lib/schemas';
+
+export interface Props {
+  business?: Business;
+  errors?: Record<string, string>;
+  categories: { slug: string; name: string }[];
+  zones: { slug: string; name: string }[];
+  values?: Record<string, string>;
+}
+
+const { business, errors = {}, categories, zones, values = {} } = Astro.props;
+
+function getFieldValue(field: keyof Business | string): string {
+  if (values[field] !== undefined) return values[field];
+  if (!business) return '';
+
+  const b = business as Record<string, unknown>;
+  const val = b[field];
+
+  if (val === undefined || val === null) return '';
+  if (typeof val === 'boolean') return val ? 'true' : '';
+  if (Array.isArray(val)) return val.join('\n');
+  return String(val);
+}
+
+function getError(field: string): string {
+  return errors[field] || '';
+}
+---
+
+<form method="POST" class="space-y-6">
+  <!-- Nombre -->
+  <div>
+    <label for="name" class="block text-label-md text-on-surface mb-1.5">
+      Nombre <span class="text-error">*</span>
+    </label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      value={getFieldValue('name')}
+      required
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      placeholder="Nombre del negocio"
+    />
+    {getError('name') && (
+      <p class="mt-1 text-label-sm text-error">{getError('name')}</p>
+    )}
+  </div>
+
+  <!-- Slug -->
+  <div>
+    <label for="slug" class="block text-label-md text-on-surface mb-1.5">
+      Slug <span class="text-error">*</span>
+    </label>
+    <input
+      type="text"
+      id="slug"
+      name="slug"
+      value={getFieldValue('slug')}
+      required
+      pattern="^[a-z0-9-]+$"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-mono"
+      placeholder="nombre-del-negocio"
+    />
+    {getError('slug') && (
+      <p class="mt-1 text-label-sm text-error">{getError('slug')}</p>
+    )}
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="description" class="block text-label-md text-on-surface mb-1.5">
+      Descripción
+    </label>
+    <textarea
+      id="description"
+      name="description"
+      rows="4"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
+      placeholder="Describe el negocio..."
+    >{getFieldValue('description')}</textarea>
+  </div>
+
+  <!-- Two-column: Categoría + Zona -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="category" class="block text-label-md text-on-surface mb-1.5">
+        Categoría <span class="text-error">*</span>
+      </label>
+      <select
+        id="category"
+        name="category"
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      >
+        <option value="">Seleccionar categoría</option>
+        {categories.map((cat) => (
+          <option value={cat.slug} selected={getFieldValue('category') === cat.slug}>
+            {cat.name}
+          </option>
+        ))}
+      </select>
+      {getError('category') && (
+        <p class="mt-1 text-label-sm text-error">{getError('category')}</p>
+      )}
+    </div>
+
+    <div>
+      <label for="zone" class="block text-label-md text-on-surface mb-1.5">
+        Zona <span class="text-error">*</span>
+      </label>
+      <select
+        id="zone"
+        name="zone"
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      >
+        <option value="">Seleccionar zona</option>
+        {zones.map((z) => (
+          <option value={z.slug} selected={getFieldValue('zone') === z.slug}>
+            {z.name}
+          </option>
+        ))}
+      </select>
+      {getError('zone') && (
+        <p class="mt-1 text-label-sm text-error">{getError('zone')}</p>
+      )}
+    </div>
+  </div>
+
+  <!-- Teléfono + Email -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="phone" class="block text-label-md text-on-surface mb-1.5">
+        Teléfono
+      </label>
+      <input
+        type="text"
+        id="phone"
+        name="phone"
+        value={getFieldValue('phone')}
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="+52 646 123 4567"
+      />
+    </div>
+
+    <div>
+      <label for="email" class="block text-label-md text-on-surface mb-1.5">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={getFieldValue('email')}
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="contacto@negocio.com"
+      />
+    </div>
+  </div>
+
+  <!-- Sitio web + Dirección -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="website" class="block text-label-md text-on-surface mb-1.5">
+        Sitio web
+      </label>
+      <input
+        type="url"
+        id="website"
+        name="website"
+        value={getFieldValue('website')}
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="https://negocio.com"
+      />
+    </div>
+
+    <div>
+      <label for="address" class="block text-label-md text-on-surface mb-1.5">
+        Dirección
+      </label>
+      <input
+        type="text"
+        id="address"
+        name="address"
+        value={getFieldValue('address')}
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="Av. Principal 123, Centro"
+      />
+    </div>
+  </div>
+
+  <!-- Fotos -->
+  <div>
+    <label for="photos" class="block text-label-md text-on-surface mb-1.5">
+      Fotos
+    </label>
+    <textarea
+      id="photos"
+      name="photos"
+      rows="3"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y font-mono text-sm"
+      placeholder="https://ejemplo.com/foto1.jpg&#10;https://ejemplo.com/foto2.jpg"
+    >{getFieldValue('photos')}</textarea>
+    <p class="mt-1 text-label-sm text-on-surface-variant">Una URL por línea</p>
+  </div>
+
+  <!-- Servicios -->
+  <div>
+    <label for="services" class="block text-label-md text-on-surface mb-1.5">
+      Servicios
+    </label>
+    <textarea
+      id="services"
+      name="services"
+      rows="4"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
+      placeholder="Servicio a domicilio&#10;Aceptamos tarjetas&#10;Estacionamiento"
+    >{getFieldValue('services')}</textarea>
+    <p class="mt-1 text-label-sm text-on-surface-variant">Un servicio por línea</p>
+  </div>
+
+  <!-- Horario (simplified) -->
+  <div>
+    <label for="schedule" class="block text-label-md text-on-surface mb-1.5">
+      Horario
+    </label>
+    <textarea
+      id="schedule"
+      name="schedule"
+      rows="5"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y font-mono text-sm"
+      placeholder="Lunes: 08:00-18:00&#10;Martes: 08:00-18:00&#10;Miércoles: 08:00-18:00"
+    >{getFieldValue('schedule')}</textarea>
+    <p class="mt-1 text-label-sm text-on-surface-variant">Formato: Día: HH:MM-HH:MM | Una línea por día</p>
+  </div>
+
+  <!-- Checkboxes -->
+  <div class="flex flex-wrap gap-8">
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        name="destacado"
+        value="true"
+        checked={getFieldValue('destacado') === 'true'}
+        class="w-4 h-4 rounded border-outline-input text-accent focus:ring-accent"
+      />
+      <span class="text-label-md text-on-surface">Destacado</span>
+    </label>
+
+    <label class="flex items-center gap-2 cursor-pointer">
+      <input
+        type="checkbox"
+        name="verified"
+        value="true"
+        checked={getFieldValue('verified') === 'true'}
+        class="w-4 h-4 rounded border-outline-input text-accent focus:ring-accent"
+      />
+      <span class="text-label-md text-on-surface">Verificado</span>
+    </label>
+  </div>
+
+  <!-- Submit -->
+  <div class="flex items-center gap-4 pt-4">
+    <button
+      type="submit"
+      class="px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold text-label-md rounded-md transition-colors shadow-sm"
+    >
+      {business ? 'Guardar cambios' : 'Guardar'}
+    </button>
+    <a
+      href="/admin/negocios"
+      class="px-6 py-3 border border-outline-variant text-label-md text-on-surface-variant hover:bg-surface-container-low rounded-md transition-colors"
+    >
+      Cancelar
+    </a>
+  </div>
+</form>
+
+<script>
+  // Auto-generate slug from name
+  const nameInput = document.getElementById('name') as HTMLInputElement | null;
+  const slugInput = document.getElementById('slug') as HTMLInputElement | null;
+
+  if (nameInput && slugInput) {
+    nameInput.addEventListener('blur', () => {
+      // Only auto-generate if slug is empty or was auto-generated
+      const currentSlug = slugInput.value.trim();
+      if (!currentSlug || currentSlug === slugify(nameInput.defaultValue || '')) {
+        slugInput.value = slugify(nameInput.value);
+      }
+    });
+  }
+
+  function slugify(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // strip accents
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+  }
+</script>

@@ -1,0 +1,118 @@
+---
+import type { Business } from '@/lib/schemas';
+
+interface Props {
+  businesses: Business[];
+  currentPage: number;
+  totalPages: number;
+}
+
+const { businesses, currentPage, totalPages } = Astro.props;
+---
+
+<div class="overflow-x-auto">
+  <table class="w-full text-left">
+    <thead>
+      <tr class="border-b border-outline-card">
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Nombre</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden md:table-cell">Categoría</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden lg:table-cell">Email</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Estado</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant text-right">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-outline-card">
+      {businesses.length === 0 ? (
+        <tr>
+          <td colspan="5" class="py-12 text-center text-label-md text-on-surface-variant">
+            No hay negocios registrados
+          </td>
+        </tr>
+      ) : (
+        businesses.map((biz) => (
+          <tr class="hover:bg-surface-container-low transition-colors">
+            <td class="py-3 px-4">
+              <a
+                href={`/admin/negocios/${biz.id}/editar`}
+                class="text-label-md font-medium text-primary hover:text-secondary transition-colors"
+              >
+                {biz.name}
+              </a>
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant hidden md:table-cell">
+              {biz.category}
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant hidden lg:table-cell">
+              {biz.email || '—'}
+            </td>
+            <td class="py-3 px-4">
+              {biz.verified ? (
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success/15 text-success text-label-sm font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  Verificado
+                </span>
+              ) : (
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-medium">
+                  Pendiente
+                </span>
+              )}
+            </td>
+            <td class="py-3 px-4 text-right">
+              <div class="flex items-center justify-end gap-2">
+                <a
+                  href={`/admin/negocios/${biz.id}/editar`}
+                  class="p-2 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors"
+                  title="Editar"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                </a>
+                <form
+                  method="POST"
+                  action={`/admin/negocios/${biz.id}/editar`}
+                  onsubmit={`return confirm('¿Estás seguro de eliminar ${biz.name.replace(/'/g, "\\'")}?')`}
+                  class="inline"
+                >
+                  <input type="hidden" name="_action" value="delete" />
+                  <button
+                    type="submit"
+                    class="p-2 rounded-md text-on-surface-variant hover:bg-error-container hover:text-error transition-colors"
+                    title="Eliminar"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        ))
+      )}
+    </tbody>
+  </table>
+</div>
+
+<!-- Pagination -->
+{totalPages > 1 && (
+  <div class="flex items-center justify-between pt-4 px-4">
+    <span class="text-label-sm text-on-surface-variant">
+      Página {currentPage} de {totalPages}
+    </span>
+    <div class="flex gap-2">
+      {currentPage > 1 && (
+        <a
+          href={`/admin/negocios?page=${currentPage - 1}`}
+          class="px-3 py-1.5 border border-outline-variant rounded-md text-label-sm hover:bg-surface-container-low transition-colors"
+        >
+          Anterior
+        </a>
+      )}
+      {currentPage < totalPages && (
+        <a
+          href={`/admin/negocios?page=${currentPage + 1}`}
+          class="px-3 py-1.5 border border-outline-variant rounded-md text-label-sm hover:bg-surface-container-low transition-colors"
+        >
+          Siguiente
+        </a>
+      )}
+    </div>
+  </div>
+)}

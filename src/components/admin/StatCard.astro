@@ -1,0 +1,43 @@
+---
+export interface Props {
+  title: string;
+  value: string | number;
+  icon: 'building-2' | 'clock' | 'megaphone' | 'trending-up';
+  trend?: 'up' | 'down';
+  trendLabel?: string;
+}
+
+const { title, value, icon, trend, trendLabel } = Astro.props;
+
+const trendIcon = trend === 'up'
+  ? '<polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>'
+  : trend === 'down'
+    ? '<polyline points="22 17 13.5 9 8.5 14 2 7"/><polyline points="16 17 22 17 22 11"/>'
+    : null;
+
+const trendColor = trend === 'up' ? 'text-green-600' : trend === 'down' ? 'text-red-600' : '';
+---
+
+<div class="bg-white rounded-xl shadow-coastal border border-outline-card p-5 flex items-start gap-4">
+  <!-- Icon -->
+  <div class="shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      {icon === 'building-2' && <><path d="M6 22V2h12l4 4v16H6zM2 22h20"/><path d="M14 22v-6a2 2 0 0 0-4 0v6"/></>}
+      {icon === 'clock' && <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>}
+      {icon === 'megaphone' && <><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></>}
+      {icon === 'trending-up' && <><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></>}
+    </svg>
+  </div>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0">
+    <p class="text-label-sm text-on-surface-variant mb-1">{title}</p>
+    <p class="font-headline font-bold text-headline-md text-on-surface mb-2">{value}</p>
+    {trend && trendIcon && (
+      <div class={`flex items-center gap-1 text-label-sm ${trendColor}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={trendIcon} />
+        {trendLabel && <span>{trendLabel}</span>}
+      </div>
+    )}
+  </div>
+</div>
