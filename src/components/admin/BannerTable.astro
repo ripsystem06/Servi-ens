@@ -1,0 +1,106 @@
+---
+import type { Banner } from '@/lib/banner';
+
+interface Props {
+  banners: Banner[];
+}
+
+const { banners } = Astro.props;
+
+function isActive(banner: Banner): boolean {
+  const today = new Date().toISOString().split('T')[0];
+  return banner.startDate <= today && banner.endDate >= today;
+}
+
+function getCategoryLabel(cat: string | null): string {
+  if (!cat) return 'Todas las categorías';
+  return cat.charAt(0).toUpperCase() + cat.slice(1).replace(/-/g, ' ');
+}
+---
+
+<div class="overflow-x-auto">
+  <table class="w-full text-left">
+    <thead>
+      <tr class="border-b border-outline-card">
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Título</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Slot</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden md:table-cell">Categoría objetivo</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Estado</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden lg:table-cell">Impresiones</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden lg:table-cell">Clicks</th>
+        <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant text-right">Acciones</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-outline-card">
+      {banners.length === 0 ? (
+        <tr>
+          <td colspan="7" class="py-12 text-center text-label-md text-on-surface-variant">
+            No hay banners registrados
+          </td>
+        </tr>
+      ) : (
+        banners.map((banner) => (
+          <tr class="hover:bg-surface-container-low transition-colors">
+            <td class="py-3 px-4">
+              <a
+                href={`/admin/banners/${banner.id}/editar`}
+                class="text-label-md font-medium text-primary hover:text-secondary transition-colors"
+              >
+                {banner.title}
+              </a>
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant">
+              <span class="chip-category">{banner.slot}</span>
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant hidden md:table-cell">
+              {getCategoryLabel(banner.targetCategory)}
+            </td>
+            <td class="py-3 px-4">
+              {isActive(banner) ? (
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-success/15 text-success text-label-sm font-medium">
+                  Activo
+                </span>
+              ) : (
+                <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-medium">
+                  Inactivo
+                </span>
+              )}
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant hidden lg:table-cell">
+              {banner.impressions.toLocaleString()}
+            </td>
+            <td class="py-3 px-4 text-label-md text-on-surface-variant hidden lg:table-cell">
+              {banner.clicks.toLocaleString()}
+            </td>
+            <td class="py-3 px-4 text-right">
+              <div class="flex items-center justify-end gap-2">
+                <a
+                  href={`/admin/banners/${banner.id}/editar`}
+                  class="p-2 rounded-md text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors"
+                  title="Editar"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>
+                </a>
+                <form
+                  method="POST"
+                  action={`/admin/banners/${banner.id}/editar`}
+                  onsubmit={`return confirm('¿Estás seguro de eliminar "${banner.title.replace(/'/g, "\\'")}"?')`}
+                  class="inline"
+                >
+                  <input type="hidden" name="_action" value="delete" />
+                  <button
+                    type="submit"
+                    class="p-2 rounded-md text-on-surface-variant hover:bg-error-container hover:text-error transition-colors"
+                    title="Eliminar"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+        ))
+      )}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,91 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import BannerForm from '@/components/admin/BannerForm.astro';
+import { getCategories } from '@/lib/data-loader';
+import { validateSession } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { banners } from '@/lib/schema';
+
+const categories = getCategories();
+
+// User email from session
+const sessionCookie = Astro.cookies.get('session');
+const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
+const userEmail = sessionData?.email || '';
+
+let formErrors: Record<string, string> = {};
+let formValues: Record<string, string> = {};
+let success = false;
+let redirectUrl = '';
+
+// Handle POST
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+
+  const title = (formData.get('title') as string || '').trim();
+  const description = (formData.get('description') as string || '').trim();
+  const link = (formData.get('link') as string || '').trim();
+  const image = (formData.get('image') as string || '').trim();
+  const startDate = (formData.get('startDate') as string || '').trim();
+  const endDate = (formData.get('endDate') as string || '').trim();
+  const targetCategory = (formData.get('targetCategory') as string || '').trim() || null;
+  const slot = (formData.get('slot') as string || '').trim();
+
+  // Preserve values for re-render
+  formValues = { title, description, link, image, startDate, endDate, targetCategory: targetCategory || '', slot };
+
+  // Validation
+  if (!title) formErrors.title = 'El título es obligatorio';
+  if (!link) formErrors.link = 'El link es obligatorio';
+  if (!image) formErrors.image = 'La imagen es obligatoria';
+  if (!startDate) formErrors.startDate = 'La fecha de inicio es obligatoria';
+  if (!endDate) formErrors.endDate = 'La fecha de fin es obligatoria';
+  if (startDate && endDate && endDate < startDate) formErrors.endDate = 'La fecha de fin debe ser posterior a la de inicio';
+  if (!slot) formErrors.slot = 'El slot es obligatorio';
+
+  if (Object.keys(formErrors).length === 0) {
+    const slotTyped = slot as 'sidebar-left' | 'sidebar-right' | 'profile';
+    db.insert(banners).values({
+      image,
+      title,
+      description: description || '',
+      link,
+      startDate,
+      endDate,
+      targetCategory,
+      slot: slotTyped,
+      impressions: 0,
+      clicks: 0,
+    }).run();
+
+    redirectUrl = '/admin/banners?msg=Banner+creado';
+    success = true;
+  }
+}
+
+if (success && redirectUrl) {
+  return Astro.redirect(redirectUrl, 302);
+}
+---
+
+<AdminLayout title="Nuevo banner" userEmail={userEmail}>
+  <div class="max-w-3xl">
+    <div class="bg-white rounded-xl shadow-coastal border border-outline-card p-8">
+      <h2 class="font-headline font-semibold text-headline-md text-primary mb-6">Nuevo banner</h2>
+
+      {Object.keys(formErrors).length > 0 && (
+        <div class="mb-6 p-3 rounded-md bg-error-container border border-error/30 text-error-on-container text-label-md" role="alert">
+          Corregí los errores para continuar
+        </div>
+      )}
+
+      <BannerForm
+        categories={categories.map((c) => ({ slug: c.slug, name: c.name }))}
+        errors={formErrors}
+        values={formValues}
+      />
+    </div>
+  </div>
+</AdminLayout>

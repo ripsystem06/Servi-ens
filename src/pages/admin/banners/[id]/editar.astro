@@ -1,0 +1,153 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import BannerForm from '@/components/admin/BannerForm.astro';
+import { getCategories } from '@/lib/data-loader';
+import { validateSession } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { banners } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
+import type { Banner } from '@/lib/banner';
+
+const { id } = Astro.params;
+const bannerId = parseInt(id || '', 10);
+
+const categories = getCategories();
+
+// User email from session
+const sessionCookie = Astro.cookies.get('session');
+const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
+const userEmail = sessionData?.email || '';
+
+// Query the banner
+const bannerResults = db
+  .select()
+  .from(banners)
+  .where(eq(banners.id, isNaN(bannerId) ? -1 : bannerId))
+  .limit(1)
+  .all() as Banner[];
+
+const banner = bannerResults.length > 0 ? bannerResults[0] : null;
+
+let formErrors: Record<string, string> = {};
+let formValues: Record<string, string> = {};
+let success = false;
+let redirectUrl = '';
+
+// Handle POST
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+  const action = (formData.get('_action') as string || '').trim();
+
+  // ── DELETE action ─────────────────────────────────────────────────
+  if (action === 'delete' && banner) {
+    db.delete(banners).where(eq(banners.id, banner.id)).run();
+    return Astro.redirect('/admin/banners?msg=Banner+eliminado', 302);
+  }
+
+  // ── UPDATE action ─────────────────────────────────────────────────
+  const title = (formData.get('title') as string || '').trim();
+  const description = (formData.get('description') as string || '').trim();
+  const link = (formData.get('link') as string || '').trim();
+  const image = (formData.get('image') as string || '').trim();
+  const startDate = (formData.get('startDate') as string || '').trim();
+  const endDate = (formData.get('endDate') as string || '').trim();
+  const targetCategory = (formData.get('targetCategory') as string || '').trim() || null;
+  const slot = (formData.get('slot') as string || '').trim();
+
+  formValues = { title, description, link, image, startDate, endDate, targetCategory: targetCategory || '', slot };
+
+  // Validation
+  if (!title) formErrors.title = 'El título es obligatorio';
+  if (!link) formErrors.link = 'El link es obligatorio';
+  if (!image) formErrors.image = 'La imagen es obligatoria';
+  if (!startDate) formErrors.startDate = 'La fecha de inicio es obligatoria';
+  if (!endDate) formErrors.endDate = 'La fecha de fin es obligatoria';
+  if (startDate && endDate && endDate < startDate) formErrors.endDate = 'La fecha de fin debe ser posterior a la de inicio';
+  if (!slot) formErrors.slot = 'El slot es obligatorio';
+
+  if (Object.keys(formErrors).length === 0 && banner) {
+    const slotTyped = slot as 'sidebar-left' | 'sidebar-right' | 'profile';
+    db.update(banners)
+      .set({
+        image,
+        title,
+        description,
+        link,
+        startDate,
+        endDate,
+        targetCategory,
+        slot: slotTyped,
+      })
+      .where(eq(banners.id, banner.id))
+      .run();
+
+    redirectUrl = '/admin/banners?msg=Banner+actualizado';
+    success = true;
+  }
+}
+
+if (success && redirectUrl) {
+  return Astro.redirect(redirectUrl, 302);
+}
+---
+
+<AdminLayout title={banner ? `Editar "${banner.title}"` : 'Banner no encontrado'} userEmail={userEmail}>
+  {!banner ? (
+    <div class="max-w-md mx-auto py-12 text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-on-surface-variant/30">
+        <circle cx="12" cy="12" r="10"/><path d="M16 16s-1.5-2-4-2-4 2-4 2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+      <h2 class="font-headline text-headline-md text-primary mb-2">Banner no encontrado</h2>
+      <p class="text-label-md text-on-surface-variant mb-6">El banner que buscás no existe o fue eliminado.</p>
+      <a
+        href="/admin/banners"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent/90 text-white font-semibold text-label-md rounded-md transition-colors"
+      >
+        Volver a banners
+      </a>
+    </div>
+  ) : (
+    <div class="max-w-3xl">
+      <div class="bg-white rounded-xl shadow-coastal border border-outline-card p-8">
+        <h2 class="font-headline font-semibold text-headline-md text-primary mb-6">
+          Editar &ldquo;{banner.title}&rdquo;
+        </h2>
+
+        {Object.keys(formErrors).length > 0 && (
+          <div class="mb-6 p-3 rounded-md bg-error-container border border-error/30 text-error-on-container text-label-md" role="alert">
+            Corregí los errores para continuar
+          </div>
+        )}
+
+        <BannerForm
+          banner={banner}
+          categories={categories.map((c) => ({ slug: c.slug, name: c.name }))}
+          errors={formErrors}
+          values={formValues}
+        />
+      </div>
+
+      <!-- Delete section (separate from form) -->
+      <div class="mt-6 p-6 bg-white rounded-xl shadow-coastal border border-error/20">
+        <h3 class="font-headline text-headline-md text-error mb-2">Zona de peligro</h3>
+        <p class="text-label-md text-on-surface-variant mb-4">
+          Eliminar este banner es permanente. No se puede deshacer.
+        </p>
+        <form
+          method="POST"
+          onsubmit="return confirm('¿Estás seguro de eliminar este banner? Esta acción no se puede deshacer.')"
+        >
+          <input type="hidden" name="_action" value="delete" />
+          <button
+            type="submit"
+            class="px-4 py-2 border border-error text-error font-semibold text-label-md rounded-md hover:bg-error-container transition-colors"
+          >
+            Eliminar banner
+          </button>
+        </form>
+      </div>
+    </div>
+  )}
+</AdminLayout>

@@ -1,0 +1,224 @@
+---
+import type { Banner } from '@/lib/banner';
+import { BANNER_SLOTS } from '@/lib/constants';
+
+export interface Props {
+  banner?: Banner;
+  errors?: Record<string, string>;
+  values?: Record<string, string>;
+  categories: { slug: string; name: string }[];
+}
+
+const { banner, errors = {}, categories, values = {} } = Astro.props;
+
+function getFieldValue(field: string): string {
+  if (values[field] !== undefined) return values[field];
+  if (!banner) return '';
+
+  const b = banner as unknown as Record<string, unknown>;
+  const val = b[field];
+  if (val === undefined || val === null) return '';
+  return String(val);
+}
+
+function getError(field: string): string {
+  return errors[field] || '';
+}
+
+function getSlotLabel(slot: string): string {
+  switch (slot) {
+    case 'sidebar-left': return 'Sidebar Izquierda';
+    case 'sidebar-right': return 'Sidebar Derecha';
+    case 'profile': return 'Perfil de negocio';
+    default: return slot;
+  }
+}
+---
+
+<form method="POST" class="space-y-6">
+  <!-- Título -->
+  <div>
+    <label for="title" class="block text-label-md text-on-surface mb-1.5">
+      Título <span class="text-error">*</span>
+    </label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      value={getFieldValue('title')}
+      required
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      placeholder="Título del banner"
+    />
+    {getError('title') && <p class="mt-1 text-label-sm text-error">{getError('title')}</p>}
+  </div>
+
+  <!-- Descripción -->
+  <div>
+    <label for="description" class="block text-label-md text-on-surface mb-1.5">
+      Descripción
+    </label>
+    <textarea
+      id="description"
+      name="description"
+      rows="3"
+      class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
+      placeholder="Texto descriptivo del banner"
+    >{getFieldValue('description')}</textarea>
+  </div>
+
+  <!-- Link + Imagen -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="link" class="block text-label-md text-on-surface mb-1.5">
+        Link <span class="text-error">*</span>
+      </label>
+      <input
+        type="url"
+        id="link"
+        name="link"
+        value={getFieldValue('link')}
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="https://..."
+      />
+      {getError('link') && <p class="mt-1 text-label-sm text-error">{getError('link')}</p>}
+    </div>
+
+    <div>
+      <label for="image" class="block text-label-md text-on-surface mb-1.5">
+        Imagen <span class="text-error">*</span>
+      </label>
+      <input
+        type="url"
+        id="image"
+        name="image"
+        value={getFieldValue('image')}
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        placeholder="https://.../banner.jpg"
+      />
+      {getError('image') && <p class="mt-1 text-label-sm text-error">{getError('image')}</p>}
+    </div>
+  </div>
+
+  <!-- Fechas -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="startDate" class="block text-label-md text-on-surface mb-1.5">
+        Fecha inicio <span class="text-error">*</span>
+      </label>
+      <input
+        type="date"
+        id="startDate"
+        name="startDate"
+        value={getFieldValue('startDate')}
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      />
+      {getError('startDate') && <p class="mt-1 text-label-sm text-error">{getError('startDate')}</p>}
+    </div>
+
+    <div>
+      <label for="endDate" class="block text-label-md text-on-surface mb-1.5">
+        Fecha fin <span class="text-error">*</span>
+      </label>
+      <input
+        type="date"
+        id="endDate"
+        name="endDate"
+        value={getFieldValue('endDate')}
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      />
+      {getError('endDate') && <p class="mt-1 text-label-sm text-error">{getError('endDate')}</p>}
+    </div>
+  </div>
+
+  <!-- Categoría + Slot -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div>
+      <label for="targetCategory" class="block text-label-md text-on-surface mb-1.5">
+        Categoría objetivo
+      </label>
+      <select
+        id="targetCategory"
+        name="targetCategory"
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      >
+        <option value="">Todas las categorías</option>
+        {categories.map((cat) => (
+          <option value={cat.slug} selected={getFieldValue('targetCategory') === cat.slug}>
+            {cat.name}
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <div>
+      <label for="slot" class="block text-label-md text-on-surface mb-1.5">
+        Slot <span class="text-error">*</span>
+      </label>
+      <select
+        id="slot"
+        name="slot"
+        required
+        class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      >
+        {BANNER_SLOTS.map((s) => (
+          <option value={s} selected={getFieldValue('slot') === s}>
+            {getSlotLabel(s)}
+          </option>
+        ))}
+      </select>
+      {getError('slot') && <p class="mt-1 text-label-sm text-error">{getError('slot')}</p>}
+    </div>
+  </div>
+
+  <!-- Read-only stats (only for edit mode) -->
+  {banner && (
+    <div class="grid grid-cols-2 gap-6 p-4 rounded-md bg-surface-container-low">
+      <div>
+        <span class="text-label-sm text-on-surface-variant">Impresiones</span>
+        <p class="text-label-md font-medium text-on-surface">{banner.impressions.toLocaleString()}</p>
+      </div>
+      <div>
+        <span class="text-label-sm text-on-surface-variant">Clicks</span>
+        <p class="text-label-md font-medium text-on-surface">{banner.clicks.toLocaleString()}</p>
+      </div>
+    </div>
+  )}
+
+  <!-- Submit -->
+  <div class="flex items-center gap-4 pt-4">
+    <button
+      type="submit"
+      class="px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold text-label-md rounded-md transition-colors shadow-sm"
+    >
+      {banner ? 'Guardar cambios' : 'Guardar'}
+    </button>
+    <a
+      href="/admin/banners"
+      class="px-6 py-3 border border-outline-variant text-label-md text-on-surface-variant hover:bg-surface-container-low rounded-md transition-colors"
+    >
+      Cancelar
+    </a>
+  </div>
+</form>
+
+<script>
+  // Client-side date validation: endDate must be after startDate
+  const startInput = document.getElementById('startDate') as HTMLInputElement | null;
+  const endInput = document.getElementById('endDate') as HTMLInputElement | null;
+
+  if (startInput && endInput) {
+    startInput.addEventListener('change', () => {
+      endInput.min = startInput.value;
+    });
+
+    // Set initial min on edit
+    if (startInput.value) {
+      endInput.min = startInput.value;
+    }
+  }
+</script>
