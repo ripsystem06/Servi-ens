@@ -1,0 +1,78 @@
+---
+import type { Business } from '@/lib/schemas';
+import { getZoneBySlug } from '@/lib/data-loader';
+import CategoryChip from './CategoryChip.astro';
+import VerifiedBadge from './VerifiedBadge.astro';
+
+export interface Props {
+  business: Business;
+}
+
+const { business } = Astro.props;
+const zone = getZoneBySlug(business.zone);
+const zoneName = zone?.name ?? business.zone;
+
+const hasPhoto = business.photos && business.photos.length > 0;
+const photoUrl = hasPhoto ? business.photos![0] : null;
+---
+
+<a
+  href={`/negocio/${business.slug}`}
+  class="block bg-surface-container-lowest rounded-md shadow-coastal overflow-hidden border border-outline-card hover-lift group"
+>
+  <!-- Photo / Placeholder -->
+  <div class="relative h-48 overflow-hidden">
+    {photoUrl ? (
+      <img
+        src={photoUrl}
+        alt={business.name}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full bg-gradient-to-br from-primary-container/20 to-primary/10 flex items-center justify-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="text-primary/30"
+        >
+          <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+          <circle cx="9" cy="9" r="2"/>
+          <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+        </svg>
+      </div>
+    )}
+
+    {business.verified && (
+      <div class="absolute top-3 left-3">
+        <VerifiedBadge verified={true} />
+      </div>
+    )}
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-2">
+    <h3 class="font-headline text-headline-md text-primary truncate">
+      {business.name}
+    </h3>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <CategoryChip category={business.category} />
+    </div>
+
+    <p class="font-sans text-label-md text-on-surface-variant">
+      {zoneName}
+    </p>
+
+    <p class="font-sans text-body-md text-on-surface-variant line-clamp-2 leading-relaxed">
+      {business.description}
+    </p>
+  </div>
+</a>

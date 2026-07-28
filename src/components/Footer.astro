@@ -1,0 +1,63 @@
+---
+import { getSiteConfig, getCategories } from '@/lib/data-loader';
+
+const site = getSiteConfig();
+const categories = getCategories();
+---
+
+<footer class="bg-primary-container text-on-primary-container mt-section">
+  <div class="w-full py-section px-gutter max-w-container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+      <!-- Brand -->
+      <div class="space-y-3 text-center md:text-left">
+        <h2 class="font-headline text-headline-md font-bold text-on-primary-container">
+          {site.name}
+        </h2>
+        <p class="font-sans text-body-md text-on-primary-container/80 max-w-sm">
+          {site.tagline}
+        </p>
+        <p class="font-sans text-label-sm text-on-primary-container/60 mt-6">
+          Hecho en Ensenada, Baja California
+        </p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex flex-col space-y-3 text-center md:text-left">
+        <h3 class="font-sans font-bold text-white text-label-md mb-1">Explorar</h3>
+        <a href="/" class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors text-label-md">
+          Inicio
+        </a>
+        {categories.slice(0, 4).map((cat) => (
+          <a
+            href={`/${cat.slug}`}
+            class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors text-label-md"
+          >
+            {cat.name}
+          </a>
+        ))}
+      </div>
+
+      <!-- More Links -->
+      <div class="flex flex-col space-y-3 text-center md:text-left">
+        <h3 class="font-sans font-bold text-white text-label-md mb-1">Enlaces</h3>
+        {categories.slice(4).map((cat) => (
+          <a
+            href={`/${cat.slug}`}
+            class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors text-label-md"
+          >
+            {cat.name}
+          </a>
+        ))}
+        <a href="/buscar" class="text-on-primary-container/80 hover:text-secondary-fixed transition-colors text-label-md">
+          Buscar
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-8 pt-8 border-t border-on-primary-container/20 text-center">
+      <p class="font-sans text-label-sm text-on-primary-container/60">
+        &copy; {new Date().getFullYear()} {site.name}. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
