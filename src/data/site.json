@@ -1,0 +1,15 @@
+{
+  "name": "Catálogo Ensenada",
+  "tagline": "El directorio de servicios de Ensenada, Baja California",
+  "description": "Descubrí los mejores restaurantes, hoteles, electricistas, plomeros, talleres mecánicos, salones de eventos, tiendas y servicios profesionales de Ensenada y sus alrededores.",
+  "url": "https://catalogoensenada.com",
+  "locale": "es-MX",
+  "contact": {
+    "email": "contacto@catalogoensenada.com",
+    "phone": "+52 646 123 4567"
+  },
+  "social": {
+    "facebook": "https://facebook.com/catalogoensenada",
+    "instagram": "https://instagram.com/catalogoensenada"
+  }
+}

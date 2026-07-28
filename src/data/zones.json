@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "ensenada-centro",
+    "name": "Ensenada Centro",
+    "description": "El corazón de la ciudad: el malecón, la calle Primera, el puerto y la vida nocturna.",
+    "order": 1
+  },
+  {
+    "slug": "valle-de-guadalupe",
+    "name": "Valle de Guadalupe",
+    "description": "La ruta del vino: viñedos, restaurantes de autor y paisajes únicos a 20 min de la ciudad.",
+    "order": 2
+  },
+  {
+    "slug": "el-sauzal",
+    "name": "El Sauzal",
+    "description": "Zona costera al norte de Ensenada con mariscos frescos y vistas al Pacífico.",
+    "order": 3
+  },
+  {
+    "slug": "maneadero",
+    "name": "Maneadero",
+    "description": "Comunidad al sur de Ensenada, puerta de entrada a La Bufadora y Punta Banda.",
+    "order": 4
+  },
+  {
+    "slug": "la-bufadora",
+    "name": "La Bufadora",
+    "description": "El bufadero marino más grande de Norteamérica, rodeado de comercios y mariscos.",
+    "order": 5
+  }
+]
