@@ -1,0 +1,66 @@
+---
+export interface Props {
+  title?: string;
+  userEmail?: string;
+}
+
+const { title = 'Admin', userEmail } = Astro.props;
+---
+
+<header class="sticky top-0 z-30 h-16 bg-surface border-b border-outline-variant flex items-center justify-between px-6">
+  <div class="flex items-center gap-4">
+    <!-- Mobile hamburger -->
+    <button
+      id="admin-sidebar-toggle"
+      class="lg:hidden p-2 rounded hover:bg-surface-container-low transition-colors"
+      aria-label="Toggle sidebar"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+
+    <!-- Page title / breadcrumb -->
+    <h1 class="font-headline font-semibold text-headline-md text-on-surface">{title}</h1>
+  </div>
+
+  <!-- Right: user info + logout -->
+  <div class="flex items-center gap-4">
+    {userEmail && (
+      <span class="hidden sm:inline text-label-md text-on-surface-variant">{userEmail}</span>
+    )}
+    <form action="/api/auth/logout" method="POST" class="hidden sm:block">
+      <button
+        type="submit"
+        class="px-3 py-1.5 text-label-sm text-on-surface-variant hover:text-secondary border border-outline-variant rounded-md hover:border-secondary transition-colors"
+      >
+        Cerrar sesión
+      </button>
+    </form>
+  </div>
+</header>
+
+<script>
+  // Mobile sidebar toggle
+  const toggleBtn = document.getElementById('admin-sidebar-toggle');
+  const sidebar = document.getElementById('admin-sidebar');
+  let sidebarOpen = false;
+
+  toggleBtn?.addEventListener('click', () => {
+    sidebarOpen = !sidebarOpen;
+    if (sidebarOpen) {
+      sidebar?.classList.remove('-translate-x-full');
+    } else {
+      sidebar?.classList.add('-translate-x-full');
+    }
+  });
+
+  // Close sidebar when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (sidebarOpen && window.innerWidth < 1024) {
+      const target = e.target as HTMLElement;
+      if (!sidebar?.contains(target) && target !== toggleBtn && !toggleBtn?.contains(target)) {
+        sidebarOpen = false;
+        sidebar?.classList.add('-translate-x-full');
+      }
+    }
+  });
+</script>
