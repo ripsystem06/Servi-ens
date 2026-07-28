@@ -1,0 +1,96 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import CategorySidebar from '@/components/CategorySidebar.astro';
+import ServiceCard from '@/components/ServiceCard.astro';
+import {
+  getCategories,
+  getCategoryBySlug,
+  filterByCategory,
+} from '@/lib/data-loader';
+
+export async function getStaticPaths() {
+  const categories = getCategories();
+  return categories.map((cat) => ({
+    params: { category: cat.slug },
+  }));
+}
+
+const { category } = Astro.params;
+const cat = getCategoryBySlug(category);
+
+// Invalid category slug → 404
+if (!cat) {
+  return Astro.redirect('/404');
+}
+
+const businesses = filterByCategory(category);
+const pageTitle = `${cat.name} — Catálogo Ensenada`;
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="max-w-container mx-auto px-gutter py-section">
+    <div class="grid grid-cols-12 gap-gutter">
+      <!-- Sidebar -->
+      <aside class="col-span-12 lg:col-span-3 space-y-6">
+        <CategorySidebar activeSlug={category} />
+
+        <div
+          data-slot="sidebar-left"
+          data-category={category}
+          class="relative rounded-md overflow-hidden aspect-square coastal-shadow border border-outline-card bg-surface-container-low flex items-center justify-center"
+        >
+          <p class="text-label-sm text-on-surface-variant text-center px-4">
+            Espacio publicitario
+          </p>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <section class="col-span-12 lg:col-span-9 space-y-section">
+        <h1 class="font-headline text-headline-lg text-primary">
+          {cat.name} &mdash; {businesses.length} servicio{businesses.length !== 1 ? 's' : ''}
+        </h1>
+
+        {cat.description && (
+          <p class="font-sans text-body-lg text-on-surface-variant max-w-2xl">
+            {cat.description}
+          </p>
+        )}
+
+        {businesses.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {businesses.map((biz) => (
+              <ServiceCard business={biz} />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-16 bg-surface-container-low rounded-md border border-outline-card">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="56"
+              height="56"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mx-auto text-on-surface-variant/30 mb-4"
+            >
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+            <p class="text-body-lg text-on-surface-variant font-sans">
+              No hay servicios en esta categoría todavía
+            </p>
+            <p class="text-label-md text-on-surface-variant/60 mt-1">
+              Estamos trabajando para agregar más negocios. ¡Volvé pronto!
+            </p>
+          </div>
+        )}
+      </section>
+    </div>
+  </div>
+</BaseLayout>
