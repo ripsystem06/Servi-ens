@@ -1,0 +1,94 @@
+---
+import { BANNER_SLOTS, type BannerSlot } from '@/lib/constants';
+
+interface Props {
+  slot: BannerSlot;
+  category?: string;
+}
+
+const { slot, category } = Astro.props;
+
+// Validate slot at build time
+if (!(BANNER_SLOTS as readonly string[]).includes(slot)) {
+  throw new Error(`Invalid BannerSlot slot: "${slot}". Must be one of: ${BANNER_SLOTS.join(', ')}`);
+}
+---
+
+<div
+  data-banner-slot={slot}
+  data-banner-category={category || ''}
+  class="banner-slot"
+>
+  <!-- Placeholder while banner loads -->
+  <div class="banner-placeholder rounded-xl bg-surface-container-low border border-dashed border-outline-card flex items-center justify-center" style="min-height: 120px;">
+    <p class="text-label-sm text-on-surface-variant/50">Cargando...</p>
+  </div>
+</div>
+
+<script>
+  /**
+   * Client-side banner fetch.
+   * Fetches the banner HTML from the SSR API and injects it.
+   * Graceful degradation: empty slot if JS is disabled or fetch fails.
+   */
+  (function () {
+    const slot = document.currentScript?.parentElement?.querySelector('[data-banner-slot]');
+    if (!slot) return;
+
+    const bannerSlot = slot as HTMLElement;
+    const slotName = bannerSlot.dataset.bannerSlot;
+    const category = bannerSlot.dataset.bannerCategory;
+
+    if (!slotName) return;
+
+    const params = new URLSearchParams({ slot: slotName });
+    if (category) params.set('category', category);
+
+    fetch(`/api/banner/slot?${params.toString()}`)
+      .then((res) => {
+        if (res.status === 204 || !res.ok) {
+          // No banner available — hide the slot completely
+          bannerSlot.innerHTML = '';
+          bannerSlot.style.display = 'none';
+          return null;
+        }
+        return res.text();
+      })
+      .then((html) => {
+        if (html) {
+          bannerSlot.innerHTML = html;
+
+          // Track impression via POST after successful render
+          const bannerLink = bannerSlot.querySelector('a[href]');
+          if (bannerLink) {
+            const href = bannerLink.getAttribute('href') || '';
+            const match = href.match(/\/api\/banner\/(\d+)\/click/);
+            if (match) {
+              const bannerId = match[1];
+              fetch(`/api/banner/${bannerId}/impression`, {
+                method: 'POST',
+              }).catch(() => {
+                // Silent fail — impression tracking is best-effort
+              });
+            }
+          }
+        }
+      })
+      .catch(() => {
+        // Fetch failed — hide slot gracefully
+        bannerSlot.innerHTML = '';
+        bannerSlot.style.display = 'none';
+      });
+  })();
+</script>
+
+<style>
+  .banner-placeholder {
+    aspect-ratio: 4 / 3;
+  }
+
+  .banner-slot:empty,
+  .banner-slot[style*="display: none"] {
+    display: none !important;
+  }
+</style>

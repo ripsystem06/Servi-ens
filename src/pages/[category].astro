@@ -2,6 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import CategorySidebar from '@/components/CategorySidebar.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
+import BannerSlot from '@/components/BannerSlot.astro';
 import {
   getCategories,
   getCategoryBySlug,
@@ -34,15 +35,7 @@ const pageTitle = `${cat.name} — Catálogo Ensenada`;
       <aside class="col-span-12 lg:col-span-3 space-y-6">
         <CategorySidebar activeSlug={category} />
 
-        <div
-          data-slot="sidebar-left"
-          data-category={category}
-          class="relative rounded-md overflow-hidden aspect-square coastal-shadow border border-outline-card bg-surface-container-low flex items-center justify-center"
-        >
-          <p class="text-label-sm text-on-surface-variant text-center px-4">
-            Espacio publicitario
-          </p>
-        </div>
+        <BannerSlot slot="sidebar-left" category={category} />
       </aside>
 
       <!-- Main Content -->

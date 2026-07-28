@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumb from '@/components/Breadcrumb.astro';
 import CategoryChip from '@/components/CategoryChip.astro';
 import VerifiedBadge from '@/components/VerifiedBadge.astro';
+import BannerSlot from '@/components/BannerSlot.astro';
 import {
   getBusinesses,
   getBusinessBySlug,
@@ -263,16 +264,7 @@ function formatPhone(phone: string): string {
 
       <!-- Right Sidebar: Banner Profile -->
       <aside class="lg:col-span-4 space-y-10">
-        <!-- Banner Profile Placeholder -->
-        <div
-          data-slot="profile"
-          data-category={business.category}
-          class="relative rounded-md overflow-hidden aspect-[4/5] coastal-shadow border border-outline-card bg-surface-container-low flex items-center justify-center"
-        >
-          <p class="text-label-sm text-on-surface-variant text-center px-4">
-            Espacio publicitario
-          </p>
-        </div>
+        <BannerSlot slot="profile" category={business.category} />
       </aside>
     </div>
   </div>

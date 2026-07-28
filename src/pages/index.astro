@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroCarousel from '@/components/islands/HeroCarousel.tsx';
 import CategorySidebar from '@/components/CategorySidebar.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
+import BannerSlot from '@/components/BannerSlot.astro';
 import {
   getFeaturedBusinesses,
   getPopularBusinesses,
@@ -31,16 +32,8 @@ const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
       <aside class="col-span-12 lg:col-span-3 space-y-6">
         <CategorySidebar />
 
-        <!-- Banner Sidebar Left Placeholder -->
-        <div
-          data-slot="sidebar-left"
-          data-category=""
-          class="relative rounded-md overflow-hidden aspect-square coastal-shadow border border-outline-card bg-surface-container-low flex items-center justify-center"
-        >
-          <p class="text-label-sm text-on-surface-variant text-center px-4">
-            Espacio publicitario
-          </p>
-        </div>
+        <!-- Banner Sidebar Left -->
+        <BannerSlot slot="sidebar-left" />
       </aside>
 
       <!-- Center Content -->
@@ -136,16 +129,8 @@ const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
 
       <!-- Right Sidebar -->
       <aside class="col-span-12 lg:col-span-3 space-y-6">
-        <!-- Banner Sidebar Right Placeholder -->
-        <div
-          data-slot="sidebar-right"
-          data-category=""
-          class="relative rounded-md overflow-hidden aspect-[3/4] coastal-shadow border border-outline-card bg-surface-container-low flex items-center justify-center"
-        >
-          <p class="text-label-sm text-on-surface-variant text-center px-4">
-            Espacio publicitario
-          </p>
-        </div>
+        <!-- Banner Sidebar Right -->
+        <BannerSlot slot="sidebar-right" />
 
         <!-- Local Partners -->
         <div class="bg-primary-container p-4 rounded-md text-on-primary-container">
