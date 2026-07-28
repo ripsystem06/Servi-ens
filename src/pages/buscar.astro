@@ -1,0 +1,190 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const url = Astro.url;
+const q = url.searchParams.get('q') || '';
+const hasQuery = q.length > 0;
+const pageTitle = hasQuery
+  ? `Resultados para: ${q} — Catálogo Ensenada`
+  : 'Buscar — Catálogo Ensenada';
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="max-w-container mx-auto px-gutter py-section">
+    {hasQuery ? (
+      <header class="mb-8">
+        <h1 class="font-headline text-headline-lg text-primary mb-2">
+          Resultados para: &ldquo;{q}&rdquo;
+        </h1>
+        <p id="search-count" class="text-label-md text-on-surface-variant">
+          Buscando...
+        </p>
+      </header>
+    ) : (
+      <header class="mb-8 text-center">
+        <h1 class="font-headline text-headline-lg text-primary mb-4">
+          Buscá servicios en Ensenada
+        </h1>
+        <p class="text-body-lg text-on-surface-variant max-w-lg mx-auto">
+          Encontrá restaurantes, hoteles, electricistas, plomeros, y más servicios en Ensenada y sus alrededores.
+        </p>
+      </header>
+    )}
+
+    <!-- Search input -->
+    <form action="/buscar" method="GET" class="max-w-xl mb-10 mx-auto">
+      <div class="flex gap-3">
+        <input
+          type="search"
+          name="q"
+          value={q}
+          placeholder="¿Qué estás buscando?"
+          aria-label="Buscar servicios"
+          class="flex-1 px-4 py-3 bg-white border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        />
+        <button
+          type="submit"
+          class="px-6 py-3 bg-accent hover:bg-accent/90 text-white font-semibold text-label-md rounded-md transition-colors flex items-center gap-2"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Buscar
+        </button>
+      </div>
+    </form>
+
+    <!-- Search Results Container -->
+    <div id="search-results" class="max-w-3xl mx-auto">
+      {hasQuery && (
+        <noscript>
+          <div class="text-center py-8 bg-surface-container-low rounded-md border border-outline-card">
+            <p class="text-label-md text-on-surface-variant">
+              La búsqueda requiere JavaScript. Activá JavaScript para buscar servicios en el catálogo.
+            </p>
+          </div>
+        </noscript>
+      )}
+    </div>
+
+    <!-- No results fallback (hidden by default, shown by Pagefind) -->
+    <div id="no-results" class="hidden max-w-lg mx-auto py-12 text-center">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-on-surface-variant/40">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <p class="text-body-lg text-on-surface-variant mb-2">
+        No se encontraron resultados para &ldquo;{q}&rdquo;
+      </p>
+      <p class="text-label-md text-on-surface-variant/60">
+        Probá con otros términos o explorá las categorías.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  /**
+   * Pagefind search initialization.
+   * Loads the post-build Pagefind bundle from /pagefind/pagefind.js.
+   * If the bundle doesn't exist (dev mode), shows a friendly message.
+   */
+  (async function () {
+    const resultsContainer = document.getElementById('search-results');
+    const countEl = document.getElementById('search-count');
+    const noResultsEl = document.getElementById('no-results');
+    const query = new URLSearchParams(window.location.search).get('q') || '';
+
+    if (!query || !resultsContainer) return;
+
+    try {
+      // Try to load Pagefind
+      const pagefindPath = '/pagefind/pagefind.js';
+
+      // Dynamic import of Pagefind
+      const module = await import(pagefindPath);
+      const pagefind = module.default || module;
+
+      if (!pagefind || typeof pagefind.search !== 'function') {
+        throw new Error('Pagefind not available');
+      }
+
+      await pagefind.options({
+        baseUrl: '/',
+        excerptLength: 30,
+      });
+
+      const search = await pagefind.search(query);
+
+      if (!search || search.results.length === 0) {
+        // Show no results
+        if (resultsContainer) resultsContainer.innerHTML = '';
+        if (noResultsEl) noResultsEl.classList.remove('hidden');
+        if (countEl) countEl.textContent = '0 servicios encontrados';
+        return;
+      }
+
+      // Process results
+      const totalResults = search.results.length;
+      if (countEl) countEl.textContent = `${totalResults} ${totalResults === 1 ? 'servicio encontrado' : 'servicios encontrados'}`;
+
+      const fragment = document.createDocumentFragment();
+      let loadedCount = 0;
+
+      for (const result of search.results.slice(0, 30)) {
+        const data = await result.data();
+
+        // Skip admin pages from results
+        if (data.url && data.url.startsWith('/admin')) {
+          loadedCount++;
+          continue;
+        }
+
+        const card = document.createElement('a');
+        card.href = data.url || '#';
+        card.className = 'block bg-white rounded-xl shadow-coastal border border-outline-card p-5 hover-lift transition-all mb-4';
+
+        const metaParts = [];
+        if (data.meta?.category) metaParts.push(data.meta.category);
+
+        card.innerHTML = `
+          <h3 class="font-headline text-headline-md text-primary mb-1 group-hover:text-secondary transition-colors">
+            ${escapeHtml(data.meta?.title || 'Sin título')}
+          </h3>
+          ${metaParts.length > 0 ? `<p class="text-label-sm text-on-surface-variant mb-2">${metaParts.join(' · ')}</p>` : ''}
+          <p class="text-label-md text-on-surface-variant line-clamp-2">${data.excerpt || ''}</p>
+        `;
+
+        fragment.appendChild(card);
+        loadedCount++;
+      }
+
+      if (loadedCount === 0 && resultsContainer) {
+        if (noResultsEl) noResultsEl.classList.remove('hidden');
+        return;
+      }
+
+      if (resultsContainer) {
+        resultsContainer.innerHTML = '';
+        resultsContainer.appendChild(fragment);
+      }
+    } catch (_err) {
+      // Pagefind not available (dev mode or build hasn't run yet)
+      if (resultsContainer) {
+        resultsContainer.innerHTML = `
+          <div class="text-center py-8 bg-surface-container-low rounded-md border border-outline-card">
+            <p class="text-label-md text-on-surface-variant">
+              La búsqueda no está disponible en modo desarrollo.
+            </p>
+            <p class="text-label-sm text-on-surface-variant/60 mt-1">
+              Ejecutá <code class="bg-surface-container-high px-1 rounded">pnpm build && npx pagefind --site dist</code> para generar el índice.
+            </p>
+          </div>
+        `;
+      }
+    }
+  })();
+
+  function escapeHtml(str: string): string {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+</script>
