@@ -13,7 +13,13 @@ if (sessionCookie?.value) {
 }
 
 const error = Astro.url.searchParams.get('error') || '';
-const email = Astro.url.searchParams.get('email') || '';
+// Read email from flash cookie (not URL) to avoid leaking it in logs/history
+const flashEmail = Astro.cookies.get('flash_email');
+const email = flashEmail?.value || '';
+// Immediately clear the flash cookie after reading
+if (flashEmail?.value) {
+  Astro.cookies.delete('flash_email', { path: '/' });
+}
 ---
 
 <!doctype html>

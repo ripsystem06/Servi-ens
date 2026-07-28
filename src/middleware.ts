@@ -22,7 +22,7 @@ export const onRequest = defineMiddleware((context, next) => {
     return next();
   }
 
-  // Check session cookie
+  // ── Auth guard ───────────────────────────────────────────────────
   const sessionCookie = context.cookies.get('session');
   if (!sessionCookie?.value) {
     const loginUrl = new URL('/admin/login', context.url);
@@ -33,6 +33,12 @@ export const onRequest = defineMiddleware((context, next) => {
   if (!sessionData) {
     const loginUrl = new URL('/admin/login', context.url);
     return Response.redirect(loginUrl, 302);
+  }
+
+  // ── Force password change if using default password ──────────────
+  if (sessionData.needsPasswordChange && pathname !== '/admin/cambiar-password') {
+    const changePwUrl = new URL('/admin/cambiar-password', context.url);
+    return Response.redirect(changePwUrl, 302);
   }
 
   return next();

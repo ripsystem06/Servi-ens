@@ -6,6 +6,7 @@ import bcrypt from 'bcryptjs';
 interface SessionData {
   email: string;
   createdAt: number;
+  needsPasswordChange: boolean;
 }
 
 const sessions = new Map<string, SessionData>();
@@ -20,12 +21,58 @@ function cleanupSessions(): void {
   }
 }
 
+// ─── Rate limiting for login ─────────────────────────────────────────
+interface RateLimitEntry {
+  attempts: number;
+  firstAttempt: number;
+}
+
+const loginRateLimit = new Map<string, RateLimitEntry>();
+const MAX_LOGIN_ATTEMPTS = 5;
+const LOGIN_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+
+/**
+ * Returns true if the IP has exceeded the rate limit.
+ * Returns false and increments the counter otherwise.
+ */
+export function checkLoginRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const entry = loginRateLimit.get(ip);
+
+  // Clean up old entries
+  for (const [key, val] of loginRateLimit) {
+    if (now - val.firstAttempt > LOGIN_WINDOW_MS) {
+      loginRateLimit.delete(key);
+    }
+  }
+
+  if (!entry || now - entry.firstAttempt > LOGIN_WINDOW_MS) {
+    // First attempt or window expired — reset
+    loginRateLimit.set(ip, { attempts: 1, firstAttempt: now });
+    return false;
+  }
+
+  entry.attempts++;
+  if (entry.attempts > MAX_LOGIN_ATTEMPTS) {
+    return true; // blocked
+  }
+
+  return false;
+}
+
+/**
+ * Reset rate limit for an IP (called on successful login).
+ */
+export function resetLoginRateLimit(ip: string): void {
+  loginRateLimit.delete(ip);
+}
+
 // ─── Public API ─────────────────────────────────────────────────────
 
-export function createSession(email: string): string {
+export function createSession(email: string, needsPasswordChange = false): string {
   cleanupSessions();
   const sessionId = crypto.randomUUID();
-  sessions.set(sessionId, { email, createdAt: Date.now() });
+  sessions.set(sessionId, { email, createdAt: Date.now(), needsPasswordChange });
   return sessionId;
 }
 
@@ -50,6 +97,20 @@ export function hashPassword(password: string): Promise<string> {
 
 export function verifyPassword(password: string, hash: string): Promise<boolean> {
   return bcrypt.compare(password, hash);
+}
+
+// ─── Default password detection ─────────────────────────────────────
+// The default admin123 hash — pre-computed so we can detect it without
+// comparing against the plaintext password.
+const DEFAULT_PASSWORD_HASH =
+  '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy';
+
+/**
+ * Returns true if the given hash matches the known default password hash.
+ * Used to force password change on first login.
+ */
+export function isDefaultPassword(hash: string): boolean {
+  return hash === DEFAULT_PASSWORD_HASH;
 }
 
 // ─── Admin seeding ──────────────────────────────────────────────────
