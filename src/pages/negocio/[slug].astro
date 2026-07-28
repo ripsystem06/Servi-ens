@@ -9,6 +9,7 @@ import {
   getCategoryBySlug,
   getZoneBySlug,
 } from '@/lib/data-loader';
+import { SITE } from '@/lib/constants';
 import type { ScheduleItem } from '@/lib/schemas';
 
 export async function getStaticPaths() {
@@ -36,6 +37,17 @@ const zone = getZoneBySlug(business.zone);
 
 const pageTitle = `${business.name} — Catálogo Ensenada`;
 
+// Open Graph image: first business photo or site default
+const ogImage = business.photos?.[0]
+  ? (business.photos[0].startsWith('http')
+      ? business.photos[0]
+      : `${SITE.url}${business.photos[0].startsWith('/') ? '' : '/'}${business.photos[0]}`)
+  : undefined;
+
+const pageDescription = business.description.length > 200
+  ? business.description.slice(0, 197) + '...'
+  : business.description;
+
 const DAY_LABELS: Record<ScheduleItem['day'], string> = {
   mon: 'Lunes',
   tue: 'Martes',
@@ -54,7 +66,12 @@ function formatPhone(phone: string): string {
 }
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  ogImage={ogImage}
+  canonicalUrl={`${SITE.url}/negocio/${business.slug}`}
+>
   <div class="max-w-container mx-auto px-gutter py-section">
     <!-- Breadcrumb -->
     <div class="mb-8">
