@@ -1,0 +1,2 @@
+root_selector: "main"
+glob: "**/*.html"
