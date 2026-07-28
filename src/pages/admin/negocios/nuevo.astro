@@ -1,0 +1,138 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import BusinessForm from '@/components/admin/BusinessForm.astro';
+import { getCategories, getZones, getBusinesses } from '@/lib/data-loader';
+import { validateSession } from '@/lib/auth';
+import fs from 'fs';
+import path from 'path';
+
+const jsonPath = path.join(process.cwd(), 'src', 'data', 'businesses.json');
+
+const categories = getCategories();
+const zones = getZones();
+
+// User email from session
+const sessionCookie = Astro.cookies.get('session');
+const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
+const userEmail = sessionData?.email || '';
+
+let formErrors: Record<string, string> = {};
+let formValues: Record<string, string> = {};
+let success = false;
+let redirectUrl = '';
+
+// Handle POST
+if (Astro.request.method === 'POST') {
+  const formData = await Astro.request.formData();
+
+  // Collect field values
+  const name = (formData.get('name') as string || '').trim();
+  const slug = (formData.get('slug') as string || '').trim();
+  const category = (formData.get('category') as string || '').trim();
+  const zone = (formData.get('zone') as string || '').trim();
+  const description = (formData.get('description') as string || '').trim();
+  const phone = (formData.get('phone') as string || '').trim();
+  const email = (formData.get('email') as string || '').trim();
+  const website = (formData.get('website') as string || '').trim();
+  const address = (formData.get('address') as string || '').trim();
+  const photosStr = (formData.get('photos') as string || '').trim();
+  const servicesStr = (formData.get('services') as string || '').trim();
+  const scheduleStr = (formData.get('schedule') as string || '').trim();
+  const destacado = formData.get('destacado') === 'true';
+  const verified = formData.get('verified') === 'true';
+
+  // Preserve values for re-render
+  formValues = { name, slug, category, zone, description, phone, email, website, address, photos: photosStr, services: servicesStr, schedule: scheduleStr, destacado: destacado ? 'true' : '', verified: verified ? 'true' : '' };
+
+  // Validation
+  if (!name) formErrors.name = 'El nombre es obligatorio';
+  if (!slug) formErrors.slug = 'El slug es obligatorio';
+  if (slug && !/^[a-z0-9-]+$/.test(slug)) formErrors.slug = 'El slug solo puede contener letras minúsculas, números y guiones';
+  if (!category) formErrors.category = 'La categoría es obligatoria';
+  if (!zone) formErrors.zone = 'La zona es obligatoria';
+
+  // Check duplicate slug
+  if (slug && !formErrors.slug) {
+    const businesses = getBusinesses();
+    if (businesses.some((b) => b.slug === slug)) {
+      formErrors.slug = 'Este slug ya existe';
+    }
+  }
+
+  if (Object.keys(formErrors).length === 0) {
+    const now = new Date().toISOString();
+    const photos = photosStr ? photosStr.split('\n').map((s) => s.trim()).filter(Boolean) : [];
+    const services = servicesStr ? servicesStr.split('\n').map((s) => s.trim()).filter(Boolean) : [];
+    const schedule = scheduleStr ? scheduleStr.split('\n').map((s) => s.trim()).filter(Boolean).map((line) => {
+      const [day, time] = line.split(':').map((p) => p.trim());
+      const [open, close] = (time || '').split('-').map((p) => p.trim());
+      return {
+        day: day?.toLowerCase().slice(0, 3) || '',
+        open: open || '',
+        close: close || '',
+        closed: !open || !close,
+      };
+    }).filter((s) => s.day) : undefined;
+
+    const newBusiness = {
+      id: crypto.randomUUID(),
+      slug,
+      name,
+      category,
+      zone,
+      description: description || '',
+      phone: phone || '',
+      email: email || undefined,
+      website: website || undefined,
+      address: address || undefined,
+      photos: photos.length > 0 ? photos : undefined,
+      schedule,
+      services: services.length > 0 ? services : [],
+      destacado,
+      verified,
+      createdAt: now,
+      updatedAt: now,
+    };
+
+    // Read, append, write
+    let allBizes: unknown[] = [];
+    try {
+      allBizes = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+    } catch {
+      allBizes = [];
+    }
+    allBizes.push(newBusiness);
+    fs.writeFileSync(jsonPath, JSON.stringify(allBizes, null, 2), 'utf-8');
+
+    redirectUrl = '/admin/negocios?msg=Negocio+creado';
+    success = true;
+  }
+}
+
+if (success && redirectUrl) {
+  return Astro.redirect(redirectUrl, 302);
+}
+---
+
+<AdminLayout title="Nuevo negocio" userEmail={userEmail}>
+  <div class="max-w-3xl">
+    <div class="bg-white rounded-xl shadow-coastal border border-outline-card p-8">
+      <h2 class="font-headline font-semibold text-headline-md text-primary mb-6">Nuevo negocio</h2>
+
+      {Object.keys(formErrors).length > 0 && (
+        <div class="mb-6 p-3 rounded-md bg-error-container border border-error/30 text-error-on-container text-label-md" role="alert">
+          Corregí los errores para continuar
+        </div>
+      )}
+
+      <BusinessForm
+        categories={categories.map((c) => ({ slug: c.slug, name: c.name }))}
+        zones={zones.map((z) => ({ slug: z.slug, name: z.name }))}
+        errors={formErrors}
+        values={formValues}
+      />
+    </div>
+  </div>
+</AdminLayout>
