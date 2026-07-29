@@ -84,7 +84,7 @@ export default function HeroCarousel({ businesses }: Props) {
           {b.description}
         </p>
         <a
-          href={`/negocio/${b.slug}`}
+          href={`/servicio/${b.slug}`}
           class="bg-accent hover:brightness-110 text-white font-bold py-3 px-8 rounded-lg transition-all inline-flex items-center gap-2 w-fit"
         >
           Ver perfil
