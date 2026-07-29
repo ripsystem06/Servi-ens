@@ -49,17 +49,24 @@ export function getBannerForSlot(slot: string, category?: string): Banner | null
       )
     : results;
 
-  if (filtered.length === 0) return null;
+  // Normalize orphaned categories → treat as targeting all categories
+  const ORPHANED_CATEGORIES = ['restaurantes', 'hoteles', 'tiendas'];
+  const normalized = filtered.map((b) => ({
+    ...b,
+    targetCategory: ORPHANED_CATEGORIES.includes(b.targetCategory ?? '') ? null : b.targetCategory,
+  }));
 
-  if (filtered.length === 1) return filtered[0];
+  if (normalized.length === 0) return null;
+
+  if (normalized.length === 1) return normalized[0];
 
   // Deterministic round-robin: (impressions + clicks) % N
-  const totalImpressions = filtered.reduce(
+  const totalImpressions = normalized.reduce(
     (sum, b) => sum + b.impressions + b.clicks,
     0
   );
-  const index = totalImpressions % filtered.length;
-  return filtered[index];
+  const index = totalImpressions % normalized.length;
+  return normalized[index];
 }
 
 /**

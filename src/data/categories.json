@@ -1,58 +1,72 @@
 [
   {
-    "slug": "restaurantes",
-    "name": "Restaurantes",
-    "icon": "utensils-crossed",
-    "description": "Los mejores sabores de Ensenada: mariscos, cocina de autor, comida tradicional y más.",
+    "slug": "handyman",
+    "name": "Multioficio",
+    "icon": "tool",
+    "description": "Servicios de plomería, electricidad, pintura y reparaciones del hogar. El multioficio que necesitás.",
     "order": 1
   },
   {
-    "slug": "hoteles",
-    "name": "Hoteles",
-    "icon": "bed",
-    "description": "Alojamiento para todos los gustos: boutique, playa, valle y ciudad.",
+    "slug": "jardineria",
+    "name": "Jardinería",
+    "icon": "flower",
+    "description": "Mantenimiento de jardines, poda, riego y paisajismo.",
     "order": 2
+  },
+  {
+    "slug": "pintura",
+    "name": "Pintura",
+    "icon": "paintbrush",
+    "description": "Pintura interior y exterior, impermeabilización y acabados profesionales.",
+    "order": 3
+  },
+  {
+    "slug": "albanileria",
+    "name": "Albañilería",
+    "icon": "brick-wall",
+    "description": "Construcción, remodelación, pisos, muros y obra negra.",
+    "order": 4
+  },
+  {
+    "slug": "limpieza",
+    "name": "Limpieza",
+    "icon": "spray-can",
+    "description": "Limpieza residencial, comercial, oficinas y limpieza profunda.",
+    "order": 5
   },
   {
     "slug": "electricistas",
     "name": "Electricistas",
     "icon": "zap",
     "description": "Servicios eléctricos residenciales, comerciales e industriales.",
-    "order": 3
+    "order": 6
   },
   {
     "slug": "plomeros",
     "name": "Plomeros",
     "icon": "wrench",
     "description": "Reparación, instalación y mantenimiento de plomería.",
-    "order": 4
+    "order": 7
   },
   {
     "slug": "talleres-mecanicos",
     "name": "Talleres Mecánicos",
     "icon": "car",
     "description": "Mecánica general, eléctrica automotriz, hojalatería y pintura.",
-    "order": 5
+    "order": 8
   },
   {
     "slug": "salones-de-eventos",
     "name": "Salones de Eventos",
     "icon": "party-popper",
     "description": "Espacios para bodas, XV años, reuniones corporativas y eventos sociales.",
-    "order": 6
-  },
-  {
-    "slug": "tiendas",
-    "name": "Tiendas",
-    "icon": "store",
-    "description": "Comercios locales con productos de calidad para el hogar y estilo de vida.",
-    "order": 7
+    "order": 9
   },
   {
     "slug": "servicios-profesionales",
     "name": "Servicios Profesionales",
     "icon": "briefcase",
     "description": "Contadores, abogados, diseñadores y consultores en Ensenada.",
-    "order": 8
+    "order": 10
   }
 ]
