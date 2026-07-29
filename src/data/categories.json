@@ -1,72 +1,114 @@
 [
   {
-    "slug": "handyman",
-    "name": "Multioficio",
-    "icon": "tool",
-    "description": "Servicios de plomería, electricidad, pintura y reparaciones del hogar. El multioficio que necesitás.",
+    "slug": "plomeria",
+    "name": "Plomería",
+    "icon": "wrench",
+    "description": "Fontanería, instalación y reparación de tuberías, grifería y sistemas hidráulicos.",
     "order": 1
   },
   {
-    "slug": "jardineria",
-    "name": "Jardinería",
-    "icon": "flower",
-    "description": "Mantenimiento de jardines, poda, riego y paisajismo.",
+    "slug": "electricidad",
+    "name": "Electricidad",
+    "icon": "zap",
+    "description": "Instalaciones eléctricas, cableado, tableros y mantenimiento eléctrico.",
     "order": 2
+  },
+  {
+    "slug": "carpinteria",
+    "name": "Carpintería",
+    "icon": "hammer",
+    "description": "Muebles a medida, reparación de madera, puertas, ventanas y acabados.",
+    "order": 3
   },
   {
     "slug": "pintura",
     "name": "Pintura",
     "icon": "paintbrush",
     "description": "Pintura interior y exterior, impermeabilización y acabados profesionales.",
-    "order": 3
+    "order": 4
   },
   {
     "slug": "albanileria",
     "name": "Albañilería",
     "icon": "brick-wall",
     "description": "Construcción, remodelación, pisos, muros y obra negra.",
-    "order": 4
+    "order": 5
+  },
+  {
+    "slug": "herreria",
+    "name": "Herrería",
+    "icon": "anvil",
+    "description": "Soldadura, portones, rejas, estructuras metálicas y herrería artística.",
+    "order": 6
+  },
+  {
+    "slug": "refrigeracion-aire",
+    "name": "Refrigeración y Aire Acondicionado",
+    "icon": "thermometer-snowflake",
+    "description": "Instalación, reparación y mantenimiento de aires acondicionados y refrigeración.",
+    "order": 7
+  },
+  {
+    "slug": "reparacion-electrodomesticos",
+    "name": "Reparación de Electrodomésticos",
+    "icon": "washing-machine",
+    "description": "Reparación de lavadoras, secadoras, estufas, hornos y electrodomésticos en general.",
+    "order": 8
+  },
+  {
+    "slug": "jardineria",
+    "name": "Jardinería",
+    "icon": "flower",
+    "description": "Mantenimiento de jardines, poda, riego, paisajismo y diseño de áreas verdes.",
+    "order": 9
   },
   {
     "slug": "limpieza",
     "name": "Limpieza",
     "icon": "spray-can",
     "description": "Limpieza residencial, comercial, oficinas y limpieza profunda.",
-    "order": 5
+    "order": 10
   },
   {
-    "slug": "electricistas",
-    "name": "Electricistas",
-    "icon": "zap",
-    "description": "Servicios eléctricos residenciales, comerciales e industriales.",
-    "order": 6
+    "slug": "instalacion-pisos",
+    "name": "Instalación de Pisos",
+    "icon": "grid-3x3",
+    "description": "Colocación de pisos cerámicos, laminados, vinílicos y pulido de superficies.",
+    "order": 11
   },
   {
-    "slug": "plomeros",
-    "name": "Plomeros",
-    "icon": "wrench",
-    "description": "Reparación, instalación y mantenimiento de plomería.",
-    "order": 7
+    "slug": "impermeabilizacion",
+    "name": "Impermeabilización",
+    "icon": "umbrella",
+    "description": "Impermeabilización de techos, terrazas, cisternas y muros.",
+    "order": 12
   },
   {
-    "slug": "talleres-mecanicos",
-    "name": "Talleres Mecánicos",
+    "slug": "cerrajeria",
+    "name": "Cerrajería",
+    "icon": "key",
+    "description": "Apertura de puertas, cambio de cerraduras, copias de llaves y seguridad.",
+    "order": 13
+  },
+  {
+    "slug": "mecanica-mantenimiento",
+    "name": "Mecánica y Mantenimiento",
     "icon": "car",
-    "description": "Mecánica general, eléctrica automotriz, hojalatería y pintura.",
-    "order": 8
+    "description": "Mecánica automotriz, mantenimiento preventivo y correctivo de vehículos.",
+    "order": 14
   },
   {
-    "slug": "salones-de-eventos",
-    "name": "Salones de Eventos",
-    "icon": "party-popper",
-    "description": "Espacios para bodas, XV años, reuniones corporativas y eventos sociales.",
-    "order": 9
+    "slug": "servicios-generales",
+    "name": "Servicios Generales",
+    "icon": "tool",
+    "description": "Servicios de mantenimiento general, reparaciones del hogar y multioficio.",
+    "order": 15
   },
   {
     "slug": "servicios-profesionales",
     "name": "Servicios Profesionales",
     "icon": "briefcase",
-    "description": "Contadores, abogados, diseñadores y consultores en Ensenada.",
-    "order": 10
+    "description": "Abogados, contadores, arquitectos, ingenieros, consultores y profesionales independientes.",
+    "order": 16
   }
 ]

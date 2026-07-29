@@ -3,402 +3,723 @@
     "id": "biz-014",
     "slug": "electro-servicio-ensenada",
     "name": "Electro Servicio Ensenada",
-    "category": "electricistas",
-    "zone": "ensenada-centro",
+    "category": "electricidad",
+    "zone": "centro",
     "description": "Servicios eléctricos residenciales, comerciales e industriales con más de 15 años de experiencia. Instalaciones nuevas, remodelaciones, paneles solares y atención de emergencias 24/7.",
     "phone": "+52 646 181 4200",
     "email": "contacto@electroservicioensenada.com",
     "address": "Calle Novena 450, Colonia Obrera, 22830 Ensenada, B.C.",
-    "photos": ["/images/negocios/electro-servicio-1.jpg"],
-    "services": ["Instalaciones eléctricas", "Remodelaciones", "Paneles solares", "Emergencias 24/7", "Mantenimiento industrial", "Tableros eléctricos"],
-    "tags": ["eléctrico", "residencial", "comercial", "emergencias"],
+    "photos": [
+      "/images/negocios/electro-servicio-1.jpg"
+    ],
+    "services": [
+      "Instalaciones eléctricas",
+      "Remodelaciones",
+      "Paneles solares",
+      "Emergencias 24/7",
+      "Mantenimiento industrial",
+      "Tableros eléctricos"
+    ],
+    "tags": [
+      "eléctrico",
+      "residencial",
+      "comercial",
+      "emergencias"
+    ],
     "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "experience": "6 años de experiencia",
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "José M.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-06-27"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mar",
+        "vie"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "presencial"
   },
   {
     "id": "biz-015",
     "slug": "instalaciones-electricas-del-valle",
     "name": "Instalaciones Eléctricas del Valle",
-    "category": "electricistas",
+    "category": "electricidad",
     "zone": "valle-de-guadalupe",
     "description": "Electricistas especializados en el Valle de Guadalupe. Instalaciones para viñedos, restaurantes campestres y residencias rurales. Sistemas de respaldo y energía solar.",
     "phone": "+52 646 153 8800",
     "address": "Carretera Ensenada-Tecate Km. 83, 22750 Valle de Guadalupe, B.C.",
-    "services": ["Instalaciones rurales", "Sistemas solares", "Plantas de emergencia", "Iluminación de viñedos", "Mantenimiento"],
-    "tags": ["eléctrico", "rural", "solar", "viñedos"],
+    "services": [
+      "Instalaciones rurales",
+      "Sistemas solares",
+      "Plantas de emergencia",
+      "Iluminación de viñedos",
+      "Mantenimiento"
+    ],
+    "tags": [
+      "eléctrico",
+      "rural",
+      "solar",
+      "viñedos"
+    ],
     "verified": true,
-    "destacado": false,
+    "destacado": true,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/1/800/600",
+      "https://picsum.photos/id/2/800/600"
+    ],
+    "experience": "7 años de experiencia",
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "Sofía H.",
+        "rating": 3,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-05-18"
+      },
+      {
+        "author": "María G.",
+        "rating": 3,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-03-18"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 3,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-01-12"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "vie",
+        "mie",
+        "lun",
+        "sab",
+        "mar"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "presencial"
   },
   {
     "id": "biz-016",
     "slug": "electrica-sauzal",
     "name": "Eléctrica Sauzal",
-    "category": "electricistas",
-    "zone": "el-sauzal",
+    "category": "electricidad",
+    "zone": "sauzal",
     "description": "Servicios eléctricos para hogares y pequeños comercios en El Sauzal y zonas aledañas. Instalación de contactos, luminarias, ventiladores y reparaciones rápidas a precios justos.",
     "phone": "+52 646 111 7830",
     "address": "Calle Mar de Cortés 78, El Sauzal, 22760 Ensenada, B.C.",
-    "services": ["Reparaciones eléctricas", "Instalación de luminarias", "Contactos y apagadores", "Ventiladores de techo"],
-    "tags": ["eléctrico", "residencial", "reparaciones"],
+    "services": [
+      "Reparaciones eléctricas",
+      "Instalación de luminarias",
+      "Contactos y apagadores",
+      "Ventiladores de techo"
+    ],
+    "tags": [
+      "eléctrico",
+      "residencial",
+      "reparaciones"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/3/800/600",
+      "https://picsum.photos/id/4/800/600"
+    ],
+    "experience": "2 años de experiencia",
+    "rating": 3.9,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 5,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-06-12"
+      },
+      {
+        "author": "María G.",
+        "rating": 5,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-07-19"
+      },
+      {
+        "author": "Carlos R.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-04-18"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "mie",
+        "sab",
+        "mar",
+        "vie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "presencial"
   },
   {
     "id": "biz-017",
     "slug": "electro-movil-baja",
     "name": "Electro Móvil Baja",
-    "category": "electricistas",
+    "category": "electricidad",
     "zone": "maneadero",
     "description": "Servicio de electricista a domicilio en Maneadero, Punta Banda y alrededores. Atención rápida para cortocircuitos, fallas eléctricas y trabajos menores los 7 días de la semana.",
     "phone": "+52 646 138 5700",
     "address": "Av. de los Olivos 12, Maneadero, 22790 Ensenada, B.C.",
-    "services": ["Electricidad a domicilio", "Cortocircuitos", "Instalaciones menores", "Reparaciones urgentes"],
-    "tags": ["eléctrico", "a domicilio", "emergencias"],
+    "services": [
+      "Electricidad a domicilio",
+      "Cortocircuitos",
+      "Instalaciones menores",
+      "Reparaciones urgentes"
+    ],
+    "tags": [
+      "eléctrico",
+      "a domicilio",
+      "emergencias"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/5/800/600",
+      "https://picsum.photos/id/6/800/600"
+    ],
+    "experience": "4 años de experiencia",
+    "certifications": [
+      "Certificado por CANACO",
+      "Curso de atención al cliente"
+    ],
+    "rating": 3.7,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 5,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-06-20"
+      },
+      {
+        "author": "María G.",
+        "rating": 3,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-07-20"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "mar",
+        "jue",
+        "vie",
+        "mie",
+        "sab"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "whatsapp"
   },
   {
     "id": "biz-018",
     "slug": "plomeria-ramirez",
     "name": "Plomería Ramírez",
-    "category": "plomeros",
-    "zone": "ensenada-centro",
+    "category": "plomeria",
+    "zone": "centro",
     "description": "Plomeros de confianza con más de 20 años sirviendo al centro de Ensenada. Reparación de fugas, destape de drenajes, instalación de boiler, tinacos y tubería nueva.",
     "phone": "+52 646 175 1102",
     "email": "plomeriaramirez@gmail.com",
     "address": "Calle Cuarta 230, Zona Centro, 22800 Ensenada, B.C.",
-    "services": ["Reparación de fugas", "Destape de drenajes", "Instalación de boiler", "Tubería nueva", "Tinacos", "Mantenimiento hidráulico"],
-    "tags": ["plomería", "fugas", "drenajes", "boilers"],
+    "services": [
+      "Reparación de fugas",
+      "Destape de drenajes",
+      "Instalación de boiler",
+      "Tubería nueva",
+      "Tinacos",
+      "Mantenimiento hidráulico"
+    ],
+    "tags": [
+      "plomería",
+      "fugas",
+      "drenajes",
+      "boilers"
+    ],
     "verified": true,
-    "destacado": false,
+    "destacado": true,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/7/800/600",
+      "https://picsum.photos/id/9/800/600"
+    ],
+    "experience": "3 años de experiencia",
+    "rating": 4.3,
+    "reviews": [
+      {
+        "author": "Sofía H.",
+        "rating": 5,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-03-17"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 5,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-01-11"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "sab",
+        "jue",
+        "lun",
+        "mar"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-019",
     "slug": "fontaneria-del-puerto",
     "name": "Fontanería del Puerto",
-    "category": "plomeros",
-    "zone": "ensenada-centro",
+    "category": "plomeria",
+    "zone": "centro",
     "description": "Especialistas en instalaciones hidrosanitarias para nuevas construcciones y remodelaciones. Cálculo de tubería, sistemas de presión y conexiones a red municipal.",
     "phone": "+52 646 120 9400",
     "address": "Calle Riveroll 567, Colonia Obrera, 22830 Ensenada, B.C.",
-    "services": ["Instalaciones hidrosanitarias", "Cálculo de tubería", "Sistemas de presión", "Conexiones municipales", "Remodelaciones"],
-    "tags": ["plomería", "construcción", "instalaciones", "remodelación"],
+    "services": [
+      "Instalaciones hidrosanitarias",
+      "Cálculo de tubería",
+      "Sistemas de presión",
+      "Conexiones municipales",
+      "Remodelaciones"
+    ],
+    "tags": [
+      "plomería",
+      "construcción",
+      "instalaciones",
+      "remodelación"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/10/800/600",
+      "https://picsum.photos/id/11/800/600"
+    ],
+    "experience": "7 años de experiencia",
+    "rating": 4.3,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 5,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-07-20"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mie",
+        "mar",
+        "vie",
+        "sab",
+        "jue"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "telefonica"
   },
   {
     "id": "biz-020",
     "slug": "servicios-hidraulicos-baja",
     "name": "Servicios Hidráulicos Baja",
-    "category": "plomeros",
-    "zone": "el-sauzal",
+    "category": "plomeria",
+    "zone": "sauzal",
     "description": "Plomería y servicios hidráulicos para zonas residenciales y comerciales de El Sauzal y San Miguel. Especialistas en calentadores solares y sistemas de captación de agua.",
     "phone": "+52 646 144 6501",
     "address": "Calle Puerto de La Paz 34, El Sauzal, 22760 Ensenada, B.C.",
-    "services": ["Calentadores solares", "Captación de agua", "Fugas", "Destapes", "Instalaciones comerciales"],
-    "tags": ["plomería", "hidráulico", "solar", "comercial"],
+    "services": [
+      "Calentadores solares",
+      "Captación de agua",
+      "Fugas",
+      "Destapes",
+      "Instalaciones comerciales"
+    ],
+    "tags": [
+      "plomería",
+      "hidráulico",
+      "solar",
+      "comercial"
+    ],
     "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/12/800/600",
+      "https://picsum.photos/id/13/800/600"
+    ],
+    "experience": "3 años de experiencia",
+    "rating": 3.7,
+    "reviews": [
+      {
+        "author": "María G.",
+        "rating": 5,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-04-10"
+      },
+      {
+        "author": "Carlos R.",
+        "rating": 4,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-02-11"
+      },
+      {
+        "author": "José M.",
+        "rating": 5,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-01-25"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "mar",
+        "jue",
+        "sab",
+        "vie"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-021",
     "slug": "plomero-express-ensenada",
     "name": "Plomero Express Ensenada",
-    "category": "plomeros",
+    "category": "plomeria",
     "zone": "maneadero",
     "description": "Servicio express de plomería en Maneadero y Punta Banda. Llegamos en menos de 2 horas para emergencias. Reparación de fugas, destapes, cambio de llaves y accesorios.",
     "phone": "+52 646 133 4500",
     "address": "Calle Bahía de Todos Santos 89, Maneadero, 22790 Ensenada, B.C.",
-    "services": ["Emergencias express", "Fugas", "Destapes", "Cambio de llaves", "Reparación de WC"],
-    "tags": ["plomería", "express", "emergencias", "a domicilio"],
+    "services": [
+      "Emergencias express",
+      "Fugas",
+      "Destapes",
+      "Cambio de llaves",
+      "Reparación de WC"
+    ],
+    "tags": [
+      "plomería",
+      "express",
+      "emergencias",
+      "a domicilio"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/16/800/600",
+      "https://picsum.photos/id/17/800/600"
+    ],
+    "experience": "8 años de experiencia",
+    "certifications": [
+      "Certificado por CANACO",
+      "Curso de atención al cliente"
+    ],
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 4,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-01-17"
+      },
+      {
+        "author": "José M.",
+        "rating": 3,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-01-28"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "lun",
+        "sab",
+        "mar"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "presencial"
   },
   {
     "id": "biz-022",
     "slug": "taller-mecanico-rodriguez",
     "name": "Taller Mecánico Rodríguez",
-    "category": "talleres-mecanicos",
-    "zone": "ensenada-centro",
+    "category": "mecanica-mantenimiento",
+    "zone": "centro",
     "description": "Taller mecánico con más de 25 años de tradición en Ensenada. Mecánica general, frenos, suspensión, afinación y diagnóstico computarizado. Atención honesta y precios justos.",
     "phone": "+52 646 176 3301",
     "address": "Av. Juárez 1820, Colonia Hidalgo, 22880 Ensenada, B.C.",
-    "services": ["Mecánica general", "Frenos", "Suspensión", "Afinación", "Diagnóstico computarizado", "Cambio de aceite"],
-    "tags": ["mecánica", "frenos", "diagnóstico", "tradicional"],
+    "services": [
+      "Mecánica general",
+      "Frenos",
+      "Suspensión",
+      "Afinación",
+      "Diagnóstico computarizado",
+      "Cambio de aceite"
+    ],
+    "tags": [
+      "mecánica",
+      "frenos",
+      "diagnóstico",
+      "tradicional"
+    ],
     "verified": true,
-    "destacado": false,
+    "destacado": true,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/18/800/600",
+      "https://picsum.photos/id/19/800/600"
+    ],
+    "experience": "Más de 20 años en el oficio",
+    "rating": 3.9,
+    "reviews": [
+      {
+        "author": "Pedro V.",
+        "rating": 3,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-06-28"
+      },
+      {
+        "author": "Pedro V.",
+        "rating": 3,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-07-23"
+      },
+      {
+        "author": "José M.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-06-23"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "sab",
+        "lun",
+        "vie"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "whatsapp"
   },
   {
     "id": "biz-023",
     "slug": "auto-servicio-baja",
     "name": "Auto Servicio Baja",
-    "category": "talleres-mecanicos",
-    "zone": "ensenada-centro",
+    "category": "mecanica-mantenimiento",
+    "zone": "centro",
     "description": "Taller multimarca con servicio express de cambio de aceite, alineación y balanceo, aire acondicionado y scanner automotriz. Ubicados a una cuadra de la Costero.",
     "phone": "+52 646 121 8800",
     "email": "citas@autoserviciobaja.com",
     "website": "https://autoserviciobaja.com",
     "address": "Blvd. Costero 950, Local 3, 22890 Ensenada, B.C.",
-    "services": ["Cambio de aceite express", "Alineación y balanceo", "Aire acondicionado", "Scanner automotriz", "Frenos"],
-    "tags": ["mecánica", "express", "multimarca", "scanner"],
+    "services": [
+      "Cambio de aceite express",
+      "Alineación y balanceo",
+      "Aire acondicionado",
+      "Scanner automotriz",
+      "Frenos"
+    ],
+    "tags": [
+      "mecánica",
+      "express",
+      "multimarca",
+      "scanner"
+    ],
     "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/21/800/600",
+      "https://picsum.photos/id/22/800/600"
+    ],
+    "experience": "10+ años de experiencia",
+    "rating": 3.8,
+    "reviews": [
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-03-24"
+      },
+      {
+        "author": "José M.",
+        "rating": 3,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-07-27"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": true,
+      "days": [
+        "lun",
+        "mar",
+        "vie"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-024",
     "slug": "mecanica-el-sauzal",
     "name": "Mecánica El Sauzal",
-    "category": "talleres-mecanicos",
-    "zone": "el-sauzal",
+    "category": "mecanica-mantenimiento",
+    "zone": "sauzal",
     "description": "Taller de confianza para vehículos nacionales e importados en la zona de El Sauzal. Especialistas en motor, transmisión y sistema eléctrico automotriz.",
     "phone": "+52 646 140 2350",
     "address": "Carretera Transpeninsular Km. 5, El Sauzal, 22760 Ensenada, B.C.",
-    "services": ["Motor", "Transmisión", "Sistema eléctrico", "Refacciones", "Mantenimiento preventivo"],
-    "tags": ["mecánica", "motor", "transmisión", "eléctrico"],
+    "services": [
+      "Motor",
+      "Transmisión",
+      "Sistema eléctrico",
+      "Refacciones",
+      "Mantenimiento preventivo"
+    ],
+    "tags": [
+      "mecánica",
+      "motor",
+      "transmisión",
+      "eléctrico"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/23/800/600",
+      "https://picsum.photos/id/24/800/600"
+    ],
+    "experience": "12 años de experiencia",
+    "rating": 4.1,
+    "reviews": [
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-04-18"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "jue",
+        "vie",
+        "sab",
+        "lun",
+        "mie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "telefonica"
   },
   {
     "id": "biz-025",
     "slug": "taller-la-bufadora",
     "name": "Taller La Bufadora",
-    "category": "talleres-mecanicos",
-    "zone": "la-bufadora",
+    "category": "mecanica-mantenimiento",
+    "zone": "punta-banda",
     "description": "Taller mecánico de barrio en Punta Banda. Servicio rápido para problemas comunes, cambio de llantas, batería y afinaciones sencillas. El único taller en la zona turística.",
     "phone": "+52 646 139 4100",
     "address": "Calle Principal s/n, Punta Banda, 22794 Ensenada, B.C.",
-    "services": ["Mecánica general", "Cambio de llantas", "Baterías", "Afinaciones", "Auxilio vial"],
-    "tags": ["mecánica", "barrio", "turístico", "auxilio"],
+    "services": [
+      "Mecánica general",
+      "Cambio de llantas",
+      "Baterías",
+      "Afinaciones",
+      "Auxilio vial"
+    ],
+    "tags": [
+      "mecánica",
+      "barrio",
+      "turístico",
+      "auxilio"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-026",
-    "slug": "salon-baja-terra",
-    "name": "Salón Baja Terra",
-    "category": "salones-de-eventos",
-    "zone": "ensenada-centro",
-    "description": "Elegante salón de eventos con capacidad para 300 personas. Terraza con vista al mar, cocina de primer nivel, pista de baile y estacionamiento privado. Ideal para bodas y XV años.",
-    "phone": "+52 646 178 5000",
-    "email": "eventos@bajaterra.com",
-    "website": "https://bajaterra.com",
-    "address": "Km. 104 Carretera Tijuana-Ensenada, 22860 Ensenada, B.C.",
-    "photos": ["/images/negocios/baja-terra-1.jpg"],
-    "services": ["Bodas", "XV Años", "Eventos corporativos", "Catering", "Barra libre", "Estacionamiento"],
-    "tags": ["eventos", "bodas", "terraza", "vista al mar", "elegante"],
-    "verified": true,
-    "destacado": true,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-027",
-    "slug": "jardin-vinedos-del-valle",
-    "name": "Jardín Viñedos del Valle",
-    "category": "salones-de-eventos",
-    "zone": "valle-de-guadalupe",
-    "description": "Jardín para eventos al aire libre rodeado de viñedos y montañas. Capacidad para 200 invitados. Servicio completo de banquetes con cocina de campo, vinos locales y decoración rústica elegante.",
-    "phone": "+52 646 155 9200",
-    "email": "info@vinedosdelvalle.mx",
-    "website": "https://vinedosdelvalle.mx",
-    "address": "Km. 88 Carretera Ensenada-Tecate, 22750 Valle de Guadalupe, B.C.",
-    "photos": ["/images/negocios/jardin-vinedos-1.jpg"],
-    "services": ["Bodas al aire libre", "Banquetes", "Vinos locales", "Decoración rústica", "Coordinación de eventos"],
-    "tags": ["jardín", "bodas", "viñedos", "rústico", "aire libre"],
-    "verified": true,
-    "destacado": true,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-028",
-    "slug": "salon-puerto-azul",
-    "name": "Salón Puerto Azul",
-    "category": "salones-de-eventos",
-    "zone": "ensenada-centro",
-    "description": "Salón climatizado en el centro de Ensenada con capacidad para 150 personas. Ideal para reuniones familiares, cumpleaños, bautizos y eventos sociales. Paquetes todo incluido.",
-    "phone": "+52 646 174 3300",
-    "address": "Calle Gastélum 440, Zona Centro, 22800 Ensenada, B.C.",
-    "services": ["Eventos sociales", "Cumpleaños", "Bautizos", "Paquetes todo incluido", "Sonido e iluminación"],
-    "tags": ["salón", "eventos", "social", "céntrico"],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-029",
-    "slug": "terraza-mar-y-sol",
-    "name": "Terraza Mar y Sol",
-    "category": "salones-de-eventos",
-    "zone": "el-sauzal",
-    "description": "Terraza frente al mar en El Sauzal para eventos diurnos. Perfecto para baby showers, despedidas y reuniones familiares con catering de mariscos frescos. Capacidad para 80 personas.",
-    "phone": "+52 646 141 7800",
-    "address": "Calle Acapulco 23, El Sauzal, 22760 Ensenada, B.C.",
-    "services": ["Eventos diurnos", "Baby showers", "Catering de mariscos", "Reuniones familiares"],
-    "tags": ["terraza", "mar", "diurno", "familiar"],
-    "verified": false,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-035",
-    "slug": "contadores-asociados-ensenada",
-    "name": "Contadores Asociados de Ensenada",
-    "category": "servicios-profesionales",
-    "zone": "ensenada-centro",
-    "description": "Despacho contable con más de 15 años de experiencia. Declaraciones fiscales, contabilidad empresarial, nóminas, asesoría fiscal para PyMEs. Atención personalizada para cada cliente.",
-    "phone": "+52 646 177 4500",
-    "email": "contacto@contadoresensenada.mx",
-    "address": "Av. Reforma 880, Zona Centro, 22800 Ensenada, B.C.",
-    "services": ["Declaraciones fiscales", "Contabilidad empresarial", "Nóminas", "Asesoría fiscal", "Constitución de empresas"],
-    "tags": ["contabilidad", "fiscal", "PyMEs", "nóminas"],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-036",
-    "slug": "bufete-juridico-del-puerto",
-    "name": "Bufete Jurídico del Puerto",
-    "category": "servicios-profesionales",
-    "zone": "ensenada-centro",
-    "description": "Abogados especialistas en derecho civil, familiar, mercantil y migratorio. Representación legal en Ensenada y todo Baja California. Primera consulta gratuita.",
-    "phone": "+52 646 178 9200",
-    "email": "juridico@bufetepuerto.com",
-    "address": "Av. Juárez 1201, Despacho 302, Zona Centro, 22800 Ensenada, B.C.",
-    "services": ["Derecho civil", "Derecho familiar", "Derecho mercantil", "Derecho migratorio", "Consultoría legal"],
-    "tags": ["abogados", "legal", "civil", "familiar", "migratorio"],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-037",
-    "slug": "diseno-grafico-baja-studio",
-    "name": "Diseño Gráfico Baja Studio",
-    "category": "servicios-profesionales",
-    "zone": "valle-de-guadalupe",
-    "description": "Estudio de diseño boutique especializado en branding para vinícolas, restaurantes y productores locales del Valle de Guadalupe. Diseño de etiquetas, menús, sitios web y redes sociales.",
-    "phone": "+52 646 155 3400",
-    "email": "hola@bajastudio.mx",
-    "website": "https://bajastudio.mx",
-    "address": "Parcela 78, Valle de Guadalupe, 22750 Ensenada, B.C.",
-    "services": ["Branding", "Diseño de etiquetas", "Diseño web", "Redes sociales", "Fotografía", "Menús"],
-    "tags": ["diseño", "branding", "vinos", "web", "creativo"],
-    "verified": false,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-038",
-    "slug": "consultoria-empresarial-ensenada",
-    "name": "Consultoría Empresarial Ensenada",
-    "category": "servicios-profesionales",
-    "zone": "ensenada-centro",
-    "description": "Consultoría integral para PyMEs y emprendedores. Planes de negocio, estrategia comercial, capacitación de personal y optimización de procesos. Impulsamos tu empresa al siguiente nivel.",
-    "phone": "+52 646 120 5500",
-    "email": "info@consultoriaensenada.com",
-    "website": "https://consultoriaensenada.com",
-    "address": "Av. Costero 780, Torre Corporativa Piso 4, 22890 Ensenada, B.C.",
-    "services": ["Plan de negocios", "Estrategia comercial", "Capacitación", "Optimización de procesos", "Estudios de mercado"],
-    "tags": ["consultoría", "PyMEs", "negocios", "estrategia"],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-039",
-    "slug": "arquitectura-costa-baja",
-    "name": "Arquitectura Costa Baja",
-    "category": "servicios-profesionales",
-    "zone": "ensenada-centro",
-    "description": "Despacho de arquitectura con enfoque sustentable y diseño contemporáneo costero. Proyectos residenciales, comerciales y hoteleros en Ensenada y el Valle de Guadalupe.",
-    "phone": "+52 646 179 1200",
-    "email": "proyectos@costabaja.mx",
-    "website": "https://costabaja.mx",
-    "address": "Calle Segunda 345, Zona Centro, 22800 Ensenada, B.C.",
-    "services": ["Diseño arquitectónico", "Proyectos residenciales", "Comercial", "Hotelero", "Sustentable", "Renderizado 3D"],
-    "tags": ["arquitectura", "diseño", "sustentable", "costero"],
-    "verified": false,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-040",
-    "slug": "agencia-marketing-digital-baja",
-    "name": "Agencia de Marketing Digital Baja",
-    "category": "servicios-profesionales",
-    "zone": "ensenada-centro",
-    "description": "Agencia de marketing digital enfocada en negocios locales. SEO, Google Ads, manejo de redes sociales, fotografía de producto y creación de contenido para pequeños y medianos negocios en Ensenada.",
-    "phone": "+52 646 131 2800",
-    "email": "hola@marketinbaja.com",
-    "website": "https://marketinbaja.com",
-    "address": "Blvd. Costero 1200, Local 5, 22890 Ensenada, B.C.",
-    "services": ["SEO", "Google Ads", "Redes sociales", "Fotografía", "Contenido", "Email marketing"],
-    "tags": ["marketing", "digital", "SEO", "redes", "PyMEs"],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z"
-  },
-  {
-    "id": "biz-041",
-    "slug": "mantenimiento-el-profesional",
-    "name": "Mantenimiento El Profesional",
-    "category": "handyman",
-    "zone": "ensenada-centro",
-    "description": "Servicio de mantenimiento general para hogar y oficina. Plomería, electricidad básica, pintura y reparaciones menores. Más de 10 años de experiencia en el centro de Ensenada.",
-    "phone": "+52 646 188 4300",
-    "services": ["Plomería básica", "Electricidad", "Pintura", "Reparaciones", "Instalaciones"],
-    "verified": false,
-    "destacado": false,
-    "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
-  },
-  {
-    "id": "biz-042",
-    "slug": "multioficio-el-sauzal",
-    "name": "Multioficio El Sauzal",
-    "category": "handyman",
-    "zone": "el-sauzal",
-    "description": "Soluciones integrales para tu hogar en El Sauzal. Arreglos de plomería, electricidad, carpintería menor y mantenimiento general a precios accesibles.",
-    "phone": "+52 646 199 5700",
-    "services": ["Plomería", "Electricidad", "Carpintería", "Pintura menor", "Mantenimiento"],
-    "verified": false,
-    "destacado": false,
-    "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-06-01T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/25/800/600",
+      "https://picsum.photos/id/26/800/600"
+    ],
+    "experience": "5 años de experiencia",
+    "certifications": [
+      "Certificado por ICIC",
+      "Curso de seguridad industrial"
+    ],
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "María G.",
+        "rating": 5,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-05-26"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": true,
+      "days": [
+        "mar",
+        "lun",
+        "vie"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-043",
@@ -408,95 +729,379 @@
     "zone": "valle-de-guadalupe",
     "description": "Servicio profesional de jardinería en el Valle de Guadalupe. Diseño de jardines, mantenimiento de viñedos, sistemas de riego y paisajismo para casas de campo y restaurantes.",
     "phone": "+52 646 155 8100",
-    "services": ["Diseño de jardines", "Mantenimiento", "Sistemas de riego", "Poda", "Paisajismo"],
+    "services": [
+      "Diseño de jardines",
+      "Mantenimiento",
+      "Sistemas de riego",
+      "Poda",
+      "Paisajismo"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/14/800/600",
+      "https://picsum.photos/id/28/800/600"
+    ],
+    "experience": "10+ años de experiencia",
+    "certifications": [
+      "Certificado por CANACO",
+      "Curso de atención al cliente"
+    ],
+    "rating": 4.4,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 4,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-03-16"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "jue",
+        "mar",
+        "mie",
+        "vie",
+        "sab"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "presencial"
   },
   {
     "id": "biz-044",
     "slug": "jardineria-ensenada",
     "name": "Jardinería Ensenada",
     "category": "jardineria",
-    "zone": "ensenada-centro",
+    "zone": "centro",
     "description": "Jardineros expertos para residencias y comercios en Ensenada. Corte de césped, poda de árboles, control de plagas, fertilización y mantenimiento de áreas verdes durante todo el año.",
     "phone": "+52 646 122 6400",
-    "services": ["Corte de césped", "Poda de árboles", "Control de plagas", "Fertilización", "Mantenimiento general"],
+    "services": [
+      "Corte de césped",
+      "Poda de árboles",
+      "Control de plagas",
+      "Fertilización",
+      "Mantenimiento general"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/15/800/600",
+      "https://picsum.photos/id/82/800/600"
+    ],
+    "experience": "12 años de experiencia",
+    "certifications": [
+      "Certificación PROFECO",
+      "Norma Oficial Mexicana"
+    ],
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-01-17"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "vie",
+        "sab",
+        "lun",
+        "mie",
+        "mar"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "telefonica"
   },
   {
     "id": "biz-045",
     "slug": "pintura-profesional-baja",
     "name": "Pintura Profesional Baja",
     "category": "pintura",
-    "zone": "ensenada-centro",
+    "zone": "valle-dorado",
     "description": "Pintura residencial y comercial en Ensenada. Aplicación de pintura interior y exterior, impermeabilización de techos, texturizados y acabados decorativos con materiales de primera calidad.",
     "phone": "+52 646 177 9300",
-    "services": ["Pintura interior", "Pintura exterior", "Impermeabilización", "Texturizados", "Acabados decorativos"],
+    "services": [
+      "Pintura interior",
+      "Pintura exterior",
+      "Impermeabilización",
+      "Texturizados",
+      "Acabados decorativos"
+    ],
     "verified": false,
-    "destacado": false,
+    "destacado": true,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/96/800/600",
+      "https://picsum.photos/id/91/800/600"
+    ],
+    "experience": "15 años de experiencia",
+    "rating": 3.7,
+    "reviews": [
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-05-16"
+      },
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-05-25"
+      },
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-06-23"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "mar",
+        "mie",
+        "sab",
+        "vie",
+        "jue"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-046",
     "slug": "pintura-el-sauzal",
     "name": "Pintura El Sauzal",
     "category": "pintura",
-    "zone": "el-sauzal",
+    "zone": "sauzal",
     "description": "Especialistas en pintura para hogares y negocios en El Sauzal y San Miguel. Pintura de interiores, fachadas, rejas y muros perimetrales con garantía de calidad.",
     "phone": "+52 646 144 2800",
-    "services": ["Pintura de interiores", "Fachadas", "Rejas y muros", "Impermeabilización"],
+    "services": [
+      "Pintura de interiores",
+      "Fachadas",
+      "Rejas y muros",
+      "Impermeabilización"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/90/800/600",
+      "https://picsum.photos/id/24/800/600"
+    ],
+    "experience": "7 años de experiencia",
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Ana L.",
+        "rating": 5,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-07-21"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-01-19"
+      },
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-02-17"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "vie",
+        "mar",
+        "sab",
+        "lun",
+        "mie",
+        "jue"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "telefonica"
   },
   {
     "id": "biz-047",
     "slug": "albanileria-ensenada",
     "name": "Albañilería Ensenada",
     "category": "albanileria",
-    "zone": "ensenada-centro",
+    "zone": "centro",
     "description": "Servicios profesionales de albañilería en Ensenada. Construcción de cuartos, cocheras, bardas, pisos y losas. Remodelaciones completas con materiales de calidad y entrega a tiempo.",
     "phone": "+52 646 133 7100",
-    "services": ["Construcción", "Remodelaciones", "Bardas", "Pisos y losas", "Cimentación"],
+    "services": [
+      "Construcción",
+      "Remodelaciones",
+      "Bardas",
+      "Pisos y losas",
+      "Cimentación"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/37/800/600",
+      "https://picsum.photos/id/85/800/600"
+    ],
+    "experience": "1 año de experiencia",
+    "certifications": [
+      "Certificación técnica avalada"
+    ],
+    "rating": 4.7,
+    "reviews": [
+      {
+        "author": "José M.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-07-13"
+      },
+      {
+        "author": "Sofía H.",
+        "rating": 3,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-02-16"
+      },
+      {
+        "author": "Pedro V.",
+        "rating": 4,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-07-17"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": true,
+      "days": [
+        "mie",
+        "sab",
+        "lun",
+        "mar",
+        "vie",
+        "jue"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "whatsapp"
   },
   {
     "id": "biz-048",
     "slug": "construcciones-el-sauzal",
     "name": "Construcciones El Sauzal",
     "category": "albanileria",
-    "zone": "el-sauzal",
+    "zone": "sauzal",
     "description": "Albañiles de confianza en El Sauzal. Especialistas en obra negra, cimentación, castillos, losas y aplanados. Proyectos residenciales y comerciales pequeños.",
     "phone": "+52 646 155 4900",
-    "services": ["Obra negra", "Cimentación", "Castillos", "Losas", "Aplanados"],
+    "services": [
+      "Obra negra",
+      "Cimentación",
+      "Castillos",
+      "Losas",
+      "Aplanados"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/78/800/600",
+      "https://picsum.photos/id/86/800/600"
+    ],
+    "experience": "5 años de experiencia",
+    "rating": 5.0,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-05-23"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "vie",
+        "sab",
+        "lun",
+        "mar",
+        "jue",
+        "mie"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "online"
   },
   {
     "id": "biz-049",
     "slug": "limpieza-total-baja",
     "name": "Limpieza Total Baja",
     "category": "limpieza",
-    "zone": "ensenada-centro",
+    "zone": "chapultepec",
     "description": "Servicio de limpieza profesional para hogares, oficinas y comercios en Ensenada. Limpieza profunda, lavado de alfombras, pulido de pisos y sanitización con productos ecológicos.",
     "phone": "+52 646 188 1500",
-    "services": ["Limpieza residencial", "Oficinas", "Lavado de alfombras", "Pulido de pisos", "Sanitización"],
+    "services": [
+      "Limpieza residencial",
+      "Oficinas",
+      "Lavado de alfombras",
+      "Pulido de pisos",
+      "Sanitización"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/48/800/600",
+      "https://picsum.photos/id/49/800/600"
+    ],
+    "experience": "5 años de experiencia",
+    "certifications": [
+      "Certificado por CANACO",
+      "Curso de atención al cliente"
+    ],
+    "rating": 4.0,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 5,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-06-13"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "sab",
+        "jue",
+        "mie",
+        "mar",
+        "vie"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "telefonica"
   },
   {
     "id": "biz-050",
@@ -506,10 +1111,981 @@
     "zone": "maneadero",
     "description": "Limpieza a fondo para casas y negocios en Maneadero y Punta Banda. Servicio regular semanal o quincenal, limpieza de ventanas, baños, cocina y áreas comunes.",
     "phone": "+52 646 177 3600",
-    "services": ["Limpieza semanal", "Limpieza quincenal", "Ventanas", "Baños y cocina", "Áreas comunes"],
+    "services": [
+      "Limpieza semanal",
+      "Limpieza quincenal",
+      "Ventanas",
+      "Baños y cocina",
+      "Áreas comunes"
+    ],
     "verified": false,
     "destacado": false,
     "createdAt": "2026-07-28T10:00:00Z",
-    "updatedAt": "2026-07-28T10:00:00Z"
+    "updatedAt": "2026-07-28T10:00:00Z",
+    "photos": [
+      "https://picsum.photos/id/66/800/600",
+      "https://picsum.photos/id/72/800/600"
+    ],
+    "experience": "8 años de experiencia",
+    "certifications": [
+      "Certificación técnica avalada"
+    ],
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 4,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-03-19"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": true,
+      "days": [
+        "jue",
+        "sab",
+        "vie",
+        "mie",
+        "lun"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-051",
+    "slug": "carpinteria-don-luis",
+    "name": "Carpintería Don Luis",
+    "category": "carpinteria",
+    "zone": "centro",
+    "description": "Carpintería Don Luis — Muebles a medida, Reparación de puertas, Acabados en madera. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1052111",
+    "services": [
+      "Muebles a medida",
+      "Reparación de puertas",
+      "Acabados en madera"
+    ],
+    "verified": false,
+    "destacado": true,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "1 año de experiencia",
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-06-19"
+      },
+      {
+        "author": "José M.",
+        "rating": 3,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-01-11"
+      },
+      {
+        "author": "José M.",
+        "rating": 4,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-04-23"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "jue",
+        "sab",
+        "mar",
+        "lun",
+        "mie",
+        "vie"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "telefonica"
+  },
+  {
+    "id": "biz-052",
+    "slug": "muebleria-y-carpinteria-el-sauzal",
+    "name": "Mueblería y Carpintería El Sauzal",
+    "category": "carpinteria",
+    "zone": "sauzal",
+    "description": "Mueblería y Carpintería El Sauzal — Closets, Cocinas integrales, Restauración. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1053111",
+    "services": [
+      "Closets",
+      "Cocinas integrales",
+      "Restauración"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "3 años de experiencia",
+    "certifications": [
+      "Curso de especialización",
+      "Certificado por el municipio"
+    ],
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-07-24"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "jue",
+        "vie",
+        "sab",
+        "mie",
+        "mar"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-053",
+    "slug": "herreria-artistica-baja",
+    "name": "Herrería Artística Baja",
+    "category": "herreria",
+    "zone": "presa-y-alrededores",
+    "description": "Herrería Artística Baja — Portones, Rejas, Soldadura. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1054111",
+    "services": [
+      "Portones",
+      "Rejas",
+      "Soldadura"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "12 años de experiencia",
+    "rating": 3.9,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 5,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-06-17"
+      },
+      {
+        "author": "Laura P.",
+        "rating": 4,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-06-19"
+      },
+      {
+        "author": "José M.",
+        "rating": 4,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-03-27"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "sab",
+        "mar",
+        "vie",
+        "lun",
+        "jue",
+        "mie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-054",
+    "slug": "forja-y-soldadura-el-sauzal",
+    "name": "Forja y Soldadura El Sauzal",
+    "category": "herreria",
+    "zone": "sauzal",
+    "description": "Forja y Soldadura El Sauzal — Estructuras metálicas, Barandales, Herrería ornamental. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1055111",
+    "services": [
+      "Estructuras metálicas",
+      "Barandales",
+      "Herrería ornamental"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "2 años de experiencia",
+    "rating": 4.7,
+    "reviews": [
+      {
+        "author": "María G.",
+        "rating": 5,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-04-10"
+      },
+      {
+        "author": "Miguel Á.",
+        "rating": 4,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-07-23"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "jue",
+        "mar",
+        "mie",
+        "vie"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "presencial"
+  },
+  {
+    "id": "biz-055",
+    "slug": "climapro-ensenada",
+    "name": "ClimaPro Ensenada",
+    "category": "refrigeracion-aire",
+    "zone": "valle-dorado",
+    "description": "ClimaPro Ensenada — Instalación de minisplit, Reparación de aires, Mantenimiento preventivo. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1056111",
+    "services": [
+      "Instalación de minisplit",
+      "Reparación de aires",
+      "Mantenimiento preventivo"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "2 años de experiencia",
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-05-27"
+      },
+      {
+        "author": "María G.",
+        "rating": 4,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-01-23"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "mie",
+        "jue",
+        "sab"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-056",
+    "slug": "aire-frio-baja",
+    "name": "Aire Frío Baja",
+    "category": "refrigeracion-aire",
+    "zone": "maneadero",
+    "description": "Aire Frío Baja — Refrigeración comercial, Aire lavado, Ductería. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1057111",
+    "services": [
+      "Refrigeración comercial",
+      "Aire lavado",
+      "Ductería"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "Más de 20 años en el oficio",
+    "rating": 4.8,
+    "reviews": [
+      {
+        "author": "Sofía H.",
+        "rating": 4,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-04-10"
+      },
+      {
+        "author": "María G.",
+        "rating": 4,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-06-12"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "mar",
+        "sab",
+        "lun"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "telefonica"
+  },
+  {
+    "id": "biz-057",
+    "slug": "servitecnico-ensenada",
+    "name": "ServiTécnico Ensenada",
+    "category": "reparacion-electrodomesticos",
+    "zone": "89-y-alrededores",
+    "description": "ServiTécnico Ensenada — Lavadoras, Secadoras, Estufas. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1058111",
+    "services": [
+      "Lavadoras",
+      "Secadoras",
+      "Estufas",
+      "Hornos"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "8 años de experiencia",
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "José M.",
+        "rating": 4,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-07-21"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 5,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-07-15"
+      },
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-03-28"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "sab",
+        "mar",
+        "lun",
+        "mie",
+        "jue",
+        "vie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "presencial"
+  },
+  {
+    "id": "biz-058",
+    "slug": "reparaciones-rapido-baja",
+    "name": "Reparaciones Rápido Baja",
+    "category": "reparacion-electrodomesticos",
+    "zone": "sauzal",
+    "description": "Reparaciones Rápido Baja — Refrigeradores, Congeladores, Microondas. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1059111",
+    "services": [
+      "Refrigeradores",
+      "Congeladores",
+      "Microondas"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "4 años de experiencia",
+    "certifications": [],
+    "rating": 4.3,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-01-23"
+      },
+      {
+        "author": "Pedro V.",
+        "rating": 3,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-03-24"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 4,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-06-26"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "jue",
+        "sab",
+        "mie",
+        "mar",
+        "lun",
+        "vie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-059",
+    "slug": "pisos-y-acabados-ensenada",
+    "name": "Pisos y Acabados Ensenada",
+    "category": "instalacion-pisos",
+    "zone": "chapultepec",
+    "description": "Pisos y Acabados Ensenada — Piso cerámico, Laminado, Vinílico. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1060111",
+    "services": [
+      "Piso cerámico",
+      "Laminado",
+      "Vinílico",
+      "Pulido"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "8 años de experiencia",
+    "certifications": [
+      "Certificación técnica avalada"
+    ],
+    "rating": 4.0,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "Servicio regular, puede mejorar la puntualidad.",
+        "date": "2026-02-21"
+      },
+      {
+        "author": "Laura P.",
+        "rating": 4,
+        "comment": "El mejor de la zona, siempre lo llamo.",
+        "date": "2026-05-18"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "lun",
+        "mar",
+        "jue",
+        "vie"
+      ],
+      "hours": "8:00-20:00"
+    },
+    "quoteMethod": "telefonica"
+  },
+  {
+    "id": "biz-060",
+    "slug": "instalaciones-el-sauzal",
+    "name": "Instalaciones El Sauzal",
+    "category": "instalacion-pisos",
+    "zone": "sauzal",
+    "description": "Instalaciones El Sauzal — Loseta, Mármol, Nivelación. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1061111",
+    "services": [
+      "Loseta",
+      "Mármol",
+      "Nivelación"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "1 año de experiencia",
+    "certifications": [
+      "Curso de especialización",
+      "Certificado por el municipio"
+    ],
+    "rating": 4.2,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 4,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-04-17"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "vie",
+        "sab",
+        "mie",
+        "mar",
+        "jue",
+        "lun"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "whatsapp"
+  },
+  {
+    "id": "biz-061",
+    "slug": "impermeabilizaciones-baja",
+    "name": "Impermeabilizaciones Baja",
+    "category": "impermeabilizacion",
+    "zone": "presa-y-alrededores",
+    "description": "Impermeabilizaciones Baja — Techos, Terrazas, Cisternas. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1062111",
+    "services": [
+      "Techos",
+      "Terrazas",
+      "Cisternas"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "15 años de experiencia",
+    "rating": 3.7,
+    "reviews": [
+      {
+        "author": "Miguel Á.",
+        "rating": 3,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-02-16"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mar",
+        "mie",
+        "sab",
+        "vie"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "whatsapp"
+  },
+  {
+    "id": "biz-062",
+    "slug": "techos-secos-ensenada",
+    "name": "Techos Secos Ensenada",
+    "category": "impermeabilizacion",
+    "zone": "maneadero",
+    "description": "Techos Secos Ensenada — Impermeabilizante asfáltico, Membrana, Mantenimiento. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1063111",
+    "services": [
+      "Impermeabilizante asfáltico",
+      "Membrana",
+      "Mantenimiento"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "5 años de experiencia",
+    "certifications": [
+      "Diplomado en instalaciones",
+      "Certificación de fabricante"
+    ],
+    "rating": 3.9,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 5,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-06-25"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "jue",
+        "sab",
+        "vie",
+        "mar",
+        "lun"
+      ],
+      "hours": "8:00-18:00"
+    },
+    "quoteMethod": "whatsapp"
+  },
+  {
+    "id": "biz-063",
+    "slug": "cerrajeria-express-ensenada",
+    "name": "Cerrajería Express Ensenada",
+    "category": "cerrajeria",
+    "zone": "89-y-alrededores",
+    "description": "Cerrajería Express Ensenada — Apertura de puertas, Cambio de cerraduras, Copias de llaves. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1064111",
+    "services": [
+      "Apertura de puertas",
+      "Cambio de cerraduras",
+      "Copias de llaves"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "12 años de experiencia",
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 5,
+        "comment": "Excelente trabajo, muy profesional y puntual.",
+        "date": "2026-02-14"
+      },
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-01-27"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "vie",
+        "jue",
+        "sab",
+        "mar"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-064",
+    "slug": "llaves-y-cerraduras-baja",
+    "name": "Llaves y Cerraduras Baja",
+    "category": "cerrajeria",
+    "zone": "sauzal",
+    "description": "Llaves y Cerraduras Baja — Cerrajería automotriz, Cerraduras de seguridad, Control de acceso. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1065111",
+    "services": [
+      "Cerrajería automotriz",
+      "Cerraduras de seguridad",
+      "Control de acceso"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "15 años de experiencia",
+    "certifications": [
+      "Certificado por ICIC",
+      "Curso de seguridad industrial"
+    ],
+    "rating": 4.4,
+    "reviews": [
+      {
+        "author": "Carlos R.",
+        "rating": 3,
+        "comment": "Muy buen precio y calidad en el trabajo.",
+        "date": "2026-03-12"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 3,
+        "comment": "Recomendado, solucionó el problema rápido.",
+        "date": "2026-05-12"
+      },
+      {
+        "author": "Ana L.",
+        "rating": 3,
+        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
+        "date": "2026-04-25"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "sab",
+        "jue",
+        "lun",
+        "mie",
+        "vie"
+      ],
+      "hours": "7:00-15:00"
+    },
+    "quoteMethod": "telefonica"
+  },
+  {
+    "id": "biz-065",
+    "slug": "multiservicios-baja",
+    "name": "Multiservicios Baja",
+    "category": "servicios-generales",
+    "zone": "centro",
+    "description": "Multiservicios Baja — Plomería, Electricidad, Pintura. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1066111",
+    "services": [
+      "Plomería",
+      "Electricidad",
+      "Pintura",
+      "Reparaciones del hogar"
+    ],
+    "verified": false,
+    "destacado": true,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "2 años de experiencia",
+    "rating": 3.8,
+    "reviews": [
+      {
+        "author": "Laura P.",
+        "rating": 3,
+        "comment": "Buen servicio, aunque tardó un poco en llegar.",
+        "date": "2026-01-15"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": true,
+      "days": [
+        "jue",
+        "lun",
+        "sab",
+        "mie",
+        "mar"
+      ],
+      "hours": "10:00-20:00"
+    },
+    "quoteMethod": "whatsapp"
+  },
+  {
+    "id": "biz-066",
+    "slug": "el-manitas-ensenada",
+    "name": "El Manitas Ensenada",
+    "category": "servicios-generales",
+    "zone": "sauzal",
+    "description": "El Manitas Ensenada — Mantenimiento general, Reparaciones, Instalaciones. Servicio profesional en Ensenada, Baja California.",
+    "phone": "+52 646 1067111",
+    "services": [
+      "Mantenimiento general",
+      "Reparaciones",
+      "Instalaciones"
+    ],
+    "verified": false,
+    "destacado": false,
+    "createdAt": "2026-07-29T04:07:23Z",
+    "updatedAt": "2026-07-29T04:07:23Z",
+    "experience": "7 años de experiencia",
+    "certifications": [
+      "Curso de especialización",
+      "Certificado por el municipio"
+    ],
+    "rating": 3.6,
+    "reviews": [
+      {
+        "author": "Sofía H.",
+        "rating": 5,
+        "comment": "Trabajo impecable, volvería a contratar.",
+        "date": "2026-05-18"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "sab",
+        "mie",
+        "lun"
+      ],
+      "hours": "9:00-17:00"
+    },
+    "quoteMethod": "online"
+  },
+  {
+    "id": "biz-067",
+    "slug": "abogado-garcia-ensenada",
+    "name": "Abogado García",
+    "category": "servicios-profesionales",
+    "zone": "centro",
+    "description": "Servicios legales en derecho civil, familiar, mercantil y laboral. Asesoría jurídica profesional con más de 15 años de experiencia en Ensenada.",
+    "phone": "+52 646 120 4050",
+    "services": [
+      "Derecho civil",
+      "Derecho familiar",
+      "Derecho mercantil",
+      "Asesoría jurídica",
+      "Juicios y litigios"
+    ],
+    "photos": [
+      "https://picsum.photos/id/101/800/600",
+      "https://picsum.photos/id/102/800/600"
+    ],
+    "verified": false,
+    "destacado": true,
+    "experience": "15 años de experiencia",
+    "certifications": [
+      "Cédula profesional SEP",
+      "Colegio de Abogados de BC"
+    ],
+    "rating": 4.8,
+    "reviews": [
+      {
+        "author": "Roberto M.",
+        "rating": 5,
+        "comment": "Excelente abogado, resolvió mi caso en tiempo récord.",
+        "date": "2026-06-15"
+      },
+      {
+        "author": "Daniela R.",
+        "rating": 5,
+        "comment": "Muy profesional y claro en sus explicaciones legales.",
+        "date": "2026-05-20"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mar",
+        "mie",
+        "jue",
+        "vie"
+      ],
+      "hours": "9:00-18:00"
+    },
+    "quoteMethod": "presencial",
+    "createdAt": "2026-07-29T04:43:20Z",
+    "updatedAt": "2026-07-29T04:43:20Z"
+  },
+  {
+    "id": "biz-068",
+    "slug": "contadora-lopez-baja",
+    "name": "Contadora López",
+    "category": "servicios-profesionales",
+    "zone": "sauzal",
+    "description": "Contabilidad fiscal, declaraciones, nóminas y asesoría para personas físicas y morales. Más de 10 años ayudando a negocios locales.",
+    "phone": "+52 646 130 5060",
+    "services": [
+      "Declaraciones fiscales",
+      "Contabilidad general",
+      "Nóminas",
+      "Personas físicas y morales",
+      "Asesoría SAT"
+    ],
+    "photos": [
+      "https://picsum.photos/id/103/800/600",
+      "https://picsum.photos/id/104/800/600"
+    ],
+    "verified": false,
+    "destacado": false,
+    "experience": "10+ años de experiencia",
+    "certifications": [
+      "Certificación IMCP",
+      "Cédula profesional"
+    ],
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "Marisol H.",
+        "rating": 4,
+        "comment": "Buena contadora, siempre al día con mis impuestos.",
+        "date": "2026-07-01"
+      }
+    ],
+    "availability": {
+      "homeService": false,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mar",
+        "mie",
+        "jue",
+        "vie"
+      ],
+      "hours": "10:00-17:00"
+    },
+    "quoteMethod": "telefonica",
+    "createdAt": "2026-07-29T04:43:20Z",
+    "updatedAt": "2026-07-29T04:43:20Z"
+  },
+  {
+    "id": "biz-069",
+    "slug": "arquitecto-mendez-estudio",
+    "name": "Arquitecto Méndez",
+    "category": "servicios-profesionales",
+    "zone": "valle-dorado",
+    "description": "Diseño arquitectónico, planos, permisos de construcción y dirección de obra. Remodelaciones residenciales y comerciales en toda la región.",
+    "phone": "+52 646 140 6070",
+    "services": [
+      "Diseño arquitectónico",
+      "Planos",
+      "Permisos de construcción",
+      "Dirección de obra",
+      "Remodelaciones"
+    ],
+    "photos": [
+      "https://picsum.photos/id/105/800/600",
+      "https://picsum.photos/id/106/800/600"
+    ],
+    "verified": false,
+    "destacado": false,
+    "experience": "12 años de experiencia",
+    "certifications": [
+      "Cédula profesional",
+      "Colegio de Arquitectos de BC"
+    ],
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "Fernando A.",
+        "rating": 5,
+        "comment": "Diseñó mi casa exactamente como la soñé. Un genio.",
+        "date": "2026-04-10"
+      },
+      {
+        "author": "Patricia V.",
+        "rating": 4,
+        "comment": "Muy creativo y profesional. Los planos salieron perfectos.",
+        "date": "2026-03-22"
+      }
+    ],
+    "availability": {
+      "homeService": true,
+      "emergency": false,
+      "days": [
+        "lun",
+        "mar",
+        "mie",
+        "jue",
+        "vie",
+        "sab"
+      ],
+      "hours": "8:00-16:00"
+    },
+    "quoteMethod": "presencial",
+    "createdAt": "2026-07-29T04:43:20Z",
+    "updatedAt": "2026-07-29T04:43:20Z"
   }
 ]

@@ -1,32 +1,56 @@
 [
   {
-    "slug": "ensenada-centro",
-    "name": "Ensenada Centro",
-    "description": "El corazón de la ciudad: el malecón, la calle Primera, el puerto y la vida nocturna.",
+    "slug": "centro",
+    "name": "Centro",
+    "description": "Zona centro de Ensenada y primer cuadro de la ciudad.",
     "order": 1
   },
   {
     "slug": "valle-de-guadalupe",
     "name": "Valle de Guadalupe",
-    "description": "La ruta del vino: viñedos, restaurantes de autor y paisajes únicos a 20 min de la ciudad.",
+    "description": "Ruta del vino, gastronomía y paisajes del valle.",
     "order": 2
   },
   {
-    "slug": "el-sauzal",
-    "name": "El Sauzal",
-    "description": "Zona costera al norte de Ensenada con mariscos frescos y vistas al Pacífico.",
+    "slug": "sauzal",
+    "name": "Sauzal",
+    "description": "Comunidad costera al norte de Ensenada.",
     "order": 3
   },
   {
     "slug": "maneadero",
     "name": "Maneadero",
-    "description": "Comunidad al sur de Ensenada, puerta de entrada a La Bufadora y Punta Banda.",
+    "description": "Delegación al sur de Ensenada, camino a La Bufadora.",
     "order": 4
   },
   {
-    "slug": "la-bufadora",
-    "name": "La Bufadora",
-    "description": "El bufadero marino más grande de Norteamérica, rodeado de comercios y mariscos.",
+    "slug": "89-y-alrededores",
+    "name": "89 y alrededores",
+    "description": "Zona de la carretera Transpeninsular y sus inmediaciones.",
     "order": 5
+  },
+  {
+    "slug": "presa-y-alrededores",
+    "name": "Presa y alrededores",
+    "description": "Área de la Presa Emilio López Zamora y colonias aledañas.",
+    "order": 6
+  },
+  {
+    "slug": "valle-dorado",
+    "name": "Valle Dorado",
+    "description": "Fraccionamiento residencial al norte de la ciudad.",
+    "order": 7
+  },
+  {
+    "slug": "chapultepec",
+    "name": "Chapultepec",
+    "description": "Colonia Chapultepec y zonas cercanas.",
+    "order": 8
+  },
+  {
+    "slug": "punta-banda",
+    "name": "Punta Banda",
+    "description": "Península de Punta Banda, La Bufadora y alrededores.",
+    "order": 9
   }
 ]

@@ -1,8 +1,8 @@
 ---
 import { NAV_LINKS } from '@/lib/constants';
-import { getCategories } from '@/lib/data-loader';
+import { getZones } from '@/lib/data-loader';
 
-const categories = getCategories();
+const zones = getZones();
 ---
 
 <nav
@@ -31,28 +31,6 @@ const categories = getCategories();
           <button
             class="text-label-md font-semibold text-on-surface-variant hover:text-secondary transition-colors duration-200 inline-flex items-center gap-1"
           >
-            Categorías
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-          </button>
-          <div
-            class="absolute top-full left-0 mt-2 w-60 bg-surface-container-lowest rounded-md shadow-coastal border border-outline-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-          >
-            <div class="py-2">
-              {categories.map((cat) => (
-                <a
-                  href={`/${cat.slug}`}
-                  class="block px-4 py-2.5 text-label-md text-on-surface hover:bg-surface-container-low hover:text-secondary transition-colors"
-                >
-                  {cat.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div class="relative group">
-          <button
-            class="text-label-md font-semibold text-on-surface-variant hover:text-secondary transition-colors duration-200 inline-flex items-center gap-1"
-          >
             Zonas
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
@@ -60,12 +38,12 @@ const categories = getCategories();
             class="absolute top-full left-0 mt-2 w-60 bg-surface-container-lowest rounded-md shadow-coastal border border-outline-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
           >
             <div class="py-2">
-              {NAV_LINKS.filter((l) => l.href !== '/').map((link) => (
+              {zones.map((z) => (
                 <a
-                  href={link.href}
+                  href={`/zona/${z.slug}`}
                   class="block px-4 py-2.5 text-label-md text-on-surface hover:bg-surface-container-low hover:text-secondary transition-colors"
                 >
-                  {link.label}
+                  {z.name}
                 </a>
               ))}
             </div>
@@ -175,17 +153,6 @@ const categories = getCategories();
       <a href="/" class="block py-2 text-label-md font-semibold text-on-surface hover:text-secondary">
         Inicio
       </a>
-      <div class="space-y-1">
-        <span class="block py-2 text-label-md font-semibold text-on-surface">Categorías</span>
-        {categories.map((cat) => (
-          <a
-            href={`/${cat.slug}`}
-            class="block pl-4 py-1.5 text-label-md text-on-surface-variant hover:text-secondary transition-colors"
-          >
-            {cat.name}
-          </a>
-        ))}
-      </div>
     </div>
   </div>
 </nav>

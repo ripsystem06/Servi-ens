@@ -1,39 +1,40 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import HeroCarousel from '@/components/islands/HeroCarousel.tsx';
+import HeroBanner from '@/components/HeroBanner.astro';
 import CategorySidebar from '@/components/CategorySidebar.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
-import BannerSlot from '@/components/BannerSlot.astro';
-import {
-  getFeaturedBusinesses,
-  getPopularBusinesses,
-} from '@/lib/data-loader';
+import { getPopularBusinesses } from '@/lib/data-loader';
 
-const featured = getFeaturedBusinesses();
 const popular = getPopularBusinesses();
-
 const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
+
+const bannersVerticales = [
+  { src: "/banners/verticales/1.png", alt: "Publicidad 1", link: "#" },
+  { src: "/banners/verticales/2.png", alt: "Publicidad 2", link: "#" },
+  { src: "/banners/verticales/3.png", alt: "Publicidad 3", link: "#" },
+  { src: "/banners/verticales/4.png", alt: "Publicidad 4", link: "#" },
+];
 ---
 
 <BaseLayout title={pageTitle}>
-  <!-- Hero Area -->
-  {featured.length > 0 && (
-    <section class="max-w-container mx-auto px-gutter py-section">
-      <HeroCarousel
-        businesses={featured}
-        client:load
-      />
-    </section>
-  )}
+  <!-- Hero Banner Publicitario -->
+  <section class="max-w-container mx-auto px-gutter py-section">
+    <HeroBanner />
+  </section>
 
   <div class="max-w-container mx-auto px-gutter py-section">
-    <div class="grid grid-cols-12 gap-gutter">
+    <div class="grid grid-cols-12 gap-6 lg:gap-20">
       <!-- Left Sidebar -->
       <aside class="col-span-12 lg:col-span-3 space-y-6">
         <CategorySidebar />
 
-        <!-- Banner Sidebar Left -->
-        <BannerSlot slot="sidebar-left" />
+        <!-- Banner Vertical -->
+        <div class="space-y-3">
+          <p class="font-sans text-label-sm text-on-surface-variant/50 uppercase tracking-widest text-center">Espacio Publicitario</p>
+          <a href={bannersVerticales[0].link} class="block rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <img src={bannersVerticales[0].src} alt={bannersVerticales[0].alt} class="w-full h-auto object-cover" />
+          </a>
+        </div>
       </aside>
 
       <!-- Center Content -->
@@ -73,21 +74,6 @@ const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
             </div>
           ) : (
             <div class="text-center py-16 bg-surface-container-low rounded-md border border-outline-card">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="mx-auto text-on-surface-variant/40 mb-4"
-              >
-                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                <polyline points="14 2 14 8 20 8"/>
-              </svg>
               <p class="text-body-lg text-on-surface-variant">Próximamente</p>
               <p class="text-label-md text-on-surface-variant/60 mt-1">
                 Estamos preparando el catálogo de servicios. ¡Volvé pronto!
@@ -97,17 +83,17 @@ const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
         </div>
 
         <!-- CTA: ¿Ofrecés un servicio? -->
-        <section class="bg-primary-container rounded-md p-8 text-on-primary-container text-center">
+        <section class="bg-primary-container rounded-md p-8 text-white text-center">
           <h2 class="font-headline text-headline-md mb-3">
             ¿Ofrecés un servicio en Ensenada?
           </h2>
-          <p class="font-sans text-body-md opacity-80 max-w-lg mx-auto mb-6">
+          <p class="font-sans text-body-md text-white/80 max-w-lg mx-auto mb-6">
             Sumá tu servicio al catálogo más completo de la región. Llegá a más
             clientes locales y turistas que buscan lo que ofrecés.
           </p>
           <a
             href="mailto:contacto@catalogoensenada.com"
-            class="inline-flex items-center gap-2 bg-on-primary-container text-primary-container font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
+            class="inline-flex items-center gap-2 bg-white text-primary font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
           >
             Contactanos
             <svg
@@ -129,41 +115,12 @@ const pageTitle = 'Catálogo Ensenada — Directorio de Servicios Locales';
 
       <!-- Right Sidebar -->
       <aside class="col-span-12 lg:col-span-3 space-y-6">
-        <!-- Banner Sidebar Right -->
-        <BannerSlot slot="sidebar-right" />
-
-        <!-- Local Partners -->
-        <div class="bg-primary-container p-4 rounded-md text-on-primary-container">
-          <h4 class="font-sans font-bold mb-3 inline-flex items-center gap-2 text-label-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-            </svg>
-            Aliados Locales
-          </h4>
-          <div class="flex flex-wrap gap-2">
-            <span class="bg-on-primary-container/10 border border-on-primary-container/20 px-2 py-1 rounded text-[11px] font-bold">
-              ENSENADA
-            </span>
-            <span class="bg-on-primary-container/10 border border-on-primary-container/20 px-2 py-1 rounded text-[11px] font-bold">
-              VALLE
-            </span>
-            <span class="bg-on-primary-container/10 border border-on-primary-container/20 px-2 py-1 rounded text-[11px] font-bold">
-              BAJA
-            </span>
-          </div>
-        </div>
+        <p class="font-sans text-label-sm text-on-surface-variant/50 uppercase tracking-widest text-center">Espacio Publicitario</p>
+        {bannersVerticales.slice(1).map((banner) => (
+          <a href={banner.link} class="block rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+            <img src={banner.src} alt={banner.alt} class="w-full h-auto object-cover" />
+          </a>
+        ))}
       </aside>
     </div>
   </div>
