@@ -42,7 +42,7 @@ function getError(field: string): string {
       value={getFieldValue('name')}
       required
       class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-      placeholder="Nombre del negocio"
+      placeholder="Nombre del servicio"
     />
     {getError('name') && (
       <p class="mt-1 text-label-sm text-error">{getError('name')}</p>
@@ -62,7 +62,7 @@ function getError(field: string): string {
       required
       pattern="^[a-z0-9-]+$"
       class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all font-mono"
-      placeholder="nombre-del-negocio"
+      placeholder="nombre-del-servicio"
     />
     {getError('slug') && (
       <p class="mt-1 text-label-sm text-error">{getError('slug')}</p>
@@ -79,7 +79,7 @@ function getError(field: string): string {
       name="description"
       rows="4"
       class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
-      placeholder="Describe el negocio..."
+      placeholder="Describe el servicio..."
     >{getFieldValue('description')}</textarea>
   </div>
 
@@ -156,7 +156,7 @@ function getError(field: string): string {
         name="email"
         value={getFieldValue('email')}
         class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-        placeholder="contacto@negocio.com"
+        placeholder="contacto@servicio.com"
       />
     </div>
   </div>
@@ -173,7 +173,7 @@ function getError(field: string): string {
         name="website"
         value={getFieldValue('website')}
         class="w-full px-4 py-2.5 bg-surface border border-outline-input rounded-md text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-        placeholder="https://negocio.com"
+        placeholder="https://servicio.com"
       />
     </div>
 

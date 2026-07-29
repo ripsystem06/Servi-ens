@@ -106,7 +106,7 @@ if (Astro.request.method === 'POST') {
     allBizes.push(newBusiness);
     fs.writeFileSync(jsonPath, JSON.stringify(allBizes, null, 2), 'utf-8');
 
-    redirectUrl = '/admin/servicios?msg=Negocio+creado';
+    redirectUrl = '/admin/servicios?msg=Servicio+creado';
     success = true;
   }
 }
@@ -116,10 +116,10 @@ if (success && redirectUrl) {
 }
 ---
 
-<AdminLayout title="Nuevo negocio" userEmail={userEmail}>
+<AdminLayout title="Nuevo servicio" userEmail={userEmail}>
   <div class="max-w-3xl">
     <div class="bg-white rounded-xl shadow-coastal border border-outline-card p-8">
-      <h2 class="font-headline font-semibold text-headline-md text-primary mb-6">Nuevo negocio</h2>
+      <h2 class="font-headline font-semibold text-headline-md text-primary mb-6">Nuevo servicio</h2>
 
       {Object.keys(formErrors).length > 0 && (
         <div class="mb-6 p-3 rounded-md bg-error-container border border-error/30 text-error-on-container text-label-md" role="alert">

@@ -42,7 +42,7 @@ if (Astro.request.method === 'POST' && business) {
     } catch (err) {
       console.error('[admin] Error deleting business:', err);
     }
-    redirectUrl = '/admin/servicios?msg=Negocio+eliminado';
+    redirectUrl = '/admin/servicios?msg=Servicio+eliminado';
     success = true;
   } else {
     // ─── Update action ──────────────────────────────────────
@@ -121,7 +121,7 @@ if (Astro.request.method === 'POST' && business) {
         console.error('[admin] Error updating business:', err);
       }
 
-      redirectUrl = '/admin/servicios?msg=Negocio+actualizado';
+      redirectUrl = '/admin/servicios?msg=Servicio+actualizado';
       success = true;
     }
   }
@@ -153,20 +153,20 @@ if (business) {
 }
 ---
 
-<AdminLayout title={business ? `Editar: ${business.name}` : 'Negocio no encontrado'} userEmail={userEmail}>
+<AdminLayout title={business ? `Editar: ${business.name}` : 'Servicio no encontrado'} userEmail={userEmail}>
   {isNotFound ? (
     <div class="max-w-lg mx-auto py-16 text-center">
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-on-surface-variant/40">
         <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
       </svg>
-      <h2 class="font-headline font-semibold text-headline-lg text-on-surface mb-2">Negocio no encontrado</h2>
-      <p class="text-label-md text-on-surface-variant mb-6">El negocio que buscás no existe o fue eliminado.</p>
+      <h2 class="font-headline font-semibold text-headline-lg text-on-surface mb-2">Servicio no encontrado</h2>
+      <p class="text-label-md text-on-surface-variant mb-6">El servicio que buscás no existe o fue eliminado.</p>
       <a
         href="/admin/servicios"
         class="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent/90 text-white font-semibold text-label-md rounded-md transition-colors"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-        Volver a negocios
+        Volver a servicios
       </a>
     </div>
   ) : (
@@ -174,9 +174,9 @@ if (business) {
       <div class="bg-white rounded-xl shadow-coastal border border-outline-card p-8">
         <div class="flex items-center justify-between mb-6">
           <h2 class="font-headline font-semibold text-headline-md text-primary">
-            Editar negocio
+            Editar servicio
           </h2>
-          <form method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este negocio?')" class="inline">
+          <form method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este servicio?')" class="inline">
             <input type="hidden" name="_action" value="delete" />
             <button
               type="submit"
