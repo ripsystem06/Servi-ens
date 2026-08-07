@@ -167,15 +167,22 @@ const pageTitle = hasQuery
       }
     } catch (_err) {
       // Pagefind not available (dev mode or build hasn't run yet)
+      // Show category quick links instead of an error
       if (resultsContainer) {
         resultsContainer.innerHTML = `
-          <div class="text-center py-8 bg-surface-container-low rounded-md border border-outline-card">
-            <p class="text-label-md text-on-surface-variant">
-              La búsqueda no está disponible en modo desarrollo.
+          <div class="text-center py-10 bg-surface-container-low rounded-xl border border-outline-card">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-muted/40">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+            <p class="text-body-md text-secondary-600 mb-1">
+              El buscador está generando el índice de servicios.
             </p>
-            <p class="text-label-sm text-on-surface-variant/60 mt-1">
-              Ejecutá <code class="bg-surface-container-high px-1 rounded">pnpm build && npx pagefind --site dist</code> para generar el índice.
+            <p class="text-label-sm text-muted">
+              Mientras tanto, explorá las categorías desde el inicio.
             </p>
+            <a href="/" class="inline-block mt-4 btn-primary btn-sm">
+              ← Ir al inicio
+            </a>
           </div>
         `;
       }

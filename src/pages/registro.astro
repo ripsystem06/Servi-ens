@@ -1,0 +1,212 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCategories, getZones } from '@/lib/data-loader';
+
+const categories = getCategories();
+const zones = getZones();
+
+const success = Astro.url.searchParams.get('success');
+const error = Astro.url.searchParams.get('error');
+---
+
+<BaseLayout
+  title="Registra tu Servicio — Catálogo Ensenada"
+  description="Registra tu servicio en el catálogo más completo de Ensenada. Llega a más clientes locales."
+>
+
+<div class="max-w-2xl mx-auto px-gutter py-section">
+  <!-- Success message -->
+  {
+    success && (
+      <div class="mb-8 bg-green-50 border border-green-200 rounded-md p-6 text-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#16a34a"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mx-auto mb-3"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <path d="m9 11 3 3L22 4"/>
+        </svg>
+        <h2 class="font-headline text-headline-sm text-green-800 mb-1">
+          ¡Registro enviado con éxito!
+        </h2>
+        <p class="text-body-md text-green-700">
+          Recibimos tu solicitud. Vamos a revisarla y te contactaremos pronto para confirmar
+          la publicación de tu servicio en el catálogo.
+        </p>
+      </div>
+    )
+  }
+
+  <!-- Error message -->
+  {
+    error && (
+      <div class="mb-8 bg-red-50 border border-red-200 rounded-md p-4 text-center">
+        <p class="text-body-md text-red-700">{error}</p>
+      </div>
+    )
+  }
+
+  <!-- Header -->
+  <div class="text-center mb-10">
+    <h1 class="font-headline text-headline-lg text-primary mb-3">
+      Registra tu Servicio
+    </h1>
+    <p class="font-sans text-body-lg text-on-surface-variant max-w-lg mx-auto">
+      Completá el formulario y aparecé en el catálogo de servicios más completo
+      de Ensenada. Es <strong>gratis</strong>.
+    </p>
+  </div>
+
+  <!-- Form -->
+  <form
+    action="/api/registro"
+    method="POST"
+    class="bg-surface-container-low border border-outline-card rounded-md p-8 space-y-6"
+  >
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-label-md font-semibold text-on-surface mb-1.5">
+        Nombre del negocio o servicio <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Ej: Electro Servicio Ensenada"
+        class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+      />
+    </div>
+
+    <!-- Category + Zone row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="category" class="block text-label-md font-semibold text-on-surface mb-1.5">
+          Categoría <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="category"
+          name="category"
+          required
+          class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none"
+        >
+          <option value="">Seleccioná una categoría</option>
+          {categories.map((cat) => (
+            <option value={cat.slug}>{cat.name}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label for="zone" class="block text-label-md font-semibold text-on-surface mb-1.5">
+          Zona <span class="text-red-500">*</span>
+        </label>
+        <select
+          id="zone"
+          name="zone"
+          required
+          class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none"
+        >
+          <option value="">Seleccioná una zona</option>
+          {zones.map((z) => (
+            <option value={z.slug}>{z.name}</option>
+          ))}
+        </select>
+      </div>
+    </div>
+
+    <!-- Phone + Email row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label for="phone" class="block text-label-md font-semibold text-on-surface mb-1.5">
+          Teléfono <span class="text-red-500">*</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          required
+          placeholder="+52 646 123 4567"
+          class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        />
+      </div>
+
+      <div>
+        <label for="email" class="block text-label-md font-semibold text-on-surface mb-1.5">
+          Correo electrónico
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="contacto@tuservicio.com"
+          class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+        />
+      </div>
+    </div>
+
+    <!-- Services (optional) -->
+    <div>
+      <label for="services" class="block text-label-md font-semibold text-on-surface mb-1.5">
+        Servicios que ofrecés
+      </label>
+      <textarea
+        id="services"
+        name="services"
+        rows="2"
+        placeholder="Ej: Instalaciones eléctricas, Remodelaciones, Mantenimiento industrial"
+        class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
+      ></textarea>
+    </div>
+
+    <!-- Description -->
+    <div>
+      <label for="description" class="block text-label-md font-semibold text-on-surface mb-1.5">
+        Describí tu servicio <span class="text-red-500">*</span>
+      </label>
+      <textarea
+        id="description"
+        name="description"
+        required
+        rows="4"
+        placeholder="Contanos qué hacés, tu experiencia, y por qué deberían elegirte..."
+        class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
+      ></textarea>
+      <p class="text-label-sm text-on-surface-variant/60 mt-1">
+        Mínimo 10 caracteres. Sé específico: cuantos más detalles, mejor.
+      </p>
+    </div>
+
+    <!-- Terms acceptance -->
+    <div class="flex items-start gap-3 bg-surface-container p-4 rounded-lg border border-outline-card">
+      <input
+        type="checkbox"
+        id="terms"
+        name="terms"
+        required
+        class="mt-0.5 h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer"
+      />
+      <label for="terms" class="text-label-sm text-on-surface-variant cursor-pointer">
+        Acepto los <a href="/terminos" target="_blank" class="text-primary underline hover:text-primary/80 transition-colors">Términos y Condiciones</a> y el <a href="/aviso-privacidad" target="_blank" class="text-primary underline hover:text-primary/80 transition-colors">Aviso de Privacidad</a> de {import.meta.env.SITE_NAME || 'Serv-Ens'}. Entiendo que este es un directorio público y mis datos de contacto serán visibles.
+      </label>
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      class="w-full bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors text-body-md"
+    >
+      Enviar registro
+    </button>
+  </form>
+</div>
+
+</BaseLayout>

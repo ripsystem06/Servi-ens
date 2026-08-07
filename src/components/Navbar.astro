@@ -1,192 +1,116 @@
 ---
-import { NAV_LINKS } from '@/lib/constants';
-import { getZones } from '@/lib/data-loader';
+import { getZones, getSiteConfig } from '@/lib/data-loader';
 
 const zones = getZones();
+const site = getSiteConfig();
 ---
 
 <nav
   id="navbar"
-  class="sticky top-0 z-50 bg-surface border-b border-outline-variant transition-all duration-300"
+  class="fixed top-0 inset-x-0 z-50 transition-all duration-300"
 >
-  <div class="flex justify-between items-center w-full px-gutter max-w-container mx-auto h-20 lg:h-20">
-    <!-- Logo -->
-    <div class="flex items-center gap-10">
+  <div class="glass border-b border-border/60">
+    <div class="flex justify-between items-center w-full max-w-container mx-auto h-[68px] px-gutter">
+      <!-- Logo -->
       <a
         href="/"
-        class="font-headline font-bold text-headline-md text-primary hover:text-secondary transition-colors"
+        class="flex items-center gap-2.5 group"
       >
-        Catálogo Ensenada
+        <!-- Logo: pin + S -->
+        <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-sm shadow-primary/20 group-hover:shadow-md group-hover:shadow-primary/25 transition-shadow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 3.87 5.07 10.08 6.35 11.65.35.43.95.43 1.3 0C13.93 19.08 19 12.87 19 9c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2"/>
+          </svg>
+        </div>
+        <span class="font-display font-bold text-heading-xl text-secondary-900 tracking-tight">
+          {site.name}
+        </span>
       </a>
 
       <!-- Desktop Links -->
-      <div class="hidden lg:flex items-center space-x-6">
-        <a
-          href="/"
-          class="text-label-md font-semibold text-on-surface-variant hover:text-secondary transition-colors duration-200"
-        >
+      <div class="hidden lg:flex items-center gap-1">
+        <a href="/" class="px-3 py-2 text-label-md font-medium text-secondary-600 hover:text-secondary-900 rounded-xl hover:bg-secondary-50 transition-colors">
           Inicio
         </a>
+
+        <!-- Zonas dropdown -->
         <div class="relative group">
-          <button
-            class="text-label-md font-semibold text-on-surface-variant hover:text-secondary transition-colors duration-200 inline-flex items-center gap-1"
-          >
+          <button class="px-3 py-2 text-label-md font-medium text-secondary-600 hover:text-secondary-900 rounded-xl hover:bg-secondary-50 transition-colors inline-flex items-center gap-1">
             Zonas
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div
-            class="absolute top-full left-0 mt-2 w-60 bg-surface-container-lowest rounded-md shadow-coastal border border-outline-card opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
-          >
+          <div class="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-lg border border-border opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
             <div class="py-2">
               {zones.map((z) => (
-                <a
-                  href={`/zona/${z.slug}`}
-                  class="block px-4 py-2.5 text-label-md text-on-surface hover:bg-surface-container-low hover:text-secondary transition-colors"
-                >
+                <a href={`/zona/${z.slug}`} class="block px-4 py-2.5 text-label-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-50 transition-colors">
                   {z.name}
                 </a>
               ))}
             </div>
           </div>
         </div>
+
+        <a href="/registro" class="ml-3 btn-primary btn-sm text-label-md">
+          Registra tu servicio
+        </a>
+      </div>
+
+      <!-- Mobile: hamburger + CTA -->
+      <div class="flex lg:hidden items-center gap-3">
+        <a href="/registro" class="btn-primary btn-sm text-label-sm">
+          Registra tu servicio
+        </a>
+        <button id="mobile-menu-toggle" class="p-2 -mr-2 rounded-xl hover:bg-secondary-50 transition-colors" aria-label="Abrir menú">
+          <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          <svg id="menu-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
       </div>
     </div>
-
-    <!-- Search Form (desktop) -->
-    <div class="hidden md:flex items-center gap-6">
-      <div class="relative w-64 lg:w-72">
-        <form action="/buscar" method="GET" class="w-full">
-          <input
-            type="text"
-            name="q"
-            placeholder="Buscar servicios..."
-            class="w-full bg-surface-container-low border border-outline-variant rounded-full px-4 py-2 pl-10 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none"
-          >
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
-          </svg>
-        </form>
-      </div>
-    </div>
-
-    <!-- Mobile Menu Toggle -->
-    <button
-      id="mobile-menu-toggle"
-      class="lg:hidden p-2 rounded hover:bg-surface-container-low transition-colors"
-      aria-label="Abrir menú"
-    >
-      <svg
-        id="menu-icon-open"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-      <svg
-        id="menu-icon-close"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="hidden"
-      >
-        <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-      </svg>
-    </button>
   </div>
 
   <!-- Mobile Menu -->
-  <div
-    id="mobile-menu"
-    class="hidden lg:hidden border-t border-outline-variant bg-surface"
-  >
-    <div class="px-gutter py-4 space-y-4">
-      <!-- Mobile Search -->
-      <form action="/buscar" method="GET">
-        <div class="relative">
-          <input
-            type="text"
-            name="q"
-            placeholder="Buscar servicios..."
-            class="w-full bg-surface-container-low border border-outline-variant rounded-full px-4 py-2 pl-10 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-          />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none"
-          >
-            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
-          </svg>
-        </div>
-      </form>
-
-      <a href="/" class="block py-2 text-label-md font-semibold text-on-surface hover:text-secondary">
-        Inicio
-      </a>
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-border shadow-lg">
+    <div class="px-gutter py-4 space-y-1">
+      <a href="/" class="block px-3 py-2.5 rounded-xl text-label-md font-medium text-secondary-600 hover:text-secondary-900 hover:bg-secondary-50 transition-colors">Inicio</a>
+      <p class="px-3 py-2 text-label-sm font-semibold text-muted uppercase tracking-wider">Zonas</p>
+      {zones.map((z) => (
+        <a href={`/zona/${z.slug}`} class="block px-3 py-2.5 rounded-xl text-label-md text-secondary-600 hover:text-secondary-900 hover:bg-secondary-50 transition-colors">{z.name}</a>
+      ))}
     </div>
   </div>
 </nav>
 
+<!-- Spacer for fixed navbar -->
+<div class="h-[68px]"></div>
+
 <script>
-  // Scroll shrink effect
   const navbar = document.getElementById('navbar');
-  function updateNavbar() {
+  const navInner = navbar?.querySelector('.glass');
+  let lastScroll = 0;
+  let hidden = false;
+
+  window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    if (scrollY > 50) {
-      navbar?.classList.add('glass-effect', 'shadow-coastal');
-      const inner = navbar?.querySelector('.h-20');
-      if (inner) {
-        inner.classList.remove('lg\\:h-20');
-        inner.classList.add('h-16');
-      }
-    } else {
-      navbar?.classList.remove('glass-effect', 'shadow-coastal');
-      const inner = navbar?.querySelector('.h-16');
-      if (inner) {
-        inner.classList.remove('h-16');
-        inner.classList.add('h-20');
-      }
+    if (scrollY > 100 && scrollY > lastScroll && !hidden) {
+      navbar!.style.transform = 'translateY(-100%)';
+      hidden = true;
+    } else if (scrollY < lastScroll && hidden) {
+      navbar!.style.transform = 'translateY(0)';
+      hidden = false;
     }
-  }
+    if (scrollY <= 0) {
+      navbar!.style.transform = 'translateY(0)';
+      hidden = false;
+    }
+    lastScroll = scrollY;
+  }, { passive: true });
 
-  window.addEventListener('scroll', updateNavbar, { passive: true });
-
-  // Mobile menu toggle
+  // Mobile toggle
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
-
   toggle?.addEventListener('click', () => {
     const isOpen = !menu?.classList.contains('hidden');
     if (isOpen) {

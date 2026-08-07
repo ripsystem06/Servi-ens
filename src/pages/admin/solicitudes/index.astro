@@ -1,0 +1,131 @@
+---
+export const prerender = false;
+
+import AdminLayout from '@/layouts/AdminLayout.astro';
+import { validateSession } from '@/lib/auth';
+import { getSubmissions, getCategoryLabel, getStatusBadge, countPending } from '@/lib/submission';
+
+const allSubmissions = getSubmissions();
+const pendingCount = countPending();
+
+// Filter: default to pending only, ?estado=todas for all
+const filter = Astro.url.searchParams.get('estado') || '';
+const submissions = filter === 'todas'
+  ? allSubmissions
+  : allSubmissions.filter(s => s.status === 'pending');
+
+const approvedCount = allSubmissions.filter(s => s.status === 'approved').length;
+const rejectedCount = allSubmissions.filter(s => s.status === 'rejected').length;
+
+// Flash message
+const msg = Astro.url.searchParams.get('msg') || '';
+
+// User email from session
+const sessionCookie = Astro.cookies.get('session');
+const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
+const userEmail = sessionData?.email || '';
+---
+
+<AdminLayout title="Solicitudes" userEmail={userEmail}>
+  <!-- Flash message -->
+  {msg && (
+    <div class="mb-4 p-3 rounded-md bg-success/10 border border-success/30 text-success text-label-md" role="status">
+      {msg}
+    </div>
+  )}
+
+  <!-- Header with tabs -->
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+    <div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-1">
+      <a
+        href="/admin/solicitudes"
+        class={`px-3 py-1.5 rounded-md text-label-sm font-medium transition-colors ${filter !== 'todas' ? 'bg-white text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}`}
+      >
+        Pendientes
+        {pendingCount > 0 && (
+          <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-warning/15 text-warning text-xs font-semibold">{pendingCount}</span>
+        )}
+      </a>
+      <a
+        href="/admin/solicitudes?estado=todas"
+        class={`px-3 py-1.5 rounded-md text-label-sm font-medium transition-colors ${filter === 'todas' ? 'bg-white text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}`}
+      >
+        Todas
+        <span class="ml-1.5 px-1.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-xs font-semibold">{allSubmissions.length}</span>
+      </a>
+      {approvedCount > 0 && (
+        <span class="px-2 text-label-sm text-on-surface-variant/60">
+          {approvedCount} aprobad{approvedCount === 1 ? 'a' : 'as'} · {rejectedCount} rechazad{rejectedCount === 1 ? 'a' : 'as'}
+        </span>
+      )}
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="bg-white rounded-xl shadow-coastal border border-outline-card">
+    {submissions.length === 0 ? (
+      <div class="py-12 text-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-3 text-on-surface-variant/40">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+        </svg>
+        <p class="text-label-md text-on-surface-variant mb-2">
+          {filter === 'todas' ? 'No hay solicitudes todavía' : 'No hay solicitudes pendientes'}
+        </p>
+        <p class="text-label-sm text-on-surface-variant/60">
+          {filter === 'todas'
+            ? 'Las solicitudes del formulario público aparecerán aquí.'
+            : '¡Todo al día! No hay solicitudes por revisar.'}
+        </p>
+      </div>
+    ) : (
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-outline-card">
+              <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Nombre</th>
+              <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden md:table-cell">Categoría</th>
+              <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden lg:table-cell">Zona</th>
+              <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant">Estado</th>
+              <th class="py-3 px-4 text-label-sm font-semibold text-on-surface-variant hidden sm:table-cell">Fecha</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-outline-card">
+            {submissions.map((sub) => {
+              const badge = getStatusBadge(sub.status);
+              return (
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td class="py-3 px-4">
+                    <a
+                      href={`/admin/solicitudes/${sub.id}`}
+                      class="text-label-md font-medium text-primary hover:text-secondary transition-colors"
+                    >
+                      {sub.name}
+                    </a>
+                    {sub.email && (
+                      <p class="text-label-sm text-on-surface-variant/60">{sub.email}</p>
+                    )}
+                  </td>
+                  <td class="py-3 px-4 text-label-md text-on-surface-variant hidden md:table-cell">
+                    {getCategoryLabel(sub.category)}
+                  </td>
+                  <td class="py-3 px-4 text-label-md text-on-surface-variant hidden lg:table-cell">
+                    {getCategoryLabel(sub.zone)}
+                  </td>
+                  <td class="py-3 px-4">
+                    <span class={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${badge.bg} ${badge.text} text-label-sm font-medium`}>
+                      {badge.label}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-label-sm text-on-surface-variant hidden sm:table-cell whitespace-nowrap">
+                    {sub.createdAt ? new Date(sub.createdAt + 'Z').toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' }) : '-'}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    )}
+  </div>
+</AdminLayout>

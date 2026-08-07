@@ -1,124 +1,5 @@
 [
   {
-    "id": "biz-014",
-    "slug": "electro-servicio-ensenada",
-    "name": "Electro Servicio Ensenada",
-    "category": "electricidad",
-    "zone": "centro",
-    "description": "Servicios eléctricos residenciales, comerciales e industriales con más de 15 años de experiencia. Instalaciones nuevas, remodelaciones, paneles solares y atención de emergencias 24/7.",
-    "phone": "+52 646 181 4200",
-    "email": "contacto@electroservicioensenada.com",
-    "address": "Calle Novena 450, Colonia Obrera, 22830 Ensenada, B.C.",
-    "photos": [
-      "/images/negocios/electro-servicio-1.jpg"
-    ],
-    "services": [
-      "Instalaciones eléctricas",
-      "Remodelaciones",
-      "Paneles solares",
-      "Emergencias 24/7",
-      "Mantenimiento industrial",
-      "Tableros eléctricos"
-    ],
-    "tags": [
-      "eléctrico",
-      "residencial",
-      "comercial",
-      "emergencias"
-    ],
-    "verified": true,
-    "destacado": false,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "experience": "6 años de experiencia",
-    "rating": 4.6,
-    "reviews": [
-      {
-        "author": "José M.",
-        "rating": 3,
-        "comment": "Buen servicio, aunque tardó un poco en llegar.",
-        "date": "2026-06-27"
-      }
-    ],
-    "availability": {
-      "homeService": false,
-      "emergency": false,
-      "days": [
-        "lun",
-        "mar",
-        "vie"
-      ],
-      "hours": "8:00-20:00"
-    },
-    "quoteMethod": "presencial"
-  },
-  {
-    "id": "biz-015",
-    "slug": "instalaciones-electricas-del-valle",
-    "name": "Instalaciones Eléctricas del Valle",
-    "category": "electricidad",
-    "zone": "valle-de-guadalupe",
-    "description": "Electricistas especializados en el Valle de Guadalupe. Instalaciones para viñedos, restaurantes campestres y residencias rurales. Sistemas de respaldo y energía solar.",
-    "phone": "+52 646 153 8800",
-    "address": "Carretera Ensenada-Tecate Km. 83, 22750 Valle de Guadalupe, B.C.",
-    "services": [
-      "Instalaciones rurales",
-      "Sistemas solares",
-      "Plantas de emergencia",
-      "Iluminación de viñedos",
-      "Mantenimiento"
-    ],
-    "tags": [
-      "eléctrico",
-      "rural",
-      "solar",
-      "viñedos"
-    ],
-    "verified": true,
-    "destacado": true,
-    "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "photos": [
-      "https://picsum.photos/id/1/800/600",
-      "https://picsum.photos/id/2/800/600"
-    ],
-    "experience": "7 años de experiencia",
-    "rating": 4.5,
-    "reviews": [
-      {
-        "author": "Sofía H.",
-        "rating": 3,
-        "comment": "Servicio regular, puede mejorar la puntualidad.",
-        "date": "2026-05-18"
-      },
-      {
-        "author": "María G.",
-        "rating": 3,
-        "comment": "Cumplió con todo lo acordado, sin sorpresas.",
-        "date": "2026-03-18"
-      },
-      {
-        "author": "Ana L.",
-        "rating": 3,
-        "comment": "Trabajo impecable, volvería a contratar.",
-        "date": "2026-01-12"
-      }
-    ],
-    "availability": {
-      "homeService": true,
-      "emergency": false,
-      "days": [
-        "vie",
-        "mie",
-        "lun",
-        "sab",
-        "mar"
-      ],
-      "hours": "8:00-20:00"
-    },
-    "quoteMethod": "presencial"
-  },
-  {
     "id": "biz-016",
     "slug": "electrica-sauzal",
     "name": "Eléctrica Sauzal",
@@ -127,6 +8,10 @@
     "description": "Servicios eléctricos para hogares y pequeños comercios en El Sauzal y zonas aledañas. Instalación de contactos, luminarias, ventiladores y reparaciones rápidas a precios justos.",
     "phone": "+52 646 111 7830",
     "address": "Calle Mar de Cortés 78, El Sauzal, 22760 Ensenada, B.C.",
+    "photos": [
+      "https://picsum.photos/id/3/800/600",
+      "https://picsum.photos/id/4/800/600"
+    ],
     "services": [
       "Reparaciones eléctricas",
       "Instalación de luminarias",
@@ -138,16 +23,11 @@
       "residencial",
       "reparaciones"
     ],
-    "verified": false,
+    "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "photos": [
-      "https://picsum.photos/id/3/800/600",
-      "https://picsum.photos/id/4/800/600"
-    ],
+    "updatedAt": "2026-08-07T07:37:04.970Z",
     "experience": "2 años de experiencia",
-    "rating": 3.9,
     "reviews": [
       {
         "author": "Miguel Á.",
@@ -168,6 +48,7 @@
         "date": "2026-04-18"
       }
     ],
+    "rating": 3.9,
     "availability": {
       "homeService": true,
       "emergency": true,
@@ -190,6 +71,10 @@
     "description": "Servicio de electricista a domicilio en Maneadero, Punta Banda y alrededores. Atención rápida para cortocircuitos, fallas eléctricas y trabajos menores los 7 días de la semana.",
     "phone": "+52 646 138 5700",
     "address": "Av. de los Olivos 12, Maneadero, 22790 Ensenada, B.C.",
+    "photos": [
+      "https://picsum.photos/id/5/800/600",
+      "https://picsum.photos/id/6/800/600"
+    ],
     "services": [
       "Electricidad a domicilio",
       "Cortocircuitos",
@@ -201,20 +86,15 @@
       "a domicilio",
       "emergencias"
     ],
-    "verified": false,
+    "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "photos": [
-      "https://picsum.photos/id/5/800/600",
-      "https://picsum.photos/id/6/800/600"
-    ],
+    "updatedAt": "2026-08-07T07:37:08.515Z",
     "experience": "4 años de experiencia",
     "certifications": [
       "Certificado por CANACO",
       "Curso de atención al cliente"
     ],
-    "rating": 3.7,
     "reviews": [
       {
         "author": "Laura P.",
@@ -229,6 +109,7 @@
         "date": "2026-07-20"
       }
     ],
+    "rating": 3.7,
     "availability": {
       "homeService": true,
       "emergency": false,
@@ -313,6 +194,10 @@
     "description": "Especialistas en instalaciones hidrosanitarias para nuevas construcciones y remodelaciones. Cálculo de tubería, sistemas de presión y conexiones a red municipal.",
     "phone": "+52 646 120 9400",
     "address": "Calle Riveroll 567, Colonia Obrera, 22830 Ensenada, B.C.",
+    "photos": [
+      "https://picsum.photos/id/10/800/600",
+      "https://picsum.photos/id/11/800/600"
+    ],
     "services": [
       "Instalaciones hidrosanitarias",
       "Cálculo de tubería",
@@ -326,16 +211,11 @@
       "instalaciones",
       "remodelación"
     ],
-    "verified": false,
+    "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "photos": [
-      "https://picsum.photos/id/10/800/600",
-      "https://picsum.photos/id/11/800/600"
-    ],
+    "updatedAt": "2026-08-07T07:37:12.240Z",
     "experience": "7 años de experiencia",
-    "rating": 4.3,
     "reviews": [
       {
         "author": "Carlos R.",
@@ -344,6 +224,7 @@
         "date": "2026-07-20"
       }
     ],
+    "rating": 4.3,
     "availability": {
       "homeService": false,
       "emergency": false,
@@ -433,6 +314,10 @@
     "description": "Servicio express de plomería en Maneadero y Punta Banda. Llegamos en menos de 2 horas para emergencias. Reparación de fugas, destapes, cambio de llaves y accesorios.",
     "phone": "+52 646 133 4500",
     "address": "Calle Bahía de Todos Santos 89, Maneadero, 22790 Ensenada, B.C.",
+    "photos": [
+      "https://picsum.photos/id/16/800/600",
+      "https://picsum.photos/id/17/800/600"
+    ],
     "services": [
       "Emergencias express",
       "Fugas",
@@ -446,20 +331,15 @@
       "emergencias",
       "a domicilio"
     ],
-    "verified": false,
+    "verified": true,
     "destacado": false,
     "createdAt": "2026-01-15T10:00:00Z",
-    "updatedAt": "2026-06-01T10:00:00Z",
-    "photos": [
-      "https://picsum.photos/id/16/800/600",
-      "https://picsum.photos/id/17/800/600"
-    ],
+    "updatedAt": "2026-08-07T07:37:23.530Z",
     "experience": "8 años de experiencia",
     "certifications": [
       "Certificado por CANACO",
       "Curso de atención al cliente"
     ],
-    "rating": 4.6,
     "reviews": [
       {
         "author": "Miguel Á.",
@@ -474,6 +354,7 @@
         "date": "2026-01-28"
       }
     ],
+    "rating": 4.6,
     "availability": {
       "homeService": true,
       "emergency": true,
@@ -1028,7 +909,7 @@
       "https://picsum.photos/id/86/800/600"
     ],
     "experience": "5 años de experiencia",
-    "rating": 5.0,
+    "rating": 5,
     "reviews": [
       {
         "author": "Laura P.",
@@ -1080,7 +961,7 @@
       "Certificado por CANACO",
       "Curso de atención al cliente"
     ],
-    "rating": 4.0,
+    "rating": 4,
     "reviews": [
       {
         "author": "Miguel Á.",
@@ -1574,7 +1455,7 @@
     "certifications": [
       "Certificación técnica avalada"
     ],
-    "rating": 4.0,
+    "rating": 4,
     "reviews": [
       {
         "author": "Miguel Á.",

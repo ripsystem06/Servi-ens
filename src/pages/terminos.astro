@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getSiteConfig } from '@/lib/data-loader';
+
+const site = getSiteConfig();
+const pageTitle = `Términos y Condiciones — ${site.name}`;
+---
+
+<BaseLayout title={pageTitle}>
+  <div class="max-w-3xl mx-auto px-gutter py-section">
+    <h1 class="font-display text-display-md text-secondary-900 mb-2">Términos y Condiciones</h1>
+    <p class="text-label-md text-muted mb-10">Última actualización: {new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+
+    <div class="prose prose-lg max-w-none space-y-8 text-secondary-700">
+      <p>
+        Bienvenido a <strong>{site.name}</strong>. Al acceder y utilizar este sitio web, usted acepta cumplir con los siguientes Términos y Condiciones. Si no está de acuerdo con alguno de ellos, le pedimos que se abstenga de utilizar nuestros servicios.
+      </p>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">1. Definiciones</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Plataforma:</strong> El sitio web {site.name} (<a href="https://servi-ens.online" class="text-primary underline">servi-ens.online</a>) y todos sus subdominios.</li>
+          <li><strong>Usuario visitante:</strong> Toda persona que navega el directorio en busca de servicios.</li>
+          <li><strong>Prestador:</strong> Persona física o moral que se registra en la plataforma para publicar sus servicios.</li>
+          <li><strong>Directorio:</strong> El catálogo público de prestadores de servicios disponible en la plataforma.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">2. Naturaleza del servicio</h2>
+        <p>
+          {site.name} es <strong>exclusivamente un directorio y catálogo de servicios</strong>. No somos una plataforma de contratación, intermediación ni comercio electrónico. Nuestra función se limita a:
+        </p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li>Publicar perfiles de prestadores de servicios.</li>
+          <li>Facilitar el descubrimiento de servicios por parte de los visitantes.</li>
+          <li>Proporcionar datos de contacto de los prestadores registrados.</li>
+        </ul>
+        <div class="bg-surface-container-low border border-outline-card rounded-xl p-4 mt-4">
+          <p class="font-semibold text-secondary-900">⚠️ Importante:</p>
+          <p class="text-label-md">
+            {site.name} <strong>no interviene</strong> en la negociación, contratación, ejecución, garantía ni pago de ningún servicio. Toda relación comercial, laboral o de servicios se establece directamente entre el prestador y el usuario visitante, bajo su propia responsabilidad y acuerdo.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">3. Registro de prestadores</h2>
+        <p>Al registrarse como prestador en la plataforma, usted declara y garantiza que:</p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li>Toda la información proporcionada es veraz, actualizada y completa.</li>
+          <li>Es mayor de edad y tiene capacidad legal para obligarse en los términos aquí establecidos.</li>
+          <li>Cuenta con las licencias, permisos y autorizaciones necesarias para ofrecer los servicios que publica, conforme a la legislación aplicable.</li>
+          <li>No publicará contenido falso, engañoso, ofensivo, ilegal o que infrinja derechos de terceros.</li>
+        </ul>
+        <p class="mt-3">
+          {site.name} se reserva el derecho de rechazar, suspender o eliminar cualquier registro o perfil que incumpla estos términos, sin necesidad de previo aviso y sin que ello genere derecho a indemnización alguna.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">4. Responsabilidad del usuario visitante</h2>
+        <p>El usuario visitante reconoce y acepta que:</p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li>Es su responsabilidad verificar la identidad, capacidad y referencias del prestador antes de contratar un servicio.</li>
+          <li>{site.name} no garantiza la calidad, seguridad, legalidad o idoneidad de los servicios ofrecidos por los prestadores registrados.</li>
+          <li>Cualquier conflicto, controversia o reclamación derivada de un servicio contratado deberá resolverse directamente con el prestador correspondiente.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">5. Propiedad intelectual</h2>
+        <p>
+          Todos los derechos de propiedad intelectual sobre la plataforma —incluyendo código fuente, diseño, logotipos, textos, imágenes y bases de datos— son propiedad de {site.name} o de sus respectivos licenciantes y están protegidos por las leyes mexicanas e internacionales de propiedad intelectual.
+        </p>
+        <p class="mt-3">
+          Los prestadores conservan los derechos sobre las fotografías, logotipos y descripciones que publiquen en sus perfiles, otorgando a {site.name} una licencia no exclusiva, gratuita y revocable para exhibir dicho contenido en la plataforma mientras el perfil permanezca activo.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">6. Publicidad y banners</h2>
+        <p>
+          La plataforma puede incluir espacios publicitarios y banners de terceros. {site.name} no se hace responsable por el contenido de dichos anuncios ni por los productos o servicios que en ellos se promocionen. La interacción con anunciantes externos es bajo el propio riesgo del usuario.
+        </p>
+
+        <h3 class="font-display text-heading-md text-secondary-800 mt-6 mb-3">6.1 Política de contenido publicitario</h3>
+        <p>
+          Todo anuncio, banner o contenido publicitario publicado en la plataforma debe cumplir estrictamente con las siguientes reglas. {site.name} se reserva el derecho de rechazar, suspender o retirar cualquier publicidad que las infrinja, sin necesidad de previo aviso y sin derecho a reembolso o indemnización.
+        </p>
+        <p class="font-semibold mt-3">Contenido prohibido:</p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li>Contenido para adultos, pornográfico, obsceno o sexualmente sugestivo.</li>
+          <li>Contenido que promueva, incite o justifique la violencia, el odio o la discriminación por motivos de raza, etnia, nacionalidad, orientación sexual, identidad de género, edad, discapacidad o condición social.</li>
+          <li>Contenido que atente contra alguna religión, ideología, creencia, minoría o grupo vulnerable.</li>
+          <li>Contenido que promueva actividades ilegales, incluyendo pero no limitándose a la venta de sustancias prohibidas, armas, productos falsificados o servicios fraudulentos.</li>
+          <li>Contenido engañoso, falso o que induzca a error al consumidor.</li>
+          <li>Contenido que infrinja derechos de propiedad intelectual, marcas registradas o derechos de autor de terceros.</li>
+          <li>Contenido que suplante la identidad de personas, marcas, organizaciones o instituciones.</li>
+        </ul>
+        <p class="mt-3">
+          El anunciante es el único responsable por el contenido de sus anuncios y garantiza que cuenta con todos los derechos, licencias y autorizaciones necesarias para su publicación. El anunciante acepta mantener a {site.name} indemne frente a cualquier reclamación, multa o sanción derivada del contenido de sus anuncios.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">7. Limitación de responsabilidad</h2>
+        <p>
+          En la máxima medida permitida por la legislación aplicable, {site.name} <strong>no será responsable</strong> por daños directos, indirectos, incidentales, especiales, punitivos o consecuentes derivados del uso o imposibilidad de uso de la plataforma, incluyendo pero no limitándose a:
+        </p>
+        <ul class="list-disc pl-6 space-y-1 mt-2">
+          <li>Pérdida de ingresos, clientes o reputación.</li>
+          <li>Incumplimientos, negligencias o actos dolosos de los prestadores.</li>
+          <li>Problemas técnicos, interrupciones del servicio o pérdida de datos.</li>
+          <li>Contenido publicado por terceros en la plataforma.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">8. Ley aplicable y jurisdicción</h2>
+        <p>
+          Estos Términos y Condiciones se rigen por las leyes de los Estados Unidos Mexicanos. Para la interpretación y cumplimiento de los mismos, las partes se someten a la jurisdicción de los tribunales competentes en la ciudad de Ensenada, Baja California, renunciando expresamente a cualquier otro fuero que por razón de su domicilio presente o futuro pudiera corresponderles.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">9. Modificaciones</h2>
+        <p>
+          Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las modificaciones entrarán en vigor desde el momento de su publicación en esta página. El uso continuado de la plataforma después de dichas modificaciones constituye la aceptación de los nuevos términos.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="font-display text-heading-xl text-secondary-900 mb-3">10. Contacto</h2>
+        <p>Para cualquier duda, aclaración o reporte relacionado con estos Términos y Condiciones:</p>
+        <ul class="list-none space-y-1 mt-2">
+          <li>📧 <a href="mailto:{site.contact.email}" class="text-primary underline">{site.contact.email}</a></li>
+          <li>📞 <a href="tel:{site.contact.phone}" class="text-primary underline">{site.contact.phone}</a></li>
+          <li>📍 Ensenada, Baja California, México</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .prose h2 {
+    margin-top: 0;
+  }
+</style>

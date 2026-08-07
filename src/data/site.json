@@ -1,15 +1,15 @@
 {
-  "name": "Catálogo Ensenada",
-  "tagline": "El directorio de oficios y servicios de Ensenada, Baja California",
-  "description": "Descubrí los mejores oficios y servicios locales: plomería, electricidad, carpintería, pintura, albañilería, herrería, refrigeración y aire acondicionado, reparación de electrodomésticos, jardinería, limpieza, instalación de pisos, impermeabilización, cerrajería, mecánica automotriz, servicios profesionales y servicios generales en Ensenada y sus alrededores.",
-  "url": "https://catalogoensenada.com",
+  "name": "Serv-Ens",
+  "tagline": "Necesitas un servicio, aquí lo encuentras.",
+  "description": "Encuentra profesionales confiables para cualquier tipo de servicio. Plomería, electricidad, limpieza, abogados, contadores, diseño, tecnología y mucho más.",
+  "url": "https://servi-ens.online",
   "locale": "es-MX",
   "contact": {
-    "email": "contacto@catalogoensenada.com",
+    "email": "contacto@servi-ens.online",
     "phone": "+52 646 123 4567"
   },
   "social": {
-    "facebook": "https://facebook.com/catalogoensenada",
-    "instagram": "https://instagram.com/catalogoensenada"
+    "facebook": "https://facebook.com/serviens",
+    "instagram": "https://instagram.com/serviens"
   }
 }

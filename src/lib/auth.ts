@@ -116,16 +116,7 @@ export function isDefaultPassword(hash: string): boolean {
 // ─── Admin seeding ──────────────────────────────────────────────────
 
 export async function seedAdminUser(): Promise<void> {
-  // Ensure the admin_users table exists
-  db.run(`
-    CREATE TABLE IF NOT EXISTS admin_users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE NOT NULL,
-      password_hash TEXT NOT NULL,
-      created_at TEXT DEFAULT (datetime('now'))
-    );
-  `);
-
+  // Tables are created by ensureTables() imported above via db.ts
   const existing = db.select().from(adminUsers).limit(1).all();
   if (existing.length > 0) return;
 

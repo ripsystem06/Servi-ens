@@ -1,0 +1,32 @@
+<section class="section-py bg-white">
+  <div class="max-w-container mx-auto px-gutter">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-display-md text-secondary-900 mb-4">¿Por qué Serv-Ens?</h2>
+      <p class="text-body-lg text-muted max-w-lg mx-auto">
+        La plataforma que conecta personas con profesionales de confianza.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {[
+        { icon: 'shield', title: 'Profesionales verificados', desc: 'Cada perfil pasa por un proceso de revisión antes de publicarse.' },
+        { icon: 'grid', title: 'Miles de servicios', desc: 'Desde plomería hasta asesoría legal. Todas las categorías que necesitas.' },
+        { icon: 'star', title: 'Reseñas reales', desc: 'Opiniones de clientes verificados. Transparencia total en cada perfil.' },
+        { icon: 'clock', title: 'Atención rápida', desc: 'Contacto directo sin intermediarios. Encontrá y contratá en minutos.' },
+      ].map((item) => (
+        <div class="card-hover p-8 space-y-4">
+          <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center text-primary">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              {item.icon === 'shield' && <><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></>}
+              {item.icon === 'grid' && <><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></>}
+              {item.icon === 'star' && <><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></>}
+              {item.icon === 'clock' && <><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></>}
+            </svg>
+          </div>
+          <h3 class="font-display font-semibold text-heading-lg text-secondary-900">{item.title}</h3>
+          <p class="text-body-md text-muted">{item.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

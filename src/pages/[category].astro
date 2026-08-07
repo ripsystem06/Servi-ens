@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import CategorySidebar from '@/components/CategorySidebar.astro';
 import ServiceCard from '@/components/ServiceCard.astro';
 import BannerSlot from '@/components/BannerSlot.astro';
+import HeroBanner from '@/components/HeroBanner.astro';
 import {
   getCategories,
   getCategoryBySlug,
@@ -30,6 +31,17 @@ const pageTitle = `${cat.name} — Catálogo Ensenada`;
 
 <BaseLayout title={pageTitle}>
   <div class="max-w-container mx-auto px-gutter py-section">
+    <!-- Wide Advertising Banner -->
+    <div class="mb-6 relative">
+      <HeroBanner />
+      <span class="absolute bottom-2 right-3 text-label-sm text-muted/50">Espacio publicitario</span>
+    </div>
+
+    <!-- Directory Disclaimer -->
+    <p class="text-center text-label-sm text-muted/60 mb-8">
+      📋 Directorio de servicios — contactá directamente a cada profesional. No gestionamos contrataciones.
+    </p>
+
     <div class="grid grid-cols-12 gap-6 lg:gap-20">
       <!-- Sidebar -->
       <aside class="col-span-12 lg:col-span-3 space-y-6">
@@ -39,17 +51,7 @@ const pageTitle = `${cat.name} — Catálogo Ensenada`;
       </aside>
 
       <!-- Main Content -->
-      <section class="col-span-12 lg:col-span-9 space-y-section">
-        <h1 class="font-headline text-headline-lg text-primary">
-          {cat.name} &mdash; {businesses.length} servicio{businesses.length !== 1 ? 's' : ''}
-        </h1>
-
-        {cat.description && (
-          <p class="font-sans text-body-lg text-on-surface-variant max-w-2xl">
-            {cat.description}
-          </p>
-        )}
-
+      <section class="col-span-12 lg:col-span-9 space-y-6">
         {businesses.length > 0 ? (
           <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {businesses.map((biz) => (

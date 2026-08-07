@@ -1,0 +1,28 @@
+<section class="section-py bg-surface">
+  <div class="max-w-container mx-auto px-gutter">
+    <div class="text-center mb-16">
+      <h2 class="font-display text-display-md text-secondary-900 mb-4">¿Cómo funciona?</h2>
+      <p class="text-body-lg text-muted max-w-lg mx-auto">
+        Tres pasos simples para encontrar al profesional ideal.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        { step: '1', title: 'Busca', desc: 'Explora por categoría, zona o usa el buscador para encontrar el servicio que necesitas.', icon: 'search' },
+        { step: '2', title: 'Compara', desc: 'Revisa perfiles, calificaciones, fotos y opiniones de clientes reales.', icon: 'compare' },
+        { step: '3', title: 'Contacta', desc: 'Contacta directo al profesional por teléfono, WhatsApp o email. Sin intermediarios.', icon: 'contact' },
+      ].map((item) => (
+        <div class="text-center space-y-5">
+          <div class="w-20 h-20 rounded-2xl bg-white border border-border shadow-sm flex items-center justify-center mx-auto">
+            <span class="font-display text-display-sm text-primary font-bold">{item.step}</span>
+          </div>
+          <div>
+            <h3 class="font-display font-semibold text-heading-xl text-secondary-900 mb-2">{item.title}</h3>
+            <p class="text-body-md text-muted max-w-xs mx-auto">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

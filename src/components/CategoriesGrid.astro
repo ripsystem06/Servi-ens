@@ -1,0 +1,58 @@
+---
+import { getCategories } from '@/lib/data-loader';
+
+const categories = getCategories();
+---
+
+<section class="section-py bg-white">
+  <div class="max-w-container mx-auto px-gutter">
+    <div class="text-center mb-14">
+      <h2 class="font-display text-display-md text-secondary-900 mb-4">Explora categorías</h2>
+      <p class="text-body-lg text-muted max-w-lg mx-auto">
+        Encuentra el profesional que necesitas entre cientos de servicios locales.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+      {categories.map((cat) => (
+        <a
+          href={`/${cat.slug}`}
+          class="card-hover aspect-square flex items-center justify-center group"
+        >
+          <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              {cat.icon === 'wrench' && <><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></>}
+              {cat.icon === 'zap' && <><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></>}
+              {cat.icon === 'hammer' && <><path d="m15 12-8.373 8.373a1 1 0 0 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></>}
+              {cat.icon === 'paintbrush' && <><path d="m14.622 17.897-10.68-2.913"/><path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 8.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 5.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/><path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/></>}
+              {cat.icon === 'ruler' && <><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></>}
+              {cat.icon === 'anvil' && <><path d="M7 10H6a4 4 0 0 1-4-4 1 1 0 0 1 1-1h4"/><path d="M7 5a1 1 0 0 1 1-1h13a1 1 0 0 1 1 1 7 7 0 0 1-7 7H8a1 1 0 0 1-1-1z"/><path d="M9 12v5"/><path d="M15 12v5"/><path d="M5 20a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3 1 1 0 0 1-1 1H6a1 1 0 0 1-1-1"/></>}
+              {cat.icon === 'thermometer-snowflake' && <><path d="M2 12h10"/><path d="M9 4v16"/><path d="m3 9 3 3-3 3"/><path d="M12 6 9 3 6 6"/><path d="m6 18 3-3 1.5 1.5"/><path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></>}
+              {cat.icon === 'washing-machine' && <><rect width="18" height="20" x="3" y="2" rx="3"/><path d="M8 7h.01"/><path d="M3 11h18"/><circle cx="12" cy="16" r="4"/></>}
+              {cat.icon === 'leaf' && <><path d="M11 20A7 7 0 0 1 9.8 6.9C15.5 4.9 17 3.5 19 2c1 2 2 4.5 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></>}
+              {cat.icon === 'spray-can' && <><path d="M3 3h.01"/><path d="M7 5h.01"/><path d="M11 6h.01"/><path d="M3 7h.01"/><path d="M7 9h.01"/><path d="M3 11h.01"/><rect width="4" height="4" x="15" y="2" rx="1"/><path d="m19 6-1 8a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2l-1-8"/><path d="M14 16v4a2 2 0 0 0 2 2h.01"/></>}
+              {cat.icon === 'grid-3x3' && <><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></>}
+              {cat.icon === 'umbrella' && <><path d="M22 12a10.06 10.06 0 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></>}
+              {cat.icon === 'key' && <><path d="m21 2-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0 3 3L22 7l-3-3m-3.5 3.5L19 4"/></>}
+              {cat.icon === 'wrench-screwdriver' && <><path d="M12 2v4"/><path d="m16.4 7.6 2.8 2.8"/><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 1 1-3-3l4.17-4.17"/><path d="M4 4v.01"/><path d="M8 8v.01"/><path d="M12 12v.01"/><path d="M16 16v.01"/><path d="M20 20v.01"/></>}
+              {cat.icon === 'briefcase' && <><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/></>}
+              {!cat.icon && <><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="m8 12 4 4 4-4"/></>}
+            </svg>
+          </div>
+        </a>
+      ))}
+
+      <!-- Banner publicitario -->
+      <a
+        href="#"
+        class="card-hover aspect-square flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-primary-50 to-primary-100 border-primary/10 group relative overflow-hidden"
+      >
+        <span class="absolute top-2 right-3 text-[10px] text-muted/40 uppercase tracking-wider">Anuncio</span>
+        <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-white">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+        </div>
+        <span class="font-display font-semibold text-label-sm text-primary text-center leading-tight">Publicidad aquí</span>
+      </a>
+    </div>
+  </div>
+</section>
