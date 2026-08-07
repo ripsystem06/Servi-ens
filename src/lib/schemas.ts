@@ -55,6 +55,7 @@ export const CategorySchema = z.object({
   name: z.string(),
   icon: z.string(),
   description: z.string().optional(),
+  search_terms: z.array(z.string()).optional().default([]),
   order: z.number(),
 });
 

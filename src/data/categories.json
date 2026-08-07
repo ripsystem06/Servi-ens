@@ -4,6 +4,7 @@
     "name": "Plomería",
     "icon": "wrench",
     "description": "Fontanería, instalación y reparación de tuberías, grifería y sistemas hidráulicos.",
+    "search_terms": ["plomero", "plomera", "fontanero", "fontaneria", "tuberias", "tuberia", "fuga", "fugas", "destape", "griferia", "calentador", "calefon", "termotanque"],
     "order": 1
   },
   {
@@ -11,6 +12,7 @@
     "name": "Electricidad",
     "icon": "zap",
     "description": "Instalaciones eléctricas, cableado, tableros y mantenimiento eléctrico.",
+    "search_terms": ["electrico", "electrica", "electricista", "electricos", "electricas", "instalacion electrica", "cableado", "tablero", "corto", "cortocircuito", "apagon", "voltaje", "iluminacion", "lampara", "enchufe", "toma corriente"],
     "order": 2
   },
   {
@@ -18,6 +20,7 @@
     "name": "Carpintería",
     "icon": "hammer",
     "description": "Muebles a medida, reparación de madera, puertas, ventanas y acabados.",
+    "search_terms": ["carpintero", "carpintera", "muebles", "mueble", "madera", "puerta", "ventana", "closet", "armario", "estante", "tarima", "deck"],
     "order": 3
   },
   {
@@ -25,6 +28,7 @@
     "name": "Pintura",
     "icon": "paintbrush",
     "description": "Pintura interior y exterior, impermeabilización y acabados profesionales.",
+    "search_terms": ["pintor", "pintora", "impermeabilizante", "pintar", "brocha", "rodillo", "barniz", "pintor de casas", "pintor de interiores", "pintor de exteriores"],
     "order": 4
   },
   {
@@ -32,6 +36,7 @@
     "name": "Albañilería",
     "icon": "brick-wall",
     "description": "Construcción, remodelación, pisos, muros y obra negra.",
+    "search_terms": ["albañil", "albanil", "construccion", "remodelacion", "remodelar", "construir", "piso", "pared", "muro", "cimentacion", "colado", "block", "tabique", "yeso", "loza"],
     "order": 5
   },
   {
@@ -39,6 +44,7 @@
     "name": "Herrería",
     "icon": "anvil",
     "description": "Soldadura, portones, rejas, estructuras metálicas y herrería artística.",
+    "search_terms": ["herrero", "herrera", "soldador", "soldadura", "porton", "reja", "estructura metalica", "barandal", "escalera", "cancel", "proteccion", "cortina metalica"],
     "order": 6
   },
   {
@@ -46,6 +52,7 @@
     "name": "Refrigeración y Aire Acondicionado",
     "icon": "thermometer-snowflake",
     "description": "Instalación, reparación y mantenimiento de aires acondicionados y refrigeración.",
+    "search_terms": ["aire acondicionado", "refrigeracion", "clima", "minisplit", "refrigerador", "nevera", "tecnico refrigeracion", "enfriamiento", "congelador", "hielo", "hielera", "camara fria", "mantenimiento aire"],
     "order": 7
   },
   {
@@ -53,6 +60,7 @@
     "name": "Reparación de Electrodomésticos",
     "icon": "washing-machine",
     "description": "Reparación de lavadoras, secadoras, estufas, hornos y electrodomésticos en general.",
+    "search_terms": ["electrodomestico", "electrodomesticos", "lavadora", "secadora", "estufa", "horno", "reparar", "reparacion", "tecnico", "microondas", "licuadora", "cafetera", "tostador", "batidora", "plancha"],
     "order": 8
   },
   {
@@ -60,6 +68,7 @@
     "name": "Jardinería",
     "icon": "flower",
     "description": "Mantenimiento de jardines, poda, riego, paisajismo y diseño de áreas verdes.",
+    "search_terms": ["jardinero", "jardinera", "jardin", "jardines", "podar", "poda", "cesped", "pasto", "plantas", "riego", "arbol", "arboles", "tierra", "maceta", "fertilizante", "insecticida"],
     "order": 9
   },
   {
@@ -67,6 +76,7 @@
     "name": "Limpieza",
     "icon": "spray-can",
     "description": "Limpieza residencial, comercial, oficinas y limpieza profunda.",
+    "search_terms": ["limpiar", "limpiador", "limpiadora", "aseo", "aseador", "mucama", "empleada domestica", "domestica", "oficina", "casa", "departamento", "brillar", "desinfectar", "fregar", "trapear", "barrer"],
     "order": 10
   },
   {
@@ -74,6 +84,7 @@
     "name": "Instalación de Pisos",
     "icon": "grid-3x3",
     "description": "Colocación de pisos cerámicos, laminados, vinílicos y pulido de superficies.",
+    "search_terms": ["piso", "pisos", "ceramica", "ceramico", "laminado", "vinilico", "colocacion", "instalador", "pulido", "marmol", "granito", "porcelanato", "loseta", "azulejo", "pulir"],
     "order": 11
   },
   {
@@ -81,6 +92,7 @@
     "name": "Impermeabilización",
     "icon": "umbrella",
     "description": "Impermeabilización de techos, terrazas, cisternas y muros.",
+    "search_terms": ["impermeabilizar", "impermeabilizante", "techo", "terraza", "gotera", "goteras", "humedad", "filtracion", "filtraciones", "azotea", "cisterna", "manto", "sellador", "grieta"],
     "order": 12
   },
   {
@@ -88,6 +100,7 @@
     "name": "Cerrajería",
     "icon": "key",
     "description": "Apertura de puertas, cambio de cerraduras, copias de llaves y seguridad.",
+    "search_terms": ["cerrajero", "cerrajera", "cerradura", "llave", "llaves", "copia", "seguridad", "abrir puerta", "candado", "caja fuerte", "chapa", "cerrojo", "apertura", "duplicado"],
     "order": 13
   },
   {
@@ -95,6 +108,7 @@
     "name": "Mecánica y Mantenimiento",
     "icon": "car",
     "description": "Mecánica automotriz, mantenimiento preventivo y correctivo de vehículos.",
+    "search_terms": ["mecanico", "mecanica", "auto", "autos", "carro", "carros", "vehiculo", "reparacion", "afinacion", "motor", "frenos", "aceite", "llantas", "bateria", "transmision", "clutch", "embrague", "suspension", "escape", "radiador"],
     "order": 14
   },
   {
@@ -102,6 +116,7 @@
     "name": "Servicios Generales",
     "icon": "tool",
     "description": "Servicios de mantenimiento general, reparaciones del hogar y multioficio.",
+    "search_terms": ["mantenimiento", "reparacion", "reparaciones", "hogar", "multioficio", "handy", "handyman", "plomeria", "electricidad", "arreglos", "compostura", "manitas", "maestro", "oficial", "ayudante"],
     "order": 15
   },
   {
@@ -109,6 +124,7 @@
     "name": "Servicios Profesionales",
     "icon": "briefcase",
     "description": "Abogados, contadores, arquitectos, ingenieros, consultores y profesionales independientes.",
+    "search_terms": ["abogado", "contador", "arquitecto", "ingeniero", "consultor", "profesional", "asesoria", "legal", "fiscal", "notario", "diseno", "marketing", "fotografo", "traductor", "programador", "web", "informatico", "computacion", "contabilidad", "impuestos", "demanda", "abogacia"],
     "order": 16
   }
 ]
