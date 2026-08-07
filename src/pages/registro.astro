@@ -153,35 +153,21 @@ const error = Astro.url.searchParams.get('error');
       </div>
     </div>
 
-    <!-- Services (optional) -->
-    <div>
-      <label for="services" class="block text-label-md font-semibold text-on-surface mb-1.5">
-        Servicios que ofrecés
-      </label>
-      <textarea
-        id="services"
-        name="services"
-        rows="2"
-        placeholder="Ej: Instalaciones eléctricas, Remodelaciones, Mantenimiento industrial"
-        class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
-      ></textarea>
-    </div>
-
     <!-- Description -->
     <div>
       <label for="description" class="block text-label-md font-semibold text-on-surface mb-1.5">
-        Describí tu servicio <span class="text-red-500">*</span>
+        Describí qué servicios ofrecés <span class="text-red-500">*</span>
       </label>
       <textarea
         id="description"
         name="description"
         required
         rows="4"
-        placeholder="Contanos qué hacés, tu experiencia, y por qué deberían elegirte..."
+        placeholder="Ej: Instalaciones eléctricas residenciales, mantenimiento de tableros, cableado nuevo, reparación de cortocircuitos..."
         class="w-full bg-surface border border-outline-variant rounded-lg px-4 py-2.5 text-body-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-y"
       ></textarea>
       <p class="text-label-sm text-on-surface-variant/60 mt-1">
-        Mínimo 10 caracteres. Sé específico: cuantos más detalles, mejor.
+        Mínimo 10 caracteres. Contanos qué hacés, tu experiencia y por qué deberían elegirte.
       </p>
     </div>
 
