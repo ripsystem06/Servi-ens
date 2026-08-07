@@ -17,9 +17,9 @@ const categories = getCategories();
       {categories.map((cat) => (
         <a
           href={`/${cat.slug}`}
-          class="card-hover aspect-square flex items-center justify-center group"
+          class="card-hover flex flex-col items-center justify-center gap-3 p-3 py-5 group min-h-0"
         >
-          <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white group-hover:scale-110 transition-all duration-300 shrink-0">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
               {cat.icon === 'wrench' && <><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></>}
               {cat.icon === 'zap' && <><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></>}
@@ -40,6 +40,7 @@ const categories = getCategories();
               {!cat.icon && <><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="m8 12 4 4 4-4"/></>}
             </svg>
           </div>
+          <span class="text-label-sm font-medium text-secondary-600 group-hover:text-secondary-900 text-center leading-tight transition-colors">{cat.name}</span>
         </a>
       ))}
 
