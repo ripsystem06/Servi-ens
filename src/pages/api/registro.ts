@@ -41,7 +41,8 @@ function ensureTable(): void {
   `);
   // Add terms_accepted_at column if upgrading from older schema
   try {
-    sqlite.exec(`ALTER TABLE submissions ADD COLUMN terms_accepted_at TEXT DEFAULT (datetime('now'));`);
+    sqlite.exec(`ALTER TABLE submissions ADD COLUMN terms_accepted_at TEXT;`);
+    sqlite.exec(`UPDATE submissions SET terms_accepted_at = datetime('now') WHERE terms_accepted_at IS NULL;`);
   } catch { /* column already exists — ok */ }
   sqlite.close();
   tableEnsured = true;
