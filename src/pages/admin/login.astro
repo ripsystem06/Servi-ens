@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import { validateSession } from '@/lib/auth';
+import { validateSession, createSession } from '@/lib/auth';
 
 // Redirect if already authenticated
 const sessionCookie = Astro.cookies.get('session');
