@@ -1,6 +1,9 @@
 import { db } from './db';
 import { adminUsers } from './schema';
-import bcrypt from 'bcryptjs';
+import crypto from 'node:crypto';
+import { promisify } from 'node:util';
+
+const scrypt = promisify(crypto.scrypt);
 
 // ─── In-memory session store ────────────────────────────────────────
 interface SessionData {
@@ -91,26 +94,42 @@ export function destroySession(sessionId: string): void {
   sessions.delete(sessionId);
 }
 
-export function hashPassword(password: string): Promise<string> {
-  return bcrypt.hash(password, 10);
+export async function hashPassword(password: string): Promise<string> {
+  const salt = crypto.randomBytes(16).toString('hex');
+  const derived = await scrypt(password, salt, 64) as Buffer;
+  return `${salt}:${derived.toString('hex')}`;
 }
 
-export function verifyPassword(password: string, hash: string): Promise<boolean> {
-  return bcrypt.compare(password, hash);
+export async function verifyPassword(password: string, hash: string): Promise<boolean> {
+  // Check if it's a legacy bcrypt hash (starts with $2a$)
+  if (hash.startsWith('$2a$') || hash.startsWith('$2b$')) {
+    // Dynamic import of bcryptjs only for legacy hashes
+    try {
+      const bcrypt = await import('bcryptjs');
+      return bcrypt.compare(password, hash);
+    } catch {
+      return false;
+    }
+  }
+
+  const [salt, key] = hash.split(':');
+  if (!salt || !key) return false;
+  const derived = await scrypt(password, salt, 64) as Buffer;
+  return crypto.timingSafeEqual(derived, Buffer.from(key, 'hex'));
 }
 
 // ─── Default password detection ─────────────────────────────────────
-// The default admin123 hash — pre-computed so we can detect it without
-// comparing against the plaintext password.
+// NOTE: Default password detection only works with legacy bcrypt hashes.
+// After the first login with scrypt, this will be bypassed.
 const DEFAULT_PASSWORD_HASH =
   '$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy';
 
-/**
- * Returns true if the given hash matches the known default password hash.
- * Used to force password change on first login.
- */
 export function isDefaultPassword(hash: string): boolean {
-  return hash === DEFAULT_PASSWORD_HASH;
+  // Only match legacy bcrypt format
+  if (hash.startsWith('$2a$') || hash.startsWith('$2b$')) {
+    return hash === DEFAULT_PASSWORD_HASH;
+  }
+  return false;
 }
 
 // ─── Admin seeding ──────────────────────────────────────────────────
