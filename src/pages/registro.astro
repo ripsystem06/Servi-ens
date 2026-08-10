@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCategories, getZones } from '@/lib/data-loader';
 
+export const prerender = false;
+
 const categories = getCategories();
 const zones = getZones();
 
