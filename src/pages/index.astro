@@ -5,6 +5,8 @@ import HeroBanner from '@/components/HeroBanner.astro';
 import CategoriesGrid from '@/components/CategoriesGrid.astro';
 import CTASection from '@/components/CTASection.astro';
 import ScrollReveal from '@/components/ScrollReveal.astro';
+// Preload auth module so admin login is fast on first visit
+import '@/lib/auth';
 ---
 
 <BaseLayout>
