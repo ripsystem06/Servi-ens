@@ -21,10 +21,7 @@ function getClientIP(request: Request): string {
   return '127.0.0.1';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function setFlashCookie(cookies: any, name: string, value: string): void {
-  // Short-lived cookie for flash messages — expires in 10 seconds, just long
-  // enough for the redirect to be processed.
   cookies.set(`flash_${name}`, value, {
     httpOnly: true,
     secure: true,
@@ -35,32 +32,20 @@ function setFlashCookie(cookies: any, name: string, value: string): void {
 }
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
-  console.log('[login] request received');
-
-  // ── CSRF protection ────────────────────────────────────────────────
   const csrfError = csrfGuard(request);
-  if (csrfError) {
-    console.log('[login] CSRF blocked');
-    return csrfError;
-  }
+  if (csrfError) return csrfError;
 
   const formData = await request.formData();
   const email = (formData.get('email') as string || '').trim();
   const password = (formData.get('password') as string || '').trim();
+  const clientIP = getClientIP(request);
 
-  // ── DEBUG: return immediately after parsing form ─────────────────
-  return new Response(JSON.stringify({ ok: true, step: 'form-parsed', email, passwordLen: password.length }), {
-    status: 200, headers: { 'Content-Type': 'application/json' },
-  });
-
-  // ── Rate limiting ────────────────────────────────────────────────
   if (checkLoginRateLimit(clientIP)) {
     const url = new URL('/admin/login', request.url);
     url.searchParams.set('error', 'Demasiados intentos. Esperá 15 minutos.');
     return Response.redirect(url, 302);
   }
 
-  // ── Validation ───────────────────────────────────────────────────
   if (!email) {
     setFlashCookie(cookies, 'email', email);
     const url = new URL('/admin/login', request.url);
@@ -75,10 +60,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     return Response.redirect(url, 302);
   }
 
-  // ── Query user ───────────────────────────────────────────────────
-  console.log('[login] about to query DB');
   const user = await db.select().from(adminUsers).where(eq(adminUsers.email, email)).limit(1);
-  console.log('[login] DB query done, rows:', user.length);
 
   if (user.length === 0) {
     setFlashCookie(cookies, 'email', email);
@@ -87,11 +69,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     return Response.redirect(url, 302);
   }
 
-  // ── Verify password ──────────────────────────────────────────────
-  const isValid = await verifyPassword(password, user[0].passwordHash).catch((err) => {
-    console.error('[login] bcrypt error:', err.message);
-    return false;
-  });
+  const isValid = await verifyPassword(password, user[0].passwordHash);
 
   if (!isValid) {
     setFlashCookie(cookies, 'email', email);
@@ -100,10 +78,8 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     return Response.redirect(url, 302);
   }
 
-  // ── Login successful ─────────────────────────────────────────────
   resetLoginRateLimit(clientIP);
 
-  // Check if user has the default password — force change
   const needsPasswordChange = isDefaultPassword(user[0].passwordHash);
 
   const sessionId = createSession(email, needsPasswordChange);
@@ -115,14 +91,11 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
     maxAge: 86400,
   });
 
-  // Clear flash cookies
   cookies.delete('flash_email', { path: '/' });
 
-  // ── DEBUG: return early to isolate the hang ──────────────────────
-  return new Response(JSON.stringify({
-    ok: true,
-    step: 'after-verify',
-    email: user[0].email,
-    matchLength: isValid,
-  }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+  if (needsPasswordChange) {
+    return redirect('/admin/cambiar-password', 302);
+  }
+
+  return redirect('/admin', 302);
 };
