@@ -40,15 +40,17 @@ if (Astro.request.method === 'POST' && business) {
   // ─── Delete action ───────────────────────────────────────
   if (action === 'delete') {
     try {
-      // Delete from JSON
+      // Delete from PostgreSQL first (source of truth)
+      const dbResult = await db.delete(businesses).where(eq(businesses.id, id));
+      console.log('[admin] DB delete result for', id, ':', dbResult);
+      
+      // Delete from JSON (backwards compat)
       const bizes = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
       const filtered = bizes.filter((b: { id: string }) => b.id !== id);
       fs.writeFileSync(jsonPath, JSON.stringify(filtered, null, 2), 'utf-8');
-      // Delete from PostgreSQL
-      await db.delete(businesses).where(eq(businesses.id, id));
     } catch (err: any) {
       console.error('[admin] Error deleting business:', err);
-      formErrors.db = 'Error al eliminar: ' + (err?.message || String(err)).substring(0, 100);
+      formErrors.db = 'Error al eliminar: ' + err.message;
       success = false;
     }
     if (!formErrors.db) {
