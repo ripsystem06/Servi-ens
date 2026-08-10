@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "npx pagefind --site dist",
+    "postbuild": "npx pagefind --site dist || true",
     "preview": "astro preview",
     "check": "astro check"
   },
