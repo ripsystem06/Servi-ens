@@ -47,9 +47,11 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   const formData = await request.formData();
   const email = (formData.get('email') as string || '').trim();
   const password = (formData.get('password') as string || '').trim();
-  const clientIP = getClientIP(request);
 
-  console.log('[login] attempt for:', email, 'ip:', clientIP);
+  // ── DEBUG: return immediately after parsing form ─────────────────
+  return new Response(JSON.stringify({ ok: true, step: 'form-parsed', email, passwordLen: password.length }), {
+    status: 200, headers: { 'Content-Type': 'application/json' },
+  });
 
   // ── Rate limiting ────────────────────────────────────────────────
   if (checkLoginRateLimit(clientIP)) {
