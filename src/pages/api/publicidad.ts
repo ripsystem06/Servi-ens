@@ -3,41 +3,32 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { z } from 'zod';
 import { db } from '@/lib/db';
-import { sql } from 'drizzle-orm';
-import Database from 'better-sqlite3';
+import { adInquiries } from '@/lib/schema';
+import { csrfGuard } from '@/lib/csrf';
+import { getClientIP, publicidadLimiter } from '@/lib/rate-limit';
 
 const PublicidadSchema = z.object({
-  name: z.string().min(1, 'El nombre es obligatorio'),
-  business: z.string().min(1, 'El nombre del negocio es obligatorio'),
-  email: z.string().email('El correo no es válido'),
-  phone: z.string().min(1, 'El teléfono es obligatorio'),
-  interest: z.string().min(1, 'Seleccioná un tipo de publicidad'),
-  message: z.string().optional(),
+  name: z.string().min(1, 'El nombre es obligatorio').max(100),
+  business: z.string().min(1, 'El nombre del negocio es obligatorio').max(100),
+  email: z.string().email('El correo no es válido').max(255),
+  phone: z.string().min(1, 'El teléfono es obligatorio').max(30),
+  interest: z.string().min(1, 'Seleccioná un tipo de publicidad').max(50),
+  message: z.string().max(1000).optional(),
 });
 
-let tableEnsured = false;
-function ensureTable(): void {
-  if (tableEnsured) return;
-  const sqlite = new Database('data/admin.db');
-  sqlite.exec(`
-    CREATE TABLE IF NOT EXISTS ad_inquiries (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      business TEXT NOT NULL,
-      email TEXT NOT NULL,
-      phone TEXT NOT NULL,
-      interest TEXT NOT NULL,
-      message TEXT DEFAULT '',
-      status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','contacted','closed')),
-      created_at TEXT DEFAULT (datetime('now'))
-    );
-  `);
-  sqlite.close();
-  tableEnsured = true;
-}
-
 export const POST: APIRoute = async ({ request, redirect }) => {
-  ensureTable();
+  // ── CSRF protection ────────────────────────────────────────────────
+  const csrfError = csrfGuard(request);
+  if (csrfError) return csrfError;
+
+  // ── Rate limiting ──────────────────────────────────────────────────
+  const ip = getClientIP(request);
+  const limit = publicidadLimiter(ip);
+  if (!limit.allowed) {
+    const url = new URL('/publicidad', request.url);
+    url.searchParams.set('error', 'Demasiadas solicitudes. Esperá una hora.');
+    return Response.redirect(url, 302);
+  }
 
   const formData = await request.formData();
   const raw = {
@@ -60,13 +51,14 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const { name, business, email, phone, interest, message } = parsed.data;
 
   try {
-    // Insert using raw SQL since we don't have a Drizzle schema for this table
-    const sqlite = new Database('data/admin.db');
-    sqlite.prepare(`
-      INSERT INTO ad_inquiries (name, business, email, phone, interest, message)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `).run(name, business, email, phone, interest, message || '');
-    sqlite.close();
+    await db.insert(adInquiries).values({
+      name,
+      business,
+      email,
+      phone,
+      interest: interest as typeof adInquiries.interest.enumValues[number],
+      message: message || '',
+    });
   } catch {
     const url = new URL('/publicidad', request.url);
     url.searchParams.set('error', 'Error al enviar. Intentá de nuevo.');

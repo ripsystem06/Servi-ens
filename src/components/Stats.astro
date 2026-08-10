@@ -1,7 +1,7 @@
 ---
 import { getBusinesses, getCategories } from '@/lib/data-loader';
 
-const businesses = getBusinesses();
+const businesses = await getBusinesses();
 const categories = getCategories();
 const verifiedCount = businesses.filter(b => b.verified).length;
 ---

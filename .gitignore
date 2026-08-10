@@ -27,3 +27,5 @@ npm-debug.log*
 .astro/
 data/*.db-shm
 data/*.db-wal
+# Local AI runtime state
+.atl/

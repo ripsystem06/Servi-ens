@@ -1,74 +1,17 @@
 ---
-interface Props {
-  category?: string;
-}
 
-const { category } = Astro.props;
-
-const allBanners = [
-  { src: "/banners/verticales/1.png", alt: "Publicidad 1", link: "#" },
-  { src: "/banners/verticales/2.png", alt: "Publicidad 2", link: "#" },
-  { src: "/banners/verticales/3.png", alt: "Publicidad 3", link: "#" },
-  { src: "/banners/verticales/4.png", alt: "Publicidad 4", link: "#" },
-];
-
-const categoryIndex = category ? category.length % allBanners.length : -1;
-const banners = categoryIndex >= 0
-  ? allBanners.filter((_, i) => i !== categoryIndex)
-  : allBanners;
-
-const initialIndex = Math.floor(Math.random() * banners.length);
-const bannersJson = JSON.stringify(banners);
----
-
-<div id="banner-rotator" class="space-y-6" data-banners={bannersJson} data-initial={String(initialIndex)}>
+<div class="space-y-6">
   <p class="font-sans text-label-sm text-on-surface-variant/50 uppercase tracking-widest text-center">Espacio Publicitario</p>
   <a
-    id="banner-rotator-link"
-    href={banners[initialIndex].link}
-    class="block rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-500"
-    style="transition: opacity 0.3s ease, transform 0.3s ease;"
+    href="/publicidad"
+    class="block relative rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 group"
   >
     <img
-      id="banner-rotator-img"
-      src={banners[initialIndex].src}
-      alt={banners[initialIndex].alt}
+      src="/banners/verticales/promo.svg"
+      alt="Promociona tu negocio aquí, contáctanos"
       class="w-full h-auto object-cover"
     />
+    <!-- Hover overlay -->
+    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
   </a>
 </div>
-
-<script>
-  const rotator = document.getElementById('banner-rotator');
-  if (!rotator) throw new Error('Banner rotator not found');
-
-  const bannerData = JSON.parse(rotator.dataset.banners || '[]');
-  const initial = parseInt(rotator.dataset.initial || '0');
-
-  if (bannerData.length > 1) {
-    const link = document.getElementById('banner-rotator-link') as HTMLAnchorElement;
-    const img = document.getElementById('banner-rotator-img') as HTMLImageElement;
-    let current = initial;
-
-    setInterval(() => {
-      let next: number;
-      do {
-        next = Math.floor(Math.random() * bannerData.length);
-      } while (next === current && bannerData.length > 1);
-
-      current = next;
-      const banner = bannerData[next];
-
-      link.style.opacity = '0';
-      link.style.transform = 'scale(0.97)';
-
-      setTimeout(() => {
-        img.src = banner.src;
-        img.alt = banner.alt;
-        link.href = banner.link;
-        link.style.opacity = '1';
-        link.style.transform = 'scale(1)';
-      }, 300);
-    }, 3000);
-  }
-</script>

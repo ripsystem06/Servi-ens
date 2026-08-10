@@ -144,13 +144,23 @@ const pageTitle = hasQuery
         const metaParts = [];
         if (data.meta?.category) metaParts.push(data.meta.category);
 
-        card.innerHTML = `
-          <h3 class="font-headline text-headline-md text-primary mb-1 group-hover:text-secondary transition-colors">
-            ${escapeHtml(data.meta?.title || 'Sin título')}
-          </h3>
-          ${metaParts.length > 0 ? `<p class="text-label-sm text-on-surface-variant mb-2">${metaParts.join(' · ')}</p>` : ''}
-          <p class="text-label-md text-on-surface-variant line-clamp-2">${data.excerpt || ''}</p>
-        `;
+        // Build card using DOM API instead of innerHTML
+        const title = document.createElement('h3');
+        title.className = 'font-headline text-headline-md text-primary mb-1 group-hover:text-secondary transition-colors';
+        title.textContent = data.meta?.title || 'Sin título';
+        card.appendChild(title);
+
+        if (metaParts.length > 0) {
+          const meta = document.createElement('p');
+          meta.className = 'text-label-sm text-on-surface-variant mb-2';
+          meta.textContent = metaParts.join(' · ');
+          card.appendChild(meta);
+        }
+
+        const excerpt = document.createElement('p');
+        excerpt.className = 'text-label-md text-on-surface-variant line-clamp-2';
+        excerpt.textContent = data.excerpt || '';
+        card.appendChild(excerpt);
 
         fragment.appendChild(card);
         loadedCount++;
@@ -169,29 +179,27 @@ const pageTitle = hasQuery
       // Pagefind not available (dev mode or build hasn't run yet)
       // Show category quick links instead of an error
       if (resultsContainer) {
-        resultsContainer.innerHTML = `
-          <div class="text-center py-10 bg-surface-container-low rounded-xl border border-outline-card">
-            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-muted/40">
-              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
-            </svg>
-            <p class="text-body-md text-secondary-600 mb-1">
-              El buscador está generando el índice de servicios.
-            </p>
-            <p class="text-label-sm text-muted">
-              Mientras tanto, explorá las categorías desde el inicio.
-            </p>
-            <a href="/" class="inline-block mt-4 btn-primary btn-sm">
-              ← Ir al inicio
-            </a>
-          </div>
+        resultsContainer.innerHTML = '';
+        const fallback = document.createElement('div');
+        fallback.className = 'text-center py-10 bg-surface-container-low rounded-xl border border-outline-card';
+        fallback.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-4 text-muted/40">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <p class="text-body-md text-secondary-600 mb-1">
+            El buscador está generando el índice de servicios.
+          </p>
+          <p class="text-label-sm text-muted">
+            Mientras tanto, explorá las categorías desde el inicio.
+          </p>
         `;
+        const link = document.createElement('a');
+        link.href = '/';
+        link.className = 'inline-block mt-4 btn-primary btn-sm';
+        link.textContent = '← Ir al inicio';
+        fallback.appendChild(link);
+        resultsContainer.appendChild(fallback);
       }
     }
   })();
-
-  function escapeHtml(str: string): string {
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
 </script>

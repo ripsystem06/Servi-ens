@@ -18,15 +18,15 @@ const categories = getCategories();
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 
 // Query the banner
-const bannerResults = db
+const bannerResults = await db
   .select()
   .from(banners)
   .where(eq(banners.id, isNaN(bannerId) ? -1 : bannerId))
-  .limit(1)
-  .all() as Banner[];
+  .limit(1) as Banner[];
 
 const banner = bannerResults.length > 0 ? bannerResults[0] : null;
 
@@ -42,7 +42,7 @@ if (Astro.request.method === 'POST') {
 
   // ── DELETE action ─────────────────────────────────────────────────
   if (action === 'delete' && banner) {
-    db.delete(banners).where(eq(banners.id, banner.id)).run();
+    await db.delete(banners).where(eq(banners.id, banner.id));
     return Astro.redirect('/admin/banners?msg=Banner+eliminado', 302);
   }
 
@@ -60,7 +60,11 @@ if (Astro.request.method === 'POST') {
 
   // Validation
   if (!title) formErrors.title = 'El título es obligatorio';
-  if (!link) formErrors.link = 'El link es obligatorio';
+  if (!link) {
+    formErrors.link = 'El link es obligatorio';
+  } else if (!/^(\/|https?:\/\/)/.test(link)) {
+    formErrors.link = 'El link debe empezar con /, http:// o https://';
+  }
   if (!image) formErrors.image = 'La imagen es obligatoria';
   if (!startDate) formErrors.startDate = 'La fecha de inicio es obligatoria';
   if (!endDate) formErrors.endDate = 'La fecha de fin es obligatoria';
@@ -69,7 +73,7 @@ if (Astro.request.method === 'POST') {
 
   if (Object.keys(formErrors).length === 0 && banner) {
     const slotTyped = slot as 'sidebar-left' | 'sidebar-right' | 'profile';
-    db.update(banners)
+    await db.update(banners)
       .set({
         image,
         title,
@@ -80,8 +84,7 @@ if (Astro.request.method === 'POST') {
         targetCategory,
         slot: slotTyped,
       })
-      .where(eq(banners.id, banner.id))
-      .run();
+      .where(eq(banners.id, banner.id));
 
     redirectUrl = '/admin/banners?msg=Banner+actualizado';
     success = true;

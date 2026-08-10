@@ -5,6 +5,9 @@ import AdminLayout from '@/layouts/AdminLayout.astro';
 import BusinessForm from '@/components/admin/BusinessForm.astro';
 import { getCategories, getZones, getBusinesses } from '@/lib/data-loader';
 import { validateSession } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { businesses } from '@/lib/schema';
+import { eq } from 'drizzle-orm';
 import fs from 'fs';
 import path from 'path';
 
@@ -13,7 +16,7 @@ const { id } = Astro.params;
 
 const categories = getCategories();
 const zones = getZones();
-const allBusinesses = getBusinesses();
+const allBusinesses = await getBusinesses();
 const businessIndex = allBusinesses.findIndex((b) => b.id === id);
 const isNotFound = businessIndex === -1;
 const business = isNotFound ? null : allBusinesses[businessIndex];
@@ -21,7 +24,8 @@ const business = isNotFound ? null : allBusinesses[businessIndex];
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 
 let formErrors: Record<string, string> = {};
 let formValues: Record<string, string> = {};
@@ -36,9 +40,12 @@ if (Astro.request.method === 'POST' && business) {
   // ─── Delete action ───────────────────────────────────────
   if (action === 'delete') {
     try {
+      // Delete from JSON
       const bizes = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
       const filtered = bizes.filter((b: { id: string }) => b.id !== id);
       fs.writeFileSync(jsonPath, JSON.stringify(filtered, null, 2), 'utf-8');
+      // Delete from PostgreSQL
+      await db.delete(businesses).where(eq(businesses.id, id));
     } catch (err) {
       console.error('[admin] Error deleting business:', err);
     }
@@ -70,7 +77,7 @@ if (Astro.request.method === 'POST' && business) {
     if (!zn) formErrors.zone = 'La zona es obligatoria';
 
     if (slug && !formErrors.slug) {
-      const others = getBusinesses().filter((b) => b.id !== id);
+      const others = (await getBusinesses()).filter((b) => b.id !== id);
       if (others.some((b) => b.slug === slug)) {
         formErrors.slug = 'Este slug ya existe';
       }
@@ -118,11 +125,40 @@ if (Astro.request.method === 'POST' && business) {
           fs.writeFileSync(jsonPath, JSON.stringify(bizes, null, 2), 'utf-8');
         }
       } catch (err) {
-        console.error('[admin] Error updating business:', err);
+        console.error('[admin] Error updating business JSON:', err);
       }
 
-      redirectUrl = '/admin/servicios?msg=Servicio+actualizado';
-      success = true;
+      // ── Also update PostgreSQL (single source of truth) ──────────
+      try {
+        await db.update(businesses)
+          .set({
+            slug: slug,
+            name: name,
+            category: cat,
+            zone: zn,
+            description: description || '',
+            phone: phone || '',
+            email: email || '',
+            website: website || null,
+            address: address || '',
+            photos: photos && photos.length > 0 ? photos : business.photos,
+            services: services.length > 0 ? services : business.services,
+            schedule: schedule || business.schedule,
+            verified: verified,
+            destacado: destacado,
+            updatedAt: now,
+          })
+          .where(eq(businesses.id, id));
+      } catch (dbErr) {
+        console.error('[admin] Error updating business in DB:', dbErr);
+        formErrors.db = 'Error al actualizar en la base de datos. Revisá los logs.';
+        success = false;
+      }
+
+      if (!formErrors.db) {
+        redirectUrl = '/admin/servicios?msg=Servicio+actualizado';
+        success = true;
+      }
     }
   }
 }

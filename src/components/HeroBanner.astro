@@ -1,67 +1,17 @@
 ---
-const banners = [
-  { src: "/banners/horizontales/1.png", alt: "Publicidad 1", link: "#" },
-  { src: "/banners/horizontales/2.png", alt: "Publicidad 2", link: "#" },
-  { src: "/banners/horizontales/3.png", alt: "Publicidad 3", link: "#" },
-  { src: "/banners/horizontales/4.png", alt: "Publicidad 4", link: "#" },
-];
----
 
-<div id="hero-banner" class="relative w-full rounded-2xl overflow-hidden shadow-lg"   style="aspect-ratio: 16/4;">
-  {banners.map((banner, i) => (
-    <a
-      href={banner.link}
-      class="hero-banner-slide absolute inset-0 transition-opacity duration-700"
-      style={`opacity: ${i === 0 ? '1' : '0'}; z-index: ${i === 0 ? '1' : '0'};`}
-    >
-      <img
-        src={banner.src}
-        alt={banner.alt}
-        class="w-full h-full object-cover"
-        loading={i === 0 ? "eager" : "lazy"}
-      />
-    </a>
-  ))}
-
-  {/* Indicators */}
-  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-    {banners.map((_, i) => (
-      <button
-        class="hero-banner-dot w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-colors"
-        style={`opacity: ${i === 0 ? '1' : '0.5'};`}
-        data-index={i}
-        aria-label={`Banner ${i + 1}`}
-      />
-    ))}
-  </div>
-</div>
-
-<script>
-  const slides = document.querySelectorAll('.hero-banner-slide') as NodeListOf<HTMLElement>;
-  const dots = document.querySelectorAll('.hero-banner-dot') as NodeListOf<HTMLElement>;
-  let current = 0;
-  const total = slides.length;
-
-  function show(index: number) {
-    slides.forEach((s, i) => {
-      s.style.opacity = i === index ? '1' : '0';
-      s.style.zIndex = i === index ? '1' : '0';
-    });
-    dots.forEach((d, i) => {
-      d.style.opacity = i === index ? '1' : '0.5';
-    });
-    current = index;
-  }
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const index = parseInt(dot.dataset.index || '0');
-      show(index);
-    });
-  });
-
-  setInterval(() => {
-    const next = (current + 1) % total;
-    show(next);
-  }, 5000);
-</script>
+<a
+  href="/publicidad"
+  class="block relative w-full rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
+  style="aspect-ratio: 16/4;"
+  aria-label="Promociona tu negocio aquí — Contáctanos"
+>
+  <img
+    src="/banners/horizontales/promo.svg"
+    alt="Promociona tu negocio aquí, contáctanos"
+    class="w-full h-full object-cover"
+    loading="eager"
+  />
+  <!-- Hover overlay -->
+  <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
+</a>

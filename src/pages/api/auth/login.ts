@@ -11,6 +11,7 @@ import {
   resetLoginRateLimit,
   isDefaultPassword,
 } from '@/lib/auth';
+import { csrfGuard } from '@/lib/csrf';
 
 function getClientIP(request: Request): string {
   const forwarded = request.headers.get('x-forwarded-for');
@@ -34,6 +35,10 @@ function setFlashCookie(cookies: any, name: string, value: string): void {
 }
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+  // ── CSRF protection ────────────────────────────────────────────────
+  const csrfError = csrfGuard(request);
+  if (csrfError) return csrfError;
+
   const formData = await request.formData();
   const email = (formData.get('email') as string || '').trim();
   const password = (formData.get('password') as string || '').trim();
@@ -62,7 +67,7 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   // ── Query user ───────────────────────────────────────────────────
-  const user = db.select().from(adminUsers).where(eq(adminUsers.email, email)).limit(1).all();
+  const user = await db.select().from(adminUsers).where(eq(adminUsers.email, email)).limit(1);
 
   if (user.length === 0) {
     setFlashCookie(cookies, 'email', email);

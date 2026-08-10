@@ -10,26 +10,26 @@ import { db } from '@/lib/db';
 import { banners } from '@/lib/schema';
 import { sql } from 'drizzle-orm';
 
-const businesses = getBusinesses();
+const businesses = await getBusinesses();
 const totalNegocios = businesses.length;
 const pendientes = businesses.filter((b) => !b.verified).length;
-const registrosPendientes = countPending();
+const registrosPendientes = await countPending();
 
 // Active banners count (start_date <= now <= end_date)
 const now = new Date().toISOString().split('T')[0];
-const activeBannersResult = db
+const activeBannersResult = await db
   .select({ count: sql<number>`count(*)` })
   .from(banners)
   .where(
     sql`${banners.startDate} <= ${now} AND ${banners.endDate} >= ${now}`
-  )
-  .all();
+  );
 const bannersActivos = activeBannersResult[0]?.count ?? 0;
 
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 ---
 
 <AdminLayout title="Dashboard" userEmail={userEmail}>

@@ -1,0 +1,116 @@
+---
+import { db } from '@/lib/db';
+import { reviews } from '@/lib/schema';
+import { eq, desc } from 'drizzle-orm';
+
+interface Props {
+  businessSlug: string;
+}
+
+const { businessSlug } = Astro.props;
+
+const approvedReviews = await db
+  .select()
+  .from(reviews)
+  .where(eq(reviews.businessSlug, businessSlug))
+  .where(eq(reviews.status, 'approved'))
+  .orderBy(desc(reviews.createdAt));
+
+const avgRating =
+  approvedReviews.length > 0
+    ? (approvedReviews.reduce((sum, r) => sum + r.rating, 0) / approvedReviews.length).toFixed(1)
+    : null;
+---
+
+{approvedReviews.length > 0 && (
+  <div class="space-y-6">
+    <!-- Header with average -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-1">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill={i < Math.round(Number(avgRating)) ? "#E76F51" : "none"}
+            stroke={i < Math.round(Number(avgRating)) ? "#E76F51" : "currentColor"}
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="text-muted/30"
+          >
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
+        ))}
+      </div>
+      <span class="font-headline text-headline-sm text-on-surface">{avgRating}</span>
+      <span class="text-label-md text-muted/60">
+        ({approvedReviews.length} {approvedReviews.length === 1 ? 'opinión' : 'opiniones'})
+      </span>
+    </div>
+
+    <!-- Review cards -->
+    <div class="space-y-4">
+      {approvedReviews.map((review) => (
+        <div class="bg-surface-container-low border border-outline-card rounded-xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill={i < review.rating ? "#E76F51" : "none"}
+                  stroke={i < review.rating ? "#E76F51" : "currentColor"}
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="text-muted/20"
+                >
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg>
+              ))}
+            </div>
+            <time class="text-label-xs text-muted/40" datetime={review.createdAt || ''}>
+              {review.createdAt
+                ? new Date(review.createdAt).toLocaleDateString('es-MX', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })
+                : ''}
+            </time>
+          </div>
+
+          <p class="text-body-md text-on-surface mb-2 leading-relaxed">
+            "{review.comment}"
+          </p>
+
+          <p class="text-label-sm font-semibold text-primary">
+            — {review.authorName} {review.authorSurname}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{approvedReviews.length === 0 && (
+  <div class="text-center py-8 bg-surface-container-low rounded-xl border border-outline-card">
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="mx-auto text-muted/30 mb-3"
+    >
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <p class="text-label-md text-muted/60">Todavía no hay opiniones para este servicio.</p>
+    <p class="text-label-sm text-muted/40 mt-1">¡Sé el primero en compartir tu experiencia!</p>
+  </div>
+)}

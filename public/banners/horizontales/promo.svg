@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" rx="20" fill="url(#bg)"/>
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="50" r="180" fill="white" opacity="0.04"/>
+  <circle cx="150" cy="250" r="120" fill="white" opacity="0.04"/>
+
+  <!-- Left accent bar -->
+  <rect x="0" y="0" width="6" height="300" rx="3" fill="url(#accent)"/>
+
+  <!-- Megaphone icon — hand-drawn at proper scale for 1200x300 -->
+  <g transform="translate(90, 70)" fill="none" stroke="white" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+    <!-- Bell -->
+    <path d="M 30 60 L 30 100 L 10 110 L 0 110 A 35 35 0 0 1 0 50 L 10 50 L 30 60 Z"/>
+    <!-- Handle -->
+    <line x1="10" y1="80" x2="10" y2="105"/>
+    <!-- Sound wave 1 -->
+    <path d="M 55 45 A 35 35 0 0 1 55 115"/>
+    <!-- Sound wave 2 -->
+    <path d="M 75 30 A 55 55 0 0 1 75 130"/>
+    <!-- Sound wave 3 -->
+    <path d="M 95 15 A 75 75 0 0 1 95 145"/>
+  </g>
+
+  <!-- Main title -->
+  <text x="240" y="125" font-family="system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="white" letter-spacing="0.5">
+    PROMOCIONA TU NEGOCIO AQUÍ
+  </text>
+
+  <!-- Subtitle -->
+  <text x="240" y="185" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="500" fill="#93C5FD" letter-spacing="2">
+    CONTÁCTANOS HOY
+  </text>
+
+  <!-- CTA badge -->
+  <g transform="translate(240, 210)">
+    <rect x="0" y="0" width="140" height="42" rx="21" fill="white" fill-opacity="0.15"/>
+    <text x="70" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">publicidad →</text>
+  </g>
+
+  <!-- Right decorative -->
+  <circle cx="1100" cy="200" r="120" fill="#3B82F6" opacity="0.06"/>
+</svg>

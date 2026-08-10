@@ -5,6 +5,8 @@ import AdminLayout from '@/layouts/AdminLayout.astro';
 import BusinessForm from '@/components/admin/BusinessForm.astro';
 import { getCategories, getZones, getBusinesses } from '@/lib/data-loader';
 import { validateSession } from '@/lib/auth';
+import { db } from '@/lib/db';
+import { businesses as businessesTable } from '@/lib/schema';
 import fs from 'fs';
 import path from 'path';
 
@@ -16,7 +18,8 @@ const zones = getZones();
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 
 let formErrors: Record<string, string> = {};
 let formValues: Record<string, string> = {};
@@ -55,7 +58,7 @@ if (Astro.request.method === 'POST') {
 
   // Check duplicate slug
   if (slug && !formErrors.slug) {
-    const businesses = getBusinesses();
+    const businesses = await getBusinesses();
     if (businesses.some((b) => b.slug === slug)) {
       formErrors.slug = 'Este slug ya existe';
     }
@@ -96,7 +99,7 @@ if (Astro.request.method === 'POST') {
       updatedAt: now,
     };
 
-    // Read, append, write
+    // Read, append, write to JSON (backwards compatibility)
     let allBizes: unknown[] = [];
     try {
       allBizes = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
@@ -106,8 +109,43 @@ if (Astro.request.method === 'POST') {
     allBizes.push(newBusiness);
     fs.writeFileSync(jsonPath, JSON.stringify(allBizes, null, 2), 'utf-8');
 
-    redirectUrl = '/admin/servicios?msg=Servicio+creado';
-    success = true;
+    // ── Also insert into PostgreSQL (single source of truth) ──────
+    try {
+      await db.insert(businessesTable).values({
+        id: newBusiness.id,
+        slug: newBusiness.slug,
+        name: newBusiness.name,
+        category: newBusiness.category,
+        zone: newBusiness.zone,
+        description: newBusiness.description || '',
+        phone: newBusiness.phone || '',
+        email: newBusiness.email || '',
+        website: newBusiness.website || null,
+        address: newBusiness.address || '',
+        photos: newBusiness.photos || [],
+        services: newBusiness.services || [],
+        verified: newBusiness.verified === true,
+        destacado: newBusiness.destacado === true,
+        experience: null,
+        certifications: [],
+        availability: null,
+        quoteMethod: null,
+        tags: [],
+        schedule: newBusiness.schedule || [],
+        createdAt: newBusiness.createdAt,
+        updatedAt: newBusiness.updatedAt,
+      });
+    } catch (dbErr) {
+      console.error('[admin] Error inserting business into DB:', dbErr);
+      formErrors.db = 'Error al guardar en la base de datos. Revisá los logs.';
+      // Don't redirect — let the form re-render with the error
+      success = false;
+    }
+
+    if (!formErrors.db) {
+      redirectUrl = '/admin/servicios?msg=Servicio+creado';
+      success = true;
+    }
   }
 }
 

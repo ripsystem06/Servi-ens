@@ -16,7 +16,7 @@ export const GET: APIRoute = async ({ params, redirect }) => {
     return redirect('/', 302);
   }
 
-  const link = incrementClicks(id);
+  const link = await incrementClicks(id);
 
   if (!link) {
     // Banner not found — redirect home

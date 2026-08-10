@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ params }) => {
     return new Response(null, { status: 400 });
   }
 
-  incrementImpressions(id);
+  await incrementImpressions(id);
 
   return new Response(null, { status: 204 });
 };

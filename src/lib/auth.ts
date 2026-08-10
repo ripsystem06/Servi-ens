@@ -116,20 +116,25 @@ export function isDefaultPassword(hash: string): boolean {
 // ─── Admin seeding ──────────────────────────────────────────────────
 
 export async function seedAdminUser(): Promise<void> {
-  // Tables are created by ensureTables() imported above via db.ts
-  const existing = db.select().from(adminUsers).limit(1).all();
+  const existing = await db.select().from(adminUsers).limit(1);
   if (existing.length > 0) return;
 
-  const email = process.env.ADMIN_EMAIL || 'admin@catalogoensenada.com';
-  const password = process.env.ADMIN_PASSWORD || 'admin123';
+  const email = process.env.ADMIN_EMAIL;
+  const password = process.env.ADMIN_PASSWORD;
+
+  if (!email || !password) {
+    console.warn('[auth] ADMIN_EMAIL and ADMIN_PASSWORD env vars required for first-time setup. Skipping admin seed.');
+    return;
+  }
+
   const passwordHash = await hashPassword(password);
 
-  db.insert(adminUsers).values({
+  await db.insert(adminUsers).values({
     email,
     passwordHash,
-  }).run();
+  });
 
-  console.log(`[auth] Seeded admin user: ${email}`);
+  console.log('[auth] Admin user seeded successfully');
 }
 
 // Auto-seed on first import (module-level side effect)

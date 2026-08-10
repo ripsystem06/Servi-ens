@@ -4,53 +4,48 @@ import type { APIRoute } from 'astro';
 import { z } from 'zod';
 import { db } from '@/lib/db';
 import { submissions } from '@/lib/schema';
-import Database from 'better-sqlite3';
+import { csrfGuard } from '@/lib/csrf';
+import { getClientIP, registroLimiter } from '@/lib/rate-limit';
+import { createClient } from '@supabase/supabase-js';
+
+let _supabase: ReturnType<typeof createClient> | null = null;
+function getSupabase() {
+  if (_supabase) return _supabase;
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_ANON_KEY;
+  if (!url || !key) return null;
+  _supabase = createClient(url, key);
+  return _supabase;
+}
 
 // ── Zod schema ────────────────────────────────────────────────────────
 const RegistroSchema = z.object({
-  name: z.string().min(1, 'El nombre es obligatorio'),
-  category: z.string().min(1, 'Seleccioná una categoría'),
-  zone: z.string().min(1, 'Seleccioná una zona'),
-  phone: z.string().min(1, 'El teléfono es obligatorio'),
-  email: z.string().email('El correo no es válido').optional().or(z.literal('')),
-  description: z.string().min(10, 'La descripción debe tener al menos 10 caracteres'),
-  services: z.string().optional(),
+  name: z.string().min(1, 'El nombre es obligatorio').max(100),
+  category: z.string().min(1, 'Seleccioná una categoría').max(50),
+  zone: z.string().min(1, 'Seleccioná una zona').max(50),
+  phone: z.string().min(1, 'El teléfono es obligatorio').max(30),
+  email: z.string().email('El correo no es válido').max(255).optional().or(z.literal('')),
+  website: z.string().max(500).optional().or(z.literal('')),
+  address: z.string().max(500).optional().or(z.literal('')),
+  description: z.string().min(10, 'La descripción debe tener al menos 10 caracteres').max(5000),
+  services: z.string().min(1, 'Seleccioná al menos un servicio').max(3000),
   terms: z.literal('on', { errorMap: () => ({ message: 'Debés aceptar los Términos y Condiciones' }) }),
 });
 
-// ── Ensure submissions table exists ───────────────────────────────────
-let tableEnsured = false;
-function ensureTable(): void {
-  if (tableEnsured) return;
-  const sqlite = new Database('data/admin.db');
-  sqlite.exec(`
-    CREATE TABLE IF NOT EXISTS submissions (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
-      category TEXT NOT NULL,
-      zone TEXT NOT NULL,
-      phone TEXT NOT NULL,
-      email TEXT NOT NULL DEFAULT '',
-      description TEXT NOT NULL,
-      services TEXT,
-      status TEXT NOT NULL DEFAULT 'pending' CHECK(status IN ('pending','approved','rejected')),
-      admin_notes TEXT,
-      terms_accepted_at TEXT DEFAULT (datetime('now')),
-      created_at TEXT DEFAULT (datetime('now'))
-    );
-  `);
-  // Add terms_accepted_at column if upgrading from older schema
-  try {
-    sqlite.exec(`ALTER TABLE submissions ADD COLUMN terms_accepted_at TEXT;`);
-    sqlite.exec(`UPDATE submissions SET terms_accepted_at = datetime('now') WHERE terms_accepted_at IS NULL;`);
-  } catch { /* column already exists — ok */ }
-  sqlite.close();
-  tableEnsured = true;
-}
-
 // ── POST handler ──────────────────────────────────────────────────────
 export const POST: APIRoute = async ({ request, redirect }) => {
-  ensureTable();
+  // ── CSRF protection ────────────────────────────────────────────────
+  const csrfError = csrfGuard(request);
+  if (csrfError) return csrfError;
+
+  // ── Rate limiting ──────────────────────────────────────────────────
+  const ip = getClientIP(request);
+  const limit = registroLimiter(ip);
+  if (!limit.allowed) {
+    const url = new URL('/registro', request.url);
+    url.searchParams.set('error', 'Demasiados registros. Esperá una hora.');
+    return Response.redirect(url, 302);
+  }
 
   const formData = await request.formData();
 
@@ -60,6 +55,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     zone: (formData.get('zone') as string || '').trim(),
     phone: (formData.get('phone') as string || '').trim(),
     email: (formData.get('email') as string || '').trim(),
+    website: (formData.get('website') as string || '').trim(),
+    address: (formData.get('address') as string || '').trim(),
     description: (formData.get('description') as string || '').trim(),
     services: (formData.get('services') as string || '').trim(),
     terms: (formData.get('terms') as string || '').trim(),
@@ -74,11 +71,32 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     return Response.redirect(url, 302);
   }
 
-  const { name, category, zone, phone, email, description, services } = parsed.data;
+  const { name, category, zone, phone, email, website, address, description, services } = parsed.data;
+
+  // ── Handle photo upload ──────────────────────────────────────────
+  let photoUrl: string | null = null;
+  const photoFile = formData.get('photo') as File | null;
+  if (photoFile && photoFile.size > 0) {
+    const s = getSupabase();
+    if (s) {
+      const tempSlug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 40) + '-' + Date.now().toString(36);
+      const ext = photoFile.type === 'image/jpeg' ? 'jpg' : photoFile.type === 'image/png' ? 'png' : 'webp';
+      const spath = `${tempSlug}.${ext}`;
+      try {
+        const { error } = await s.storage.from('servicios').upload(spath, photoFile, {
+          cacheControl: '3600', upsert: true, contentType: photoFile.type,
+        });
+        if (!error) {
+          const { data } = s.storage.from('servicios').getPublicUrl(spath);
+          photoUrl = data.publicUrl;
+        }
+      } catch {}
+    }
+  }
 
   // ── Insert into DB ──────────────────────────────────────────────────
   try {
-    db.insert(submissions).values({
+    await db.insert(submissions).values({
       name,
       category,
       zone,
@@ -86,8 +104,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       email: email || '',
       description,
       services: services || null,
-      terms_accepted_at: new Date().toISOString(),
-    }).run();
+      website: website || null,
+      address: address || null,
+      termsAcceptedAt: new Date(),
+      photoUrl: photoUrl,
+      photoUrl: photoUrl,
+    });
   } catch (err) {
     const url = new URL('/registro', request.url);
     url.searchParams.set('error', 'Error al guardar. Intentá de nuevo.');

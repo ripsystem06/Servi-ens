@@ -10,11 +10,10 @@ import { desc } from 'drizzle-orm';
 import type { Banner } from '@/lib/banner';
 
 // Query all banners ordered by created_at DESC
-const allBanners = db
+const allBanners = await db
   .select()
   .from(banners)
-  .orderBy(desc(banners.createdAt))
-  .all() as Banner[];
+  .orderBy(desc(banners.createdAt)) as Banner[];
 
 // Flash message
 const msg = Astro.url.searchParams.get('msg') || '';
@@ -22,7 +21,8 @@ const msg = Astro.url.searchParams.get('msg') || '';
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 ---
 
 <AdminLayout title="Banners" userEmail={userEmail}>

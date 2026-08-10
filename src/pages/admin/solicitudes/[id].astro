@@ -9,6 +9,35 @@ import {
   getStatusBadge,
   updateStatus,
 } from '@/lib/submission';
+import { db } from '@/lib/db';
+import { businesses as businessesTable } from '@/lib/schema';
+
+// ── Helper: generate a unique slug from a name ────────────────────
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/** Generate the next biz-XXX ID from the database, not from JSON. */
+async function generateIdFromDB(): Promise<string> {
+  const rows = await db
+    .select({ id: businessesTable.id })
+    .from(businessesTable);
+  const max = rows.reduce((m, r) => {
+    const n = parseInt((r.id || '').replace('biz-', ''), 10) || 0;
+    return Math.max(m, n);
+  }, 0);
+  return `biz-${String(max + 1).padStart(3, '0')}`;
+}
+
+// ── Auth guard (must run before POST processing) ────────────────────
+const sessionCookie = Astro.cookies.get('session');
+const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
+if (!sessionData) return Astro.redirect('/admin/login', 302);
 
 const { id } = Astro.params;
 const submissionId = parseInt(id || '0', 10);
@@ -17,7 +46,7 @@ if (isNaN(submissionId)) {
   return Astro.redirect('/admin/solicitudes?msg=ID+inválido', 302);
 }
 
-const submission = getSubmission(submissionId);
+const submission = await getSubmission(submissionId);
 
 if (!submission) {
   return Astro.redirect('/admin/solicitudes?msg=Solicitud+no+encontrada', 302);
@@ -31,13 +60,55 @@ if (Astro.request.method === 'POST') {
   const notes = (formData.get('admin_notes') as string || '').trim();
 
   if (action === 'approve') {
-    updateStatus(submissionId, 'approved', notes || null);
-    actionMsg = 'Solicitud aprobada correctamente';
+    // ── Generate ID from the database (single source of truth) ────
+    const newId = await generateIdFromDB();
+    const newSlug = slugify(submission.name) + '-' + Date.now().toString(36);
+    const servicesList = submission.services
+      ? submission.services.split(',').map((s: string) => s.trim()).filter(Boolean)
+      : [];
+    const now = new Date().toISOString();
+
+    // ── Insert into PostgreSQL FIRST ──────────────────────────────
+    try {
+      await db.insert(businessesTable).values({
+        id: newId,
+        slug: newSlug,
+        name: submission.name,
+        category: submission.category,
+        zone: submission.zone,
+        description: submission.description,
+        phone: submission.phone,
+        email: submission.email || '',
+        website: submission.website || null,
+        address: submission.address || '',
+        photos: submission.photoUrl ? [submission.photoUrl] : [],
+        services: servicesList,
+        verified: true,
+        destacado: false,
+        experience: null,
+        certifications: [],
+        availability: null,
+        quoteMethod: null,
+        tags: [],
+        schedule: [],
+        createdAt: now,
+        updatedAt: now,
+      });
+
+      // ── Link business to submission ─────────────────────────────
+      await updateStatus(submissionId, 'approved', notes || null, newId);
+
+      actionMsg = 'Solicitud aprobada y servicio creado en el catálogo';
+    } catch (dbErr) {
+      console.error('[admin] Error al crear servicio en la DB:', dbErr);
+      // Rollback: leave submission as pending so admin can retry
+      actionMsg = 'ERROR: No se pudo crear el servicio en la base de datos. Revisá los logs del servidor.';
+    }
   } else if (action === 'reject') {
-    updateStatus(submissionId, 'rejected', notes || null);
+    await updateStatus(submissionId, 'rejected', notes || null);
     actionMsg = 'Solicitud rechazada';
   } else if (action === 'pending') {
-    updateStatus(submissionId, 'pending', notes || null);
+    await updateStatus(submissionId, 'pending', notes || null);
     actionMsg = 'Solicitud marcada como pendiente';
   }
 
@@ -46,15 +117,10 @@ if (Astro.request.method === 'POST') {
   }
 }
 
-// User email from session
-const sessionCookie = Astro.cookies.get('session');
-const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
-
 const badge = getStatusBadge(submission.status);
 ---
 
-<AdminLayout title={`Solicitud: ${submission.name}`} userEmail={userEmail}>
+<AdminLayout title={`Solicitud: ${submission.name}`}>
   <!-- Back link -->
   <a
     href="/admin/solicitudes"

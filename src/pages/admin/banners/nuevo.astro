@@ -13,7 +13,8 @@ const categories = getCategories();
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 
 let formErrors: Record<string, string> = {};
 let formValues: Record<string, string> = {};
@@ -38,7 +39,11 @@ if (Astro.request.method === 'POST') {
 
   // Validation
   if (!title) formErrors.title = 'El título es obligatorio';
-  if (!link) formErrors.link = 'El link es obligatorio';
+  if (!link) {
+    formErrors.link = 'El link es obligatorio';
+  } else if (!/^(\/|https?:\/\/)/.test(link)) {
+    formErrors.link = 'El link debe empezar con /, http:// o https://';
+  }
   if (!image) formErrors.image = 'La imagen es obligatoria';
   if (!startDate) formErrors.startDate = 'La fecha de inicio es obligatoria';
   if (!endDate) formErrors.endDate = 'La fecha de fin es obligatoria';
@@ -47,7 +52,7 @@ if (Astro.request.method === 'POST') {
 
   if (Object.keys(formErrors).length === 0) {
     const slotTyped = slot as 'sidebar-left' | 'sidebar-right' | 'profile';
-    db.insert(banners).values({
+    await db.insert(banners).values({
       image,
       title,
       description: description || '',
@@ -58,7 +63,7 @@ if (Astro.request.method === 'POST') {
       slot: slotTyped,
       impressions: 0,
       clicks: 0,
-    }).run();
+    });
 
     redirectUrl = '/admin/banners?msg=Banner+creado';
     success = true;

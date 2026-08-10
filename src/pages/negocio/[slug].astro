@@ -1,7 +1,7 @@
 ---
 export async function getStaticPaths() {
   const { getBusinesses } = await import('@/lib/data-loader');
-  return getBusinesses().map((b) => ({ params: { slug: b.slug } }));
+  return (await getBusinesses()).map((b) => ({ params: { slug: b.slug } }));
 }
 
 const { slug } = Astro.params;

@@ -22,7 +22,7 @@ if (!zoneData) {
   return Astro.redirect('/404');
 }
 
-const businesses = filterByZone(zone);
+const businesses = await filterByZone(zone);
 const pageTitle = `${zoneData.name} — Catálogo Ensenada`;
 ---
 

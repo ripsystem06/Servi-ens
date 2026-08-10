@@ -4,14 +4,20 @@ import HeroNew from '@/components/HeroNew.astro';
 import HeroBanner from '@/components/HeroBanner.astro';
 import CategoriesGrid from '@/components/CategoriesGrid.astro';
 import CTASection from '@/components/CTASection.astro';
+import ScrollReveal from '@/components/ScrollReveal.astro';
 ---
 
 <BaseLayout>
   <HeroNew />
-  <section class="px-gutter py-8 relative">
+  <section class="px-gutter py-8 relative scroll-reveal">
     <HeroBanner />
     <span class="absolute bottom-2 right-6 text-label-sm text-muted/50">Espacio publicitario</span>
   </section>
-  <CategoriesGrid />
-  <CTASection />
+  <div class="scroll-reveal">
+    <CategoriesGrid />
+  </div>
+  <div class="scroll-reveal">
+    <CTASection />
+  </div>
+  <ScrollReveal />
 </BaseLayout>

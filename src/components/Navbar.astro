@@ -12,20 +12,14 @@ const site = getSiteConfig();
   <div class="glass border-b border-border/60">
     <div class="flex justify-between items-center w-full max-w-container mx-auto h-[68px] px-gutter">
       <!-- Logo -->
-      <a
-        href="/"
-        class="flex items-center gap-2.5 group"
-      >
-        <!-- Logo: pin + S -->
-        <div class="w-9 h-9 rounded-xl bg-primary flex items-center justify-center shadow-sm shadow-primary/20 group-hover:shadow-md group-hover:shadow-primary/25 transition-shadow">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 3.87 5.07 10.08 6.35 11.65.35.43.95.43 1.3 0C13.93 19.08 19 12.87 19 9c0-3.87-3.13-7-7-7z"/>
-            <circle cx="12" cy="9" r="2"/>
-          </svg>
-        </div>
-        <span class="font-display font-bold text-heading-xl text-secondary-900 tracking-tight">
-          {site.name}
-        </span>
+      <a href="/" class="flex items-center shrink-0">
+        <img
+          src="/SERVIENS/logo-navbar.svg"
+          alt={site.name}
+          class="h-[28px] sm:h-[34px] w-auto"
+          width="150"
+          height="34"
+        />
       </a>
 
       <!-- Desktop Links -->
@@ -57,9 +51,10 @@ const site = getSiteConfig();
       </div>
 
       <!-- Mobile: hamburger + CTA -->
-      <div class="flex lg:hidden items-center gap-3">
-        <a href="/registro" class="btn-primary btn-sm text-label-sm">
-          Registra tu servicio
+      <div class="flex lg:hidden items-center gap-2">
+        <a href="/registro" class="btn-primary btn-sm text-label-sm whitespace-nowrap">
+          <span class="hidden xs:inline">Registra tu servicio</span>
+          <span class="xs:hidden">Registrar</span>
         </a>
         <button id="mobile-menu-toggle" class="p-2 -mr-2 rounded-xl hover:bg-secondary-50 transition-colors" aria-label="Abrir menú">
           <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>

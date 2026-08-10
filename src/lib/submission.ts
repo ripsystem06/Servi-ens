@@ -1,6 +1,6 @@
 import { db } from './db';
 import { submissions } from './schema';
-import { eq, desc, sql } from 'drizzle-orm';
+import { eq, desc } from 'drizzle-orm';
 
 export interface Submission {
   id: number;
@@ -13,51 +13,50 @@ export interface Submission {
   services: string | null;
   status: 'pending' | 'approved' | 'rejected';
   adminNotes: string | null;
+  termsAcceptedAt: string | null;
+  businessId: string | null;
+  photoUrl: string | null;
   createdAt: string;
 }
 
 /** Get all submissions ordered by newest first. */
-export function getSubmissions(): Submission[] {
+export async function getSubmissions(): Promise<Submission[]> {
   return db
     .select()
     .from(submissions)
-    .orderBy(desc(submissions.createdAt))
-    .all() as Submission[];
+    .orderBy(desc(submissions.createdAt)) as Promise<Submission[]>;
 }
 
 /** Get a single submission by ID. */
-export function getSubmission(id: number): Submission | null {
-  const result = db
+export async function getSubmission(id: number): Promise<Submission | null> {
+  const result = await db
     .select()
     .from(submissions)
     .where(eq(submissions.id, id))
-    .limit(1)
-    .all() as Submission[];
-  return result.length > 0 ? result[0] : null;
+    .limit(1);
+  return result[0] as Submission | null;
 }
 
 /** Count pending submissions. */
-export function countPending(): number {
-  const result = db
-    .select({ count: sql<number>`count(*)` })
+export async function countPending(): Promise<number> {
+  const result = await db
+    .select({ count: submissions.id })
     .from(submissions)
-    .where(eq(submissions.status, 'pending'))
-    .all();
-  return result[0]?.count ?? 0;
+    .where(eq(submissions.status, 'pending'));
+  return result.length;
 }
 
-/** Update submission status and optionally set admin notes. */
-export function updateStatus(
+/** Update submission status and optionally set admin notes and business link. */
+export async function updateStatus(
   id: number,
   status: 'approved' | 'rejected',
   adminNotes?: string,
-): void {
+  businessId?: string,
+): Promise<void> {
   const data: Record<string, unknown> = { status };
-  if (adminNotes !== undefined) {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (data as any).adminNotes = adminNotes || null;
-  }
-  db.update(submissions).set(data).where(eq(submissions.id, id)).run();
+  if (adminNotes !== undefined) data.adminNotes = adminNotes || null;
+  if (businessId !== undefined) data.businessId = businessId;
+  await db.update(submissions).set(data).where(eq(submissions.id, id));
 }
 
 /** Get human-readable category name from slug. */

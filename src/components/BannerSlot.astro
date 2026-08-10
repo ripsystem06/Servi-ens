@@ -47,9 +47,9 @@ if (!(BANNER_SLOTS as readonly string[]).includes(slot)) {
     fetch(`/api/banner/slot?${params.toString()}`)
       .then((res) => {
         if (res.status === 204 || !res.ok) {
-          // No banner available — hide the slot completely
-          bannerSlot.innerHTML = '';
-          bannerSlot.style.display = 'none';
+          // No banner available — keep space but hide content
+          bannerSlot.querySelector('.banner-placeholder')?.remove();
+          bannerSlot.style.visibility = 'hidden';
           return null;
         }
         return res.text();
@@ -75,9 +75,8 @@ if (!(BANNER_SLOTS as readonly string[]).includes(slot)) {
         }
       })
       .catch(() => {
-        // Fetch failed — hide slot gracefully
-        bannerSlot.innerHTML = '';
-        bannerSlot.style.display = 'none';
+        bannerSlot.querySelector('.banner-placeholder')?.remove();
+        bannerSlot.style.visibility = 'hidden';
       });
   })();
 </script>

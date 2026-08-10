@@ -84,8 +84,8 @@ function getCategoryLabel(cat: string | null): string {
                 <form
                   method="POST"
                   action={`/admin/banners/${banner.id}/editar`}
-                  onsubmit={`return confirm('¿Estás seguro de eliminar "${banner.title.replace(/'/g, "\\'")}"?')`}
-                  class="inline"
+                  data-confirm-title={JSON.stringify(banner.title)}
+                  class="delete-form inline"
                 >
                   <input type="hidden" name="_action" value="delete" />
                   <button
@@ -104,3 +104,14 @@ function getCategoryLabel(cat: string | null): string {
     </tbody>
   </table>
 </div>
+
+<script>
+  document.querySelectorAll('.delete-form').forEach((form) => {
+    const title = JSON.parse(form.getAttribute('data-confirm-title') || '""');
+    form.addEventListener('submit', (e) => {
+      if (!confirm(`¿Estás seguro de eliminar "${title}"?`)) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>

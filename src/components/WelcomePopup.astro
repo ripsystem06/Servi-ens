@@ -1,0 +1,157 @@
+---
+// WelcomePopup — shown once per browser via localStorage.
+// Explains the site briefly and invites businesses to advertise.
+---
+
+<div
+  id="welcome-popup"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 hidden pointer-events-none"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="welcome-title"
+>
+  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-fade-in">
+    <!-- Close button -->
+    <button
+      id="welcome-close"
+      class="absolute top-4 right-4 p-1.5 rounded-full text-muted hover:text-on-surface hover:bg-surface-container-low transition-colors"
+      aria-label="Cerrar"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+
+    <!-- Icon -->
+    <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 mx-auto">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+      </svg>
+    </div>
+
+    <!-- Title -->
+    <h2 id="welcome-title" class="font-headline text-headline-md text-on-surface text-center mb-3">
+      ¡Bienvenido a Serv-Ens!
+    </h2>
+
+    <!-- Explanation -->
+    <p class="text-body-md text-on-surface-variant text-center mb-4 leading-relaxed">
+      Encontrá profesionales locales de confianza en Ensenada. Buscá por categoría, mirá perfiles, leé reseñas y contactá directo por WhatsApp o teléfono.
+    </p>
+
+    <!-- How it works -->
+    <div class="space-y-3 mb-6">
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+          <span class="text-primary text-label-sm font-bold">1</span>
+        </span>
+        <p class="text-label-md text-on-surface-variant">
+          <span class="font-semibold text-on-surface">Buscá</span> el servicio que necesitás por categoría o palabra clave.
+        </p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+          <span class="text-primary text-label-sm font-bold">2</span>
+        </span>
+        <p class="text-label-md text-on-surface-variant">
+          <span class="font-semibold text-on-surface">Compará</span> perfiles, calificaciones y reseñas de clientes reales.
+        </p>
+      </div>
+      <div class="flex items-start gap-3">
+        <span class="w-7 h-7 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+          <span class="text-primary text-label-sm font-bold">3</span>
+        </span>
+        <p class="text-label-md text-on-surface-variant">
+          <span class="font-semibold text-on-surface">Contactá</span> directo al profesional por WhatsApp o teléfono.
+        </p>
+      </div>
+    </div>
+
+    <!-- Advertising CTA -->
+    <div class="bg-primary/5 border border-primary/10 rounded-xl p-4 mb-5">
+      <p class="text-label-md text-on-surface text-center">
+        ¿Querés promocionar tu negocio acá?
+      </p>
+      <p class="text-label-sm text-muted text-center mt-1 mb-3">
+        Contactanos y te ayudamos a llegar a más clientes en Ensenada.
+      </p>
+      <a
+        href="/publicidad"
+        class="block w-full text-center bg-primary hover:brightness-110 text-white font-bold py-2.5 px-4 rounded-lg transition-all text-label-md"
+      >
+        Quiero publicidad
+      </a>
+    </div>
+
+    <!-- Dismiss -->
+    <button
+      id="welcome-dismiss"
+      class="block w-full text-center text-label-sm text-muted hover:text-on-surface transition-colors py-1"
+    >
+      Cerrar y empezar a buscar
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+</style>
+
+<script>
+  const POPUP_KEY = 'servens_welcome_dismissed';
+  const popup = document.getElementById('welcome-popup');
+  const closeBtn = document.getElementById('welcome-close');
+  const dismissBtn = document.getElementById('welcome-dismiss');
+
+  function showPopup() {
+    if (popup) {
+      popup.classList.remove('hidden', 'pointer-events-none');
+      popup.classList.add('pointer-events-auto');
+    }
+  }
+
+  function hidePopup() {
+    if (popup) {
+      popup.classList.add('hidden', 'pointer-events-none');
+      popup.classList.remove('pointer-events-auto');
+    }
+  }
+
+  function dismiss() {
+    hidePopup();
+    try {
+      localStorage.setItem(POPUP_KEY, '1');
+    } catch { /* localStorage not available */ }
+  }
+
+  // Show on first visit
+  try {
+    if (!localStorage.getItem(POPUP_KEY)) {
+      showPopup();
+    }
+  } catch {
+    // localStorage not available — show anyway
+    showPopup();
+  }
+
+  closeBtn?.addEventListener('click', dismiss);
+  dismissBtn?.addEventListener('click', dismiss);
+
+  // Close on backdrop click
+  popup?.addEventListener('click', (e) => {
+    if (e.target === popup) dismiss();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popup && !popup.classList.contains('hidden')) {
+      dismiss();
+    }
+  });
+</script>

@@ -12,8 +12,13 @@ import {
   verifyPassword,
   isDefaultPassword,
 } from '@/lib/auth';
+import { csrfGuard } from '@/lib/csrf';
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+  // ── CSRF protection ────────────────────────────────────────────────
+  const csrfError = csrfGuard(request);
+  if (csrfError) return csrfError;
+
   const sessionCookie = cookies.get('session');
   if (!sessionCookie?.value) {
     return redirect('/admin/login', 302);
@@ -46,11 +51,10 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   // ── Verify current password ──────────────────────────────────────
-  const user = db.select()
+  const user = await db.select()
     .from(adminUsers)
     .where(eq(adminUsers.email, sessionData.email))
-    .limit(1)
-    .all();
+    .limit(1);
 
   if (user.length === 0) {
     return redirect('/admin/login', 302);
@@ -81,10 +85,9 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   // ── Update password ──────────────────────────────────────────────
   const newHash = await hashPassword(newPassword);
 
-  db.update(adminUsers)
+  await db.update(adminUsers)
     .set({ passwordHash: newHash })
-    .where(eq(adminUsers.email, sessionData.email))
-    .run();
+    .where(eq(adminUsers.email, sessionData.email));
 
   // ── Rotate session (destroy old, create new without needsPasswordChange) ─
   destroySession(sessionCookie.value);

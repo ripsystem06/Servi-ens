@@ -69,8 +69,8 @@ const { businesses, currentPage, totalPages } = Astro.props;
                 <form
                   method="POST"
                   action={`/admin/servicios/${biz.id}/editar`}
-                  onsubmit={`return confirm('¿Estás seguro de eliminar ${biz.name.replace(/'/g, "\\'")}?')`}
-                  class="inline"
+                  data-confirm-name={JSON.stringify(biz.name)}
+                  class="delete-business-form inline"
                 >
                   <input type="hidden" name="_action" value="delete" />
                   <button
@@ -112,7 +112,18 @@ const { businesses, currentPage, totalPages } = Astro.props;
         >
           Siguiente
         </a>
-      )}
-    </div>
+  )}
+</div>
+
+<script>
+  document.querySelectorAll('.delete-business-form').forEach((form) => {
+    const name = JSON.parse(form.getAttribute('data-confirm-name') || '""');
+    form.addEventListener('submit', (e) => {
+      if (!confirm(`¿Estás seguro de eliminar ${name}?`)) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
   </div>
 )}

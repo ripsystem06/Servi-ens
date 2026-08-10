@@ -5,14 +5,14 @@ import AdminLayout from '@/layouts/AdminLayout.astro';
 import { validateSession } from '@/lib/auth';
 import { getSubmissions, getCategoryLabel, getStatusBadge, countPending } from '@/lib/submission';
 
-const allSubmissions = getSubmissions();
-const pendingCount = countPending();
+const allSubmissions = await getSubmissions();
+const pendingCount = await countPending();
 
-// Filter: default to pending only, ?estado=todas for all
-const filter = Astro.url.searchParams.get('estado') || '';
-const submissions = filter === 'todas'
-  ? allSubmissions
-  : allSubmissions.filter(s => s.status === 'pending');
+// Filter: default to all, ?estado=pendientes for pending only
+const filter = Astro.url.searchParams.get('estado') || 'todas';
+const submissions = filter === 'pendientes'
+  ? allSubmissions.filter(s => s.status === 'pending')
+  : allSubmissions;
 
 const approvedCount = allSubmissions.filter(s => s.status === 'approved').length;
 const rejectedCount = allSubmissions.filter(s => s.status === 'rejected').length;
@@ -23,7 +23,8 @@ const msg = Astro.url.searchParams.get('msg') || '';
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 ---
 
 <AdminLayout title="Solicitudes" userEmail={userEmail}>
@@ -38,8 +39,8 @@ const userEmail = sessionData?.email || '';
   <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
     <div class="flex items-center gap-1 bg-surface-container-low rounded-lg p-1">
       <a
-        href="/admin/solicitudes"
-        class={`px-3 py-1.5 rounded-md text-label-sm font-medium transition-colors ${filter !== 'todas' ? 'bg-white text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}`}
+        href="/admin/solicitudes?estado=pendientes"
+        class={`px-3 py-1.5 rounded-md text-label-sm font-medium transition-colors ${filter === 'pendientes' ? 'bg-white text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}`}
       >
         Pendientes
         {pendingCount > 0 && (
@@ -47,7 +48,7 @@ const userEmail = sessionData?.email || '';
         )}
       </a>
       <a
-        href="/admin/solicitudes?estado=todas"
+        href="/admin/solicitudes"
         class={`px-3 py-1.5 rounded-md text-label-sm font-medium transition-colors ${filter === 'todas' ? 'bg-white text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}`}
       >
         Todas

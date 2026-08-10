@@ -8,7 +8,7 @@ import { validateSession } from '@/lib/auth';
 
 const ITEMS_PER_PAGE = 10;
 
-const businesses = getBusinesses();
+const businesses = await getBusinesses();
 const pageParam = Astro.url.searchParams.get('page');
 const currentPage = Math.max(1, parseInt(pageParam || '1', 10) || 1);
 const totalPages = Math.max(1, Math.ceil(businesses.length / ITEMS_PER_PAGE));
@@ -24,7 +24,8 @@ const msg = Astro.url.searchParams.get('msg') || '';
 // User email from session
 const sessionCookie = Astro.cookies.get('session');
 const sessionData = sessionCookie?.value ? validateSession(sessionCookie.value) : null;
-const userEmail = sessionData?.email || '';
+if (!sessionData) return Astro.redirect('/admin/login', 302);
+const userEmail = sessionData.email;
 ---
 
 <AdminLayout title="Servicios" userEmail={userEmail}>

@@ -19,14 +19,14 @@ export const GET: APIRoute = async ({ request }) => {
   }
 
   const slot = slotParam as BannerSlot;
-  const banner = getBannerForSlot(slot, category);
+  const banner = await getBannerForSlot(slot, category);
 
   if (!banner) {
     return new Response(null, { status: 204 });
   }
 
   // Track impression
-  incrementImpressions(banner.id);
+  await incrementImpressions(banner.id);
 
   const html = renderBannerCard(banner);
 

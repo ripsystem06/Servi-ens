@@ -1,12 +1,23 @@
-import Database from 'better-sqlite3';
-import { drizzle } from 'drizzle-orm/better-sqlite3';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import * as schema from './schema';
-import { ensureTables } from './seed';
 
-const sqlite = new Database('data/admin.db');
-sqlite.pragma('journal_mode = WAL');
-sqlite.pragma('foreign_keys = ON');
+const connectionString = process.env.DATABASE_URL!;
 
-ensureTables();
+if (!connectionString) {
+  throw new Error('DATABASE_URL environment variable is required');
+}
 
-export const db = drizzle(sqlite, { schema });
+// Postgres.js client — single connection for Drizzle
+const client = postgres(connectionString, {
+  max: 10, // connection pool size
+  idle_timeout: 30, // seconds
+  connect_timeout: 10, // seconds
+});
+
+export const db = drizzle(client, { schema });
+
+// Graceful shutdown
+process.on('SIGTERM', async () => {
+  await client.end();
+});

@@ -6,34 +6,26 @@ const site = getSiteConfig();
 
 <footer class="bg-white border-t border-border">
   <div class="max-w-container mx-auto px-gutter py-16">
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
       <!-- Brand -->
       <div class="md:col-span-2 space-y-4">
-        <a href="/" class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 3.87 5.07 10.08 6.35 11.65.35.43.95.43 1.3 0C13.93 19.08 19 12.87 19 9c0-3.87-3.13-7-7-7z"/>
-              <circle cx="12" cy="9" r="2"/>
-            </svg>
-          </div>
-          <span class="font-display font-bold text-heading-xl text-secondary-900">{site.name}</span>
+        <a href="/" class="flex items-center">
+          <img
+            src="/SERVIENS/logo-footer.svg"
+            alt={site.name}
+            class="h-[60px] w-auto"
+            width="240"
+            height="60"
+          />
         </a>
         <p class="text-body-md text-muted max-w-sm">{site.tagline}</p>
-      </div>
-
-      <!-- Links -->
-      <div>
-        <p class="text-label-sm font-semibold text-secondary-400 uppercase tracking-wider mb-4">Enlaces</p>
-        <div class="space-y-3">
-          <a href="/buscar" class="block text-label-md text-secondary-600 hover:text-primary transition-colors">Buscar servicios</a>
-          <a href="/registro" class="block text-label-md text-secondary-600 hover:text-primary transition-colors">Registrar servicio</a>
-        </div>
       </div>
 
       <!-- Legal -->
       <div>
         <p class="text-label-sm font-semibold text-secondary-400 uppercase tracking-wider mb-4">Legal</p>
         <div class="space-y-3">
+          <a href="/nosotros" class="block text-label-md text-secondary-600 hover:text-primary transition-colors">Sobre nosotros</a>
           <a href="/aviso-privacidad" class="block text-label-md text-secondary-600 hover:text-primary transition-colors">Aviso de privacidad</a>
           <a href="/terminos" class="block text-label-md text-secondary-600 hover:text-primary transition-colors">Términos y condiciones</a>
         </div>
