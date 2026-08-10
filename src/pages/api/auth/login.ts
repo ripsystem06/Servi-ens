@@ -35,14 +35,21 @@ function setFlashCookie(cookies: any, name: string, value: string): void {
 }
 
 export const POST: APIRoute = async ({ request, cookies, redirect }) => {
+  console.log('[login] request received');
+
   // ── CSRF protection ────────────────────────────────────────────────
   const csrfError = csrfGuard(request);
-  if (csrfError) return csrfError;
+  if (csrfError) {
+    console.log('[login] CSRF blocked');
+    return csrfError;
+  }
 
   const formData = await request.formData();
   const email = (formData.get('email') as string || '').trim();
   const password = (formData.get('password') as string || '').trim();
   const clientIP = getClientIP(request);
+
+  console.log('[login] attempt for:', email, 'ip:', clientIP);
 
   // ── Rate limiting ────────────────────────────────────────────────
   if (checkLoginRateLimit(clientIP)) {
@@ -67,7 +74,9 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   // ── Query user ───────────────────────────────────────────────────
+  console.log('[login] about to query DB');
   const user = await db.select().from(adminUsers).where(eq(adminUsers.email, email)).limit(1);
+  console.log('[login] DB query done, rows:', user.length);
 
   if (user.length === 0) {
     setFlashCookie(cookies, 'email', email);
@@ -77,7 +86,10 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   }
 
   // ── Verify password ──────────────────────────────────────────────
-  const isValid = await verifyPassword(password, user[0].passwordHash);
+  const isValid = await verifyPassword(password, user[0].passwordHash).catch((err) => {
+    console.error('[login] bcrypt error:', err.message);
+    return false;
+  });
 
   if (!isValid) {
     setFlashCookie(cookies, 'email', email);

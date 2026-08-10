@@ -138,6 +138,7 @@ export async function seedAdminUser(): Promise<void> {
 }
 
 // Auto-seed on first import (module-level side effect)
-seedAdminUser().catch((err) => {
-  console.error('[auth] Failed to seed admin user:', err);
-});
+// Disabled: Hostinger times out on cold start. Run npx drizzle-kit push manually.
+// seedAdminUser().catch((err) => {
+//   console.error('[auth] Failed to seed admin user:', err);
+// });
