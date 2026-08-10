@@ -11,10 +11,11 @@
 const ALLOWED_ORIGINS = [
   import.meta.env.SITE_URL,
   import.meta.env.PUBLIC_SITE_URL,
-  'http://localhost:4321',
-  'http://localhost:4322',
-  'http://127.0.0.1:4321',
   'https://servi-ens.click',
+  // Localhost origins only in development
+  ...(import.meta.env.DEV
+    ? ['http://localhost:4321', 'http://localhost:4322', 'http://127.0.0.1:4321']
+    : []),
 ].filter(Boolean) as string[];
 
 /**

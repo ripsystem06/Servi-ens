@@ -19,7 +19,7 @@ const pageTitle = `Términos y Condiciones — ${site.name}`;
       <section>
         <h2 class="font-display text-heading-xl text-secondary-900 mb-3">1. Definiciones</h2>
         <ul class="list-disc pl-6 space-y-2">
-          <li><strong>Plataforma:</strong> El sitio web {site.name} (<a href="https://servi-ens.online" class="text-primary underline">servi-ens.online</a>) y todos sus subdominios.</li>
+          <li><strong>Plataforma:</strong> El sitio web {site.name} (<a href={site.url} class="text-primary underline">{site.url.replace('https://', '')}</a>) y todos sus subdominios.</li>
           <li><strong>Usuario visitante:</strong> Toda persona que navega el directorio en busca de servicios.</li>
           <li><strong>Prestador:</strong> Persona física o moral que se registra en la plataforma para publicar sus servicios.</li>
           <li><strong>Directorio:</strong> El catálogo público de prestadores de servicios disponible en la plataforma.</li>

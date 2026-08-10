@@ -50,6 +50,7 @@ function securityHeaders() {
 }
 
 export default defineConfig({
+  site: 'https://servi-ens.click',
   output: 'server',
   adapter: node({
     mode: 'standalone',

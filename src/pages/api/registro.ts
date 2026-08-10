@@ -173,7 +173,7 @@ async function sendAdminNotification(data: NotificationData): Promise<void> {
       <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Descripción</td><td style="padding:6px 12px;border:1px solid #ddd">${data.description}</td></tr>
     </table>
     <p style="margin-top:16px;color:#666">
-      Revisá este registro en el <a href="${import.meta.env.SITE_URL || 'http://localhost:4321'}/admin">panel de administración</a>.
+      Revisá este registro en el <a href="${import.meta.env.SITE_URL}/admin">panel de administración</a>.
     </p>
   `;
 
