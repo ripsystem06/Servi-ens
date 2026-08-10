@@ -46,11 +46,15 @@ if (Astro.request.method === 'POST' && business) {
       fs.writeFileSync(jsonPath, JSON.stringify(filtered, null, 2), 'utf-8');
       // Delete from PostgreSQL
       await db.delete(businesses).where(eq(businesses.id, id));
-    } catch (err) {
+    } catch (err: any) {
       console.error('[admin] Error deleting business:', err);
+      formErrors.db = 'Error al eliminar: ' + (err?.message || String(err)).substring(0, 100);
+      success = false;
     }
-    redirectUrl = '/admin/servicios?msg=Servicio+eliminado';
-    success = true;
+    if (!formErrors.db) {
+      redirectUrl = '/admin/servicios?msg=Servicio+eliminado';
+      success = true;
+    }
   } else {
     // ─── Update action ──────────────────────────────────────
     const name = (formData.get('name') as string || '').trim();
