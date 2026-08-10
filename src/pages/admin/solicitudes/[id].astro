@@ -99,10 +99,9 @@ if (Astro.request.method === 'POST') {
       await updateStatus(submissionId, 'approved', notes || null, newId);
 
       actionMsg = 'Solicitud aprobada y servicio creado en el catálogo';
-    } catch (dbErr) {
+    } catch (dbErr: any) {
       console.error('[admin] Error al crear servicio en la DB:', dbErr);
-      // Rollback: leave submission as pending so admin can retry
-      actionMsg = 'ERROR: No se pudo crear el servicio en la base de datos. Revisá los logs del servidor.';
+      actionMsg = 'ERROR DB: ' + (dbErr?.message || String(dbErr)).substring(0, 150);
     }
   } else if (action === 'reject') {
     await updateStatus(submissionId, 'rejected', notes || null);
