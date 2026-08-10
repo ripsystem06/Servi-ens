@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080">
+  <defs>
+    <!-- Gradient backgrounds for each card -->
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00838F"/>
+      <stop offset="100%" stop-color="#006064"/>
+    </linearGradient>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0097A7"/>
+      <stop offset="100%" stop-color="#00838F"/>
+    </linearGradient>
+    <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00ACC1"/>
+      <stop offset="100%" stop-color="#0097A7"/>
+    </linearGradient>
+    <!-- Subtle card shadow -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    <!-- Glow for step numbers -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1080" height="1080" fill="#F5F0E8"/>
+
+  <!-- Title area -->
+  <text x="540" y="90" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#00838F" letter-spacing="1">¿Cómo funciona Servi-Ens?</text>
+  <line x1="440" y1="110" x2="640" y2="110" stroke="#00838F" stroke-width="2" opacity="0.4"/>
+
+  <!-- Card 1: Crear perfil -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="180" width="280" height="340" rx="16" fill="url(#bg1)"/>
+    <!-- Step number circle -->
+    <circle cx="210" cy="240" r="28" fill="rgba(255,255,255,0.2)"/>
+    <text x="210" y="250" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" filter="url(#glow)">1</text>
+    <!-- Icon: user silhouette -->
+    <g transform="translate(210, 330)" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="0" cy="-14" r="14"/>
+      <path d="M-22,22 Q-22,2 0,2 Q22,2 22,22"/>
+    </g>
+    <!-- Card title -->
+    <text x="210" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="white">Crea tu perfil</text>
+    <!-- Card subtitle -->
+    <text x="210" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">Cuentas quién eres</text>
+    <text x="210" y="460" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">y muestras tu trabajo</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <g transform="translate(370, 340)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#00838F" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <polygon points="50,-8 62,0 50,8" fill="#00838F" opacity="0.6"/>
+  </g>
+
+  <!-- Card 2: Elegir categoría -->
+  <g filter="url(#shadow)">
+    <rect x="400" y="180" width="280" height="340" rx="16" fill="url(#bg2)"/>
+    <!-- Step number circle -->
+    <circle cx="540" cy="240" r="28" fill="rgba(255,255,255,0.2)"/>
+    <text x="540" y="250" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" filter="url(#glow)">2</text>
+    <!-- Icon: folder/category -->
+    <g transform="translate(540, 330)" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-20,-20 L-20,-6 L-8,-6 L-4,-10 L20,-10 L20,-20 Z"/>
+      <rect x="-22" y="-20" width="44" height="48" rx="4"/>
+      <line x1="-10" y1="0" x2="10" y2="0"/>
+      <line x1="-10" y1="10" x2="10" y2="10"/>
+    </g>
+    <!-- Card title -->
+    <text x="540" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="white">Elige tu categoría</text>
+    <!-- Card subtitle -->
+    <text x="540" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">Para que te encuentren</text>
+    <text x="540" y="460" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">quienes buscan tu servicio</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <g transform="translate(700, 340)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#00838F" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <polygon points="50,-8 62,0 50,8" fill="#00838F" opacity="0.6"/>
+  </g>
+
+  <!-- Card 3: Te descubren -->
+  <g filter="url(#shadow)">
+    <rect x="730" y="180" width="280" height="340" rx="16" fill="url(#bg3)"/>
+    <!-- Step number circle -->
+    <circle cx="870" cy="240" r="28" fill="rgba(255,255,255,0.2)"/>
+    <text x="870" y="250" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="white" filter="url(#glow)">3</text>
+    <!-- Icon: handshake -->
+    <g transform="translate(870, 326)" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-26,14 Q-22,0 -10,0 L-10,8 L-14,8 Q-20,8 -22,14"/>
+      <path d="M26,14 Q22,0 10,0 L10,8 L14,8 Q20,8 22,14"/>
+      <line x1="-10" y1="8" x2="10" y2="8" stroke-width="2.5"/>
+    </g>
+    <!-- Card title -->
+    <text x="870" y="410" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="white">Te descubren</text>
+    <!-- Card subtitle -->
+    <text x="870" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">Las personas de Ensenada</text>
+    <text x="870" y="460" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.8)">buscan y te contactan</text>
+  </g>
+
+  <!-- Bottom: benefits bar -->
+  <rect x="70" y="600" width="940" height="130" rx="12" fill="white" opacity="0.9"/>
+  <g transform="translate(540, 635)">
+    <!-- Check 1 -->
+    <g transform="translate(-280, 0)">
+      <circle cx="0" cy="0" r="18" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+      <path d="M-6,0 L-2,5 L8,-5" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="35" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#555">Sin página web</text>
+    </g>
+    <!-- Check 2 -->
+    <g transform="translate(0, 0)">
+      <circle cx="0" cy="0" r="18" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+      <path d="M-6,0 L-2,5 L8,-5" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="35" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#555">Sin pagar publicidad</text>
+    </g>
+    <!-- Check 3 -->
+    <g transform="translate(280, 0)">
+      <circle cx="0" cy="0" r="18" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+      <path d="M-6,0 L-2,5 L8,-5" fill="none" stroke="#4CAF50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="35" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#555">Sin depender de grupos</text>
+    </g>
+  </g>
+
+  <!-- CTA -->
+  <rect x="290" y="780" width="500" height="60" rx="30" fill="#00838F"/>
+  <text x="540" y="817" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="white" letter-spacing="0.5">Regístrate gratis en 5 minutos</text>
+
+  <!-- Servi-Ens watermark -->
+  <text x="540" y="1050" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#00838F" opacity="0.4" letter-spacing="3">SERVI-ENS · HECHO EN ENSENADA</text>
+</svg>
