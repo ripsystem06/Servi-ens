@@ -1,0 +1,162 @@
+- generic [active] [ref=f9e1]:
+  - navigation [ref=f9e2]:
+    - generic [ref=f9e4]:
+      - link "Serv-Ens" [ref=f9e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f9e11]:
+        - link "Inicio" [ref=f9e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f9e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f9e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f9e19]:
+    - generic [ref=f9e20]:
+      - navigation "Breadcrumb" [ref=f9e22]:
+        - link "Inicio" [ref=f9e23] [cursor=pointer]:
+          - /url: /
+        - link "Electricidad" [ref=f9e26] [cursor=pointer]:
+          - /url: /electricidad
+        - generic [ref=f9e29]: Electricista de Prueba
+      - generic [ref=f9e30]:
+        - generic [ref=f9e31]:
+          - generic [ref=f9e33]:
+            - generic [ref=f9e34]:
+              - generic [ref=f9e35]:
+                - heading "Electricista de Prueba" [level=1] [ref=f9e36]
+                - generic "Servicio verificado" [ref=f9e37]: Verificado
+              - generic [ref=f9e41]:
+                - generic [ref=f9e42]: Electricidad
+                - generic [ref=f9e47]: • Centro
+                - generic [ref=f9e48]: A domicilio
+                - generic [ref=f9e51]: Emergencias
+            - generic [ref=f9e54]:
+              - link "Llamar" [ref=f9e55] [cursor=pointer]:
+                - /url: tel:+52 646 123 4567
+              - link "WhatsApp" [ref=f9e58] [cursor=pointer]:
+                - /url: https://wa.me/526461234567
+          - generic [ref=f9e61]:
+            - heading "Sobre nosotros" [level=2] [ref=f9e62]
+            - paragraph [ref=f9e63]: Servicio de prueba para testear el sistema de reseñas. Electricista profesional con más de 10 años de experiencia en instalaciones residenciales e industriales.
+          - generic [ref=f9e64]:
+            - generic [ref=f9e65]:
+              - heading "Experiencia" [level=3] [ref=f9e66]
+              - paragraph [ref=f9e67]: 10 años de experiencia
+            - generic [ref=f9e68]:
+              - heading "Disponibilidad" [level=3] [ref=f9e69]
+              - generic [ref=f9e70]:
+                - generic [ref=f9e71]: Atención a domicilio
+                - generic [ref=f9e75]: Emergencias 24h
+                - generic [ref=f9e80]: 5 días a la semana
+                - generic [ref=f9e83]: 8:00 - 18:00
+              - paragraph [ref=f9e87]: "Cotización: Telefónica"
+          - generic [ref=f9e88]:
+            - heading "Servicios" [level=2] [ref=f9e89]
+            - generic [ref=f9e90]:
+              - generic [ref=f9e91]: Instalación eléctrica
+              - generic [ref=f9e95]: Reparación de cortocircuitos
+              - generic [ref=f9e99]: Tableros eléctricos
+          - generic [ref=f9e103]:
+            - heading "Opiniones de clientes" [level=2] [ref=f9e104]
+            - generic [ref=f9e105]:
+              - generic [ref=f9e106]:
+                - generic [ref=f9e118]: "4.8"
+                - generic [ref=f9e119]: (5 opiniones)
+              - generic [ref=f9e120]:
+                - generic [ref=f9e121]:
+                  - time [ref=f9e134]: 9 ago 2026
+                  - paragraph [ref=f9e135]: "\"Rate limit test 1\""
+                  - paragraph [ref=f9e136]: — RateTest User
+                - generic [ref=f9e137]:
+                  - time [ref=f9e150]: 9 ago 2026
+                  - paragraph [ref=f9e151]: "\"Rate limit test 2\""
+                  - paragraph [ref=f9e152]: — RateTest User
+                - generic [ref=f9e153]:
+                  - time [ref=f9e166]: 9 ago 2026
+                  - paragraph [ref=f9e167]: "\"Muy buen servicio, rápido y eficiente. Totalmente recomendado.\""
+                  - paragraph [ref=f9e168]: — María García
+                - generic [ref=f9e169]:
+                  - time [ref=f9e182]: 9 ago 2026
+                  - paragraph [ref=f9e183]: "\"Probando con Origin correcto\""
+                  - paragraph [ref=f9e184]: — Test User
+                - generic [ref=f9e185]:
+                  - time [ref=f9e198]: 9 ago 2026
+                  - paragraph [ref=f9e199]: "\"Excelente servicio, muy profesional y puntual.\""
+                  - paragraph [ref=f9e200]: — Carlos Mendoza
+          - generic [ref=f9e201]:
+            - heading "Dejanos tu opinión" [level=3] [ref=f9e202]
+            - generic [ref=f9e203]:
+              - generic [ref=f9e204]:
+                - generic [ref=f9e205]: Calificación *
+                - generic [ref=f9e206]:
+                  - button "1 estrella" [ref=f9e207] [cursor=pointer]
+                  - button "2 estrellas" [ref=f9e210] [cursor=pointer]
+                  - button "3 estrellas" [ref=f9e213] [cursor=pointer]
+                  - button "4 estrellas" [ref=f9e216] [cursor=pointer]
+                  - button "5 estrellas" [ref=f9e219] [cursor=pointer]
+                - paragraph [ref=f9e222]
+              - generic [ref=f9e223]:
+                - generic [ref=f9e224]:
+                  - generic [ref=f9e225]: Nombre *
+                  - textbox "Nombre *" [ref=f9e226]:
+                    - /placeholder: "Ej: Juan"
+                - generic [ref=f9e227]:
+                  - generic [ref=f9e228]: Apellido *
+                  - textbox "Apellido *" [ref=f9e229]:
+                    - /placeholder: "Ej: Pérez"
+              - generic [ref=f9e230]:
+                - generic [ref=f9e231]: Tu comentario *(máx. 150 caracteres)
+                - textbox "Tu comentario *(máx. 150 caracteres)" [ref=f9e232]:
+                  - /placeholder: Compartí tu experiencia con este servicio...
+                - generic [ref=f9e233]: 0 / 150
+              - button "Enviar reseña" [ref=f9e235] [cursor=pointer]
+          - generic [ref=f9e238]:
+            - heading "Ubicación" [level=2] [ref=f9e239]
+            - generic [ref=f9e245]:
+              - paragraph [ref=f9e246]: Centro
+              - paragraph [ref=f9e247]: Calle de Prueba 123, Centro, Ensenada, B.C.
+        - complementary [ref=f9e248]:
+          - text: "---"
+          - generic [ref=f9e249]:
+            - paragraph [ref=f9e250]: Espacio Publicitario
+            - link [ref=f9e251] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f9e252]
+  - contentinfo [ref=f9e254]:
+    - generic [ref=f9e255]:
+      - generic [ref=f9e256]:
+        - generic [ref=f9e257]:
+          - link "Serv-Ens" [ref=f9e258] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f9e264]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f9e265]:
+          - paragraph [ref=f9e266]: Enlaces
+          - generic [ref=f9e267]:
+            - link "Buscar servicios" [ref=f9e268] [cursor=pointer]:
+              - /url: /buscar
+            - link "Registrar servicio" [ref=f9e269] [cursor=pointer]:
+              - /url: /registro
+        - generic [ref=f9e270]:
+          - paragraph [ref=f9e271]: Legal
+          - generic [ref=f9e272]:
+            - link "Aviso de privacidad" [ref=f9e273] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f9e274] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f9e275]:
+          - paragraph [ref=f9e276]: Contacto
+          - generic [ref=f9e277]:
+            - link "contacto@servi-ens.online" [ref=f9e278] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f9e279] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f9e280]:
+        - paragraph [ref=f9e281]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f9e282]:
+          - text: por
+          - link "xant.online" [ref=f9e283] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f9e286]:
+    - button [ref=f9e287]
+    - button [ref=f9e293]
+    - button [ref=f9e297]
+    - button [ref=f9e305]

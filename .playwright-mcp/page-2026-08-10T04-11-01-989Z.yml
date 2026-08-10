@@ -1,0 +1,74 @@
+- generic [active] [ref=f32e1]:
+  - complementary [ref=f32e2]:
+    - generic [ref=f32e3]: Catálogo
+    - navigation [ref=f32e8]:
+      - link "Dashboard" [ref=f32e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f32e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f32e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f32e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f32e28] [cursor=pointer]
+  - generic [ref=f32e32]:
+    - banner [ref=f32e33]:
+      - heading "Servicios" [level=1] [ref=f32e35]
+      - generic [ref=f32e36]:
+        - generic [ref=f32e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f32e39] [cursor=pointer]
+    - main [ref=f32e40]:
+      - generic [ref=f32e41]:
+        - paragraph [ref=f32e42]: 3 servicios registrados
+        - link "Nuevo servicio" [ref=f32e43] [cursor=pointer]:
+          - /url: /admin/servicios/nuevo
+      - table [ref=f32e47]:
+        - rowgroup [ref=f32e48]:
+          - row [ref=f32e49]:
+            - columnheader "Nombre" [ref=f32e50]
+            - columnheader "Categoría" [ref=f32e51]
+            - columnheader "Email" [ref=f32e52]
+            - columnheader "Estado" [ref=f32e53]
+            - columnheader "Acciones" [ref=f32e54]
+        - rowgroup [ref=f32e55]:
+          - row [ref=f32e56]:
+            - cell [ref=f32e57]:
+              - link "Test Servicio" [ref=f32e58] [cursor=pointer]:
+                - /url: /admin/servicios/biz-001/editar
+            - cell "plomeria" [ref=f32e59]
+            - cell "test@example.com" [ref=f32e60]
+            - cell "Verificado" [ref=f32e61]
+            - cell [ref=f32e65]:
+              - generic [ref=f32e66]:
+                - link "Editar" [ref=f32e67] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-001/editar
+                - button "Eliminar" [ref=f32e71] [cursor=pointer]
+          - row [ref=f32e75]:
+            - cell [ref=f32e76]:
+              - link "test2" [ref=f32e77] [cursor=pointer]:
+                - /url: /admin/servicios/biz-002/editar
+            - cell "impermeabilizacion" [ref=f32e78]
+            - cell "eewerw@gmail.com" [ref=f32e79]
+            - cell "Verificado" [ref=f32e80]
+            - cell [ref=f32e84]:
+              - generic [ref=f32e85]:
+                - link "Editar" [ref=f32e86] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-002/editar
+                - button "Eliminar" [ref=f32e90] [cursor=pointer]
+          - row [ref=f32e94]:
+            - cell [ref=f32e95]:
+              - link "Xant Servictios TI" [ref=f32e96] [cursor=pointer]:
+                - /url: /admin/servicios/biz-003/editar
+            - cell "servicios-profesionales" [ref=f32e97]
+            - cell "contacto@xant.com.mx" [ref=f32e98]
+            - cell "Verificado" [ref=f32e99]
+            - cell [ref=f32e103]:
+              - generic [ref=f32e104]:
+                - link "Editar" [ref=f32e105] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-003/editar
+                - button "Eliminar" [ref=f32e109] [cursor=pointer]
+  - generic [ref=f32e115]:
+    - button [ref=f32e116]
+    - button [ref=f32e122]
+    - button [ref=f32e126]
+    - button [ref=f32e134]

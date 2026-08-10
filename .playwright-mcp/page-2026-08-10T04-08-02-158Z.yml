@@ -1,0 +1,83 @@
+- generic [active] [ref=f23e1]:
+  - complementary [ref=f23e2]:
+    - generic [ref=f23e3]: Catálogo
+    - navigation [ref=f23e8]:
+      - link "Dashboard" [ref=f23e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f23e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f23e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f23e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f23e28] [cursor=pointer]
+  - generic [ref=f23e32]:
+    - banner [ref=f23e33]:
+      - heading "Nuevo banner" [level=1] [ref=f23e35]
+      - generic [ref=f23e36]:
+        - generic [ref=f23e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f23e39] [cursor=pointer]
+    - main [ref=f23e40]:
+      - generic [ref=f23e42]:
+        - heading "Nuevo banner" [level=2] [ref=f23e43]
+        - generic [ref=f23e44]:
+          - generic [ref=f23e45]:
+            - generic [ref=f23e46]: Título *
+            - textbox "Título *" [ref=f23e47]:
+              - /placeholder: Título del banner
+          - generic [ref=f23e48]:
+            - generic [ref=f23e49]: Descripción
+            - textbox "Descripción" [ref=f23e50]:
+              - /placeholder: Texto descriptivo del banner
+          - generic [ref=f23e51]:
+            - generic [ref=f23e52]:
+              - generic [ref=f23e53]: Link *
+              - textbox "Link *" [ref=f23e54]:
+                - /placeholder: https://...
+            - generic [ref=f23e55]:
+              - generic [ref=f23e56]: Imagen *
+              - textbox "Imagen *" [ref=f23e57]:
+                - /placeholder: https://.../banner.jpg
+          - generic [ref=f23e58]:
+            - generic [ref=f23e59]:
+              - generic [ref=f23e60]: Fecha inicio *
+              - textbox "Fecha inicio *" [ref=f23e61]
+            - generic [ref=f23e62]:
+              - generic [ref=f23e63]: Fecha fin *
+              - textbox "Fecha fin *" [ref=f23e64]
+          - generic [ref=f23e65]:
+            - generic [ref=f23e66]:
+              - generic [ref=f23e67]: Categoría objetivo
+              - combobox "Categoría objetivo" [ref=f23e68]:
+                - option "Todas las categorías" [selected]
+                - option "Plomería"
+                - option "Electricidad"
+                - option "Carpintería"
+                - option "Pintura"
+                - option "Albañilería"
+                - option "Herrería"
+                - option "Refrigeración y Aire Acondicionado"
+                - option "Reparación de Electrodomésticos"
+                - option "Jardinería"
+                - option "Limpieza"
+                - option "Instalación de Pisos"
+                - option "Impermeabilización"
+                - option "Cerrajería"
+                - option "Mecánica y Mantenimiento"
+                - option "Servicios Generales"
+                - option "Servicios Profesionales"
+            - generic [ref=f23e69]:
+              - generic [ref=f23e70]: Slot *
+              - combobox "Slot *" [ref=f23e71]:
+                - option "Sidebar Izquierda" [selected]
+                - option "Sidebar Derecha"
+                - option "Perfil de servicio"
+          - generic [ref=f23e72]:
+            - button "Guardar" [ref=f23e73] [cursor=pointer]
+            - link "Cancelar" [ref=f23e74] [cursor=pointer]:
+              - /url: /admin/banners
+  - generic [ref=f23e77]:
+    - button [ref=f23e78]
+    - button [ref=f23e84]
+    - button [ref=f23e88]
+    - button [ref=f23e93]

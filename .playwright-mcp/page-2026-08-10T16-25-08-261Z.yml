@@ -1,0 +1,371 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=e8]:
+      - heading "Navigation Menu" [level=2] [ref=e9]
+      - generic [ref=e10]:
+        - link "Homepage" [ref=e12] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e15]:
+          - navigation "Global" [ref=e16]:
+            - list [ref=e17]:
+              - listitem [ref=e18]:
+                - button "Platform" [ref=e20] [cursor=pointer]
+              - listitem [ref=e23]:
+                - button "Solutions" [ref=e25] [cursor=pointer]
+              - listitem [ref=e28]:
+                - button "Resources" [ref=e30] [cursor=pointer]
+              - listitem [ref=e33]:
+                - button "Open Source" [ref=e35] [cursor=pointer]
+              - listitem [ref=e38]:
+                - button "Enterprise" [ref=e40] [cursor=pointer]
+              - listitem [ref=e43]:
+                - link "Pricing" [ref=e44] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=e45]:
+            - button "Search or jump to, type / to search" [ref=e47] [cursor=pointer]:
+              - generic [ref=e50]:
+                - text: Type
+                - generic [ref=e51]: /
+                - text: to search
+            - link "Sign in" [ref=e53] [cursor=pointer]:
+              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fripsystem06%2FServi-ens%2Fcompare%2Fmain...admin-submissions%3Fexpand%3D1
+            - link "Sign up" [ref=e54] [cursor=pointer]:
+              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E%2Fcompare%2Fshow&source=header-repo&source_repo=ripsystem06%2FServi-ens
+            - button "Appearance settings" [ref=e55] [cursor=pointer]
+  - main [ref=e61]:
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - generic [ref=e65]:
+          - link "ripsystem06" [ref=e69] [cursor=pointer]:
+            - /url: /ripsystem06
+          - generic [ref=e70]: /
+          - strong [ref=e71]:
+            - link "Servi-ens" [ref=e72] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens
+          - generic [ref=e73]: Public
+        - generic [ref=e74]:
+          - list:
+            - listitem [ref=e75]:
+              - link "You must be signed in to change notification settings" [ref=e76] [cursor=pointer]:
+                - /url: /login?return_to=%2Fripsystem06%2FServi-ens
+                - text: Notifications
+            - listitem [ref=e79]:
+              - link "Fork 0" [ref=e80] [cursor=pointer]:
+                - /url: /login?return_to=%2Fripsystem06%2FServi-ens
+                - text: Fork
+                - generic "0" [ref=e83]
+            - listitem [ref=e84]:
+              - link "You must be signed in to star a repository" [ref=e86] [cursor=pointer]:
+                - /url: /login?return_to=%2Fripsystem06%2FServi-ens
+                - text: Star
+                - generic "0 users starred this repository" [ref=e89]: "0"
+      - navigation "Repository" [ref=e90]:
+        - list [ref=e91]:
+          - listitem [ref=e92]:
+            - link "Code" [ref=e93] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens
+          - listitem [ref=e97]:
+            - link "Issues" [ref=e98] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/issues
+          - listitem [ref=e103]:
+            - link "Pull requests" [ref=e104] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/pulls
+          - listitem [ref=e108]:
+            - link "Actions" [ref=e109] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/actions
+          - listitem [ref=e113]:
+            - link "Projects" [ref=e114] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/projects
+          - listitem [ref=e118]:
+            - link "Security and quality" [ref=e119] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/security
+          - listitem [ref=e123]:
+            - link "Insights" [ref=e124] [cursor=pointer]:
+              - /url: /ripsystem06/Servi-ens/pulse
+    - generic [ref=e130]:
+      - generic [ref=e131]:
+        - heading "Comparing changes" [level=1] [ref=e132]
+        - generic [ref=e133]:
+          - text: Choose two branches to see what’s changed or to start a new pull request. If you need to, you can also
+          - button "compare across forks" [ref=e134] [cursor=pointer]
+          - text: or
+          - link "learn more about diff comparisons" [ref=e135] [cursor=pointer]:
+            - /url: https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons
+          - text: .
+      - generic [ref=e136]:
+        - group [ref=e140]:
+          - 'generic "base: main" [ref=e141] [cursor=pointer]':
+            - generic [ref=e143]:
+              - text: "base:"
+              - generic [ref=e144]: main
+        - generic [ref=e146]:
+          - 'img "Three-dot diff: changes since branches diverged" [ref=e147]'
+          - generic [ref=e149]: ...
+        - group [ref=e151]:
+          - 'generic "compare: admin-submissions" [ref=e152] [cursor=pointer]':
+            - generic [ref=e154]:
+              - text: "compare:"
+              - generic [ref=e155]: admin-submissions
+        - generic [ref=e157]:
+          - generic:
+            - strong [ref=e158]: Checking mergeability…
+            - text: Don’t worry, you can still create the pull request.
+      - list [ref=e160]:
+        - listitem [ref=e161]: 10 commits
+        - listitem [ref=e164]: 100 files changed
+        - listitem [ref=e167]: 1 contributor
+      - generic [ref=e170]:
+        - generic [ref=e175]:
+          - heading "Commits on Aug 7, 2026" [level=3] [ref=e176]
+          - list [ref=e177]:
+            - listitem [ref=e178]:
+              - generic [ref=e179]:
+                - paragraph [ref=e180]:
+                  - 'link "feat: refactor UI, legal pages, terms acceptance, and search fix" [ref=e181] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/63214f8721a671050bdfcc464bb93f246d97d8f6
+                  - button "Commit message body" [ref=e183] [cursor=pointer]: …
+                - generic [ref=e184]:
+                  - link [ref=e187] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e188]
+                  - generic [ref=e189]:
+                    - link "ripsystem06" [ref=e190] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e191]:
+                - generic [ref=e192]:
+                  - button "Copy the full SHA" [ref=e195] [cursor=pointer]
+                  - link "63214f8" [ref=e201] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/63214f8721a671050bdfcc464bb93f246d97d8f6
+                - link "Browse the repository at this point in the history" [ref=e206] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/63214f8721a671050bdfcc464bb93f246d97d8f6
+            - listitem [ref=e207]:
+              - generic [ref=e208]:
+                - paragraph [ref=e209]:
+                  - 'link "feat: add search synonyms and vertical banner placeholder" [ref=e210] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/c0f61e304c4ea1db63cc20a5c51dc39da0d297b4
+                  - button "Commit message body" [ref=e212] [cursor=pointer]: …
+                - generic [ref=e213]:
+                  - link [ref=e216] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e217]
+                  - generic [ref=e218]:
+                    - link "ripsystem06" [ref=e219] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e220]:
+                - generic [ref=e221]:
+                  - button "Copy the full SHA" [ref=e224] [cursor=pointer]
+                  - link "c0f61e3" [ref=e230] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/c0f61e304c4ea1db63cc20a5c51dc39da0d297b4
+                - link "Browse the repository at this point in the history" [ref=e235] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/c0f61e304c4ea1db63cc20a5c51dc39da0d297b4
+            - listitem [ref=e236]:
+              - generic [ref=e237]:
+                - paragraph [ref=e238]:
+                  - 'link "fix: remove broken BannerSlot from category sidebar" [ref=e239] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/bbec65662d456bb341cc018fdfdb5973b604c841
+                  - button "Commit message body" [ref=e241] [cursor=pointer]: …
+                - generic [ref=e242]:
+                  - link [ref=e245] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e246]
+                  - generic [ref=e247]:
+                    - link "ripsystem06" [ref=e248] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e249]:
+                - generic [ref=e250]:
+                  - button "Copy the full SHA" [ref=e253] [cursor=pointer]
+                  - link "bbec656" [ref=e259] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/bbec65662d456bb341cc018fdfdb5973b604c841
+                - link "Browse the repository at this point in the history" [ref=e264] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/bbec65662d456bb341cc018fdfdb5973b604c841
+            - listitem [ref=e265]:
+              - generic [ref=e266]:
+                - paragraph [ref=e267]:
+                  - 'link "fix: restore BannerSlot with working static+SSR config" [ref=e268] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/913158615045e17d61926f0f5ce3e8e786e089a2
+                  - button "Commit message body" [ref=e270] [cursor=pointer]: …
+                - generic [ref=e271]:
+                  - link [ref=e274] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e275]
+                  - generic [ref=e276]:
+                    - link "ripsystem06" [ref=e277] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e278]:
+                - generic [ref=e279]:
+                  - button "Copy the full SHA" [ref=e282] [cursor=pointer]
+                  - link "9131586" [ref=e288] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/913158615045e17d61926f0f5ce3e8e786e089a2
+                - link "Browse the repository at this point in the history" [ref=e293] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/913158615045e17d61926f0f5ce3e8e786e089a2
+            - listitem [ref=e294]:
+              - generic [ref=e295]:
+                - paragraph [ref=e296]:
+                  - 'link "fix: add missing category icons to CategoriesGrid" [ref=e297] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/f2e594aca038784ec03418d5ca571f7fe8795a57
+                  - button "Commit message body" [ref=e299] [cursor=pointer]: …
+                - generic [ref=e300]:
+                  - link [ref=e303] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e304]
+                  - generic [ref=e305]:
+                    - link "ripsystem06" [ref=e306] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e307]:
+                - generic [ref=e308]:
+                  - button "Copy the full SHA" [ref=e311] [cursor=pointer]
+                  - link "f2e594a" [ref=e317] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/f2e594aca038784ec03418d5ca571f7fe8795a57
+                - link "Browse the repository at this point in the history" [ref=e322] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/f2e594aca038784ec03418d5ca571f7fe8795a57
+            - listitem [ref=e323]:
+              - generic [ref=e324]:
+                - paragraph [ref=e325]:
+                  - 'link "feat: add category names below icons in CategoriesGrid" [ref=e326] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/d625219b226dbed5312ee4980cbf166b883a07c7
+                  - button "Commit message body" [ref=e328] [cursor=pointer]: …
+                - generic [ref=e329]:
+                  - link [ref=e332] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e333]
+                  - generic [ref=e334]:
+                    - link "ripsystem06" [ref=e335] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e336]:
+                - generic [ref=e337]:
+                  - button "Copy the full SHA" [ref=e340] [cursor=pointer]
+                  - link "d625219" [ref=e346] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/d625219b226dbed5312ee4980cbf166b883a07c7
+                - link "Browse the repository at this point in the history" [ref=e351] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/d625219b226dbed5312ee4980cbf166b883a07c7
+            - listitem [ref=e352]:
+              - generic [ref=e353]:
+                - paragraph [ref=e354]:
+                  - 'link "feat: add advertising contact form at /publicidad" [ref=e355] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/c5f5b1df261eb049378f0b2dff82d1e9ef94ca98
+                  - button "Commit message body" [ref=e357] [cursor=pointer]: …
+                - generic [ref=e358]:
+                  - link [ref=e361] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e362]
+                  - generic [ref=e363]:
+                    - link "ripsystem06" [ref=e364] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e365]:
+                - generic [ref=e366]:
+                  - button "Copy the full SHA" [ref=e369] [cursor=pointer]
+                  - link "c5f5b1d" [ref=e375] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/c5f5b1df261eb049378f0b2dff82d1e9ef94ca98
+                - link "Browse the repository at this point in the history" [ref=e380] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/c5f5b1df261eb049378f0b2dff82d1e9ef94ca98
+            - listitem [ref=e381]:
+              - generic [ref=e382]:
+                - paragraph [ref=e383]:
+                  - 'link "refactor: merge duplicate registration fields" [ref=e384] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/08ff51166bf118da48728af76e1623cbe747ba0f
+                  - button "Commit message body" [ref=e386] [cursor=pointer]: …
+                - generic [ref=e387]:
+                  - link [ref=e390] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e391]
+                  - generic [ref=e392]:
+                    - link "ripsystem06" [ref=e393] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e394]:
+                - generic [ref=e395]:
+                  - button "Copy the full SHA" [ref=e398] [cursor=pointer]
+                  - link "08ff511" [ref=e404] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/08ff51166bf118da48728af76e1623cbe747ba0f
+                - link "Browse the repository at this point in the history" [ref=e409] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/08ff51166bf118da48728af76e1623cbe747ba0f
+            - listitem [ref=e410]:
+              - generic [ref=e411]:
+                - paragraph [ref=e412]:
+                  - 'link "fix: add terms_accepted_at column migration for existing DBs" [ref=e413] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/1e451cdb092fc94395c37e05be70c811b4bfe6b1
+                  - button "Commit message body" [ref=e415] [cursor=pointer]: …
+                - generic [ref=e416]:
+                  - link [ref=e419] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e420]
+                  - generic [ref=e421]:
+                    - link "ripsystem06" [ref=e422] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 7, 20263 days ago
+              - generic [ref=e423]:
+                - generic [ref=e424]:
+                  - button "Copy the full SHA" [ref=e427] [cursor=pointer]
+                  - link "1e451cd" [ref=e433] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/1e451cdb092fc94395c37e05be70c811b4bfe6b1
+                - link "Browse the repository at this point in the history" [ref=e438] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/1e451cdb092fc94395c37e05be70c811b4bfe6b1
+        - generic [ref=e443]:
+          - heading "Commits on Aug 10, 2026" [level=3] [ref=e444]
+          - list [ref=e445]:
+            - listitem [ref=e446]:
+              - generic [ref=e447]:
+                - paragraph [ref=e448]:
+                  - 'link "fix(admin): aprobacion de solicitudes crea servicio en DB, BannerRota…" [ref=e449] [cursor=pointer]':
+                    - /url: /ripsystem06/Servi-ens/commit/126d50545061a7e9a0803f058879647e8ae2fbcb
+                  - button "Commit message body" [ref=e451] [cursor=pointer]: …
+                - generic [ref=e452]:
+                  - link [ref=e455] [cursor=pointer]:
+                    - /url: /ripsystem06
+                    - img "@ripsystem06" [ref=e456]
+                  - generic [ref=e457]:
+                    - link "ripsystem06" [ref=e458] [cursor=pointer]:
+                      - /url: /ripsystem06/Servi-ens/commits?author=ripsystem06
+                    - text: committed Aug 10, 20265 hours ago
+              - generic [ref=e463]:
+                - generic [ref=e464]:
+                  - button "Copy the full SHA" [ref=e467] [cursor=pointer]
+                  - link "126d505" [ref=e473] [cursor=pointer]:
+                    - /url: /ripsystem06/Servi-ens/commit/126d50545061a7e9a0803f058879647e8ae2fbcb
+                - link "Browse the repository at this point in the history" [ref=e478] [cursor=pointer]:
+                  - /url: /ripsystem06/Servi-ens/tree/126d50545061a7e9a0803f058879647e8ae2fbcb
+      - generic "Loading Files" [ref=e480]: Loading
+  - contentinfo [ref=e487]:
+    - heading "Footer" [level=2] [ref=e488]
+    - generic [ref=e489]:
+      - generic [ref=e490]:
+        - link "GitHub Homepage" [ref=e491] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=e494]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=e495]:
+        - heading "Footer navigation" [level=3] [ref=e496]
+        - list "Footer navigation" [ref=e497]:
+          - listitem [ref=e498]:
+            - link "Terms" [ref=e499] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=e500]:
+            - link "Privacy" [ref=e501] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=e502]:
+            - link "Security" [ref=e503] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=e504]:
+            - link "Status" [ref=e505] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=e506]:
+            - link "Community" [ref=e507] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=e508]:
+            - link "Docs" [ref=e509] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=e510]:
+            - link "Contact" [ref=e511] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=e512]:
+            - button "Manage cookies" [ref=e514] [cursor=pointer]
+          - listitem [ref=e515]:
+            - button "Do not share my personal information" [ref=e517] [cursor=pointer]

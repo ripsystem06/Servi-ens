@@ -1,0 +1,127 @@
+- generic [active] [ref=f575e1]:
+  - navigation [ref=f575e2]:
+    - generic [ref=f575e4]:
+      - link "Serv-Ens" [ref=f575e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f575e11]:
+        - link "Inicio" [ref=f575e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f575e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f575e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f575e19]:
+    - generic [ref=f575e20]:
+      - navigation "Breadcrumb" [ref=f575e22]:
+        - link "Inicio" [ref=f575e23] [cursor=pointer]:
+          - /url: /
+        - link "Servicios Profesionales" [ref=f575e26] [cursor=pointer]:
+          - /url: /servicios-profesionales
+        - generic [ref=f575e29]: Xant Servictios TI
+      - generic [ref=f575e30]:
+        - generic [ref=f575e31]:
+          - generic [ref=f575e33]:
+            - generic [ref=f575e34]:
+              - generic [ref=f575e35]:
+                - heading "Xant Servictios TI" [level=1] [ref=f575e36]
+                - generic "Servicio verificado" [ref=f575e37]: Verificado
+              - generic [ref=f575e41]:
+                - generic [ref=f575e42]: Servicios Profesionales
+                - generic [ref=f575e48]: • Centro
+            - generic [ref=f575e49]:
+              - link "Llamar" [ref=f575e50] [cursor=pointer]:
+                - /url: tel:+526463017208
+              - link "WhatsApp" [ref=f575e53] [cursor=pointer]:
+                - /url: https://wa.me/526463017208
+              - link "Email" [ref=f575e56] [cursor=pointer]:
+                - /url: mailto:contacto@xant.com.mx
+          - generic [ref=f575e60]:
+            - heading "Sobre nosotros" [level=2] [ref=f575e61]
+            - paragraph [ref=f575e62]: Servicios profecionales de ingeneria en sistemas. Soporte tecnico a equipos de computo.
+          - generic [ref=f575e64]:
+            - heading "Opiniones de clientes" [level=2] [ref=f575e65]
+            - generic [ref=f575e66]:
+              - generic [ref=f575e67]:
+                - generic [ref=f575e79]: "4.7"
+                - generic [ref=f575e80]: (3 opiniones)
+              - generic [ref=f575e81]:
+                - generic [ref=f575e82]:
+                  - time [ref=f575e95]: 9 ago 2026
+                  - paragraph [ref=f575e96]: "\"Muy buen trabajo, recomendado.\""
+                  - paragraph [ref=f575e97]: — Carlos Gomez
+                - generic [ref=f575e98]:
+                  - time [ref=f575e111]: 9 ago 2026
+                  - paragraph [ref=f575e112]: "\"Muy buen servicio, recomendado\""
+                  - paragraph [ref=f575e113]: — Maria Lopez
+                - generic [ref=f575e114]:
+                  - time [ref=f575e127]: 9 ago 2026
+                  - paragraph [ref=f575e128]: "\"Excelente servicio profesional\""
+                  - paragraph [ref=f575e129]: — Juan Perez
+          - generic [ref=f575e130]:
+            - heading "Dejanos tu opinión" [level=3] [ref=f575e131]
+            - generic [ref=f575e132]:
+              - generic [ref=f575e133]:
+                - generic [ref=f575e134]: Calificación *
+                - generic [ref=f575e135]:
+                  - button "1 estrella" [ref=f575e136] [cursor=pointer]
+                  - button "2 estrellas" [ref=f575e139] [cursor=pointer]
+                  - button "3 estrellas" [ref=f575e142] [cursor=pointer]
+                  - button "4 estrellas" [ref=f575e145] [cursor=pointer]
+                  - button "5 estrellas" [ref=f575e148] [cursor=pointer]
+                - paragraph [ref=f575e151]
+              - generic [ref=f575e152]:
+                - generic [ref=f575e153]:
+                  - generic [ref=f575e154]: Nombre *
+                  - textbox "Nombre *" [ref=f575e155]:
+                    - /placeholder: "Ej: Juan"
+                - generic [ref=f575e156]:
+                  - generic [ref=f575e157]: Apellido *
+                  - textbox "Apellido *" [ref=f575e158]:
+                    - /placeholder: "Ej: Pérez"
+              - generic [ref=f575e159]:
+                - generic [ref=f575e160]: Tu comentario *(máx. 150 caracteres)
+                - textbox "Tu comentario *(máx. 150 caracteres)" [ref=f575e161]:
+                  - /placeholder: Compartí tu experiencia con este servicio...
+                - generic [ref=f575e162]: 0 / 150
+              - button "Enviar reseña" [ref=f575e164] [cursor=pointer]
+          - generic [ref=f575e167]:
+            - heading "Ubicación" [level=2] [ref=f575e168]
+            - paragraph [ref=f575e175]: Centro
+        - complementary [ref=f575e176]:
+          - text: "---"
+          - generic [ref=f575e177]:
+            - paragraph [ref=f575e178]: Espacio Publicitario
+            - link [ref=f575e179] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f575e180]
+  - contentinfo [ref=f575e182]:
+    - generic [ref=f575e183]:
+      - generic [ref=f575e184]:
+        - generic [ref=f575e185]:
+          - link "Serv-Ens" [ref=f575e186] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f575e192]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f575e193]:
+          - paragraph [ref=f575e194]: Legal
+          - generic [ref=f575e195]:
+            - link "Aviso de privacidad" [ref=f575e196] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f575e197] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f575e198]:
+          - paragraph [ref=f575e199]: Contacto
+          - generic [ref=f575e200]:
+            - link "contacto@servi-ens.online" [ref=f575e201] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f575e202] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f575e203]:
+        - paragraph [ref=f575e204]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f575e205]:
+          - text: por
+          - link "xant.online" [ref=f575e206] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f575e209]:
+    - button [ref=f575e210]
+    - button [ref=f575e216]
+    - button [ref=f575e220]
+    - button [ref=f575e225]

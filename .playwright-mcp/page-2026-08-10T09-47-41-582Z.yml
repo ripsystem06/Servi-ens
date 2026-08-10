@@ -1,0 +1,86 @@
+- generic [active] [ref=f688e1]:
+  - complementary [ref=f688e2]:
+    - generic [ref=f688e3]: Catálogo
+    - navigation [ref=f688e8]:
+      - link "Dashboard" [ref=f688e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f688e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f688e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f688e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f688e28] [cursor=pointer]
+  - generic [ref=f688e32]:
+    - banner [ref=f688e33]:
+      - heading "Servicios" [level=1] [ref=f688e35]
+      - generic [ref=f688e36]:
+        - generic [ref=f688e37]: admin@serviens.com
+        - button "Cerrar sesión" [ref=f688e39] [cursor=pointer]
+    - main [ref=f688e40]:
+      - generic [ref=f688e41]:
+        - paragraph [ref=f688e42]: 4 servicios registrados
+        - link "Nuevo servicio" [ref=f688e43] [cursor=pointer]:
+          - /url: /admin/servicios/nuevo
+      - table [ref=f688e47]:
+        - rowgroup [ref=f688e48]:
+          - row [ref=f688e49]:
+            - columnheader "Nombre" [ref=f688e50]
+            - columnheader "Categoría" [ref=f688e51]
+            - columnheader "Email" [ref=f688e52]
+            - columnheader "Estado" [ref=f688e53]
+            - columnheader "Acciones" [ref=f688e54]
+        - rowgroup [ref=f688e55]:
+          - row [ref=f688e56]:
+            - cell [ref=f688e57]:
+              - link "Xant Servictios TI" [ref=f688e58] [cursor=pointer]:
+                - /url: /admin/servicios/biz-003/editar
+            - cell "servicios-profesionales" [ref=f688e59]
+            - cell "contacto@xant.com.mx" [ref=f688e60]
+            - cell "Verificado" [ref=f688e61]
+            - cell [ref=f688e65]:
+              - generic [ref=f688e66]:
+                - link "Editar" [ref=f688e67] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-003/editar
+                - button "Eliminar" [ref=f688e71] [cursor=pointer]
+          - row [ref=f688e75]:
+            - cell [ref=f688e76]:
+              - link "Cortes Refrigeracion" [ref=f688e77] [cursor=pointer]:
+                - /url: /admin/servicios/biz-010/editar
+            - cell "refrigeracion-aire" [ref=f688e78]
+            - cell "—" [ref=f688e79]
+            - cell "Verificado" [ref=f688e80]
+            - cell [ref=f688e84]:
+              - generic [ref=f688e85]:
+                - link "Editar" [ref=f688e86] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-010/editar
+                - button "Eliminar" [ref=f688e90] [cursor=pointer]
+          - row [ref=f688e94]:
+            - cell [ref=f688e95]:
+              - link "Cortes Refrigeracion" [ref=f688e96] [cursor=pointer]:
+                - /url: /admin/servicios/biz-009/editar
+            - cell "refrigeracion-aire" [ref=f688e97]
+            - cell "—" [ref=f688e98]
+            - cell "Verificado" [ref=f688e99]
+            - cell [ref=f688e103]:
+              - generic [ref=f688e104]:
+                - link "Editar" [ref=f688e105] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-009/editar
+                - button "Eliminar" [ref=f688e109] [cursor=pointer]
+          - row [ref=f688e113]:
+            - cell [ref=f688e114]:
+              - link "Cortes Refrigeracion" [ref=f688e115] [cursor=pointer]:
+                - /url: /admin/servicios/biz-008/editar
+            - cell "refrigeracion-aire" [ref=f688e116]
+            - cell "—" [ref=f688e117]
+            - cell "Verificado" [ref=f688e118]
+            - cell [ref=f688e122]:
+              - generic [ref=f688e123]:
+                - link "Editar" [ref=f688e124] [cursor=pointer]:
+                  - /url: /admin/servicios/biz-008/editar
+                - button "Eliminar" [ref=f688e128] [cursor=pointer]
+  - generic [ref=f688e134]:
+    - button [ref=f688e135]
+    - button [ref=f688e141]
+    - button [ref=f688e145]
+    - button [ref=f688e150]

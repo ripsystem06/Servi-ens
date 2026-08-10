@@ -1,0 +1,135 @@
+- generic [active] [ref=f27e1]:
+  - navigation [ref=f27e2]:
+    - generic [ref=f27e4]:
+      - link [ref=f27e5] [cursor=pointer]:
+        - /url: /
+        - img "Serv-Ens" [ref=f27e6]
+      - generic [ref=f27e7]:
+        - link "Inicio" [ref=f27e8] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f27e10] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f27e13] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f27e15]:
+    - generic [ref=f27e16]:
+      - generic [ref=f27e17]:
+        - text: "---"
+        - link "Promociona tu negocio aquí — Contáctanos" [ref=f27e18] [cursor=pointer]:
+          - /url: /publicidad
+          - img "Promociona tu negocio aquí, contáctanos" [ref=f27e19]
+        - generic [ref=f27e21]: Espacio publicitario
+      - paragraph [ref=f27e22]: 📋 Directorio de servicios — contactá directamente a cada profesional. No gestionamos contrataciones.
+      - generic [ref=f27e23]:
+        - complementary [ref=f27e24]:
+          - complementary [ref=f27e25]:
+            - generic [ref=f27e26]:
+              - heading "Categorías" [level=3] [ref=f27e27]
+              - list [ref=f27e28]:
+                - listitem [ref=f27e29]:
+                  - link "Plomería" [ref=f27e30] [cursor=pointer]:
+                    - /url: /plomeria
+                - listitem [ref=f27e35]:
+                  - link "Electricidad" [ref=f27e36] [cursor=pointer]:
+                    - /url: /electricidad
+                - listitem [ref=f27e41]:
+                  - link "Carpintería" [ref=f27e42] [cursor=pointer]:
+                    - /url: /carpinteria
+                - listitem [ref=f27e49]:
+                  - link "Pintura" [ref=f27e50] [cursor=pointer]:
+                    - /url: /pintura
+                - listitem [ref=f27e57]:
+                  - link "Albañilería" [ref=f27e58] [cursor=pointer]:
+                    - /url: /albanileria
+                - listitem [ref=f27e63]:
+                  - link "Herrería" [ref=f27e64] [cursor=pointer]:
+                    - /url: /herreria
+                - listitem [ref=f27e71]:
+                  - link "Refrigeración y Aire Acondicionado" [ref=f27e72] [cursor=pointer]:
+                    - /url: /refrigeracion-aire
+                - listitem [ref=f27e80]:
+                  - link "Reparación de Electrodomésticos" [ref=f27e81] [cursor=pointer]:
+                    - /url: /reparacion-electrodomesticos
+                - listitem [ref=f27e88]:
+                  - link "Jardinería" [ref=f27e89] [cursor=pointer]:
+                    - /url: /jardineria
+                - listitem [ref=f27e95]:
+                  - link "Limpieza" [ref=f27e96] [cursor=pointer]:
+                    - /url: /limpieza
+                - listitem [ref=f27e102]:
+                  - link "Instalación de Pisos" [ref=f27e103] [cursor=pointer]:
+                    - /url: /instalacion-pisos
+                - listitem [ref=f27e108]:
+                  - link "Impermeabilización" [ref=f27e109] [cursor=pointer]:
+                    - /url: /impermeabilizacion
+                - listitem [ref=f27e115]:
+                  - link "Cerrajería" [ref=f27e116] [cursor=pointer]:
+                    - /url: /cerrajeria
+                - listitem [ref=f27e123]:
+                  - link "Mecánica y Mantenimiento" [ref=f27e124] [cursor=pointer]:
+                    - /url: /mecanica-mantenimiento
+                - listitem [ref=f27e131]:
+                  - link "Servicios Generales" [ref=f27e132] [cursor=pointer]:
+                    - /url: /servicios-generales
+                - listitem [ref=f27e137]:
+                  - link "Servicios Profesionales" [ref=f27e138] [cursor=pointer]:
+                    - /url: /servicios-profesionales
+          - paragraph [ref=f27e146]: Cargando...
+          - link "Promociona tu negocio aquí" [ref=f27e147] [cursor=pointer]:
+            - /url: /publicidad
+            - img "Promociona tu negocio aquí, contáctanos" [ref=f27e148]
+        - generic [ref=f27e149]:
+          - generic [ref=f27e150]:
+            - paragraph [ref=f27e154]: No hay servicios en esta categoría todavía
+            - paragraph [ref=f27e155]: Estamos trabajando para agregar más servicios. ¡Volvé pronto!
+          - paragraph [ref=f27e157]: "Búsquedas relacionadas: plomero, plomera, fontanero, fontaneria, tuberias, tuberia, fuga, fugas, destape, griferia, calentador, calefon, termotanque"
+  - contentinfo [ref=f27e158]:
+    - generic [ref=f27e159]:
+      - generic [ref=f27e160]:
+        - generic [ref=f27e161]:
+          - link [ref=f27e162] [cursor=pointer]:
+            - /url: /
+            - img "Serv-Ens" [ref=f27e163]
+          - paragraph [ref=f27e164]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f27e165]:
+          - paragraph [ref=f27e166]: Legal
+          - generic [ref=f27e167]:
+            - link "Sobre nosotros" [ref=f27e168] [cursor=pointer]:
+              - /url: /nosotros
+            - link "Aviso de privacidad" [ref=f27e169] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f27e170] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f27e171]:
+          - paragraph [ref=f27e172]: Contacto
+          - generic [ref=f27e173]:
+            - link "contacto@servi-ens.online" [ref=f27e174] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f27e175] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f27e176]:
+        - paragraph [ref=f27e177]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f27e178]:
+          - text: por
+          - link "xant.online" [ref=f27e179] [cursor=pointer]:
+            - /url: https://xant.online
+  - dialog [ref=f27e180]:
+    - generic [ref=f27e181]:
+      - button "Cerrar" [ref=f27e182] [cursor=pointer]
+      - heading "¡Bienvenido a Serv-Ens!" [level=2] [ref=f27e190]
+      - paragraph [ref=f27e191]: Encontrá profesionales locales de confianza en Ensenada. Buscá por categoría, mirá perfiles, leé reseñas y contactá directo por WhatsApp o teléfono.
+      - generic [ref=f27e192]:
+        - generic [ref=f27e193]:
+          - generic [ref=f27e194]: "1"
+          - paragraph [ref=f27e196]: Buscá el servicio que necesitás por categoría o palabra clave.
+        - generic [ref=f27e197]:
+          - generic [ref=f27e198]: "2"
+          - paragraph [ref=f27e200]: Compará perfiles, calificaciones y reseñas de clientes reales.
+        - generic [ref=f27e201]:
+          - generic [ref=f27e202]: "3"
+          - paragraph [ref=f27e204]: Contactá directo al profesional por WhatsApp o teléfono.
+      - generic [ref=f27e205]:
+        - paragraph [ref=f27e206]: ¿Querés promocionar tu negocio acá?
+        - paragraph [ref=f27e207]: Contactanos y te ayudamos a llegar a más clientes en Ensenada.
+        - link "Quiero publicidad" [ref=f27e208] [cursor=pointer]:
+          - /url: /publicidad
+      - button "Cerrar y empezar a buscar" [ref=f27e209] [cursor=pointer]

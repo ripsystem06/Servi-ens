@@ -1,0 +1,46 @@
+- generic [active] [ref=f19e1]:
+  - complementary [ref=f19e2]:
+    - generic [ref=f19e3]: Catálogo
+    - navigation [ref=f19e8]:
+      - link "Dashboard" [ref=f19e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f19e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f19e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f19e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f19e28] [cursor=pointer]
+  - generic [ref=f19e32]:
+    - banner [ref=f19e33]:
+      - heading "Dashboard" [level=1] [ref=f19e35]
+      - generic [ref=f19e36]:
+        - generic [ref=f19e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f19e39] [cursor=pointer]
+    - main [ref=f19e40]:
+      - generic [ref=f19e41]:
+        - generic [ref=f19e47]:
+          - paragraph [ref=f19e48]: Total Servicios
+          - paragraph [ref=f19e49]: "1"
+        - generic [ref=f19e55]:
+          - paragraph [ref=f19e56]: Pendientes
+          - paragraph [ref=f19e57]: "0"
+        - link "Solicitudes 1 por revisar" [ref=f19e58] [cursor=pointer]:
+          - /url: /admin/solicitudes
+          - generic [ref=f19e63]:
+            - paragraph [ref=f19e64]: Solicitudes
+            - paragraph [ref=f19e65]: "1"
+            - generic [ref=f19e66]: por revisar
+        - generic [ref=f19e76]:
+          - paragraph [ref=f19e77]: Banners Activos
+          - paragraph [ref=f19e78]: "0"
+      - generic [ref=f19e79]:
+        - heading "Engagement" [level=2] [ref=f19e80]
+        - generic [ref=f19e82]:
+          - paragraph [ref=f19e86]: Sin datos de engagement
+          - paragraph [ref=f19e87]: Las estadísticas aparecerán aquí cuando haya actividad
+  - generic [ref=f19e90]:
+    - button [ref=f19e91]
+    - button [ref=f19e97]
+    - button [ref=f19e101]
+    - button [ref=f19e106]

@@ -1,0 +1,33 @@
+- generic [active] [ref=f20e1]:
+  - complementary [ref=f20e2]:
+    - generic [ref=f20e3]: Catálogo
+    - navigation [ref=f20e8]:
+      - link "Dashboard" [ref=f20e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f20e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f20e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f20e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f20e28] [cursor=pointer]
+  - generic [ref=f20e32]:
+    - banner [ref=f20e33]:
+      - heading "Banners" [level=1] [ref=f20e35]
+      - generic [ref=f20e36]:
+        - generic [ref=f20e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f20e39] [cursor=pointer]
+    - main [ref=f20e40]:
+      - generic [ref=f20e41]:
+        - paragraph [ref=f20e42]: 0 banners registrados
+        - link "Nuevo banner" [ref=f20e43] [cursor=pointer]:
+          - /url: /admin/banners/nuevo
+      - generic [ref=f20e46]:
+        - paragraph [ref=f20e50]: No hay banners registrados
+        - link "Crear primer banner" [ref=f20e51] [cursor=pointer]:
+          - /url: /admin/banners/nuevo
+  - generic [ref=f20e55]:
+    - button [ref=f20e56]
+    - button [ref=f20e62]
+    - button [ref=f20e66]
+    - button [ref=f20e71]

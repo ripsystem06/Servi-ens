@@ -1,0 +1,123 @@
+- generic [active] [ref=f573e1]:
+  - navigation [ref=f573e2]:
+    - generic [ref=f573e4]:
+      - link "Serv-Ens" [ref=f573e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f573e11]:
+        - link "Inicio" [ref=f573e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f573e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f573e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f573e19]:
+    - generic [ref=f573e20]:
+      - navigation "Breadcrumb" [ref=f573e22]:
+        - link "Inicio" [ref=f573e23] [cursor=pointer]:
+          - /url: /
+        - link "Servicios Profesionales" [ref=f573e26] [cursor=pointer]:
+          - /url: /servicios-profesionales
+        - generic [ref=f573e29]: Xant Servictios TI
+      - generic [ref=f573e30]:
+        - generic [ref=f573e31]:
+          - generic [ref=f573e33]:
+            - generic [ref=f573e34]:
+              - generic [ref=f573e35]:
+                - heading "Xant Servictios TI" [level=1] [ref=f573e36]
+                - generic "Servicio verificado" [ref=f573e37]: Verificado
+              - generic [ref=f573e41]:
+                - generic [ref=f573e42]: Servicios Profesionales
+                - generic [ref=f573e48]: • Centro
+            - generic [ref=f573e49]:
+              - link "Llamar" [ref=f573e50] [cursor=pointer]:
+                - /url: tel:+526463017208
+              - link "WhatsApp" [ref=f573e53] [cursor=pointer]:
+                - /url: https://wa.me/526463017208
+              - link "Email" [ref=f573e56] [cursor=pointer]:
+                - /url: mailto:contacto@xant.com.mx
+          - generic [ref=f573e60]:
+            - heading "Sobre nosotros" [level=2] [ref=f573e61]
+            - paragraph [ref=f573e62]: Servicios profecionales de ingeneria en sistemas. Soporte tecnico a equipos de computo.
+          - generic [ref=f573e64]:
+            - heading "Opiniones de clientes" [level=2] [ref=f573e65]
+            - generic [ref=f573e66]:
+              - generic [ref=f573e67]:
+                - generic [ref=f573e79]: "4.5"
+                - generic [ref=f573e80]: (2 opiniones)
+              - generic [ref=f573e81]:
+                - generic [ref=f573e82]:
+                  - time [ref=f573e95]: 9 ago 2026
+                  - paragraph [ref=f573e96]: "\"Muy buen servicio, recomendado\""
+                  - paragraph [ref=f573e97]: — Maria Lopez
+                - generic [ref=f573e98]:
+                  - time [ref=f573e111]: 9 ago 2026
+                  - paragraph [ref=f573e112]: "\"Excelente servicio profesional\""
+                  - paragraph [ref=f573e113]: — Juan Perez
+          - generic [ref=f573e114]:
+            - heading "Dejanos tu opinión" [level=3] [ref=f573e115]
+            - generic [ref=f573e116]:
+              - generic [ref=f573e117]:
+                - generic [ref=f573e118]: Calificación *
+                - generic [ref=f573e119]:
+                  - button "1 estrella" [ref=f573e120] [cursor=pointer]
+                  - button "2 estrellas" [ref=f573e123] [cursor=pointer]
+                  - button "3 estrellas" [ref=f573e126] [cursor=pointer]
+                  - button "4 estrellas" [ref=f573e129] [cursor=pointer]
+                  - button "5 estrellas" [ref=f573e132] [cursor=pointer]
+                - paragraph [ref=f573e135]
+              - generic [ref=f573e136]:
+                - generic [ref=f573e137]:
+                  - generic [ref=f573e138]: Nombre *
+                  - textbox "Nombre *" [ref=f573e139]:
+                    - /placeholder: "Ej: Juan"
+                - generic [ref=f573e140]:
+                  - generic [ref=f573e141]: Apellido *
+                  - textbox "Apellido *" [ref=f573e142]:
+                    - /placeholder: "Ej: Pérez"
+              - generic [ref=f573e143]:
+                - generic [ref=f573e144]: Tu comentario *(máx. 150 caracteres)
+                - textbox "Tu comentario *(máx. 150 caracteres)" [ref=f573e145]:
+                  - /placeholder: Compartí tu experiencia con este servicio...
+                - generic [ref=f573e146]: 0 / 150
+              - button "Enviar reseña" [ref=f573e148] [cursor=pointer]
+          - generic [ref=f573e151]:
+            - heading "Ubicación" [level=2] [ref=f573e152]
+            - paragraph [ref=f573e159]: Centro
+        - complementary [ref=f573e160]:
+          - text: "---"
+          - generic [ref=f573e161]:
+            - paragraph [ref=f573e162]: Espacio Publicitario
+            - link [ref=f573e163] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f573e164]
+  - contentinfo [ref=f573e166]:
+    - generic [ref=f573e167]:
+      - generic [ref=f573e168]:
+        - generic [ref=f573e169]:
+          - link "Serv-Ens" [ref=f573e170] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f573e176]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f573e177]:
+          - paragraph [ref=f573e178]: Legal
+          - generic [ref=f573e179]:
+            - link "Aviso de privacidad" [ref=f573e180] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f573e181] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f573e182]:
+          - paragraph [ref=f573e183]: Contacto
+          - generic [ref=f573e184]:
+            - link "contacto@servi-ens.online" [ref=f573e185] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f573e186] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f573e187]:
+        - paragraph [ref=f573e188]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f573e189]:
+          - text: por
+          - link "xant.online" [ref=f573e190] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f573e193]:
+    - button [ref=f573e194]
+    - button [ref=f573e200]
+    - button [ref=f573e204]
+    - button [ref=f573e209]

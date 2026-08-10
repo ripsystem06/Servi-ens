@@ -1,0 +1,45 @@
+- generic [active] [ref=f561e1]:
+  - complementary [ref=f561e2]:
+    - generic [ref=f561e3]: Catálogo
+    - navigation [ref=f561e8]:
+      - link "Dashboard" [ref=f561e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f561e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f561e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f561e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f561e28] [cursor=pointer]
+  - generic [ref=f561e32]:
+    - banner [ref=f561e33]:
+      - heading "Dashboard" [level=1] [ref=f561e35]
+      - generic [ref=f561e36]:
+        - generic [ref=f561e37]: admin@serviens.com
+        - button "Cerrar sesión" [ref=f561e39] [cursor=pointer]
+    - main [ref=f561e40]:
+      - generic [ref=f561e41]:
+        - generic [ref=f561e47]:
+          - paragraph [ref=f561e48]: Total Servicios
+          - paragraph [ref=f561e49]: "1"
+        - generic [ref=f561e55]:
+          - paragraph [ref=f561e56]: Pendientes
+          - paragraph [ref=f561e57]: "0"
+        - link [ref=f561e58] [cursor=pointer]:
+          - /url: /admin/solicitudes
+          - generic [ref=f561e63]:
+            - paragraph [ref=f561e64]: Solicitudes
+            - paragraph [ref=f561e65]: "[object Promise]"
+        - generic [ref=f561e71]:
+          - paragraph [ref=f561e72]: Banners Activos
+          - paragraph [ref=f561e73]: "0"
+      - generic [ref=f561e74]:
+        - heading "Engagement" [level=2] [ref=f561e75]
+        - generic [ref=f561e77]:
+          - paragraph [ref=f561e81]: Sin datos de engagement
+          - paragraph [ref=f561e82]: Las estadísticas aparecerán aquí cuando haya actividad
+  - generic [ref=f561e85]:
+    - button [ref=f561e86]
+    - button [ref=f561e92]
+    - button [ref=f561e96]
+    - button [ref=f561e101]

@@ -1,0 +1,22 @@
+- generic [active] [ref=f560e1]:
+  - generic [ref=f560e2]:
+    - generic [ref=f560e3]:
+      - heading "Catálogo Ensenada" [level=1] [ref=f560e8]
+      - paragraph [ref=f560e9]: Panel de administración
+    - generic [ref=f560e10]:
+      - heading "Iniciar sesión" [level=2] [ref=f560e11]
+      - generic [ref=f560e12]:
+        - generic [ref=f560e13]:
+          - generic [ref=f560e14]: Correo electrónico
+          - textbox "Correo electrónico" [ref=f560e15]:
+            - /placeholder: admin@catalogoensenada.com
+        - generic [ref=f560e16]:
+          - generic [ref=f560e17]: Contraseña
+          - textbox "Contraseña" [ref=f560e18]:
+            - /placeholder: ••••••••
+        - button "Iniciar sesión" [ref=f560e19] [cursor=pointer]
+  - generic [ref=f560e22]:
+    - button [ref=f560e23]
+    - button [ref=f560e29]
+    - button [ref=f560e33]
+    - button [ref=f560e38]

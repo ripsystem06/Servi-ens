@@ -1,0 +1,45 @@
+- generic [active] [ref=f24e1]:
+  - complementary [ref=f24e2]:
+    - generic [ref=f24e3]: Catálogo
+    - navigation [ref=f24e8]:
+      - link "Dashboard" [ref=f24e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f24e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f24e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f24e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f24e28] [cursor=pointer]
+  - generic [ref=f24e32]:
+    - banner [ref=f24e33]:
+      - heading "Dashboard" [level=1] [ref=f24e35]
+      - generic [ref=f24e36]:
+        - generic [ref=f24e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f24e39] [cursor=pointer]
+    - main [ref=f24e40]:
+      - generic [ref=f24e41]:
+        - generic [ref=f24e47]:
+          - paragraph [ref=f24e48]: Total Servicios
+          - paragraph [ref=f24e49]: "1"
+        - generic [ref=f24e55]:
+          - paragraph [ref=f24e56]: Pendientes
+          - paragraph [ref=f24e57]: "0"
+        - link [ref=f24e58] [cursor=pointer]:
+          - /url: /admin/solicitudes
+          - generic [ref=f24e63]:
+            - paragraph [ref=f24e64]: Solicitudes
+            - paragraph [ref=f24e65]: "0"
+        - generic [ref=f24e71]:
+          - paragraph [ref=f24e72]: Banners Activos
+          - paragraph [ref=f24e73]: "0"
+      - generic [ref=f24e74]:
+        - heading "Engagement" [level=2] [ref=f24e75]
+        - generic [ref=f24e77]:
+          - paragraph [ref=f24e81]: Sin datos de engagement
+          - paragraph [ref=f24e82]: Las estadísticas aparecerán aquí cuando haya actividad
+  - generic [ref=f24e85]:
+    - button [ref=f24e86]
+    - button [ref=f24e92]
+    - button [ref=f24e96]
+    - button [ref=f24e101]

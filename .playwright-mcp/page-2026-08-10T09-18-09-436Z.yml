@@ -1,0 +1,114 @@
+- generic [active] [ref=f668e1]:
+  - navigation [ref=f668e2]:
+    - generic [ref=f668e4]:
+      - link [ref=f668e5] [cursor=pointer]:
+        - /url: /
+        - img "Serv-Ens" [ref=f668e6]
+      - generic [ref=f668e7]:
+        - link "Inicio" [ref=f668e8] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f668e10] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f668e13] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f668e15]:
+    - generic [ref=f668e16]:
+      - generic [ref=f668e17]:
+        - heading "Sobre Servi-Ens" [level=1] [ref=f668e18]
+        - heading "Conectamos a Ensenada con el talento local" [level=2] [ref=f668e19]
+        - paragraph [ref=f668e20]: En Servi-Ens creemos que encontrar un buen servicio no debería depender de preguntar en grupos, buscar entre cientos de publicaciones o confiar en recomendaciones que se pierden con el tiempo.
+        - paragraph [ref=f668e21]:
+          - text: Por eso creamos
+          - strong [ref=f668e22]: Servi-Ens
+          - text: ": una plataforma pensada para Ensenada que reúne profesionales, negocios y personas que ofrecen servicios en un solo lugar."
+        - paragraph [ref=f668e23]: Desde un plomero hasta un diseñador, un contador, un electricista o un especialista en tecnología, queremos hacer que encontrar a la persona adecuada sea más fácil, rápido y accesible.
+      - separator [ref=f668e24]
+      - generic [ref=f668e25]:
+        - heading "Una forma más moderna de encontrar servicios" [level=2] [ref=f668e26]
+        - paragraph [ref=f668e27]: Ensenada está llena de personas que saben hacer cosas increíbles.
+        - paragraph [ref=f668e28]: Profesionales independientes, pequeños negocios, emprendedores y especialistas que todos los días ofrecen su talento a nuestra comunidad.
+        - paragraph [ref=f668e29]: El problema es que muchas veces encontrarlos no es tan sencillo.
+        - paragraph [ref=f668e30]: Servi-Ens nace para cambiar eso.
+        - paragraph [ref=f668e31]:
+          - text: Creamos un espacio donde los profesionales pueden
+          - strong [ref=f668e32]: mostrar lo que hacen
+          - text: y donde las personas pueden
+          - strong [ref=f668e33]: encontrar el servicio que necesitan
+          - text: .
+        - paragraph [ref=f668e34]: Todo desde un mismo lugar.
+      - generic [ref=f668e35]:
+        - heading "Hecho para Ensenada" [level=2] [ref=f668e36]
+        - paragraph [ref=f668e37]: Servi-Ens nace aquí, pensando en nuestra comunidad.
+        - paragraph [ref=f668e38]: No queremos ser simplemente otro directorio de negocios.
+        - paragraph [ref=f668e39]: Queremos construir una plataforma que crezca junto con Ensenada y con las personas que hacen que nuestra ciudad funcione todos los días.
+        - paragraph [ref=f668e40]: Cada profesional que se registra representa una oportunidad para que alguien encuentre exactamente la ayuda que estaba buscando.
+        - paragraph [ref=f668e41]: Y cada persona que encuentra un servicio representa una nueva oportunidad para un negocio local.
+        - paragraph [ref=f668e42]: Cuando conectamos a ambos, nuestra comunidad crece.
+      - generic [ref=f668e43]:
+        - generic [ref=f668e44]:
+          - heading "Nuestra misión" [level=3] [ref=f668e45]
+          - paragraph [ref=f668e46]: Modernizar la búsqueda de servicios en Ensenada.
+          - paragraph [ref=f668e47]: Queremos hacer que encontrar un profesional sea tan sencillo como buscar lo que necesitas, conocer tus opciones y elegir con confianza.
+          - paragraph [ref=f668e48]: Sin complicaciones. Sin búsquedas interminables. Sin perder oportunidades.
+        - generic [ref=f668e49]:
+          - heading "Nuestra visión" [level=3] [ref=f668e50]
+          - paragraph [ref=f668e51]: Queremos convertirnos en el punto de encuentro digital de los servicios en Ensenada.
+          - paragraph [ref=f668e52]: Un lugar donde cualquier persona pueda descubrir profesionales locales y donde cualquier profesional pueda tener presencia digital, sin importar el tamaño de su negocio.
+          - paragraph [ref=f668e53]: Porque creemos que la tecnología no debería reemplazar a la comunidad.
+          - paragraph [ref=f668e54]: Debería ayudarla a conectarse mejor.
+      - generic [ref=f668e55]:
+        - heading "Para quienes ofrecen servicios" [level=2] [ref=f668e56]
+        - paragraph [ref=f668e57]: Si tienes un negocio, eres profesional independiente o simplemente tienes una habilidad que quieres ofrecer, Servi-Ens está pensado para ti.
+        - paragraph [ref=f668e58]: Crea tu perfil, muestra tus servicios y permite que nuevas personas descubran lo que haces.
+        - paragraph [ref=f668e59]: Tu trabajo merece ser encontrado.
+        - link "Registrar mi servicio" [ref=f668e60] [cursor=pointer]:
+          - /url: /registro
+      - generic [ref=f668e64]:
+        - heading "Para quienes necesitan un servicio" [level=2] [ref=f668e65]
+        - paragraph [ref=f668e66]: ¿Necesitas reparar algo, contratar a un especialista o simplemente encontrar a alguien que pueda ayudarte?
+        - paragraph [ref=f668e67]: Busca, descubre y encuentra diferentes opciones dentro de Servi-Ens.
+        - paragraph [ref=f668e68]: El servicio que necesitas puede estar más cerca de lo que imaginas.
+        - link "Buscar un servicio" [ref=f668e69] [cursor=pointer]:
+          - /url: /buscar
+      - generic [ref=f668e73]:
+        - heading "Somos comunidad" [level=2] [ref=f668e74]
+        - paragraph [ref=f668e75]: Servi-Ens no se trata solamente de tecnología.
+        - paragraph [ref=f668e76]: Se trata de las personas detrás de cada servicio. De quien abre su negocio cada mañana. De quien trabaja por su cuenta. De quien está empezando. De quien lleva años ofreciendo su experiencia. Y de quien simplemente necesita encontrar a alguien que pueda ayudarle.
+        - paragraph [ref=f668e77]: Servi-Ens existe para conectar a todos ellos.
+      - generic [ref=f668e78]:
+        - heading "Servi-Ens" [level=2] [ref=f668e79]
+        - paragraph [ref=f668e80]: Necesitas un servicio, aquí lo encuentras.
+        - paragraph [ref=f668e81]:
+          - strong [ref=f668e82]: Hecho en Ensenada. Para Ensenada.
+  - contentinfo [ref=f668e83]:
+    - generic [ref=f668e84]:
+      - generic [ref=f668e85]:
+        - generic [ref=f668e86]:
+          - link [ref=f668e87] [cursor=pointer]:
+            - /url: /
+            - img "Serv-Ens" [ref=f668e88]
+          - paragraph [ref=f668e89]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f668e90]:
+          - paragraph [ref=f668e91]: Legal
+          - generic [ref=f668e92]:
+            - link "Aviso de privacidad" [ref=f668e93] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f668e94] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f668e95]:
+          - paragraph [ref=f668e96]: Contacto
+          - generic [ref=f668e97]:
+            - link "contacto@servi-ens.online" [ref=f668e98] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f668e99] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f668e100]:
+        - paragraph [ref=f668e101]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f668e102]:
+          - text: por
+          - link "xant.online" [ref=f668e103] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f668e106]:
+    - button [ref=f668e107]
+    - button [ref=f668e113]
+    - button [ref=f668e117]
+    - button [ref=f668e122]

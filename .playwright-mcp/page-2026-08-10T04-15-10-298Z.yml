@@ -1,0 +1,82 @@
+- generic [active] [ref=f42e1]:
+  - navigation [ref=f42e2]:
+    - generic [ref=f42e4]:
+      - link "Serv-Ens" [ref=f42e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f42e11]:
+        - link "Inicio" [ref=f42e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f42e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f42e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f42e19]:
+    - generic [ref=f42e20]:
+      - generic [ref=f42e21]:
+        - heading "Publicidad en Serv-Ens" [level=1] [ref=f42e22]
+        - paragraph [ref=f42e23]: Llegá a miles de personas que buscan servicios en Ensenada. Completá el formulario y te contamos cómo promocionar tu negocio.
+      - generic [ref=f42e24]:
+        - generic [ref=f42e25]:
+          - generic [ref=f42e26]:
+            - generic [ref=f42e27]: Nombre completo *
+            - textbox "Nombre completo *" [ref=f42e28]:
+              - /placeholder: Tu nombre
+          - generic [ref=f42e29]:
+            - generic [ref=f42e30]: Negocio o servicio *
+            - textbox "Negocio o servicio *" [ref=f42e31]:
+              - /placeholder: Nombre de tu negocio
+        - generic [ref=f42e32]:
+          - generic [ref=f42e33]:
+            - generic [ref=f42e34]: Correo electrónico *
+            - textbox "Correo electrónico *" [ref=f42e35]:
+              - /placeholder: contacto@tunegocio.com
+          - generic [ref=f42e36]:
+            - generic [ref=f42e37]: Teléfono *
+            - textbox "Teléfono *" [ref=f42e38]:
+              - /placeholder: +52 646 123 4567
+        - generic [ref=f42e39]:
+          - generic [ref=f42e40]: ¿Qué tipo de publicidad te interesa? *
+          - combobox "¿Qué tipo de publicidad te interesa? *" [ref=f42e41]:
+            - option "Seleccioná una opción" [selected]
+            - option "Banner en la página principal"
+            - option "Banner en páginas de categoría"
+            - option "Banner lateral (sidebar)"
+            - option "Perfil destacado en el catálogo"
+            - option "Todavía no lo sé — quiero más información"
+        - generic [ref=f42e42]:
+          - generic [ref=f42e43]: Mensaje o comentarios adicionales
+          - textbox "Mensaje o comentarios adicionales" [ref=f42e44]:
+            - /placeholder: Contanos sobre tu negocio, presupuesto estimado, o cualquier duda que tengas...
+        - button "Enviar solicitud" [ref=f42e45] [cursor=pointer]
+        - paragraph [ref=f42e46]: Tus datos solo se usarán para contactarte sobre opciones de publicidad. No compartimos tu información con terceros.
+  - contentinfo [ref=f42e47]:
+    - generic [ref=f42e48]:
+      - generic [ref=f42e49]:
+        - generic [ref=f42e50]:
+          - link "Serv-Ens" [ref=f42e51] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f42e57]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f42e58]:
+          - paragraph [ref=f42e59]: Legal
+          - generic [ref=f42e60]:
+            - link "Aviso de privacidad" [ref=f42e61] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f42e62] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f42e63]:
+          - paragraph [ref=f42e64]: Contacto
+          - generic [ref=f42e65]:
+            - link "contacto@servi-ens.online" [ref=f42e66] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f42e67] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f42e68]:
+        - paragraph [ref=f42e69]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f42e70]:
+          - text: por
+          - link "xant.online" [ref=f42e71] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f42e74]:
+    - button [ref=f42e75]
+    - button [ref=f42e81]
+    - button [ref=f42e85]
+    - button [ref=f42e93]

@@ -1,0 +1,1 @@
+- generic [active] [ref=f25e1]: "{\"ok\":false,\"error\":\"password authentication failed for user \\\"postgres\\\"\",\"host\":\"postgresql://***:***@aws-0-ca-central-1.pooler.supabase.com:6543/postgres\",\"envKeys\":[\"DATABASE_URL\",\"SUPABASE_URL\",\"SUPABASE_ANON_KEY\"]}"

@@ -1,0 +1,45 @@
+- generic [active] [ref=f563e1]:
+  - complementary [ref=f563e2]:
+    - generic [ref=f563e3]: Catálogo
+    - navigation [ref=f563e8]:
+      - link "Dashboard" [ref=f563e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f563e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f563e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f563e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f563e28] [cursor=pointer]
+  - generic [ref=f563e32]:
+    - banner [ref=f563e33]:
+      - heading "Dashboard" [level=1] [ref=f563e35]
+      - generic [ref=f563e36]:
+        - generic [ref=f563e37]: admin@serviens.com
+        - button "Cerrar sesión" [ref=f563e39] [cursor=pointer]
+    - main [ref=f563e40]:
+      - generic [ref=f563e41]:
+        - generic [ref=f563e47]:
+          - paragraph [ref=f563e48]: Total Servicios
+          - paragraph [ref=f563e49]: "1"
+        - generic [ref=f563e55]:
+          - paragraph [ref=f563e56]: Pendientes
+          - paragraph [ref=f563e57]: "0"
+        - link [ref=f563e58] [cursor=pointer]:
+          - /url: /admin/solicitudes
+          - generic [ref=f563e63]:
+            - paragraph [ref=f563e64]: Solicitudes
+            - paragraph [ref=f563e65]: "0"
+        - generic [ref=f563e71]:
+          - paragraph [ref=f563e72]: Banners Activos
+          - paragraph [ref=f563e73]: "0"
+      - generic [ref=f563e74]:
+        - heading "Engagement" [level=2] [ref=f563e75]
+        - generic [ref=f563e77]:
+          - paragraph [ref=f563e81]: Sin datos de engagement
+          - paragraph [ref=f563e82]: Las estadísticas aparecerán aquí cuando haya actividad
+  - generic [ref=f563e85]:
+    - button [ref=f563e86]
+    - button [ref=f563e92]
+    - button [ref=f563e96]
+    - button [ref=f563e101]

@@ -1,0 +1,49 @@
+- generic [active] [ref=f21e1]:
+  - complementary [ref=f21e2]:
+    - generic [ref=f21e3]: Catálogo
+    - navigation [ref=f21e8]:
+      - link "Dashboard" [ref=f21e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f21e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f21e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f21e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f21e28] [cursor=pointer]
+  - generic [ref=f21e32]:
+    - banner [ref=f21e33]:
+      - heading "Solicitudes" [level=1] [ref=f21e35]
+      - generic [ref=f21e36]:
+        - generic [ref=f21e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f21e39] [cursor=pointer]
+    - main [ref=f21e40]:
+      - generic [ref=f21e42]:
+        - link "Pendientes1" [ref=f21e43] [cursor=pointer]:
+          - /url: /admin/solicitudes
+        - link "Todas3" [ref=f21e44] [cursor=pointer]:
+          - /url: /admin/solicitudes?estado=todas
+        - generic [ref=f21e45]: 2 aprobadas · 0 rechazadas
+      - table [ref=f21e48]:
+        - rowgroup [ref=f21e49]:
+          - row [ref=f21e50]:
+            - columnheader "Nombre" [ref=f21e51]
+            - columnheader "Categoría" [ref=f21e52]
+            - columnheader "Zona" [ref=f21e53]
+            - columnheader "Estado" [ref=f21e54]
+            - columnheader "Fecha" [ref=f21e55]
+        - rowgroup [ref=f21e56]:
+          - row [ref=f21e57]:
+            - cell [ref=f21e58]:
+              - link "Xant Servictios TI" [ref=f21e59] [cursor=pointer]:
+                - /url: /admin/solicitudes/3
+              - paragraph [ref=f21e60]: contacto@xant.com.mx
+            - cell "Servicios Profesionales" [ref=f21e61]
+            - cell "Centro" [ref=f21e62]
+            - cell "Pendiente" [ref=f21e63]
+            - cell "9 ago 2026" [ref=f21e65]
+  - generic [ref=f21e68]:
+    - button [ref=f21e69]
+    - button [ref=f21e75]
+    - button [ref=f21e79]
+    - button [ref=f21e84]

@@ -1,0 +1,139 @@
+- generic [active] [ref=f6e1]:
+  - navigation [ref=f6e2]:
+    - generic [ref=f6e4]:
+      - link "Serv-Ens" [ref=f6e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f6e11]:
+        - link "Inicio" [ref=f6e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f6e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f6e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f6e19]:
+    - generic [ref=f6e20]:
+      - navigation "Breadcrumb" [ref=f6e22]:
+        - link "Inicio" [ref=f6e23] [cursor=pointer]:
+          - /url: /
+        - link "Electricidad" [ref=f6e26] [cursor=pointer]:
+          - /url: /electricidad
+        - generic [ref=f6e29]: Eléctrica Sauzal
+      - generic [ref=f6e30]:
+        - generic [ref=f6e31]:
+          - generic [ref=f6e33]:
+            - generic [ref=f6e34]:
+              - generic [ref=f6e35]:
+                - heading "Eléctrica Sauzal" [level=1] [ref=f6e36]
+                - generic "Servicio verificado" [ref=f6e37]: Verificado
+              - generic [ref=f6e41]:
+                - generic [ref=f6e42]: Electricidad
+                - generic [ref=f6e47]: • Sauzal
+                - generic [ref=f6e48]: A domicilio
+                - generic [ref=f6e51]: Emergencias
+                - generic [ref=f6e54]: "3.9"
+            - generic [ref=f6e57]:
+              - link "Llamar" [ref=f6e58] [cursor=pointer]:
+                - /url: tel:+52 646 111 7830
+              - link "WhatsApp" [ref=f6e61] [cursor=pointer]:
+                - /url: https://wa.me/526461117830
+          - generic [ref=f6e64]:
+            - heading "Sobre nosotros" [level=2] [ref=f6e65]
+            - paragraph [ref=f6e66]: Servicios eléctricos para hogares y pequeños comercios en El Sauzal y zonas aledañas. Instalación de contactos, luminarias, ventiladores y reparaciones rápidas a precios justos.
+          - generic [ref=f6e67]:
+            - generic [ref=f6e68]:
+              - generic [ref=f6e69]:
+                - heading "Calificación" [level=3] [ref=f6e70]
+                - generic [ref=f6e71]:
+                  - generic [ref=f6e72]: "3.9"
+                  - generic [ref=f6e84]: (3 opiniones)
+              - generic [ref=f6e85]:
+                - heading "Experiencia" [level=3] [ref=f6e86]
+                - paragraph [ref=f6e87]: 2 años de experiencia
+            - generic [ref=f6e88]:
+              - heading "Disponibilidad" [level=3] [ref=f6e89]
+              - generic [ref=f6e90]:
+                - generic [ref=f6e91]: Atención a domicilio
+                - generic [ref=f6e95]: Emergencias 24h
+                - generic [ref=f6e100]: 4 días a la semana
+                - generic [ref=f6e103]: 7:00-15:00
+              - paragraph [ref=f6e107]: "Cotización: Presencial"
+          - generic [ref=f6e108]:
+            - heading "Servicios" [level=2] [ref=f6e109]
+            - generic [ref=f6e110]:
+              - generic [ref=f6e111]: Reparaciones eléctricas
+              - generic [ref=f6e115]: Instalación de luminarias
+              - generic [ref=f6e119]: Contactos y apagadores
+              - generic [ref=f6e123]: Ventiladores de techo
+          - generic [ref=f6e127]:
+            - heading "Galería" [level=2] [ref=f6e128]
+            - generic [ref=f6e129]:
+              - img "Eléctrica Sauzal — foto 1" [ref=f6e131]
+              - img "Eléctrica Sauzal — foto 2" [ref=f6e133]
+          - generic [ref=f6e134]:
+            - heading "Opiniones de clientes" [level=2] [ref=f6e135]
+            - generic [ref=f6e136]:
+              - generic [ref=f6e137]:
+                - generic [ref=f6e138]:
+                  - generic [ref=f6e139]: Miguel Á.
+                  - generic [ref=f6e140]: 2026-06-12
+                - paragraph [ref=f6e152]: Muy buen precio y calidad en el trabajo.
+              - generic [ref=f6e153]:
+                - generic [ref=f6e154]:
+                  - generic [ref=f6e155]: María G.
+                  - generic [ref=f6e156]: 2026-07-19
+                - paragraph [ref=f6e168]: Muy buen precio y calidad en el trabajo.
+              - generic [ref=f6e169]:
+                - generic [ref=f6e170]:
+                  - generic [ref=f6e171]: Carlos R.
+                  - generic [ref=f6e172]: 2026-04-18
+                - paragraph [ref=f6e184]: Buen servicio, aunque tardó un poco en llegar.
+          - generic [ref=f6e185]:
+            - heading "Ubicación" [level=2] [ref=f6e186]
+            - generic [ref=f6e192]:
+              - paragraph [ref=f6e193]: Sauzal
+              - paragraph [ref=f6e194]: Calle Mar de Cortés 78, El Sauzal, 22760 Ensenada, B.C.
+        - complementary [ref=f6e195]:
+          - text: "---"
+          - generic [ref=f6e196]:
+            - paragraph [ref=f6e197]: Espacio Publicitario
+            - link [ref=f6e198] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f6e199]
+  - contentinfo [ref=f6e201]:
+    - generic [ref=f6e202]:
+      - generic [ref=f6e203]:
+        - generic [ref=f6e204]:
+          - link "Serv-Ens" [ref=f6e205] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f6e211]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f6e212]:
+          - paragraph [ref=f6e213]: Enlaces
+          - generic [ref=f6e214]:
+            - link "Buscar servicios" [ref=f6e215] [cursor=pointer]:
+              - /url: /buscar
+            - link "Registrar servicio" [ref=f6e216] [cursor=pointer]:
+              - /url: /registro
+        - generic [ref=f6e217]:
+          - paragraph [ref=f6e218]: Legal
+          - generic [ref=f6e219]:
+            - link "Aviso de privacidad" [ref=f6e220] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f6e221] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f6e222]:
+          - paragraph [ref=f6e223]: Contacto
+          - generic [ref=f6e224]:
+            - link "contacto@servi-ens.online" [ref=f6e225] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f6e226] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f6e227]:
+        - paragraph [ref=f6e228]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f6e229]:
+          - text: por
+          - link "xant.online" [ref=f6e230] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f6e233]:
+    - button [ref=f6e234]
+    - button [ref=f6e240]
+    - button [ref=f6e244]
+    - button [ref=f6e249]

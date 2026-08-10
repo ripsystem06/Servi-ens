@@ -1,0 +1,34 @@
+- generic [active] [ref=f28e1]:
+  - complementary [ref=f28e2]:
+    - generic [ref=f28e3]: Catálogo
+    - navigation [ref=f28e8]:
+      - link "Dashboard" [ref=f28e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f28e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f28e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f28e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f28e28] [cursor=pointer]
+  - generic [ref=f28e32]:
+    - banner [ref=f28e33]:
+      - heading "Solicitudes" [level=1] [ref=f28e35]
+      - generic [ref=f28e36]:
+        - generic [ref=f28e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f28e39] [cursor=pointer]
+    - main [ref=f28e40]:
+      - generic [ref=f28e42]:
+        - link "Pendientes" [ref=f28e43] [cursor=pointer]:
+          - /url: /admin/solicitudes
+        - link "Todas3" [ref=f28e44] [cursor=pointer]:
+          - /url: /admin/solicitudes?estado=todas
+        - generic [ref=f28e45]: 3 aprobadas · 0 rechazadas
+      - generic [ref=f28e47]:
+        - paragraph [ref=f28e51]: No hay solicitudes pendientes
+        - paragraph [ref=f28e52]: ¡Todo al día! No hay solicitudes por revisar.
+  - generic [ref=f28e55]:
+    - button [ref=f28e56]
+    - button [ref=f28e62]
+    - button [ref=f28e66]
+    - button [ref=f28e71]

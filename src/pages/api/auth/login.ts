@@ -116,9 +116,11 @@ export const POST: APIRoute = async ({ request, cookies, redirect }) => {
   // Clear flash cookies
   cookies.delete('flash_email', { path: '/' });
 
-  if (needsPasswordChange) {
-    return redirect('/admin/cambiar-password', 302);
-  }
-
-  return redirect('/admin', 302);
+  // ── DEBUG: return early to isolate the hang ──────────────────────
+  return new Response(JSON.stringify({
+    ok: true,
+    step: 'after-verify',
+    email: user[0].email,
+    matchLength: isValid,
+  }), { status: 200, headers: { 'Content-Type': 'application/json' } });
 };

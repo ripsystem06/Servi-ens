@@ -1,0 +1,56 @@
+- generic [active] [ref=f5e1]:
+  - navigation [ref=f5e2]:
+    - generic [ref=f5e4]:
+      - link "Serv-Ens" [ref=f5e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f5e11]:
+        - link "Inicio" [ref=f5e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f5e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f5e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f5e19]:
+    - generic [ref=f5e21]:
+      - heading "404" [level=1] [ref=f5e22]
+      - paragraph [ref=f5e23]: La página que estás buscando no existe o fue movida.
+      - link "Volver al inicio" [ref=f5e24] [cursor=pointer]:
+        - /url: /
+  - contentinfo [ref=f5e27]:
+    - generic [ref=f5e28]:
+      - generic [ref=f5e29]:
+        - generic [ref=f5e30]:
+          - link "Serv-Ens" [ref=f5e31] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f5e37]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f5e38]:
+          - paragraph [ref=f5e39]: Enlaces
+          - generic [ref=f5e40]:
+            - link "Buscar servicios" [ref=f5e41] [cursor=pointer]:
+              - /url: /buscar
+            - link "Registrar servicio" [ref=f5e42] [cursor=pointer]:
+              - /url: /registro
+        - generic [ref=f5e43]:
+          - paragraph [ref=f5e44]: Legal
+          - generic [ref=f5e45]:
+            - link "Aviso de privacidad" [ref=f5e46] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f5e47] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f5e48]:
+          - paragraph [ref=f5e49]: Contacto
+          - generic [ref=f5e50]:
+            - link "contacto@servi-ens.online" [ref=f5e51] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f5e52] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f5e53]:
+        - paragraph [ref=f5e54]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f5e55]:
+          - text: por
+          - link "xant.online" [ref=f5e56] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f5e59]:
+    - button [ref=f5e60]
+    - button [ref=f5e66]
+    - button [ref=f5e70]
+    - button [ref=f5e78]

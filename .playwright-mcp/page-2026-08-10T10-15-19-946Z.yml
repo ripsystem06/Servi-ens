@@ -1,0 +1,119 @@
+- generic [active] [ref=f737e1]:
+  - navigation [ref=f737e2]:
+    - generic [ref=f737e4]:
+      - link [ref=f737e5] [cursor=pointer]:
+        - /url: /
+        - img "Serv-Ens" [ref=f737e6]
+      - generic [ref=f737e7]:
+        - link "Inicio" [ref=f737e8] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f737e10] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f737e13] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f737e15]:
+    - generic [ref=f737e16]:
+      - generic [ref=f737e17]:
+        - text: "---"
+        - link "Promociona tu negocio aquí — Contáctanos" [ref=f737e18] [cursor=pointer]:
+          - /url: /publicidad
+          - img "Promociona tu negocio aquí, contáctanos" [ref=f737e19]
+        - generic [ref=f737e21]: Espacio publicitario
+      - paragraph [ref=f737e22]: 📋 Directorio de servicios — contactá directamente a cada profesional. No gestionamos contrataciones.
+      - generic [ref=f737e23]:
+        - complementary [ref=f737e24]:
+          - complementary [ref=f737e25]:
+            - generic [ref=f737e26]:
+              - heading "Categorías" [level=3] [ref=f737e27]
+              - list [ref=f737e28]:
+                - listitem [ref=f737e29]:
+                  - link "Plomería" [ref=f737e30] [cursor=pointer]:
+                    - /url: /plomeria
+                - listitem [ref=f737e35]:
+                  - link "Electricidad" [ref=f737e36] [cursor=pointer]:
+                    - /url: /electricidad
+                - listitem [ref=f737e41]:
+                  - link "Carpintería" [ref=f737e42] [cursor=pointer]:
+                    - /url: /carpinteria
+                - listitem [ref=f737e49]:
+                  - link "Pintura" [ref=f737e50] [cursor=pointer]:
+                    - /url: /pintura
+                - listitem [ref=f737e57]:
+                  - link "Albañilería" [ref=f737e58] [cursor=pointer]:
+                    - /url: /albanileria
+                - listitem [ref=f737e63]:
+                  - link "Herrería" [ref=f737e64] [cursor=pointer]:
+                    - /url: /herreria
+                - listitem [ref=f737e71]:
+                  - link "Refrigeración y Aire Acondicionado" [ref=f737e72] [cursor=pointer]:
+                    - /url: /refrigeracion-aire
+                - listitem [ref=f737e80]:
+                  - link "Reparación de Electrodomésticos" [ref=f737e81] [cursor=pointer]:
+                    - /url: /reparacion-electrodomesticos
+                - listitem [ref=f737e88]:
+                  - link "Jardinería" [ref=f737e89] [cursor=pointer]:
+                    - /url: /jardineria
+                - listitem [ref=f737e95]:
+                  - link "Limpieza" [ref=f737e96] [cursor=pointer]:
+                    - /url: /limpieza
+                - listitem [ref=f737e102]:
+                  - link "Instalación de Pisos" [ref=f737e103] [cursor=pointer]:
+                    - /url: /instalacion-pisos
+                - listitem [ref=f737e108]:
+                  - link "Impermeabilización" [ref=f737e109] [cursor=pointer]:
+                    - /url: /impermeabilizacion
+                - listitem [ref=f737e115]:
+                  - link "Cerrajería" [ref=f737e116] [cursor=pointer]:
+                    - /url: /cerrajeria
+                - listitem [ref=f737e123]:
+                  - link "Mecánica y Mantenimiento" [ref=f737e124] [cursor=pointer]:
+                    - /url: /mecanica-mantenimiento
+                - listitem [ref=f737e131]:
+                  - link "Servicios Generales" [ref=f737e132] [cursor=pointer]:
+                    - /url: /servicios-generales
+                - listitem [ref=f737e137]:
+                  - link "Servicios Profesionales" [ref=f737e138] [cursor=pointer]:
+                    - /url: /servicios-profesionales
+          - paragraph [ref=f737e146]: Cargando...
+          - link "Promociona tu negocio aquí" [ref=f737e147] [cursor=pointer]:
+            - /url: /publicidad
+            - img "Promociona tu negocio aquí, contáctanos" [ref=f737e148]
+        - generic [ref=f737e149]:
+          - generic [ref=f737e150]:
+            - paragraph [ref=f737e154]: No hay servicios en esta categoría todavía
+            - paragraph [ref=f737e155]: Estamos trabajando para agregar más servicios. ¡Volvé pronto!
+          - paragraph [ref=f737e157]: "Búsquedas relacionadas: plomero, plomera, fontanero, fontaneria, tuberias, tuberia, fuga, fugas, destape, griferia, calentador, calefon, termotanque"
+  - contentinfo [ref=f737e158]:
+    - generic [ref=f737e159]:
+      - generic [ref=f737e160]:
+        - generic [ref=f737e161]:
+          - link [ref=f737e162] [cursor=pointer]:
+            - /url: /
+            - img "Serv-Ens" [ref=f737e163]
+          - paragraph [ref=f737e164]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f737e165]:
+          - paragraph [ref=f737e166]: Legal
+          - generic [ref=f737e167]:
+            - link "Sobre nosotros" [ref=f737e168] [cursor=pointer]:
+              - /url: /nosotros
+            - link "Aviso de privacidad" [ref=f737e169] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f737e170] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f737e171]:
+          - paragraph [ref=f737e172]: Contacto
+          - generic [ref=f737e173]:
+            - link "contacto@servi-ens.online" [ref=f737e174] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f737e175] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f737e176]:
+        - paragraph [ref=f737e177]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f737e178]:
+          - text: por
+          - link "xant.online" [ref=f737e179] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f737e182]:
+    - button [ref=f737e183]
+    - button [ref=f737e189]
+    - button [ref=f737e193]
+    - button [ref=f737e198]

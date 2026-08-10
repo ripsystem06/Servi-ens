@@ -1,0 +1,122 @@
+- generic [active] [ref=f113e1]:
+  - navigation [ref=f113e2]:
+    - generic [ref=f113e4]:
+      - link "Serv-Ens" [ref=f113e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f113e11]:
+        - link "Inicio" [ref=f113e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f113e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f113e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f113e19]:
+    - generic [ref=f113e20]:
+      - generic [ref=f113e21]:
+        - heading "Registra tu Servicio" [level=1] [ref=f113e22]
+        - paragraph [ref=f113e23]:
+          - text: Completá el formulario y aparecé en el catálogo de servicios más completo de Ensenada. Es
+          - strong [ref=f113e24]: gratis
+          - text: .
+      - generic [ref=f113e25]:
+        - generic [ref=f113e26]:
+          - generic [ref=f113e27]: Nombre del negocio o servicio *
+          - textbox "Nombre del negocio o servicio *" [ref=f113e28]:
+            - /placeholder: "Ej: Electro Servicio Ensenada"
+        - generic [ref=f113e29]:
+          - generic [ref=f113e30]:
+            - generic [ref=f113e31]: Categoría *
+            - combobox "Categoría *" [ref=f113e32]:
+              - option "Seleccioná una categoría" [selected]
+              - option "Plomería"
+              - option "Electricidad"
+              - option "Carpintería"
+              - option "Pintura"
+              - option "Albañilería"
+              - option "Herrería"
+              - option "Refrigeración y Aire Acondicionado"
+              - option "Reparación de Electrodomésticos"
+              - option "Jardinería"
+              - option "Limpieza"
+              - option "Instalación de Pisos"
+              - option "Impermeabilización"
+              - option "Cerrajería"
+              - option "Mecánica y Mantenimiento"
+              - option "Servicios Generales"
+              - option "Servicios Profesionales"
+          - generic [ref=f113e33]:
+            - generic [ref=f113e34]: Zona *
+            - combobox "Zona *" [ref=f113e35]:
+              - option "Seleccioná una zona" [selected]
+              - option "Centro"
+              - option "Valle de Guadalupe"
+              - option "Sauzal"
+              - option "Maneadero"
+              - option "89 y alrededores"
+              - option "Presa y alrededores"
+              - option "Valle Dorado"
+              - option "Chapultepec"
+              - option "Punta Banda"
+        - generic [ref=f113e36]:
+          - generic [ref=f113e37]:
+            - generic [ref=f113e38]: Teléfono *
+            - textbox "Teléfono *" [ref=f113e39]:
+              - /placeholder: +52 646 123 4567
+          - generic [ref=f113e40]:
+            - generic [ref=f113e41]: Correo electrónico
+            - textbox "Correo electrónico" [ref=f113e42]:
+              - /placeholder: contacto@tuservicio.com
+        - generic [ref=f113e43]:
+          - generic [ref=f113e44]: Describí qué servicios ofrecés *
+          - textbox "Describí qué servicios ofrecés *" [ref=f113e45]:
+            - /placeholder: "Ej: Instalaciones eléctricas residenciales, mantenimiento de tableros, cableado nuevo, reparación de cortocircuitos..."
+          - paragraph [ref=f113e46]: Mínimo 10 caracteres. Contanos qué hacés, tu experiencia y por qué deberían elegirte.
+        - generic [ref=f113e47]:
+          - checkbox "Acepto los Términos y Condiciones y el Aviso de Privacidad de Serv-Ens. Entiendo que este es un directorio público y mis datos de contacto serán visibles." [ref=f113e48] [cursor=pointer]
+          - generic [ref=f113e49] [cursor=pointer]:
+            - text: Acepto los
+            - link "Términos y Condiciones" [ref=f113e50]:
+              - /url: /terminos
+            - text: y el
+            - link "Aviso de Privacidad" [ref=f113e51]:
+              - /url: /aviso-privacidad
+            - text: de Serv-Ens. Entiendo que este es un directorio público y mis datos de contacto serán visibles.
+        - button "Enviar registro" [ref=f113e52] [cursor=pointer]
+    - generic [ref=f113e54]:
+      - heading "¡Gracias por confiar en Serv-Ens!" [level=2] [ref=f113e59]
+      - paragraph [ref=f113e60]: Recibimos tu registro correctamente. Vamos a revisarlo y en breve tu servicio estará visible en el catálogo para que los clientes de Ensenada puedan encontrarte y contactarte. ¡Mucha suerte!
+      - link "Ir al inicio" [ref=f113e61] [cursor=pointer]:
+        - /url: /
+      - link "Volver a la página principal" [ref=f113e66] [cursor=pointer]:
+        - /url: /
+  - contentinfo [ref=f113e67]:
+    - generic [ref=f113e68]:
+      - generic [ref=f113e69]:
+        - generic [ref=f113e70]:
+          - link "Serv-Ens" [ref=f113e71] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f113e77]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f113e78]:
+          - paragraph [ref=f113e79]: Legal
+          - generic [ref=f113e80]:
+            - link "Aviso de privacidad" [ref=f113e81] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f113e82] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f113e83]:
+          - paragraph [ref=f113e84]: Contacto
+          - generic [ref=f113e85]:
+            - link "contacto@servi-ens.online" [ref=f113e86] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f113e87] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f113e88]:
+        - paragraph [ref=f113e89]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f113e90]:
+          - text: por
+          - link "xant.online" [ref=f113e91] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f113e94]:
+    - button [ref=f113e95]
+    - button [ref=f113e101]
+    - button [ref=f113e105]
+    - button [ref=f113e110]

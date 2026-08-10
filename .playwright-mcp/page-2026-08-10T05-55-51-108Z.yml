@@ -1,0 +1,128 @@
+- generic [active] [ref=f574e1]:
+  - navigation [ref=f574e2]:
+    - generic [ref=f574e4]:
+      - link "Serv-Ens" [ref=f574e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f574e11]:
+        - link "Inicio" [ref=f574e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f574e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f574e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f574e19]:
+    - generic [ref=f574e20]:
+      - navigation "Breadcrumb" [ref=f574e22]:
+        - link "Inicio" [ref=f574e23] [cursor=pointer]:
+          - /url: /
+        - link "Servicios Profesionales" [ref=f574e26] [cursor=pointer]:
+          - /url: /servicios-profesionales
+        - generic [ref=f574e29]: Xant Servictios TI
+      - generic [ref=f574e30]:
+        - generic [ref=f574e31]:
+          - generic [ref=f574e33]:
+            - generic [ref=f574e34]:
+              - generic [ref=f574e35]:
+                - heading "Xant Servictios TI" [level=1] [ref=f574e36]
+                - generic "Servicio verificado" [ref=f574e37]: Verificado
+              - generic [ref=f574e41]:
+                - generic [ref=f574e42]: Servicios Profesionales
+                - generic [ref=f574e48]: • Centro
+            - generic [ref=f574e49]:
+              - link "Llamar" [ref=f574e50] [cursor=pointer]:
+                - /url: tel:+526463017208
+              - link "WhatsApp" [ref=f574e53] [cursor=pointer]:
+                - /url: https://wa.me/526463017208
+              - link "Email" [ref=f574e56] [cursor=pointer]:
+                - /url: mailto:contacto@xant.com.mx
+          - generic [ref=f574e60]:
+            - heading "Sobre nosotros" [level=2] [ref=f574e61]
+            - paragraph [ref=f574e62]: Servicios profecionales de ingeneria en sistemas. Soporte tecnico a equipos de computo.
+          - generic [ref=f574e64]:
+            - heading "Opiniones de clientes" [level=2] [ref=f574e65]
+            - generic [ref=f574e66]:
+              - generic [ref=f574e67]:
+                - generic [ref=f574e79]: "4.7"
+                - generic [ref=f574e80]: (3 opiniones)
+              - generic [ref=f574e81]:
+                - generic [ref=f574e82]:
+                  - time [ref=f574e95]: 9 ago 2026
+                  - paragraph [ref=f574e96]: "\"Muy buen trabajo, recomendado.\""
+                  - paragraph [ref=f574e97]: — Carlos Gomez
+                - generic [ref=f574e98]:
+                  - time [ref=f574e111]: 9 ago 2026
+                  - paragraph [ref=f574e112]: "\"Muy buen servicio, recomendado\""
+                  - paragraph [ref=f574e113]: — Maria Lopez
+                - generic [ref=f574e114]:
+                  - time [ref=f574e127]: 9 ago 2026
+                  - paragraph [ref=f574e128]: "\"Excelente servicio profesional\""
+                  - paragraph [ref=f574e129]: — Juan Perez
+          - generic [ref=f574e130]:
+            - heading "Dejanos tu opinión" [level=3] [ref=f574e131]
+            - generic [ref=f574e132]: ¡Gracias! Tu reseña fue publicada.
+            - generic [ref=f574e136]:
+              - generic [ref=f574e137]:
+                - generic [ref=f574e138]: Calificación *
+                - generic [ref=f574e139]:
+                  - button "1 estrella" [ref=f574e140] [cursor=pointer]
+                  - button "2 estrellas" [ref=f574e143] [cursor=pointer]
+                  - button "3 estrellas" [ref=f574e146] [cursor=pointer]
+                  - button "4 estrellas" [ref=f574e149] [cursor=pointer]
+                  - button "5 estrellas" [ref=f574e152] [cursor=pointer]
+                - paragraph [ref=f574e155]
+              - generic [ref=f574e156]:
+                - generic [ref=f574e157]:
+                  - generic [ref=f574e158]: Nombre *
+                  - textbox "Nombre *" [ref=f574e159]:
+                    - /placeholder: "Ej: Juan"
+                - generic [ref=f574e160]:
+                  - generic [ref=f574e161]: Apellido *
+                  - textbox "Apellido *" [ref=f574e162]:
+                    - /placeholder: "Ej: Pérez"
+              - generic [ref=f574e163]:
+                - generic [ref=f574e164]: Tu comentario *(máx. 150 caracteres)
+                - textbox "Tu comentario *(máx. 150 caracteres)" [ref=f574e165]:
+                  - /placeholder: Compartí tu experiencia con este servicio...
+                - generic [ref=f574e166]: 0 / 150
+              - button "Enviar reseña" [ref=f574e168] [cursor=pointer]
+          - generic [ref=f574e171]:
+            - heading "Ubicación" [level=2] [ref=f574e172]
+            - paragraph [ref=f574e179]: Centro
+        - complementary [ref=f574e180]:
+          - text: "---"
+          - generic [ref=f574e181]:
+            - paragraph [ref=f574e182]: Espacio Publicitario
+            - link [ref=f574e183] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f574e184]
+  - contentinfo [ref=f574e186]:
+    - generic [ref=f574e187]:
+      - generic [ref=f574e188]:
+        - generic [ref=f574e189]:
+          - link "Serv-Ens" [ref=f574e190] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f574e196]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f574e197]:
+          - paragraph [ref=f574e198]: Legal
+          - generic [ref=f574e199]:
+            - link "Aviso de privacidad" [ref=f574e200] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f574e201] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f574e202]:
+          - paragraph [ref=f574e203]: Contacto
+          - generic [ref=f574e204]:
+            - link "contacto@servi-ens.online" [ref=f574e205] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f574e206] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f574e207]:
+        - paragraph [ref=f574e208]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f574e209]:
+          - text: por
+          - link "xant.online" [ref=f574e210] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f574e213]:
+    - button [ref=f574e214]
+    - button [ref=f574e220]
+    - button [ref=f574e224]
+    - button [ref=f574e232]

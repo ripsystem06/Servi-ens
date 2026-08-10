@@ -1,0 +1,67 @@
+- generic [active] [ref=f145e1]:
+  - complementary [ref=f145e2]:
+    - generic [ref=f145e3]: Catálogo
+    - navigation [ref=f145e8]:
+      - link "Dashboard" [ref=f145e9] [cursor=pointer]:
+        - /url: /admin
+      - link "Servicios" [ref=f145e15] [cursor=pointer]:
+        - /url: /admin/servicios
+      - link "Banners" [ref=f145e18] [cursor=pointer]:
+        - /url: /admin/banners
+      - link "Solicitudes" [ref=f145e22] [cursor=pointer]:
+        - /url: /admin/solicitudes
+    - button "Cerrar sesión" [ref=f145e28] [cursor=pointer]
+  - generic [ref=f145e32]:
+    - banner [ref=f145e33]:
+      - heading "Solicitudes" [level=1] [ref=f145e35]
+      - generic [ref=f145e36]:
+        - generic [ref=f145e37]: admin@catalogoensenada.com
+        - button "Cerrar sesión" [ref=f145e39] [cursor=pointer]
+    - main [ref=f145e40]:
+      - generic [ref=f145e42]:
+        - link "Pendientes" [ref=f145e43] [cursor=pointer]:
+          - /url: /admin/solicitudes?estado=pendientes
+        - link "Todas3" [ref=f145e44] [cursor=pointer]:
+          - /url: /admin/solicitudes
+        - generic [ref=f145e45]: 3 aprobadas · 0 rechazadas
+      - table [ref=f145e48]:
+        - rowgroup [ref=f145e49]:
+          - row [ref=f145e50]:
+            - columnheader "Nombre" [ref=f145e51]
+            - columnheader "Categoría" [ref=f145e52]
+            - columnheader "Zona" [ref=f145e53]
+            - columnheader "Estado" [ref=f145e54]
+            - columnheader "Fecha" [ref=f145e55]
+        - rowgroup [ref=f145e56]:
+          - row [ref=f145e57]:
+            - cell [ref=f145e58]:
+              - link "Xant Servictios TI" [ref=f145e59] [cursor=pointer]:
+                - /url: /admin/solicitudes/3
+              - paragraph [ref=f145e60]: contacto@xant.com.mx
+            - cell "Servicios Profesionales" [ref=f145e61]
+            - cell "Centro" [ref=f145e62]
+            - cell "Aprobado" [ref=f145e63]
+            - cell "9 ago 2026" [ref=f145e65]
+          - row [ref=f145e66]:
+            - cell [ref=f145e67]:
+              - link "test2" [ref=f145e68] [cursor=pointer]:
+                - /url: /admin/solicitudes/2
+              - paragraph [ref=f145e69]: eewerw@gmail.com
+            - cell "Impermeabilizacion" [ref=f145e70]
+            - cell "89 Y Alrededores" [ref=f145e71]
+            - cell "Aprobado" [ref=f145e72]
+            - cell "6 ago 2026" [ref=f145e74]
+          - row [ref=f145e75]:
+            - cell [ref=f145e76]:
+              - link "Test Servicio" [ref=f145e77] [cursor=pointer]:
+                - /url: /admin/solicitudes/1
+              - paragraph [ref=f145e78]: test@example.com
+            - cell "Plomeria" [ref=f145e79]
+            - cell "Centro" [ref=f145e80]
+            - cell "Aprobado" [ref=f145e81]
+            - cell "6 ago 2026" [ref=f145e83]
+  - generic [ref=f145e86]:
+    - button [ref=f145e87]
+    - button [ref=f145e93]
+    - button [ref=f145e97]
+    - button [ref=f145e102]

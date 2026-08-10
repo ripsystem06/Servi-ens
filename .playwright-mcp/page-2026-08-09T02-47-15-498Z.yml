@@ -1,0 +1,146 @@
+- generic [active] [ref=f196e1]:
+  - navigation [ref=f196e2]:
+    - generic [ref=f196e4]:
+      - link "Serv-Ens" [ref=f196e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f196e11]:
+        - link "Inicio" [ref=f196e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f196e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f196e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f196e19]:
+    - generic [ref=f196e20]:
+      - navigation "Breadcrumb" [ref=f196e22]:
+        - link "Inicio" [ref=f196e23] [cursor=pointer]:
+          - /url: /
+        - link "Electricidad" [ref=f196e26] [cursor=pointer]:
+          - /url: /electricidad
+        - generic [ref=f196e29]: Electricista de Prueba
+      - generic [ref=f196e30]:
+        - generic [ref=f196e31]:
+          - generic [ref=f196e33]:
+            - generic [ref=f196e34]:
+              - generic [ref=f196e35]:
+                - heading "Electricista de Prueba" [level=1] [ref=f196e36]
+                - generic "Servicio verificado" [ref=f196e37]: Verificado
+              - generic [ref=f196e41]:
+                - generic [ref=f196e42]: Electricidad
+                - generic [ref=f196e47]: • Centro
+                - generic [ref=f196e48]: A domicilio
+                - generic [ref=f196e51]: Emergencias
+            - generic [ref=f196e54]:
+              - link "Llamar" [ref=f196e55] [cursor=pointer]:
+                - /url: tel:+52 646 123 4567
+              - link "WhatsApp" [ref=f196e58] [cursor=pointer]:
+                - /url: https://wa.me/526461234567
+          - generic [ref=f196e61]:
+            - heading "Sobre nosotros" [level=2] [ref=f196e62]
+            - paragraph [ref=f196e63]: Servicio de prueba para testear el sistema de reseñas. Electricista profesional con más de 10 años de experiencia en instalaciones residenciales e industriales.
+          - generic [ref=f196e64]:
+            - generic [ref=f196e65]:
+              - heading "Experiencia" [level=3] [ref=f196e66]
+              - paragraph [ref=f196e67]: 10 años de experiencia
+            - generic [ref=f196e68]:
+              - heading "Disponibilidad" [level=3] [ref=f196e69]
+              - generic [ref=f196e70]:
+                - generic [ref=f196e71]: Atención a domicilio
+                - generic [ref=f196e75]: Emergencias 24h
+                - generic [ref=f196e80]: 5 días a la semana
+                - generic [ref=f196e83]: 8:00 - 18:00
+              - paragraph [ref=f196e87]: "Cotización: Telefónica"
+          - generic [ref=f196e88]:
+            - heading "Servicios" [level=2] [ref=f196e89]
+            - generic [ref=f196e90]:
+              - generic [ref=f196e91]: Instalación eléctrica
+              - generic [ref=f196e95]: Reparación de cortocircuitos
+              - generic [ref=f196e99]: Tableros eléctricos
+          - generic [ref=f196e103]:
+            - heading "Opiniones de clientes" [level=2] [ref=f196e104]
+            - generic [ref=f196e105]:
+              - generic [ref=f196e106]:
+                - generic [ref=f196e118]: "5.0"
+                - generic [ref=f196e119]: (1 opinión)
+              - generic [ref=f196e121]:
+                - time [ref=f196e134]: 9 ago 2026
+                - paragraph [ref=f196e135]: "\"Excelente servicio, muy profesional y puntual.\""
+                - paragraph [ref=f196e136]: — Carlos Mendoza
+          - generic [ref=f196e137]:
+            - heading "Dejanos tu opinión" [level=3] [ref=f196e138]
+            - generic [ref=f196e139]: ¡Gracias! Tu reseña fue publicada.
+            - generic [ref=f196e143]:
+              - generic [ref=f196e144]:
+                - generic [ref=f196e145]: Calificación *
+                - generic [ref=f196e146]:
+                  - button "1 estrella" [ref=f196e147] [cursor=pointer]
+                  - button "2 estrellas" [ref=f196e150] [cursor=pointer]
+                  - button "3 estrellas" [ref=f196e153] [cursor=pointer]
+                  - button "4 estrellas" [ref=f196e156] [cursor=pointer]
+                  - button "5 estrellas" [ref=f196e159] [cursor=pointer]
+                - paragraph [ref=f196e162]
+              - generic [ref=f196e163]:
+                - generic [ref=f196e164]:
+                  - generic [ref=f196e165]: Nombre *
+                  - textbox "Nombre *" [ref=f196e166]:
+                    - /placeholder: "Ej: Juan"
+                - generic [ref=f196e167]:
+                  - generic [ref=f196e168]: Apellido *
+                  - textbox "Apellido *" [ref=f196e169]:
+                    - /placeholder: "Ej: Pérez"
+              - generic [ref=f196e170]:
+                - generic [ref=f196e171]: Tu comentario *(máx. 150 caracteres)
+                - textbox "Tu comentario *(máx. 150 caracteres)" [ref=f196e172]:
+                  - /placeholder: Compartí tu experiencia con este servicio...
+                - generic [ref=f196e173]: 0 / 150
+              - button "Enviar reseña" [ref=f196e175] [cursor=pointer]
+          - generic [ref=f196e178]:
+            - heading "Ubicación" [level=2] [ref=f196e179]
+            - generic [ref=f196e185]:
+              - paragraph [ref=f196e186]: Centro
+              - paragraph [ref=f196e187]: Calle de Prueba 123, Centro, Ensenada, B.C.
+        - complementary [ref=f196e188]:
+          - text: "---"
+          - generic [ref=f196e189]:
+            - paragraph [ref=f196e190]: Espacio Publicitario
+            - link [ref=f196e191] [cursor=pointer]:
+              - /url: /publicidad
+              - img "Promociona tu negocio aquí, contáctanos" [ref=f196e192]
+  - contentinfo [ref=f196e194]:
+    - generic [ref=f196e195]:
+      - generic [ref=f196e196]:
+        - generic [ref=f196e197]:
+          - link "Serv-Ens" [ref=f196e198] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f196e204]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f196e205]:
+          - paragraph [ref=f196e206]: Enlaces
+          - generic [ref=f196e207]:
+            - link "Buscar servicios" [ref=f196e208] [cursor=pointer]:
+              - /url: /buscar
+            - link "Registrar servicio" [ref=f196e209] [cursor=pointer]:
+              - /url: /registro
+        - generic [ref=f196e210]:
+          - paragraph [ref=f196e211]: Legal
+          - generic [ref=f196e212]:
+            - link "Aviso de privacidad" [ref=f196e213] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f196e214] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f196e215]:
+          - paragraph [ref=f196e216]: Contacto
+          - generic [ref=f196e217]:
+            - link "contacto@servi-ens.online" [ref=f196e218] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f196e219] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f196e220]:
+        - paragraph [ref=f196e221]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f196e222]:
+          - text: por
+          - link "xant.online" [ref=f196e223] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f196e226]:
+    - button [ref=f196e227]
+    - button [ref=f196e233]
+    - button [ref=f196e237]
+    - button [ref=f196e245]

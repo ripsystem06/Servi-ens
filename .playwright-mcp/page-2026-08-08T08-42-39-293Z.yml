@@ -1,0 +1,160 @@
+- generic [active] [ref=f4e1]:
+  - navigation [ref=f4e2]:
+    - generic [ref=f4e4]:
+      - link "Serv-Ens" [ref=f4e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f4e11]:
+        - link "Inicio" [ref=f4e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f4e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f4e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f4e19]:
+    - generic [ref=f4e20]:
+      - generic [ref=f4e21]:
+        - text: "---"
+        - link "Promociona tu negocio aquí — Contáctanos" [ref=f4e22] [cursor=pointer]:
+          - /url: /publicidad
+          - img "Promociona tu negocio aquí, contáctanos" [ref=f4e23]
+        - generic [ref=f4e25]: Espacio publicitario
+      - paragraph [ref=f4e26]: 📋 Directorio de servicios — contactá directamente a cada profesional. No gestionamos contrataciones.
+      - generic [ref=f4e27]:
+        - complementary [ref=f4e28]:
+          - complementary [ref=f4e29]:
+            - generic [ref=f4e30]:
+              - heading "Categorías" [level=3] [ref=f4e31]
+              - list [ref=f4e32]:
+                - listitem [ref=f4e33]:
+                  - link "Plomería" [ref=f4e34] [cursor=pointer]:
+                    - /url: /plomeria
+                - listitem [ref=f4e39]:
+                  - link "Electricidad" [ref=f4e40] [cursor=pointer]:
+                    - /url: /electricidad
+                - listitem [ref=f4e45]:
+                  - link "Carpintería" [ref=f4e46] [cursor=pointer]:
+                    - /url: /carpinteria
+                - listitem [ref=f4e53]:
+                  - link "Pintura" [ref=f4e54] [cursor=pointer]:
+                    - /url: /pintura
+                - listitem [ref=f4e61]:
+                  - link "Albañilería" [ref=f4e62] [cursor=pointer]:
+                    - /url: /albanileria
+                - listitem [ref=f4e67]:
+                  - link "Herrería" [ref=f4e68] [cursor=pointer]:
+                    - /url: /herreria
+                - listitem [ref=f4e75]:
+                  - link "Refrigeración y Aire Acondicionado" [ref=f4e76] [cursor=pointer]:
+                    - /url: /refrigeracion-aire
+                - listitem [ref=f4e84]:
+                  - link "Reparación de Electrodomésticos" [ref=f4e85] [cursor=pointer]:
+                    - /url: /reparacion-electrodomesticos
+                - listitem [ref=f4e92]:
+                  - link "Jardinería" [ref=f4e93] [cursor=pointer]:
+                    - /url: /jardineria
+                - listitem [ref=f4e99]:
+                  - link "Limpieza" [ref=f4e100] [cursor=pointer]:
+                    - /url: /limpieza
+                - listitem [ref=f4e106]:
+                  - link "Instalación de Pisos" [ref=f4e107] [cursor=pointer]:
+                    - /url: /instalacion-pisos
+                - listitem [ref=f4e112]:
+                  - link "Impermeabilización" [ref=f4e113] [cursor=pointer]:
+                    - /url: /impermeabilizacion
+                - listitem [ref=f4e119]:
+                  - link "Cerrajería" [ref=f4e120] [cursor=pointer]:
+                    - /url: /cerrajeria
+                - listitem [ref=f4e127]:
+                  - link "Mecánica y Mantenimiento" [ref=f4e128] [cursor=pointer]:
+                    - /url: /mecanica-mantenimiento
+                - listitem [ref=f4e135]:
+                  - link "Servicios Generales" [ref=f4e136] [cursor=pointer]:
+                    - /url: /servicios-generales
+                - listitem [ref=f4e141]:
+                  - link "Servicios Profesionales" [ref=f4e142] [cursor=pointer]:
+                    - /url: /servicios-profesionales
+          - paragraph [ref=f4e150]: Cargando...
+          - link "Promociona tu negocio aquí — Contáctanos" [ref=f4e151] [cursor=pointer]:
+            - /url: /publicidad
+            - img "Promociona tu negocio aquí, contáctanos" [ref=f4e152]
+        - generic [ref=f4e154]:
+          - generic [ref=f4e155]:
+            - link "Plomería Ramírez Servicio verificado Plomería Ramírez Plomería Centro Plomeros de confianza con más de 20 años sirviendo al centro de Ensenada. Reparación de fugas, destape de drenajes, instalación de boiler, tinacos y tubería nueva." [ref=f4e156] [cursor=pointer]:
+              - /url: /servicio/plomeria-ramirez
+              - generic [ref=f4e157]:
+                - img "Plomería Ramírez" [ref=f4e158]
+                - generic "Servicio verificado" [ref=f4e160]: Verificado
+              - generic [ref=f4e164]:
+                - heading "Plomería Ramírez" [level=3] [ref=f4e165]
+                - generic [ref=f4e166]: Plomería
+                - paragraph [ref=f4e172]: Centro
+                - paragraph [ref=f4e173]: Plomeros de confianza con más de 20 años sirviendo al centro de Ensenada. Reparación de fugas, destape de drenajes, instalación de boiler, tinacos y tubería nueva.
+            - link "Fontanería del Puerto Servicio verificado Fontanería del Puerto Plomería Centro Especialistas en instalaciones hidrosanitarias para nuevas construcciones y remodelaciones. Cálculo de tubería, sistemas de presión y conexiones a red municipal." [ref=f4e174] [cursor=pointer]:
+              - /url: /servicio/fontaneria-del-puerto
+              - generic [ref=f4e175]:
+                - img "Fontanería del Puerto" [ref=f4e176]
+                - generic "Servicio verificado" [ref=f4e178]: Verificado
+              - generic [ref=f4e182]:
+                - heading "Fontanería del Puerto" [level=3] [ref=f4e183]
+                - generic [ref=f4e184]: Plomería
+                - paragraph [ref=f4e190]: Centro
+                - paragraph [ref=f4e191]: Especialistas en instalaciones hidrosanitarias para nuevas construcciones y remodelaciones. Cálculo de tubería, sistemas de presión y conexiones a red municipal.
+            - link "Servicios Hidráulicos Baja Servicio verificado Servicios Hidráulicos Baja Plomería Sauzal Plomería y servicios hidráulicos para zonas residenciales y comerciales de El Sauzal y San Miguel. Especialistas en calentadores solares y sistemas de captación de agua." [ref=f4e192] [cursor=pointer]:
+              - /url: /servicio/servicios-hidraulicos-baja
+              - generic [ref=f4e193]:
+                - img "Servicios Hidráulicos Baja" [ref=f4e194]
+                - generic "Servicio verificado" [ref=f4e196]: Verificado
+              - generic [ref=f4e200]:
+                - heading "Servicios Hidráulicos Baja" [level=3] [ref=f4e201]
+                - generic [ref=f4e202]: Plomería
+                - paragraph [ref=f4e208]: Sauzal
+                - paragraph [ref=f4e209]: Plomería y servicios hidráulicos para zonas residenciales y comerciales de El Sauzal y San Miguel. Especialistas en calentadores solares y sistemas de captación de agua.
+            - link "Plomero Express Ensenada Servicio verificado Plomero Express Ensenada Plomería Maneadero Servicio express de plomería en Maneadero y Punta Banda. Llegamos en menos de 2 horas para emergencias. Reparación de fugas, destapes, cambio de llaves y accesorios." [ref=f4e210] [cursor=pointer]:
+              - /url: /servicio/plomero-express-ensenada
+              - generic [ref=f4e211]:
+                - img "Plomero Express Ensenada" [ref=f4e212]
+                - generic "Servicio verificado" [ref=f4e214]: Verificado
+              - generic [ref=f4e218]:
+                - heading "Plomero Express Ensenada" [level=3] [ref=f4e219]
+                - generic [ref=f4e220]: Plomería
+                - paragraph [ref=f4e226]: Maneadero
+                - paragraph [ref=f4e227]: Servicio express de plomería en Maneadero y Punta Banda. Llegamos en menos de 2 horas para emergencias. Reparación de fugas, destapes, cambio de llaves y accesorios.
+          - paragraph [ref=f4e229]: "Búsquedas relacionadas: plomero, plomera, fontanero, fontaneria, tuberias, tuberia, fuga, fugas, destape, griferia, calentador, calefon, termotanque"
+  - contentinfo [ref=f4e230]:
+    - generic [ref=f4e231]:
+      - generic [ref=f4e232]:
+        - generic [ref=f4e233]:
+          - link "Serv-Ens" [ref=f4e234] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f4e240]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f4e241]:
+          - paragraph [ref=f4e242]: Enlaces
+          - generic [ref=f4e243]:
+            - link "Buscar servicios" [ref=f4e244] [cursor=pointer]:
+              - /url: /buscar
+            - link "Registrar servicio" [ref=f4e245] [cursor=pointer]:
+              - /url: /registro
+        - generic [ref=f4e246]:
+          - paragraph [ref=f4e247]: Legal
+          - generic [ref=f4e248]:
+            - link "Aviso de privacidad" [ref=f4e249] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f4e250] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f4e251]:
+          - paragraph [ref=f4e252]: Contacto
+          - generic [ref=f4e253]:
+            - link "contacto@servi-ens.online" [ref=f4e254] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f4e255] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f4e256]:
+        - paragraph [ref=f4e257]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f4e258]:
+          - text: por
+          - link "xant.online" [ref=f4e259] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f4e262]:
+    - button [ref=f4e263]
+    - button [ref=f4e269]
+    - button [ref=f4e273]
+    - button [ref=f4e278]

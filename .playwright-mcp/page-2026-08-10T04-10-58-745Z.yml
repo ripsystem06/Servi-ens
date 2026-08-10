@@ -1,0 +1,110 @@
+- generic [active] [ref=f31e1]:
+  - navigation [ref=f31e2]:
+    - generic [ref=f31e4]:
+      - link "Serv-Ens" [ref=f31e5] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f31e11]:
+        - link "Inicio" [ref=f31e12] [cursor=pointer]:
+          - /url: /
+        - button "Zonas" [ref=f31e14] [cursor=pointer]
+        - link "Registra tu servicio" [ref=f31e17] [cursor=pointer]:
+          - /url: /registro
+  - main [ref=f31e19]:
+    - generic [ref=f31e23]:
+      - heading "Necesitas un servicio,aquí lo encuentras." [level=1] [ref=f31e24]
+      - paragraph [ref=f31e25]: Encuentra profesionales confiables para cualquier necesidad. Desde plomería hasta asesoría legal, todo en un solo lugar.
+      - generic [ref=f31e26]:
+        - textbox "¿Qué servicio estás buscando?" [ref=f31e28]
+        - button "Buscar" [ref=f31e29] [cursor=pointer]
+      - generic [ref=f31e30]:
+        - link "Buscar servicio" [ref=f31e31] [cursor=pointer]:
+          - /url: /buscar
+        - link "Registrar mi negocio" [ref=f31e35] [cursor=pointer]:
+          - /url: /registro
+    - generic [ref=f31e65]:
+      - text: "---"
+      - link "Promociona tu negocio aquí — Contáctanos" [ref=f31e66] [cursor=pointer]:
+        - /url: /publicidad
+        - img "Promociona tu negocio aquí, contáctanos" [ref=f31e67]
+      - generic [ref=f31e69]: Espacio publicitario
+    - generic [ref=f31e71]:
+      - generic [ref=f31e72]:
+        - heading "Explora categorías" [level=2] [ref=f31e73]
+        - paragraph [ref=f31e74]: Encuentra el profesional que necesitas entre cientos de servicios locales.
+      - generic [ref=f31e75]:
+        - link "Plomería" [ref=f31e76] [cursor=pointer]:
+          - /url: /plomeria
+        - link "Electricidad" [ref=f31e81] [cursor=pointer]:
+          - /url: /electricidad
+        - link "Carpintería" [ref=f31e86] [cursor=pointer]:
+          - /url: /carpinteria
+        - link "Pintura" [ref=f31e93] [cursor=pointer]:
+          - /url: /pintura
+        - link "Albañilería" [ref=f31e100] [cursor=pointer]:
+          - /url: /albanileria
+        - link "Herrería" [ref=f31e105] [cursor=pointer]:
+          - /url: /herreria
+        - link "Refrigeración y Aire Acondicionado" [ref=f31e112] [cursor=pointer]:
+          - /url: /refrigeracion-aire
+        - link "Reparación de Electrodomésticos" [ref=f31e120] [cursor=pointer]:
+          - /url: /reparacion-electrodomesticos
+        - link "Jardinería" [ref=f31e126] [cursor=pointer]:
+          - /url: /jardineria
+        - link "Limpieza" [ref=f31e132] [cursor=pointer]:
+          - /url: /limpieza
+        - link "Instalación de Pisos" [ref=f31e139] [cursor=pointer]:
+          - /url: /instalacion-pisos
+        - link "Impermeabilización" [ref=f31e144] [cursor=pointer]:
+          - /url: /impermeabilizacion
+        - link "Cerrajería" [ref=f31e150] [cursor=pointer]:
+          - /url: /cerrajeria
+        - link "Mecánica y Mantenimiento" [ref=f31e155] [cursor=pointer]:
+          - /url: /mecanica-mantenimiento
+        - link "Servicios Generales" [ref=f31e162] [cursor=pointer]:
+          - /url: /servicios-generales
+        - link "Servicios Profesionales" [ref=f31e167] [cursor=pointer]:
+          - /url: /servicios-profesionales
+        - link "Anuncio Publicidad aquí" [ref=f31e173] [cursor=pointer]:
+          - /url: /publicidad
+          - generic [ref=f31e174]: Anuncio
+          - generic [ref=f31e179]: Publicidad aquí
+    - generic [ref=f31e181]:
+      - heading "Encuentra el profesional ideal hoy mismo." [level=2] [ref=f31e182]
+      - paragraph [ref=f31e183]: Miles de profesionales verificados están listos para ayudarte. Busca, compara y contrata en minutos.
+      - generic [ref=f31e184]:
+        - link "Buscar ahora" [ref=f31e185] [cursor=pointer]:
+          - /url: /buscar
+        - link "Registrar mi negocio" [ref=f31e189] [cursor=pointer]:
+          - /url: /registro
+  - contentinfo [ref=f31e190]:
+    - generic [ref=f31e191]:
+      - generic [ref=f31e192]:
+        - generic [ref=f31e193]:
+          - link "Serv-Ens" [ref=f31e194] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f31e200]: Necesitas un servicio, aquí lo encuentras.
+        - generic [ref=f31e201]:
+          - paragraph [ref=f31e202]: Legal
+          - generic [ref=f31e203]:
+            - link "Aviso de privacidad" [ref=f31e204] [cursor=pointer]:
+              - /url: /aviso-privacidad
+            - link "Términos y condiciones" [ref=f31e205] [cursor=pointer]:
+              - /url: /terminos
+        - generic [ref=f31e206]:
+          - paragraph [ref=f31e207]: Contacto
+          - generic [ref=f31e208]:
+            - link "contacto@servi-ens.online" [ref=f31e209] [cursor=pointer]:
+              - /url: mailto:contacto@servi-ens.online
+            - link "+52 646 123 4567" [ref=f31e210] [cursor=pointer]:
+              - /url: tel:+52 646 123 4567
+      - generic [ref=f31e211]:
+        - paragraph [ref=f31e212]: © 2026 Serv-Ens. Hecho en Ensenada, Baja California.
+        - paragraph [ref=f31e213]:
+          - text: por
+          - link "xant.online" [ref=f31e214] [cursor=pointer]:
+            - /url: https://xant.online
+  - generic [ref=f31e217]:
+    - button [ref=f31e218]
+    - button [ref=f31e224]
+    - button [ref=f31e228]
+    - button [ref=f31e233]
