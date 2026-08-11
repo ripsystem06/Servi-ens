@@ -45,13 +45,13 @@ const ogDescription = description.length > 200
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:locale" content={site.locale} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage || `${site.url}/og-default.png`} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={ogDescription} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:image" content={ogImage || `${site.url}/og-default.png`} />
 
     <link rel="canonical" href={canonicalUrl || site.url} />
 
