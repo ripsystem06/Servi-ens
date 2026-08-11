@@ -84,21 +84,9 @@ interface InquiryData {
   message: string;
 }
 
+const FORMSPARK_ID = '5ysqkIAdV';
+
 async function sendAdminNotification(data: InquiryData): Promise<void> {
-  const nodemailer = await import('nodemailer');
-  const adminEmail = import.meta.env.ADMIN_EMAIL || 'admin@catalogoensenada.com';
-  const smtpHost = import.meta.env.SMTP_HOST || 'smtp.gmail.com';
-  const smtpPort = parseInt(import.meta.env.SMTP_PORT || '587', 10);
-  const smtpUser = import.meta.env.SMTP_USER;
-  const smtpPass = import.meta.env.SMTP_PASS;
-
-  if (!smtpUser || !smtpPass) throw new Error('SMTP not configured');
-
-  const transporter = nodemailer.default.createTransport({
-    host: smtpHost, port: smtpPort, secure: smtpPort === 465,
-    auth: { user: smtpUser, pass: smtpPass },
-  });
-
   const interestLabels: Record<string, string> = {
     'banner-home': 'Banner en página principal',
     'banner-categoria': 'Banner en páginas de categoría',
@@ -107,20 +95,16 @@ async function sendAdminNotification(data: InquiryData): Promise<void> {
     'no-se': 'Quiere más información',
   };
 
-  await transporter.sendMail({
-    from: `"Serv-Ens Publicidad" <${smtpUser}>`,
-    to: adminEmail,
-    subject: `📢 Nueva solicitud de publicidad: ${data.business}`,
-    html: `
-      <h2>Nueva solicitud de publicidad</h2>
-      <table style="border-collapse:collapse;width:100%;max-width:500px">
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Nombre</td><td style="padding:6px 12px;border:1px solid #ddd">${data.name}</td></tr>
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Negocio</td><td style="padding:6px 12px;border:1px solid #ddd">${data.business}</td></tr>
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Email</td><td style="padding:6px 12px;border:1px solid #ddd">${data.email}</td></tr>
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Teléfono</td><td style="padding:6px 12px;border:1px solid #ddd">${data.phone}</td></tr>
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Interés</td><td style="padding:6px 12px;border:1px solid #ddd">${interestLabels[data.interest] || data.interest}</td></tr>
-        <tr><td style="padding:6px 12px;border:1px solid #ddd;font-weight:bold;background:#f5f5f5">Mensaje</td><td style="padding:6px 12px;border:1px solid #ddd">${data.message || '-'}</td></tr>
-      </table>
-    `,
+  await fetch(`https://submit-form.com/${FORMSPARK_ID}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      nombre: data.name,
+      negocio: data.business,
+      email: data.email,
+      telefono: data.phone,
+      interes: interestLabels[data.interest] || data.interest,
+      mensaje: data.message || '-',
+    }),
   });
 }
